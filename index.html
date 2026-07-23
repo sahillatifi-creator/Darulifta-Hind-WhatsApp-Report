@@ -4,357 +4,384 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Darul Ifta ERP Dashboard</title>
+<title>Darul Ifta ERP - Admin Login</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
 }
 
-body{
-background:#f4f7f9;
-display:flex;
+body {
+    background: #f4f7f9;
+    /* Body se display:flex hata diya gaya hai taaki login aur dashboard manage ho sakein */
 }
 
-.sidebar{
-
-width:250px;
-height:100vh;
-background:#0f5132;
-color:white;
-position:fixed;
-left:0;
-top:0;
-padding:25px;
-
+/* --- LOGIN PAGE CSS --- */
+#login-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.sidebar h2{
-
-text-align:center;
-margin-bottom:40px;
-
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 380px;
 }
 
-.sidebar ul{
-
-list-style:none;
-
+.login-box h1 {
+    color: #0f5132;
+    margin-bottom: 25px;
+    font-size: 28px;
 }
 
-.sidebar ul li{
-
-padding:15px;
-margin-bottom:10px;
-cursor:pointer;
-border-radius:8px;
-transition:.3s;
-
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
 }
 
-.sidebar ul li:hover{
-
-background:#146c43;
-
+.login-box input:focus {
+    border-color: #0f5132;
 }
 
-.main{
-
-margin-left:250px;
-width:100%;
-padding:30px;
-
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #0f5132;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-.header{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:30px;
-
+.login-box button:hover {
+    background: #146c43;
 }
 
-.header h1{
-
-color:#0f5132;
-
+.error-msg {
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 10px;
+    display: none;
 }
 
-.user{
 
-background:white;
-padding:10px 20px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
-
+/* --- DASHBOARD CSS --- */
+#dashboard-container {
+    display: none; /* Shuru mein dashboard hidden rahega */
+    width: 100%;
 }
 
-.cards{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #0f5132;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 25px;
 }
 
-.card{
-
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 3px 12px rgba(0,0,0,.08);
-
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.card h3{
-
-color:#555;
-
+.sidebar ul {
+    list-style: none;
 }
 
-.card h1{
-
-margin-top:10px;
-color:#0f5132;
-
+.sidebar ul li {
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: .3s;
 }
 
-.table-section{
-
-margin-top:40px;
-
+.sidebar ul li:hover {
+    background: #146c43;
 }
 
-table{
-
-width:100%;
-border-collapse:collapse;
-background:white;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 3px 12px rgba(0,0,0,.08);
-
+.main {
+    margin-left: 250px;
+    width: 100%;
+    padding: 30px;
 }
 
-table th{
-
-background:#0f5132;
-color:white;
-padding:15px;
-
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
-table td{
-
-padding:15px;
-border-bottom:1px solid #eee;
-
+.header h1 {
+    color: #0f5132;
 }
 
-.status{
-
-padding:5px 12px;
-border-radius:20px;
-color:white;
-font-size:13px;
-
+.user {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.1);
 }
 
-.pending{
-
-background:#dc3545;
-
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
-.complete{
-
-background:#198754;
-
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.08);
 }
 
-.footer{
-
-margin-top:40px;
-text-align:center;
-color:#666;
-
+.card h3 {
+    color: #555;
 }
 
+.card h1 {
+    margin-top: 10px;
+    color: #0f5132;
+}
+
+.table-section {
+    margin-top: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,.08);
+}
+
+table th {
+    background: #0f5132;
+    color: white;
+    padding: 15px;
+}
+
+table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 13px;
+}
+
+.pending {
+    background: #dc3545;
+}
+
+.complete {
+    background: #198754;
+}
+
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #666;
+}
 </style>
 
 </head>
-
 <body>
 
-<div class="sidebar">
-
-<h2>Darul Ifta ERP</h2>
-
-<ul>
-
-<li>🏠 Dashboard</li>
-
-<li>📝 New Question</li>
-
-<li>📚 Question Management</li>
-
-<li>✍ Fatwa Writing</li>
-
-<li>👳 Muftiyan</li>
-
-<li>📊 Performance</li>
-
-<li>📈 Reports</li>
-
-<li>📱 WhatsApp</li>
-
-<li>🔔 Notifications</li>
-
-<li>⚙ Settings</li>
-
-</ul>
-
+<!-- 1. LOGIN SCREEN -->
+<div id="login-container">
+    <div class="login-box">
+        <h1>Admin</h1>
+        <input type="email" id="email" placeholder="Login ID (Email)" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button id="login-btn">Login</button>
+        <p class="error-msg" id="error-msg">Invalid email or password.</p>
+    </div>
 </div>
 
-<div class="main">
+<!-- 2. MAIN DASHBOARD (Initially Hidden) -->
+<div id="dashboard-container">
+    <div class="sidebar">
+        <h2>Darul Ifta ERP</h2>
+        <ul>
+            <li>🏠 Dashboard</li>
+            <li>📝 New Question</li>
+            <li>📚 Question Management</li>
+            <li>✍ Fatwa Writing</li>
+            <li>👳 Muftiyan</li>
+            <li>📊 Performance</li>
+            <li>📈 Reports</li>
+            <li>📱 WhatsApp</li>
+            <li>🔔 Notifications</li>
+            <li>⚙ Settings</li>
+        </ul>
+    </div>
 
-<div class="header">
+    <div class="main">
+        <div class="header">
+            <h1>Dashboard</h1>
+            <div class="user">Administrator</div>
+        </div>
 
-<h1>Dashboard</h1>
+        <div class="cards">
+            <div class="card">
+                <h3>Total Questions</h3>
+                <h1>1245</h1>
+            </div>
+            <div class="card">
+                <h3>Pending</h3>
+                <h1>58</h1>
+            </div>
+            <div class="card">
+                <h3>Answered Today</h3>
+                <h1>41</h1>
+            </div>
+            <div class="card">
+                <h3>Muftiyan</h3>
+                <h1>12</h1>
+            </div>
+            <div class="card">
+                <h3>WhatsApp Questions</h3>
+                <h1>965</h1>
+            </div>
+            <div class="card">
+                <h3>Late Questions</h3>
+                <h1>07</h1>
+            </div>
+        </div>
 
-<div class="user">
+        <div class="table-section">
+            <h2 style="margin-bottom:15px;color:#0f5132;">Recent Questions</h2>
+            <table>
+                <tr>
+                    <th>Question No.</th>
+                    <th>Questioner</th>
+                    <th>Assigned Mufti</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>DI-2026-000121</td>
+                    <td>Mohammad Aslam</td>
+                    <td>Mufti Ahmad</td>
+                    <td><span class="status pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>DI-2026-000122</td>
+                    <td>Abdul Rahman</td>
+                    <td>Mufti Salman</td>
+                    <td><span class="status complete">Completed</span></td>
+                </tr>
+                <tr>
+                    <td>DI-2026-000123</td>
+                    <td>Sajid Khan</td>
+                    <td>Mufti Irfan</td>
+                    <td><span class="status pending">Pending</span></td>
+                </tr>
+            </table>
+        </div>
 
-Administrator
-
+        <div class="footer">
+            © 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind
+        </div>
+    </div>
 </div>
 
-</div>
+<!-- FIREBASE INTEGRATION SCRIPTS (Type: Module for Browser Support) -->
+<script type="module">
+    // Firebase CDN se SDK imports
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
-<div class="cards">
+    // Aapka Firebase Configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCObRY1n58jVKMunsqcA-MhoBatECyvE5w",
+        authDomain: "daruliftaindia-3f173.firebaseapp.com",
+        projectId: "daruliftaindia-3f173",
+        storageBucket: "daruliftaindia-3f173.firebasestorage.app",
+        messagingSenderId: "820954639726",
+        appId: "1:820954639726:web:1cc38898e2f6f027f7657f",
+        measurementId: "G-7SGN137R88"
+    };
 
-<div class="card">
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-<h3>Total Questions</h3>
+    // HTML Elements ko select karna
+    const loginBtn = document.getElementById('login-btn');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const errorMsg = document.getElementById('error-msg');
+    
+    const loginContainer = document.getElementById('login-container');
+    const dashboardContainer = document.getElementById('dashboard-container');
 
-<h1>1245</h1>
+    // Login Button Click Event
+    loginBtn.addEventListener('click', () => {
+        const email = emailInput.value;
+        const password = passwordInput.value;
 
-</div>
+        // Validation check
+        if(email === "" || password === "") {
+            errorMsg.innerText = "Please enter both Email and Password.";
+            errorMsg.style.display = "block";
+            return;
+        }
 
-<div class="card">
+        // Firebase Authentication
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Agar login successful ho jaye
+                const user = userCredential.user;
+                
+                // Error message hide karein
+                errorMsg.style.display = "none";
 
-<h3>Pending</h3>
-
-<h1>58</h1>
-
-</div>
-
-<div class="card">
-
-<h3>Answered Today</h3>
-
-<h1>41</h1>
-
-</div>
-
-<div class="card">
-
-<h3>Muftiyan</h3>
-
-<h1>12</h1>
-
-</div>
-
-<div class="card">
-
-<h3>WhatsApp Questions</h3>
-
-<h1>965</h1>
-
-</div>
-
-<div class="card">
-
-<h3>Late Questions</h3>
-
-<h1>07</h1>
-
-</div>
-
-</div>
-
-<div class="table-section">
-
-<h2 style="margin-bottom:15px;color:#0f5132;">Recent Questions</h2>
-
-<table>
-
-<tr>
-
-<th>Question No.</th>
-
-<th>Questioner</th>
-
-<th>Assigned Mufti</th>
-
-<th>Status</th>
-
-</tr>
-
-<tr>
-
-<td>DI-2026-000121</td>
-
-<td>Mohammad Aslam</td>
-
-<td>Mufti Ahmad</td>
-
-<td><span class="status pending">Pending</span></td>
-
-</tr>
-
-<tr>
-
-<td>DI-2026-000122</td>
-
-<td>Abdul Rahman</td>
-
-<td>Mufti Salman</td>
-
-<td><span class="status complete">Completed</span></td>
-
-</tr>
-
-<tr>
-
-<td>DI-2026-000123</td>
-
-<td>Sajid Khan</td>
-
-<td>Mufti Irfan</td>
-
-<td><span class="status pending">Pending</span></td>
-
-</tr>
-
-</table>
-
-</div>
-
-<div class="footer">
-
-© 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind
-
-</div>
-
-</div>
+                // Login screen chhupayen aur Dashboard dikhayen
+                loginContainer.style.display = "none";
+                dashboardContainer.style.display = "flex";
+            })
+            .catch((error) => {
+                // Agar login fail ho jaye (wrong password/email)
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                
+                errorMsg.innerText = "Error: Invalid Email or Password.";
+                errorMsg.style.display = "block";
+                console.error("Login failed: ", errorMessage);
+            });
+    });
+</script>
 
 </body>
-
 </html>
