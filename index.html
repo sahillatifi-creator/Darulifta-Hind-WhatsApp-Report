@@ -133,7 +133,7 @@
             padding: 20px;
             text-align: center;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            background: white; /* Logo visibility ke liye white background */
+            background: white;
         }
 
         .logo-container img {
@@ -167,7 +167,7 @@
         .nav-item:hover {
             background: #146c43;
             border-left: 4px solid #fff;
-            padding-left: 35px; /* Slide effect */
+            padding-left: 35px;
         }
 
         .nav-item .eng-text {
@@ -225,76 +225,66 @@
             color: #0f5132;
         }
 
-        .cards {
+        /* ============================
+           NEW 3D MENU GRID STYLES
+           ============================ */
+        .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            border-bottom: 4px solid #0f5132;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: #555;
-            font-size: 16px;
-        }
-
-        .card h1 {
-            margin-top: 15px;
-            color: #0f5132;
-            font-size: 32px;
-        }
-
-        .table-section {
-            margin-top: 40px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        table th {
-            background: #0f5132;
-            color: white;
-            padding: 18px 15px;
-            text-align: left;
-        }
-
-        table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            color: #444;
-        }
-
-        table tr:hover {
-            background-color: #f9fbf9;
-        }
-
-        .status {
-            padding: 6px 12px;
+        .menu-box {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            padding: 30px 20px;
             border-radius: 20px;
-            color: white;
-            font-size: 13px;
-            font-weight: 500;
+            text-align: center;
+            box-shadow: 8px 8px 16px #d1d9d6, -8px -8px 16px #ffffff;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.6);
         }
 
-        .pending { background: #dc3545; }
-        .complete { background: #198754; }
+        .menu-box:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 12px 12px 24px #c5ccc9, -12px -12px 24px #ffffff;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+        }
+
+        .box-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+            transition: transform 0.5s ease;
+            display: inline-block;
+        }
+
+        .menu-box:hover .box-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* 3D Text Effect for English */
+        .text-3d {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f5132;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 0px #d1e7dd, 
+                         2px 2px 0px #a3cfbb, 
+                         3px 3px 5px rgba(0,0,0,0.15);
+        }
+
+        /* 3D Text Effect for Urdu */
+        .urdu-3d {
+            font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif;
+            font-size: 28px;
+            color: #1a6332;
+            text-shadow: 1px 1px 0px #d1e7dd, 
+                         2px 2px 0px #a3cfbb, 
+                         3px 3px 4px rgba(0,0,0,0.1);
+        }
 
         .footer {
             margin-top: 50px;
@@ -401,7 +391,54 @@
                 </div>
             </div>
 
-                     
+            <!-- NAYA 3D MENU GRID YAHAN ADD KIYA GAYA HAI -->
+            <div class="menu-grid">
+                <div class="menu-box">
+                    <div class="box-icon">🏠</div>
+                    <div class="title-eng text-3d">Dashboard</div>
+                    <div class="title-urdu urdu-3d">ڈیش بورڈ</div>
+                </div>
+                <div class="menu-box">
+                    <div class="box-icon">📥</div>
+                    <div class="title-eng text-3d">Question Mgmt</div>
+                    <div class="title-urdu urdu-3d">سوالات کا انتظام</div>
+                </div>
+                <div class="menu-box">
+                    <div class="box-icon">✍️</div>
+                    <div class="title-eng text-3d">Fatwa Mgmt</div>
+                    <div class="title-urdu urdu-3d">فتویٰ انتظام</div>
+                </div>
+                <div class="menu-box">
+                    <div class="box-icon">👳</div>
+                    <div class="title-eng text-3d">Muftiyan</div>
+                    <div class="title-urdu urdu-3d">مفتیانِ کرام</div>
+                </div>
+                <div class="menu-box">
+                    <div class="box-icon">🏢</div>
+                    <div class="title-eng text-3d">Branches</div>
+                    <div class="title-urdu urdu-3d">شعبہ جات</div>
+                </div>
+                <div class="menu-box">
+                    <div class="box-icon">📊</div>
+                    <div class="title-eng text-3d">Reports</div>
+                    <div class="title-urdu urdu-3d">رپورٹس</div>
+                </div>
+                <div class="menu-box">
+                    <div class="box-icon">🔍</div>
+                    <div class="title-eng text-3d">Search</div>
+                    <div class="title-urdu urdu-3d">تلاش</div>
+                </div>
+                <div class="menu-box">
+                    <div class="box-icon">🔔</div>
+                    <div class="title-eng text-3d">Notifications</div>
+                    <div class="title-urdu urdu-3d">اطلاعات</div>
+                </div>
+                <div class="menu-box">
+                    <div class="box-icon">⚙️</div>
+                    <div class="title-eng text-3d">Settings</div>
+                    <div class="title-urdu urdu-3d">ترتیبات</div>
+                </div>
+            </div>
 
             <div class="footer">
                 © 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind
