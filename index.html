@@ -108,9 +108,9 @@
         }
 
         /* ============================
-           DASHBOARD STYLES
+           MAIN LAYOUT STYLES
            ============================ */
-        #dashboard-page {
+        #dashboard-page, #whatsapp-report-page {
             display: none; 
             height: 100vh;
         }
@@ -120,14 +120,14 @@
             padding: 30px 50px;
             height: 100vh;
             overflow-y: auto;
-            animation: fadeIn 1s ease;
+            animation: fadeIn 0.6s ease;
         }
 
         .header {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             position: relative;
         }
 
@@ -139,14 +139,15 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* Header Right with Language Selector & User Profile */
-        .header-right {
+        .header-right, .header-left {
             position: absolute;
-            right: 0;
             display: flex;
             align-items: center;
             gap: 15px;
         }
+
+        .header-right { right: 0; }
+        .header-left { left: 0; }
 
         .lang-select {
             padding: 8px 12px;
@@ -171,19 +172,35 @@
             color: #0f5132;
         }
 
+        .btn-back {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back:hover { background: #5a6268; }
+
         /* ============================
-           NEW 3D MENU GRID STYLES (SMALLER BOXES)
+           DASHBOARD 3D MENU GRID
            ============================ */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Size kam kiya gaya hai */
-            gap: 20px; /* Gap kam kiya gaya hai */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; 
             margin-bottom: 40px;
         }
 
         .menu-box {
             background: linear-gradient(145deg, #ffffff, #e6e6e6);
-            padding: 25px 15px; /* Padding kam ki gayi hai */
+            padding: 25px 15px;
             border-radius: 15px;
             text-align: center;
             box-shadow: 8px 8px 16px #d1d9d6, -8px -8px 16px #ffffff;
@@ -193,13 +210,13 @@
         }
 
         .menu-box:hover {
-            transform: translateY(-8px) scale(1.03); /* Hover effect smooth */
+            transform: translateY(-8px) scale(1.03); 
             box-shadow: 12px 12px 24px #c5ccc9, -12px -12px 24px #ffffff;
             background: linear-gradient(145deg, #ffffff, #f0f0f0);
         }
 
         .box-icon {
-            font-size: 40px; /* Icon size chhota kiya gaya */
+            font-size: 40px; 
             margin-bottom: 12px;
             transition: transform 0.5s ease;
             display: inline-block;
@@ -209,32 +226,179 @@
             transform: scale(1.2) rotate(5deg);
         }
 
-        /* 3D Text Effect for English */
         .text-3d {
-            font-size: 14px; /* English text chhota kiya gaya */
+            font-size: 14px; 
             font-weight: 700;
             color: #0f5132;
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: 1px 1px 0px #d1e7dd, 
-                         2px 2px 0px #a3cfbb, 
-                         3px 3px 5px rgba(0,0,0,0.15);
+            text-shadow: 1px 1px 0px #d1e7dd, 2px 2px 0px #a3cfbb;
         }
 
-        /* 3D Text Effect for Urdu */
         .urdu-3d {
             font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif;
-            font-size: 24px; /* Urdu text chhota kiya gaya */
+            font-size: 24px;
             color: #1a6332;
             font-weight: bold;
-            text-shadow: 1px 1px 0px #d1e7dd, 
-                         2px 2px 0px #a3cfbb, 
-                         2px 2px 3px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 0px #d1e7dd, 2px 2px 0px #a3cfbb;
+        }
+
+        /* ============================
+           WHATSAPP REPORT PAGE STYLES
+           ============================ */
+        
+        /* Top Section Toolbar */
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .toolbar-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .input-control {
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: inherit;
+            outline: none;
+            min-width: 200px;
+        }
+
+        .btn-action {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .btn-excel { background: #198754; }
+        .btn-excel:hover { background: #146c43; }
+        
+        .btn-print { background: #0d6efd; }
+        .btn-print:hover { background: #0b5ed7; }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-bottom: 4px solid #0f5132;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .summary-card:hover { transform: translateY(-5px); }
+        
+        .summary-card h3 { color: #555; font-size: 13px; margin-bottom: 5px; }
+        .summary-card h2 { font-family: 'Jameel Noori Nastaleeq'; font-size: 26px; color: #1a6332; margin-bottom: 10px;}
+        .summary-card h1 { color: #0f5132; font-size: 30px; }
+
+        /* Table Section */
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th {
+            background: #0f5132;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+        }
+        
+        table th .urdu-th {
+            font-family: 'Jameel Noori Nastaleeq';
+            font-size: 20px;
+            display: block;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            color: #444;
+            font-weight: 500;
+        }
+
+        table tr:hover { background-color: #f9fbf9; }
+
+        /* Bottom Section Buttons */
+        .bottom-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-bottom {
+            background: white;
+            color: #0f5132;
+            border: 2px solid #0f5132;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .btn-bottom:hover {
+            background: #0f5132;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-bottom .urdu-btn {
+            font-family: 'Jameel Noori Nastaleeq';
+            font-size: 22px;
+            font-weight: normal;
         }
 
         .footer {
-            margin-top: 50px;
+            margin-top: 30px;
             text-align: center;
             color: #666;
             font-size: 14px;
@@ -244,15 +408,8 @@
         }
 
         /* Animations */
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     </style>
 </head>
@@ -263,43 +420,36 @@
         <div class="login-box">
             <img src="logo.png" alt="Darul Iftaa Logo">
             <h2>System Login</h2>
-            
             <div class="input-group">
                 <label>Username / Email</label>
                 <input type="text" placeholder="Enter your username">
             </div>
-            
             <div class="input-group">
                 <label>Password</label>
                 <input type="password" placeholder="Enter your password">
             </div>
-            
             <button class="login-btn" onclick="processLogin()">Log In</button>
         </div>
     </div>
 
     <!-- MAIN DASHBOARD -->
     <div id="dashboard-page">
-
         <div class="main">
             <div class="header">
                 <h1>ڈیش بورڈ</h1>
-                
                 <div class="header-right">
-                    <!-- Naya Language Selector -->
                     <select class="lang-select">
                         <option value="ur">Urdu (اردو)</option>
                         <option value="en">English</option>
                     </select>
-                    <div class="user">
-                        Administrator
-                    </div>
+                    <div class="user">Administrator</div>
                 </div>
             </div>
 
-            <!-- NAYA 3D MENU GRID (7 BOXES) -->
+            <!-- 3D MENU GRID -->
             <div class="menu-grid">
-                <div class="menu-box">
+                <!-- Click Event added to WhatsApp Report -->
+                <div class="menu-box" onclick="openWhatsAppReport()">
                     <div class="box-icon">📲</div>
                     <div class="title-eng text-3d">Daily WhatsApp Report</div>
                     <div class="title-urdu urdu-3d">روزانہ واٹس ایپ رپورٹ</div>
@@ -329,7 +479,6 @@
                     <div class="title-eng text-3d">Settings</div>
                     <div class="title-urdu urdu-3d">ترتیبات</div>
                 </div>
-                <!-- Naya Logout Box -->
                 <div class="menu-box" onclick="logout()">
                     <div class="box-icon">🚪</div>
                     <div class="title-eng text-3d">Logout</div>
@@ -343,8 +492,121 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT FOR LOGIN/LOGOUT SYSTEM -->
+    <!-- DAILY WHATSAPP REPORT PAGE (New Section) -->
+    <div id="whatsapp-report-page">
+        <div class="main">
+            
+            <div class="header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="closeWhatsAppReport()">⬅ Back (واپس)</button>
+                </div>
+                <h1>روزانہ واٹس ایپ رپورٹ</h1>
+                <div class="header-right">
+                    <div class="user">Administrator</div>
+                </div>
+            </div>
+
+            <!-- TOP SECTION (Toolbar) -->
+            <div class="toolbar">
+                <div class="toolbar-group">
+                    <input type="date" class="input-control" title="Select Date (تاریخ منتخب کریں)">
+                    <input type="text" class="input-control" placeholder="🔍 Search (تلاش کریں)...">
+                </div>
+                <div class="toolbar-group">
+                    <button class="btn-action btn-excel">📥 Export Excel (ایکسل)</button>
+                    <button class="btn-action btn-print">🖨 Print Report (پرنٹ)</button>
+                </div>
+            </div>
+
+            <!-- SUMMARY CARDS -->
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>Total Questions</h3>
+                    <h2>کل سوالات</h2>
+                    <h1>1,245</h1>
+                </div>
+                <div class="summary-card">
+                    <h3>Answered Questions</h3>
+                    <h2>جواب دیے گئے</h2>
+                    <h1>1,180</h1>
+                </div>
+                <div class="summary-card">
+                    <h3>Pending Questions</h3>
+                    <h2>باقی سوالات</h2>
+                    <h1 style="color: #dc3545;">65</h1>
+                </div>
+                <div class="summary-card">
+                    <h3>Today's Questions</h3>
+                    <h2>آج کے سوالات</h2>
+                    <h1>142</h1>
+                </div>
+                <div class="summary-card">
+                    <h3>Average Reply Time</h3>
+                    <h2>اوسط وقت</h2>
+                    <h1 style="color: #0d6efd;">2h 15m</h1>
+                </div>
+            </div>
+
+            <!-- REPORT TABLE -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Branch Name <span class="urdu-th">برانچ</span></th>
+                            <th>Mufti Name <span class="urdu-th">مفتی کا نام</span></th>
+                            <th>Total Questions <span class="urdu-th">کل سوالات</span></th>
+                            <th>Answered <span class="urdu-th">جواب دیے گئے</span></th>
+                            <th>Pending <span class="urdu-th">باقی</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Markaz (Mumbai)</td>
+                            <td>Mufti Ahmad Qadri</td>
+                            <td>450</td>
+                            <td>430</td>
+                            <td><span style="color:#dc3545; font-weight:bold;">20</span></td>
+                        </tr>
+                        <tr>
+                            <td>Delhi Branch</td>
+                            <td>Mufti Salman Raza</td>
+                            <td>320</td>
+                            <td>315</td>
+                            <td><span style="color:#dc3545; font-weight:bold;">5</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kolkata Branch</td>
+                            <td>Mufti Irfan Noori</td>
+                            <td>475</td>
+                            <td>435</td>
+                            <td><span style="color:#dc3545; font-weight:bold;">40</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- BOTTOM SECTION -->
+            <div class="bottom-actions">
+                <button class="btn-bottom">
+                    📅 Monthly Report <span class="urdu-btn">(ماہانہ رپورٹ)</span>
+                </button>
+                <button class="btn-bottom">
+                    📆 Yearly Report <span class="urdu-btn">(سالانہ رپورٹ)</span>
+                </button>
+                <button class="btn-bottom">
+                    📈 Performance Graph <span class="urdu-btn">(کارکردگی کا گراف)</span>
+                </button>
+            </div>
+
+            <div class="footer">
+                © 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT SYSTEM -->
     <script>
+        // Login System
         function processLogin() {
             const loginPage = document.getElementById('login-page');
             const dashboardPage = document.getElementById('dashboard-page');
@@ -357,14 +619,35 @@
             }, 500); 
         }
 
+        // Logout System
         function logout() {
             document.getElementById('dashboard-page').style.display = 'none';
+            document.getElementById('whatsapp-report-page').style.display = 'none';
+            
             const loginPage = document.getElementById('login-page');
             loginPage.style.display = 'flex';
             
             setTimeout(() => {
                 loginPage.style.opacity = '1';
             }, 50);
+        }
+
+        // Navigation to WhatsApp Report
+        function openWhatsAppReport() {
+            const dashboardPage = document.getElementById('dashboard-page');
+            const reportPage = document.getElementById('whatsapp-report-page');
+            
+            dashboardPage.style.display = 'none';
+            reportPage.style.display = 'block';
+        }
+
+        // Navigation Back to Dashboard
+        function closeWhatsAppReport() {
+            const dashboardPage = document.getElementById('dashboard-page');
+            const reportPage = document.getElementById('whatsapp-report-page');
+            
+            reportPage.style.display = 'none';
+            dashboardPage.style.display = 'block';
         }
     </script>
 
