@@ -111,12 +111,12 @@
            DASHBOARD STYLES
            ============================ */
         #dashboard-page {
-            display: none; /* Hidden by default until login */
+            display: none; 
             height: 100vh;
         }
 
         .main {
-            width: 100%; /* Full width without sidebar */
+            width: 100%;
             padding: 30px 50px;
             height: 100vh;
             overflow-y: auto;
@@ -125,27 +125,41 @@
 
         .header {
             display: flex;
-            justify-content: center; /* Center the Dashboard text */
+            justify-content: center;
             align-items: center;
             margin-bottom: 50px;
-            position: relative; /* For absolute positioning of user profile */
+            position: relative;
         }
 
         .header h1 {
             color: #0f5132;
             font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif;
-            font-size: 55px; /* Thoda bada kar diya */
-            font-weight: bold; /* Bold kar diya */
+            font-size: 55px; 
+            font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* Right side Header Items (Admin & Logout) */
+        /* Header Right with Language Selector & User Profile */
         .header-right {
             position: absolute;
             right: 0;
             display: flex;
             align-items: center;
             gap: 15px;
+        }
+
+        .lang-select {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0f5132;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .user {
@@ -157,36 +171,20 @@
             color: #0f5132;
         }
 
-        .top-logout-btn {
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .top-logout-btn:hover {
-            background: #c82333;
-        }
-
         /* ============================
-           NEW 3D MENU GRID STYLES
+           NEW 3D MENU GRID STYLES (SMALLER BOXES)
            ============================ */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Size kam kiya gaya hai */
+            gap: 20px; /* Gap kam kiya gaya hai */
             margin-bottom: 40px;
         }
 
         .menu-box {
             background: linear-gradient(145deg, #ffffff, #e6e6e6);
-            padding: 40px 20px; /* Thoda lamba kar diya taake khubsurat lage */
-            border-radius: 20px;
+            padding: 25px 15px; /* Padding kam ki gayi hai */
+            border-radius: 15px;
             text-align: center;
             box-shadow: 8px 8px 16px #d1d9d6, -8px -8px 16px #ffffff;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -195,14 +193,14 @@
         }
 
         .menu-box:hover {
-            transform: translateY(-12px) scale(1.03);
+            transform: translateY(-8px) scale(1.03); /* Hover effect smooth */
             box-shadow: 12px 12px 24px #c5ccc9, -12px -12px 24px #ffffff;
             background: linear-gradient(145deg, #ffffff, #f0f0f0);
         }
 
         .box-icon {
-            font-size: 55px; /* Thoda bada kiya bina sidebar ke adjust karne ke liye */
-            margin-bottom: 15px;
+            font-size: 40px; /* Icon size chhota kiya gaya */
+            margin-bottom: 12px;
             transition: transform 0.5s ease;
             display: inline-block;
         }
@@ -213,10 +211,10 @@
 
         /* 3D Text Effect for English */
         .text-3d {
-            font-size: 18px;
+            font-size: 14px; /* English text chhota kiya gaya */
             font-weight: 700;
             color: #0f5132;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-shadow: 1px 1px 0px #d1e7dd, 
@@ -227,12 +225,12 @@
         /* 3D Text Effect for Urdu */
         .urdu-3d {
             font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif;
-            font-size: 32px; /* Font thoda bada kar diya */
+            font-size: 24px; /* Urdu text chhota kiya gaya */
             color: #1a6332;
             font-weight: bold;
             text-shadow: 1px 1px 0px #d1e7dd, 
                          2px 2px 0px #a3cfbb, 
-                         3px 3px 4px rgba(0,0,0,0.1);
+                         2px 2px 3px rgba(0,0,0,0.1);
         }
 
         .footer {
@@ -263,7 +261,6 @@
     <!-- LOGIN PAGE -->
     <div id="login-page">
         <div class="login-box">
-            <!-- Login screen logo -->
             <img src="logo.png" alt="Darul Iftaa Logo">
             <h2>System Login</h2>
             
@@ -281,7 +278,7 @@
         </div>
     </div>
 
-    <!-- MAIN DASHBOARD (Hidden by default) -->
+    <!-- MAIN DASHBOARD -->
     <div id="dashboard-page">
 
         <div class="main">
@@ -289,50 +286,38 @@
                 <h1>ڈیش بورڈ</h1>
                 
                 <div class="header-right">
+                    <!-- Naya Language Selector -->
+                    <select class="lang-select">
+                        <option value="ur">Urdu (اردو)</option>
+                        <option value="en">English</option>
+                    </select>
                     <div class="user">
                         Administrator
                     </div>
-                    <!-- Logout button upar adjust kar diya gaya hai -->
-                    <button class="top-logout-btn" onclick="logout()">🚪 Logout</button>
                 </div>
             </div>
 
-            <!-- NAYA 3D MENU GRID -->
+            <!-- NAYA 3D MENU GRID (7 BOXES) -->
             <div class="menu-grid">
                 <div class="menu-box">
-                    <div class="box-icon">🏠</div>
-                    <div class="title-eng text-3d">Dashboard</div>
-                    <div class="title-urdu urdu-3d">ڈیش بورڈ</div>
-                </div>
-                <div class="menu-box">
-                    <div class="box-icon">📥</div>
-                    <div class="title-eng text-3d">Question Mgmt</div>
-                    <div class="title-urdu urdu-3d">سوالات کا انتظام</div>
-                </div>
-                <div class="menu-box">
-                    <div class="box-icon">✍️</div>
-                    <div class="title-eng text-3d">Fatwa Mgmt</div>
-                    <div class="title-urdu urdu-3d">فتویٰ انتظام</div>
+                    <div class="box-icon">📲</div>
+                    <div class="title-eng text-3d">Daily WhatsApp Report</div>
+                    <div class="title-urdu urdu-3d">روزانہ واٹس ایپ رپورٹ</div>
                 </div>
                 <div class="menu-box">
                     <div class="box-icon">👳</div>
-                    <div class="title-eng text-3d">Muftiyan</div>
+                    <div class="title-eng text-3d">Muftiyan-e-Kiram</div>
                     <div class="title-urdu urdu-3d">مفتیانِ کرام</div>
                 </div>
                 <div class="menu-box">
                     <div class="box-icon">🏢</div>
-                    <div class="title-eng text-3d">Branches</div>
-                    <div class="title-urdu urdu-3d">شعبہ جات</div>
+                    <div class="title-eng text-3d">Darulifta Branches</div>
+                    <div class="title-urdu urdu-3d">دارالافتاء کی برانچز</div>
                 </div>
                 <div class="menu-box">
                     <div class="box-icon">📊</div>
                     <div class="title-eng text-3d">Reports</div>
                     <div class="title-urdu urdu-3d">رپورٹس</div>
-                </div>
-                <div class="menu-box">
-                    <div class="box-icon">🔍</div>
-                    <div class="title-eng text-3d">Search</div>
-                    <div class="title-urdu urdu-3d">تلاش</div>
                 </div>
                 <div class="menu-box">
                     <div class="box-icon">🔔</div>
@@ -343,6 +328,12 @@
                     <div class="box-icon">⚙️</div>
                     <div class="title-eng text-3d">Settings</div>
                     <div class="title-urdu urdu-3d">ترتیبات</div>
+                </div>
+                <!-- Naya Logout Box -->
+                <div class="menu-box" onclick="logout()">
+                    <div class="box-icon">🚪</div>
+                    <div class="title-eng text-3d">Logout</div>
+                    <div class="title-urdu urdu-3d">لاگ آؤٹ</div>
                 </div>
             </div>
 
@@ -355,7 +346,6 @@
     <!-- JAVASCRIPT FOR LOGIN/LOGOUT SYSTEM -->
     <script>
         function processLogin() {
-            // Login page ko hide karna aur dashboard ko show karna
             const loginPage = document.getElementById('login-page');
             const dashboardPage = document.getElementById('dashboard-page');
             
@@ -363,12 +353,11 @@
             
             setTimeout(() => {
                 loginPage.style.display = 'none';
-                dashboardPage.style.display = 'block'; // Ab sidebar nahi hai to block ka use hoga
+                dashboardPage.style.display = 'block'; 
             }, 500); 
         }
 
         function logout() {
-            // Dashboard se wapas login screen par aane ke liye
             document.getElementById('dashboard-page').style.display = 'none';
             const loginPage = document.getElementById('login-page');
             loginPage.style.display = 'flex';
