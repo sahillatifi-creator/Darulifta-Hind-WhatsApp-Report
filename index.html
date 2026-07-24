@@ -87,7 +87,7 @@
         /* ============================
            MAIN LAYOUT STYLES
            ============================ */
-        #dashboard-page, #whatsapp-report-page, #muftiyan-page, #branches-page { display: none; height: 100vh; }
+        #dashboard-page, #whatsapp-report-page, #muftiyan-page, #branches-page, #notifications-page { display: none; height: 100vh; }
         .main { width: 100%; padding: 30px 50px; height: 100vh; overflow-y: auto; animation: fadeIn 0.6s ease; }
 
         .header { display: flex; justify-content: center; align-items: center; margin-bottom: 40px; position: relative; }
@@ -170,24 +170,12 @@
         .btn-active { background: var(--gold-primary); color: #000; }
         .btn-inactive { opacity: 0.6; border-color: #555; color: #aaa; }
 
-        /* Edit Button Styling for Table */
         .btn-edit {
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--gold-light);
-            border: 1px solid var(--gold-primary);
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            font-weight: 500;
+            background: rgba(212, 175, 55, 0.15); color: var(--gold-light); border: 1px solid var(--gold-primary);
+            padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: 0.3s;
+            font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500;
         }
-        .btn-edit:hover {
-            background: var(--gold-primary);
-            color: #000;
-            box-shadow: 0 0 10px var(--gold-glow);
-        }
+        .btn-edit:hover { background: var(--gold-primary); color: #000; box-shadow: 0 0 10px var(--gold-glow); }
 
         /* ============================
            SUMMARY CARDS
@@ -263,6 +251,56 @@
         .stat-box .urdu-stat { font-family: 'Jameel Noori Nastaleeq'; font-size: 20px; font-weight: normal; color: var(--gold-light); text-transform: none; }
         .stat-box h4 { font-size: 24px; color: var(--text-white); margin-top: 5px; text-shadow: 0 0 8px rgba(255,255,255,0.3);}
 
+        /* ============================
+           NOTIFICATIONS PAGE STYLES
+           ============================ */
+        .notification-list {
+            display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;
+        }
+        .notification-card {
+            background: linear-gradient(145deg, var(--card-dark-brown), var(--card-dark-green));
+            border-left: 5px solid var(--gold-primary);
+            padding: 25px 20px; border-radius: 12px;
+            display: flex; align-items: center; gap: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6); transition: 0.3s;
+            border-top: 1px solid #222; border-right: 1px solid #222; border-bottom: 1px solid #222;
+        }
+        .notification-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px var(--gold-glow);
+            border-left-color: var(--gold-light);
+            background: linear-gradient(145deg, var(--card-dark-green), var(--card-dark-brown));
+        }
+        .notif-icon {
+            font-size: 38px; filter: drop-shadow(0 0 10px var(--gold-glow));
+            background: rgba(0,0,0,0.4); border-radius: 50%; width: 70px; height: 70px;
+            display: flex; justify-content: center; align-items: center; border: 1px solid #333;
+        }
+        .notif-content { flex-grow: 1; }
+        .notif-content h3 { color: var(--text-muted); font-size: 15px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .notif-content h2 { font-family: 'Jameel Noori Nastaleeq'; font-size: 28px; color: var(--gold-light); margin-bottom: 0; text-shadow: 0 2px 4px #000; }
+        .notif-time {
+            font-size: 13px; color: var(--text-muted); font-weight: 600; white-space: nowrap;
+            background: rgba(0,0,0,0.5); padding: 8px 15px; border-radius: 8px; border: 1px solid #333;
+        }
+
+        /* Specific Notification Variants */
+        .notif-success { border-left-color: #00ff88; }
+        .notif-success:hover { box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3); border-left-color: #00ff88; }
+        .notif-success .notif-icon { filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.6)); }
+
+        .notif-warning { border-left-color: #ffdf73; }
+        .notif-warning:hover { box-shadow: 0 10px 30px rgba(255, 223, 115, 0.3); }
+        .notif-warning .notif-icon { filter: drop-shadow(0 0 10px rgba(255, 223, 115, 0.6)); }
+
+        .notif-danger { border-left-color: #ff4d4d; }
+        .notif-danger:hover { box-shadow: 0 10px 30px rgba(255, 77, 77, 0.3); border-left-color: #ff4d4d; }
+        .notif-danger .notif-icon { filter: drop-shadow(0 0 10px rgba(255, 77, 77, 0.6)); }
+
+        .notif-info { border-left-color: #0d6efd; }
+        .notif-info:hover { box-shadow: 0 10px 30px rgba(13, 110, 253, 0.3); border-left-color: #0d6efd; }
+        .notif-info .notif-icon { filter: drop-shadow(0 0 10px rgba(13, 110, 253, 0.6)); }
+
         /* General Footer */
         .footer { margin-top: 30px; text-align: center; color: var(--text-muted); font-size: 14px; padding-bottom: 20px; border-top: 1px solid #333; padding-top: 20px; }
         
@@ -332,7 +370,8 @@
                     <div class="title-eng text-3d">Reports</div>
                     <div class="title-urdu urdu-3d">رپورٹس</div>
                 </div>
-                <div class="menu-box">
+                <!-- Notifications Click Added -->
+                <div class="menu-box" onclick="openNotifications()">
                     <div class="box-icon">🔔</div>
                     <div class="title-eng text-3d">Notifications</div>
                     <div class="title-urdu urdu-3d">اطلاعات</div>
@@ -395,7 +434,6 @@
                             <th>Total Questions <span class="urdu-th">کل سوالات</span></th>
                             <th>Answered <span class="urdu-th">جواب دیے گئے</span></th>
                             <th>Pending <span class="urdu-th">باقی</span></th>
-                            <!-- Edit Action Column Added -->
                             <th>Actions <span class="urdu-th">ترمیم</span></th>
                         </tr>
                     </thead>
@@ -419,7 +457,6 @@
                         <tr><td>Modasa (موڈاسہ)</td><td>Mufti Faizan Madani</td><td>90</td><td class="text-success">85</td><td><span class="text-danger" style="font-weight:bold;">5</span></td><td><button class="btn-edit">✏️ Edit</button></td></tr>
                         <tr><td>Ahmedabad (احمد آباد)</td><td>Mufti Saleem Madani</td><td>125</td><td class="text-success">120</td><td><span class="text-danger" style="font-weight:bold;">5</span></td><td><button class="btn-edit">✏️ Edit</button></td></tr>
                         <tr><td>Mumbai (ممبئی)</td><td>Mufti Nadir Madani</td><td>175</td><td class="text-success">165</td><td><span class="text-danger" style="font-weight:bold;">10</span></td><td><button class="btn-edit">✏️ Edit</button></td></tr>
-                        <!-- Branch updated to Mumbai for Misbah ul Haq Madani -->
                         <tr><td>Mumbai (ممبئی)</td><td>Mufti Misbah ul Haq Madani</td><td>0</td><td class="text-success">0</td><td><span class="text-success" style="font-weight:bold;">0</span></td><td><button class="btn-edit">✏️ Edit</button></td></tr>
                     </tbody>
                 </table>
@@ -702,7 +739,6 @@
                 </div>
                 <!-- 20 -->
                 <div class="mufti-card">
-                    <!-- Branch updated to Mumbai for Misbah ul Haq Madani -->
                     <div class="mufti-header">
                         <div class="mufti-info"><h3>Mufti Misbah ul Haq Madani</h3><h2>مفتی مصباح الحق مدنی</h2><div class="mufti-branch">🏢 Mumbai (ممبئی)</div></div>
                         <div class="status-badge status-online"><i>🟢</i> Online</div>
@@ -721,7 +757,7 @@
         </div>
     </div>
 
-    <!-- BRANCHES PAGE (Markaz card removed, total count updated to 5) -->
+    <!-- BRANCHES PAGE -->
     <div id="branches-page">
         <div class="main">
             <div class="header">
@@ -739,21 +775,15 @@
                 </div>
             </div>
 
-            <!-- Total count updated to 5 -->
             <div class="summary-badge">
                 <h2>کل برانچز (Total Branches): <span>5</span></h2>
             </div>
 
-            <!-- BRANCH CARDS GRID -->
             <div class="mufti-grid">
-                
                 <!-- Branch 1: Nagpur -->
                 <div class="mufti-card">
                     <div class="mufti-header">
-                        <div class="mufti-info">
-                            <h3>Nagpur Branch</h3>
-                            <h2>ناگپور برانچ</h2>
-                        </div>
+                        <div class="mufti-info"><h3>Nagpur Branch</h3><h2>ناگپور برانچ</h2></div>
                         <div class="status-badge status-online"><i>👳</i> Muftiyan: 3</div>
                     </div>
                     <div class="mufti-stats">
@@ -762,14 +792,10 @@
                         <div class="stat-box"><span>Pending</span><span class="urdu-stat">باقی سوالات</span><h4 class="text-danger">8</h4></div>
                     </div>
                 </div>
-
                 <!-- Branch 2: Mumbai -->
                 <div class="mufti-card">
                     <div class="mufti-header">
-                        <div class="mufti-info">
-                            <h3>Mumbai Branch</h3>
-                            <h2>ممبئی برانچ</h2>
-                        </div>
+                        <div class="mufti-info"><h3>Mumbai Branch</h3><h2>ممبئی برانچ</h2></div>
                         <div class="status-badge status-online"><i>👳</i> Muftiyan: 4</div>
                     </div>
                     <div class="mufti-stats">
@@ -778,14 +804,10 @@
                         <div class="stat-box"><span>Pending</span><span class="urdu-stat">باقی سوالات</span><h4 class="text-danger">13</h4></div>
                     </div>
                 </div>
-
                 <!-- Branch 3: Ahmedabad -->
                 <div class="mufti-card">
                     <div class="mufti-header">
-                        <div class="mufti-info">
-                            <h3>Ahmedabad Branch</h3>
-                            <h2>احمدآباد برانچ</h2>
-                        </div>
+                        <div class="mufti-info"><h3>Ahmedabad Branch</h3><h2>احمدآباد برانچ</h2></div>
                         <div class="status-badge status-online"><i>👳</i> Muftiyan: 5</div>
                     </div>
                     <div class="mufti-stats">
@@ -794,14 +816,10 @@
                         <div class="stat-box"><span>Pending</span><span class="urdu-stat">باقی سوالات</span><h4 class="text-danger">2</h4></div>
                     </div>
                 </div>
-
                 <!-- Branch 4: Hyderabad -->
                 <div class="mufti-card">
                     <div class="mufti-header">
-                        <div class="mufti-info">
-                            <h3>Hyderabad Branch</h3>
-                            <h2>حیدر آباد برانچ</h2>
-                        </div>
+                        <div class="mufti-info"><h3>Hyderabad Branch</h3><h2>حیدر آباد برانچ</h2></div>
                         <div class="status-badge status-online"><i>👳</i> Muftiyan: 3</div>
                     </div>
                     <div class="mufti-stats">
@@ -810,14 +828,10 @@
                         <div class="stat-box"><span>Pending</span><span class="urdu-stat">باقی سوالات</span><h4 class="text-danger">8</h4></div>
                     </div>
                 </div>
-
                 <!-- Branch 5: Modasa -->
                 <div class="mufti-card">
                     <div class="mufti-header">
-                        <div class="mufti-info">
-                            <h3>Modasa Branch</h3>
-                            <h2>موڈاسہ برانچ</h2>
-                        </div>
+                        <div class="mufti-info"><h3>Modasa Branch</h3><h2>موڈاسہ برانچ</h2></div>
                         <div class="status-badge status-online"><i>👳</i> Muftiyan: 4</div>
                     </div>
                     <div class="mufti-stats">
@@ -841,6 +855,82 @@
         </div>
     </div>
 
+    <!-- NOTIFICATIONS PAGE (New Section) -->
+    <div id="notifications-page">
+        <div class="main">
+            <div class="header">
+                <div class="header-left">
+                    <button class="btn-back" onclick="closeNotifications()">⬅ Back (واپس)</button>
+                    <img src="WhatsApp Image 2024-09-06 at 10.21.25 PM.jpeg" alt="Darul Ifta Logo" style="max-height: 45px; filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.3)); margin-left:15px;">
+                </div>
+                <h1>اطلاعات</h1>
+                <div class="header-right"><div class="user">Administrator</div></div>
+            </div>
+
+            <div class="summary-badge" style="background: linear-gradient(135deg, #1a110a, #0a140f);">
+                <h2>نئی اطلاعات (New Notifications): <span class="text-warning">5</span></h2>
+            </div>
+
+            <div class="notification-list">
+                
+                <!-- Notification 1: New Question -->
+                <div class="notification-card">
+                    <div class="notif-icon" style="color: var(--gold-light);">📥</div>
+                    <div class="notif-content">
+                        <h3>New Question Received</h3>
+                        <h2>نیا سوال موصول ہوا</h2>
+                    </div>
+                    <div class="notif-time">Just Now</div>
+                </div>
+
+                <!-- Notification 2: Answer Submitted -->
+                <div class="notification-card notif-success">
+                    <div class="notif-icon" style="color: #00ff88;">✅</div>
+                    <div class="notif-content">
+                        <h3>Answer Submitted</h3>
+                        <h2>جواب جمع کیا گیا</h2>
+                    </div>
+                    <div class="notif-time">10 Mins Ago</div>
+                </div>
+
+                <!-- Notification 3: Pending -->
+                <div class="notification-card notif-warning">
+                    <div class="notif-icon" style="color: #ffdf73;">⏳</div>
+                    <div class="notif-content">
+                        <h3>Pending for 3 Days</h3>
+                        <h2>3 دن سے زیر التواء</h2>
+                    </div>
+                    <div class="notif-time">2 Hours Ago</div>
+                </div>
+
+                <!-- Notification 4: WhatsApp Error -->
+                <div class="notification-card notif-danger">
+                    <div class="notif-icon" style="color: #ff4d4d;">❌</div>
+                    <div class="notif-content">
+                        <h3>WhatsApp Error</h3>
+                        <h2>واٹس ایپ خرابی</h2>
+                    </div>
+                    <div class="notif-time">5 Hours Ago</div>
+                </div>
+
+                <!-- Notification 5: System Update -->
+                <div class="notification-card notif-info">
+                    <div class="notif-icon" style="color: #0d6efd;">🔄</div>
+                    <div class="notif-content">
+                        <h3>System Update</h3>
+                        <h2>سسٹم اپڈیٹ</h2>
+                    </div>
+                    <div class="notif-time">1 Day Ago</div>
+                </div>
+
+            </div>
+
+            <div class="footer">
+                © 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind
+            </div>
+        </div>
+    </div>
+
     <!-- JAVASCRIPT SYSTEM -->
     <script>
         function processLogin() {
@@ -856,6 +946,7 @@
             document.getElementById('whatsapp-report-page').style.display = 'none';
             document.getElementById('muftiyan-page').style.display = 'none';
             document.getElementById('branches-page').style.display = 'none';
+            document.getElementById('notifications-page').style.display = 'none';
             const loginPage = document.getElementById('login-page');
             loginPage.style.display = 'flex';
             setTimeout(() => { loginPage.style.opacity = '1'; }, 50);
@@ -885,6 +976,15 @@
         }
         function closeBranches() {
             document.getElementById('branches-page').style.display = 'none';
+            document.getElementById('dashboard-page').style.display = 'block';
+        }
+
+        function openNotifications() {
+            document.getElementById('dashboard-page').style.display = 'none';
+            document.getElementById('notifications-page').style.display = 'block';
+        }
+        function closeNotifications() {
+            document.getElementById('notifications-page').style.display = 'none';
             document.getElementById('dashboard-page').style.display = 'block';
         }
     </script>
