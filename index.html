@@ -141,25 +141,17 @@
         }
         .toolbar-group { display: flex; gap: 10px; align-items: center; }
         .input-control { padding: 8px 12px; border: 1px solid var(--input-border); border-radius: 6px; background: var(--input-bg); color: var(--text-white); font-size: 12px; outline: none; }
-        .input-control:focus { border-color: var(--gold-primary); }
+        .input-control:focus { border-color: var(--gold-primary); box-shadow: 0 0 5px var(--gold-glow); }
         
-        .btn-action {
+        select.input-control option, select.table-input option { background: #111; color: #fff; }
+        body.light-mode select.input-control option, body.light-mode select.table-input option { background: #fff; color: #000; }
+
+        .btn-action, .btn-filter {
             padding: 8px 15px; border: 1px solid var(--gold-primary); border-radius: 6px; font-size: 12px;
             font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 5px; background: transparent; color: var(--gold-light); transition: 0.3s;
         }
-        .btn-action:hover { background: var(--gold-primary); color: #fff; box-shadow: 0 0 10px var(--gold-glow); }
-        body:not(.light-mode) .btn-action:hover { color: #000; }
-
-        /* ============================
-           SUMMARY CARDS
-           ============================ */
-        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-bottom: 25px; }
-        .summary-card { background: var(--card-bg); padding: 15px; border-radius: 10px; border-bottom: 3px solid var(--gold-primary); border-top: 1px solid var(--border-color); text-align: center; transition: 0.3s; }
-        body.light-mode .summary-card { box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 1px solid #eee; border-left: 1px solid #eee; border-right: 1px solid #eee;}
-        .summary-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px var(--gold-glow); }
-        .summary-card h3 { color: var(--text-muted); font-size: 10px; margin-bottom: 4px; text-transform: uppercase;}
-        .summary-card h2 { font-family: 'Jameel Noori Nastaleeq'; font-size: 20px; color: var(--gold-primary); margin-bottom: 5px;}
-        .summary-card h1 { color: var(--text-white); font-size: 24px; text-shadow: 0 0 5px rgba(255,255,255,0.1); }
+        .btn-action:hover, .btn-filter:hover { background: var(--gold-primary); color: #fff; box-shadow: 0 0 10px var(--gold-glow); }
+        body:not(.light-mode) .btn-action:hover, body:not(.light-mode) .btn-filter:hover { color: #000; }
 
         /* ============================
            LIVE EXCEL TABLE (NO SCROLL)
@@ -186,9 +178,6 @@
         .table-input:focus { border-color: var(--gold-primary); box-shadow: 0 0 5px var(--gold-glow); }
         .table-container .btn-edit { padding: 3px 5px; font-size: 9px; background: rgba(25, 135, 84, 0.15); color: #198754; border: 1px solid #198754; border-radius: 4px; cursor:pointer;}
         
-        table td:nth-child(5), table td:nth-child(6) { background: rgba(25, 135, 84, 0.1); }
-        table td:nth-child(15), table td:nth-child(16), table td:nth-child(17), table td:nth-child(18) { background: rgba(212, 175, 55, 0.05); }
-
         /* ============================
            MUFTIYAN CARDS (4D/5D Effect + Real Upload)
            ============================ */
@@ -262,22 +251,28 @@
         /* ============================
            NEW SOCIAL MEDIA DASHBOARD
            ============================ */
-        .social-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-bottom: 25px; }
-        .social-summary-card { background: var(--card-bg); padding: 15px; border-radius: 10px; border-bottom: 3px solid; border-top: 1px solid var(--border-color); text-align: center; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .social-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-bottom: 25px; }
+        .social-summary-card { 
+            background: var(--card-bg); padding: 15px; border-radius: 10px; border-bottom: 3px solid; 
+            border-top: 1px solid var(--border-color); text-align: center; transition: 0.3s; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; cursor: pointer;
+        }
         body.light-mode .social-summary-card { box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-top: 1px solid #eee; border-left: 1px solid #eee; border-right: 1px solid #eee;}
-        .social-summary-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px var(--gold-glow); }
-        .social-summary-card h3 { color: var(--text-muted); font-size: 11px; margin-bottom: 4px; text-transform: uppercase; font-family: 'Poppins', sans-serif;}
-        .social-summary-card h2 { font-family: 'Jameel Noori Nastaleeq'; font-size: 20px; margin-bottom: 5px; color: var(--gold-light);}
+        .social-summary-card:hover { transform: translateY(-3px); }
+        .social-summary-icon { font-size: 32px; margin-bottom: 5px; }
+        .social-summary-card h3 { color: var(--text-muted); font-size: 10px; margin-bottom: 2px; text-transform: uppercase; font-family: 'Poppins', sans-serif;}
+        .social-summary-card h2 { font-family: 'Jameel Noori Nastaleeq'; font-size: 18px; margin-bottom: 2px; color: var(--gold-light);}
         body.light-mode .social-summary-card h2 { color: var(--gold-primary); }
-        .social-summary-card h1 { font-size: 22px; text-shadow: 0 0 5px rgba(255,255,255,0.1); font-family: 'Poppins', sans-serif; font-weight: bold;}
+        .social-summary-card h1 { font-size: 20px; text-shadow: 0 0 5px rgba(255,255,255,0.1); font-family: 'Poppins', sans-serif; font-weight: bold;}
 
+        /* Live Excel Table for Social Media */
         .sm-table-container { background: var(--card-bg); border-radius: 10px; padding: 15px; border: 1px solid var(--border-color); margin-bottom: 25px; width: 100%; overflow-x: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.3);}
-        .sm-table-container table { width: 100%; border-collapse: collapse; min-width: 600px;}
-        .sm-table-container th { background: var(--table-header-bg); color: var(--gold-light); padding: 12px 10px; text-align: center; font-size: 12px; border-bottom: 2px solid var(--gold-primary); border-right: 1px solid var(--table-border); }
+        .sm-table-container table { width: 100%; border-collapse: collapse; min-width: 800px;}
+        .sm-table-container th { background: var(--table-header-bg); color: var(--gold-light); padding: 10px 5px; text-align: center; font-size: 12px; border-bottom: 2px solid var(--gold-primary); border-right: 1px solid var(--table-border); }
         body.light-mode .sm-table-container th { color: #fff; }
         .sm-table-container th .urdu-th { font-family: 'Jameel Noori Nastaleeq'; font-size: 18px; display: block; margin-top: 4px; font-weight: normal; color: var(--gold-primary); }
         body.light-mode .sm-table-container th .urdu-th { color: #d1e7dd; }
-        .sm-table-container td { padding: 12px 10px; border-bottom: 1px solid var(--table-border); border-right: 1px solid var(--table-border); color: var(--text-white); font-size: 12px; text-align: center; }
+        .sm-table-container td { padding: 6px 5px; border-bottom: 1px solid var(--table-border); border-right: 1px solid var(--table-border); color: var(--text-white); font-size: 12px; text-align: center; }
         .sm-table-container tr:hover { background-color: rgba(212, 175, 55, 0.05); }
 
         .footer { margin-top: 20px; text-align: center; color: var(--text-muted); font-size: 12px; padding: 15px 0; border-top: 1px solid var(--border-color); }
@@ -428,6 +423,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Shortened Data Structure for Viewability -->
                         <tr><td>1</td><td>Hyderabad</td><td>Jaseem Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
                         <tr><td>2</td><td>Nagpur</td><td>Dilkash Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
                         <tr><td>3</td><td>Mumbai</td><td>Imran Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
@@ -888,30 +884,31 @@
                 <h1>سوشل میڈیا</h1>
                 <div class="header-right"><div class="user">Admin</div></div>
             </div>
-
-            <!-- STEP 1: Top Summary Counts -->
-            <div class="summary-badge" style="width: 100%; text-align: center;">
-                <h2>سوشل میڈیا ڈیش بورڈ (Social Media Dashboard)</h2>
-            </div>
             
-            <div class="summary-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
+            <div class="summary-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin-top:20px;">
                 <div class="summary-card" style="border-bottom-color: #25D366; transition: 0.3s; cursor:pointer;" onmouseover="this.style.boxShadow='0 8px 20px rgba(37,211,102,0.4)'" onmouseout="this.style.boxShadow='none'">
-                    <h3>WhatsApp</h3><h2>واٹس ایپ</h2><h1 style="color:#25D366; font-size:22px;">120 Fatwe</h1>
+                    <div style="font-size: 32px; filter: drop-shadow(0 0 8px #25D366); margin-bottom:5px;">💬</div>
+                    <h3>WhatsApp</h3><h2>واٹس ایپ</h2><h1 style="color:#25D366; font-size:20px;">120 Fatwe</h1>
                 </div>
                 <div class="summary-card" style="border-bottom-color: #FF0000; transition: 0.3s; cursor:pointer;" onmouseover="this.style.boxShadow='0 8px 20px rgba(255,0,0,0.4)'" onmouseout="this.style.boxShadow='none'">
-                    <h3>YouTube</h3><h2>یوٹیوب</h2><h1 style="color:#FF0000; font-size:22px;">85 Videos</h1>
+                    <div style="font-size: 32px; filter: drop-shadow(0 0 8px #FF0000); margin-bottom:5px;">▶</div>
+                    <h3>YouTube</h3><h2>یوٹیوب</h2><h1 style="color:#FF0000; font-size:20px;">85 Videos</h1>
                 </div>
                 <div class="summary-card" style="border-bottom-color: #1877F2; transition: 0.3s; cursor:pointer;" onmouseover="this.style.boxShadow='0 8px 20px rgba(24,119,242,0.4)'" onmouseout="this.style.boxShadow='none'">
-                    <h3>Facebook</h3><h2>فیس بک</h2><h1 style="color:#1877F2; font-size:22px;">110 Posts</h1>
+                    <div style="font-size: 32px; filter: drop-shadow(0 0 8px #1877F2); margin-bottom:5px;">📘</div>
+                    <h3>Facebook</h3><h2>فیس بک</h2><h1 style="color:#1877F2; font-size:20px;">110 Posts</h1>
                 </div>
                 <div class="summary-card" style="border-bottom-color: #E1306C; transition: 0.3s; cursor:pointer;" onmouseover="this.style.boxShadow='0 8px 20px rgba(225,48,108,0.4)'" onmouseout="this.style.boxShadow='none'">
-                    <h3>Instagram</h3><h2>انسٹاگرام</h2><h1 style="color:#E1306C; font-size:22px;">95 Posts</h1>
+                    <div style="font-size: 32px; filter: drop-shadow(0 0 8px #E1306C); margin-bottom:5px;">📸</div>
+                    <h3>Instagram</h3><h2>انسٹاگرام</h2><h1 style="color:#E1306C; font-size:20px;">95 Posts</h1>
                 </div>
                 <div class="summary-card" style="border-bottom-color: #0088cc; transition: 0.3s; cursor:pointer;" onmouseover="this.style.boxShadow='0 8px 20px rgba(0,136,204,0.4)'" onmouseout="this.style.boxShadow='none'">
-                    <h3>Telegram</h3><h2>ٹیلیگرام</h2><h1 style="color:#0088cc; font-size:22px;">105 Posts</h1>
+                    <div style="font-size: 32px; filter: drop-shadow(0 0 8px #0088cc); margin-bottom:5px;">✈</div>
+                    <h3>Telegram</h3><h2>ٹیلیگرام</h2><h1 style="color:#0088cc; font-size:20px;">105 Posts</h1>
                 </div>
                 <div class="summary-card" style="border-bottom-color: #ffffff; transition: 0.3s; cursor:pointer;" onmouseover="this.style.boxShadow='0 8px 20px rgba(255,255,255,0.4)'" onmouseout="this.style.boxShadow='none'">
-                    <h3>X (Twitter)</h3><h2>ٹوئٹر</h2><h1 style="color:var(--text-white); font-size:22px;">80 Posts</h1>
+                    <div style="font-size: 32px; filter: drop-shadow(0 0 8px #ffffff); margin-bottom:5px;">✖</div>
+                    <h3>X (Twitter)</h3><h2>ٹوئٹر</h2><h1 style="color:var(--text-white); font-size:20px;">80 Posts</h1>
                 </div>
             </div>
 
@@ -921,11 +918,12 @@
                     <h3 style="color: var(--gold-light); font-family: 'Jameel Noori Nastaleeq'; font-size: 26px; font-weight: normal; margin:0;">پلیٹ فارم منتخب کریں:</h3>
                 </div>
                 <div class="toolbar-group">
-                    <select class="input-control" id="social-platform-select" style="font-size: 14px; min-width: 250px; font-family: 'Poppins', sans-serif;">
-                        <option value="whatsapp">📲 WhatsApp Channel</option>
+                    <select class="input-control" id="social-platform-select" style="font-size: 14px; min-width: 250px; font-family: 'Poppins', sans-serif;" onchange="filterSocialMedia()">
+                        <option value="all">🌐 All Platforms (تمام)</option>
+                        <option value="whatsapp">💬 WhatsApp Channel</option>
                         <option value="youtube">▶ YouTube</option>
                         <option value="facebook">📘 Facebook</option>
-                        <option value="instagram">📷 Instagram</option>
+                        <option value="instagram">📸 Instagram</option>
                         <option value="telegram">✈ Telegram</option>
                         <option value="twitter">✖ X (Twitter)</option>
                     </select>
@@ -937,7 +935,7 @@
 
             <!-- STEP 3: Platform Report Table -->
             <div class="table-container">
-                <table style="min-width: 100%;">
+                <table style="min-width: 100%;" id="social-media-table">
                     <thead>
                         <tr>
                             <th style="font-family: 'Poppins'; font-size: 13px;">Date <span class="urdu-th" style="font-size: 20px;">تاریخ</span></th>
@@ -947,38 +945,49 @@
                             <th style="font-family: 'Poppins'; font-size: 13px;">Urdu <span class="urdu-th" style="font-size: 20px;">اردو</span></th>
                             <th style="font-family: 'Poppins'; font-size: 13px;">Link <span class="urdu-th" style="font-size: 20px;">لنک</span></th>
                             <th style="font-family: 'Poppins'; font-size: 13px;">Status <span class="urdu-th" style="font-size: 20px;">حالت</span></th>
+                            <th style="font-family: 'Poppins'; font-size: 13px;">Action <span class="urdu-th" style="font-size: 20px;">محفوظ</span></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Row 1 -->
-                        <tr>
-                            <td style="font-family: 'Poppins'; font-size: 13px;">25-07-2026</td>
-                            <td style="font-family: 'Poppins'; font-size: 14px; font-weight: 600; color: var(--gold-light);">T-Shirt pehen kar Namaz</td>
-                            <td><span class="text-success" style="font-size: 18px;">✅</span></td>
-                            <td><span class="text-success" style="font-size: 18px;">✅</span></td>
-                            <td><span class="text-success" style="font-size: 18px;">✅</span></td>
-                            <td><a href="#" style="color: #0d6efd; text-decoration: none; font-size: 20px; text-shadow: 0 0 5px rgba(13,110,253,0.5);">🔗</a></td>
-                            <td><span style="background: linear-gradient(135deg, #00b09b, #96c93d); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: bold; box-shadow: 0 0 8px rgba(0,255,136,0.3);">Published</span></td>
+                        <tr data-platform="whatsapp">
+                            <td><input type="date" class="table-input" value="2026-07-25"></td>
+                            <td><input type="text" class="table-input" style="font-size:12px;" value="T-Shirt pehen kar Namaz"></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><input type="url" class="table-input" value="https://wa.me/channel/123" placeholder="Paste Link"></td>
+                            <td><select class="table-input" style="font-size:12px;"><option>Published</option><option>Pending</option></select></td>
+                            <td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td>
                         </tr>
-                        <!-- Row 2 -->
-                        <tr>
-                            <td style="font-family: 'Poppins'; font-size: 13px;">24-07-2026</td>
-                            <td style="font-family: 'Poppins'; font-size: 14px; font-weight: 600; color: var(--gold-light);">Safar mein Namaz e Qasr</td>
-                            <td><span class="text-success" style="font-size: 18px;">✅</span></td>
-                            <td><span class="text-success" style="font-size: 18px;">✅</span></td>
-                            <td><span style="color: #666; font-size: 18px; text-shadow: none;">❌</span></td>
-                            <td><a href="#" style="color: #0d6efd; text-decoration: none; font-size: 20px; text-shadow: 0 0 5px rgba(13,110,253,0.5);">🔗</a></td>
-                            <td><span style="background: linear-gradient(135deg, #00b09b, #96c93d); color: white; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: bold; box-shadow: 0 0 8px rgba(0,255,136,0.3);">Published</span></td>
+                        <tr data-platform="youtube">
+                            <td><input type="date" class="table-input" value="2026-07-24"></td>
+                            <td><input type="text" class="table-input" style="font-size:12px;" value="Safar mein Namaz e Qasr"></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><select class="table-input" style="font-size:14px;"><option selected>❌ No</option><option>✅ Yes</option></select></td>
+                            <td><input type="url" class="table-input" value="https://youtube.com/..." placeholder="Paste Link"></td>
+                            <td><select class="table-input" style="font-size:12px;"><option>Published</option><option>Pending</option></select></td>
+                            <td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td>
                         </tr>
-                        <!-- Row 3 -->
-                        <tr>
-                            <td style="font-family: 'Poppins'; font-size: 13px;">23-07-2026</td>
-                            <td style="font-family: 'Poppins'; font-size: 14px; font-weight: 600; color: var(--gold-light);">Zakat ke Masail</td>
-                            <td><span class="text-success" style="font-size: 18px;">✅</span></td>
-                            <td><span class="text-success" style="font-size: 18px;">✅</span></td>
-                            <td><span class="text-success" style="font-size: 18px;">✅</span></td>
-                            <td><span style="color: #666; font-size: 18px;">-</span></td>
-                            <td><span style="background: linear-gradient(135deg, #f6d365, #fda085); color: #000; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: bold; box-shadow: 0 0 8px rgba(253,160,133,0.4);">Pending</span></td>
+                        <tr data-platform="facebook">
+                            <td><input type="date" class="table-input" value="2026-07-23"></td>
+                            <td><input type="text" class="table-input" style="font-size:12px;" value="Zakat ke Masail"></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><input type="url" class="table-input" value="" placeholder="Paste Link"></td>
+                            <td><select class="table-input" style="font-size:12px;"><option selected>Pending</option><option>Published</option></select></td>
+                            <td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td>
+                        </tr>
+                        <tr data-platform="instagram">
+                            <td><input type="date" class="table-input" value="2026-07-22"></td>
+                            <td><input type="text" class="table-input" style="font-size:12px;" value="Wuzu ka Tariqa"></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
+                            <td><input type="url" class="table-input" value="" placeholder="Paste Link"></td>
+                            <td><select class="table-input" style="font-size:12px;"><option selected>Pending</option><option>Published</option></select></td>
+                            <td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1036,7 +1045,7 @@
             if(dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.value = today; }
         };
 
-        // Real Photo Upload Function
+        // Real Photo Upload Function for Muftiyan
         function previewImage(event, inputElement) {
             const file = event.target.files[0];
             if (file) {
@@ -1066,6 +1075,20 @@
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
+                }
+            });
+        }
+
+        // Social Media Filter Function
+        function filterSocialMedia() {
+            let selected = document.getElementById('social-platform-select').value;
+            let rows = document.querySelectorAll('#social-media-table tbody tr');
+            
+            rows.forEach(row => {
+                if (selected === 'all' || row.getAttribute('data-platform') === selected) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
                 }
             });
         }
