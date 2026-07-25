@@ -154,6 +154,8 @@
         }
         .btn-action:hover, .btn-filter:hover { background: var(--gold-primary); color: #fff; box-shadow: 0 0 10px var(--gold-glow); }
         body:not(.light-mode) .btn-action:hover, body:not(.light-mode) .btn-filter:hover { color: #000; }
+        .btn-active { background: var(--gold-primary); color: #fff; }
+        body:not(.light-mode) .btn-active { color: #000; }
 
         /* Summary Cards */
         .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-bottom: 25px; }
@@ -193,96 +195,93 @@
         table td:nth-child(15), table td:nth-child(16), table td:nth-child(17), table td:nth-child(18) { background: rgba(212, 175, 55, 0.05); }
 
         /* ============================
-           NEW MUFTIYAN ID CARDS DESIGN
+           NEW MUFTIYAN PROFILE CARDS
            ============================ */
         .summary-badge { background: var(--card-bg); color: var(--gold-light); padding: 10px 20px; border-radius: 8px; display: inline-block; margin-bottom: 20px; border: 1px solid var(--gold-primary); box-shadow: 0 0 10px var(--gold-glow); }
         .summary-badge h2 { font-family: 'Jameel Noori Nastaleeq'; font-size: 24px; margin: 0; font-weight: normal; }
         .summary-badge span { font-size: 20px; font-weight: bold; font-family: 'Poppins'; margin-left: 8px; color: var(--text-white);}
 
-        .mufti-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        
-        .mufti-card {
-            background: var(--card-bg); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-            overflow: hidden; border: 1px solid var(--border-color); transition: transform 0.3s;
-            display: flex; flex-direction: column;
+        .m-profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
         }
-        body.light-mode .mufti-card { box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .mufti-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px var(--gold-glow); border-color: var(--gold-primary); }
-        
-        /* Specific ID Layout */
-        .mufti-id-layout {
+        .m-card {
             display: flex;
-            height: 125px; /* Fixed height for uniformity */
-            border-bottom: 1px solid var(--border-color);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            transition: 0.3s;
         }
-        
+        body.light-mode .m-card { box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+        .m-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px var(--gold-glow); border-color: var(--gold-primary); }
+
         .m-photo {
-            width: 100px;
-            flex-shrink: 0;
-            border-right: 2px solid var(--gold-primary);
+            width: 140px;
             position: relative;
+            border-right: 2px solid var(--gold-primary);
             cursor: pointer;
+            flex-shrink: 0;
             background: #111;
         }
-        .m-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .m-photo img { width: 100%; height: 100%; object-fit: cover; }
         .m-photo::after {
-            content: '📷 Upload'; position: absolute; font-size: 11px; background: rgba(0,0,0,0.8);
-            color: white; width: 100%; text-align: center; bottom: 0; padding: 4px 0; opacity: 0; transition: 0.3s;
+            content: '📷 Upload'; position: absolute; bottom: 0; left: 0; width: 100%;
+            background: rgba(0,0,0,0.7); color: #fff; text-align: center; padding: 6px 0;
+            font-size: 13px; font-family: 'Poppins', sans-serif; opacity: 0; transition: 0.3s;
         }
         .m-photo:hover::after { opacity: 1; }
 
-        .m-data {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            background: rgba(0,0,0,0.2);
-        }
-        body.light-mode .m-data { background: #fff; }
-
+        .m-details { flex-grow: 1; display: flex; flex-direction: column; }
+        
         .m-name {
             background: var(--gold-primary);
             color: #000;
-            font-family: 'Jameel Noori Nastaleeq';
-            font-size: 24px;
             text-align: center;
-            padding: 2px 0;
+            padding: 10px 5px;
+            font-family: 'Jameel Noori Nastaleeq';
+            font-size: 26px;
             font-weight: bold;
             border-bottom: 1px solid var(--border-color);
-            text-shadow: 0 1px 2px rgba(255,255,255,0.3);
         }
-        body.light-mode .m-name { color: #fff; background: var(--gold-light); text-shadow: none;}
-
-        .m-row {
-            padding: 3px 8px;
-            font-family: 'Jameel Noori Nastaleeq';
-            font-size: 16px;
-            color: var(--text-white);
-            text-align: right;
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: flex-start;
-            gap: 5px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            flex-grow: 1;
-            align-items: center;
-        }
-        .m-row:nth-child(even) { background: rgba(212, 175, 55, 0.05); }
-        .m-row:nth-child(odd) { background: rgba(255, 255, 255, 0.02); }
+        body.light-mode .m-name { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3);}
         
-        body.light-mode .m-row { border-bottom: 1px solid rgba(0,0,0,0.05); color: #000; }
-        body.light-mode .m-row:nth-child(even) { background: rgba(26, 99, 50, 0.05); }
-        body.light-mode .m-row:nth-child(odd) { background: #fff; }
-
+        .m-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Jameel Noori Nastaleeq';
+            font-size: 22px;
+            color: var(--text-white);
+            direction: rtl; /* For proper Urdu layout */
+            background: rgba(255,255,255,0.02);
+            flex-grow: 1;
+        }
+        body.light-mode .m-row { background: rgba(0,0,0,0.02); }
         .m-row:last-child { border-bottom: none; }
-        .m-row strong { color: var(--gold-light); font-weight: normal; }
-        body.light-mode .m-row strong { color: var(--gold-light); font-weight: bold; }
+        
+        .m-lbl { font-weight: bold; color: var(--gold-primary); margin-left: 10px; white-space: nowrap;}
+        body.light-mode .m-lbl { color: var(--gold-light); }
+        .m-val { text-align: left; }
 
-        .mufti-stats { display: flex; padding: 8px; background: rgba(0,0,0,0.4); justify-content: space-between; }
-        body.light-mode .mufti-stats { background: #f9fbf9; border-top: 1px solid #eee;}
+        /* ============================
+           OLD MUFTI CARDS (Kept for Branches Page)
+           ============================ */
+        .mufti-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .mufti-card { background: var(--card-bg); border-radius: 12px; border-top: 3px solid var(--gold-primary); border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); transition: transform 0.3s; overflow: hidden;}
+        body.light-mode .mufti-card { box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .mufti-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px var(--gold-glow); border-color: var(--gold-light); }
+        .mufti-header { padding: 12px 15px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: flex-start; background: rgba(0,0,0,0.1); }
+        .mufti-info h3 { color: var(--text-muted); font-size: 12px; margin-bottom: 2px; text-transform: uppercase; line-height:1.2;}
+        .mufti-info h2 { font-family: 'Jameel Noori Nastaleeq'; font-size: 22px; color: var(--gold-primary); margin-bottom: 2px; line-height:1.1;}
+        .status-badge { padding: 4px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 4px; box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+        .status-online { background: linear-gradient(135deg, #00b09b, #96c93d); }
+        .mufti-stats { display: flex; padding: 10px; background: rgba(0,0,0,0.2); justify-content: space-between; }
         .stat-box { text-align: center; flex: 1; border-right: 1px solid var(--border-color); }
         .stat-box:last-child { border-right: none; }
         .stat-box span { display: block; font-size: 9px; color: var(--text-muted); font-weight: 600; margin-bottom: 2px; text-transform: uppercase;}
@@ -296,47 +295,7 @@
         body:not(.light-mode) .btn-bottom:hover { color: #000; }
         .btn-bottom .urdu-btn { font-family: 'Jameel Noori Nastaleeq'; font-size: 20px; font-weight: normal; }
 
-        /* ============================
-           SOCIAL MEDIA PAGE (CINEMATIC)
-           ============================ */
-        .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .social-card {
-            background: var(--card-bg); border: 1px solid var(--border-color);
-            padding: 20px; border-radius: 15px; display: flex; flex-direction: column; gap: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4); transition: 0.4s ease; position: relative; overflow: hidden;
-        }
-        body.light-mode .social-card { box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        
-        .social-card::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
-            opacity: 0.05; transition: 0.4s ease; pointer-events: none;
-        }
-        .social-card:hover::before { opacity: 0.2; }
-        .social-card:hover { transform: translateY(-6px); border-color: var(--brand-color); box-shadow: 0 12px 35px var(--brand-glow); }
-        
-        .social-header { display: flex; align-items: center; gap: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; }
-        .social-icon {
-            font-size: 30px; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); box-shadow: 0 0 15px var(--brand-glow); transition: 0.3s;
-        }
-        .social-card:hover .social-icon { background: rgba(0,0,0,0.6); transform: scale(1.1) rotate(5deg); border-color: var(--brand-color); }
-        
-        .social-name h3 { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom:2px;}
-        .social-name h2 { font-family: 'Jameel Noori Nastaleeq'; font-size: 24px; color: var(--text-white); margin: 0; }
-        .social-card:hover .social-name h2 { color: var(--brand-color); text-shadow: 0 0 8px var(--brand-glow); }
-
-        .social-stats { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); }
-        .s-stat-item { text-align: center; }
-        .s-stat-item span { display: block; font-size: 9px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px; }
-        .s-stat-item .urdu-stat { font-family: 'Jameel Noori Nastaleeq'; font-size: 16px; color: var(--gold-primary); margin-bottom: 2px; line-height: 1.1; }
-        .s-stat-item h4 { font-size: 13px; color: var(--text-white); font-weight: 600; }
-        
-        .social-footer { display: flex; justify-content: flex-end; margin-top: 5px;}
-        .btn-manage { background: rgba(255,255,255,0.05); color: var(--text-white); border: 1px solid var(--border-color); padding: 6px 15px; border-radius: 6px; font-size: 11px; cursor: pointer; transition: 0.3s; font-weight:600; }
-        .social-card:hover .btn-manage { background: var(--brand-color); color: #fff; border-color: var(--brand-color); box-shadow: 0 0 10px var(--brand-glow); }
-
-        /* Others scaled down */
+        /* Others (Social, Settings, Notifications) scaled down */
         .notification-card { padding: 15px; border-radius: 10px; margin-bottom: 15px; gap: 15px;}
         .notif-icon { width: 45px; height: 45px; font-size: 22px; }
         .notif-content h2 { font-size: 20px; } .notif-content h3 { font-size: 12px; }
@@ -345,6 +304,27 @@
         .settings-header h2 { font-size: 22px; } .settings-header .icon { font-size: 24px; }
         .setting-item { padding: 10px; border-radius: 8px; margin-bottom: 10px; }
         .setting-item-text h4 { font-size: 13px; } .setting-item-text .urdu-setting { font-size: 18px; }
+        
+        .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .social-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 20px; border-radius: 15px; display: flex; flex-direction: column; gap: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); transition: 0.4s ease; position: relative; overflow: hidden; }
+        body.light-mode .social-card { box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .social-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); opacity: 0.05; transition: 0.4s ease; pointer-events: none; }
+        .social-card:hover::before { opacity: 0.2; }
+        .social-card:hover { transform: translateY(-6px); border-color: var(--brand-color); box-shadow: 0 12px 35px var(--brand-glow); }
+        .social-header { display: flex; align-items: center; gap: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; }
+        .social-icon { font-size: 30px; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); box-shadow: 0 0 15px var(--brand-glow); transition: 0.3s; }
+        .social-card:hover .social-icon { background: rgba(0,0,0,0.6); transform: scale(1.1) rotate(5deg); border-color: var(--brand-color); }
+        .social-name h3 { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom:2px;}
+        .social-name h2 { font-family: 'Jameel Noori Nastaleeq'; font-size: 24px; color: var(--text-white); margin: 0; }
+        .social-card:hover .social-name h2 { color: var(--brand-color); text-shadow: 0 0 8px var(--brand-glow); }
+        .social-stats { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); }
+        .s-stat-item { text-align: center; }
+        .s-stat-item span { display: block; font-size: 9px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 2px; }
+        .s-stat-item .urdu-stat { font-family: 'Jameel Noori Nastaleeq'; font-size: 16px; color: var(--gold-primary); margin-bottom: 2px; line-height: 1.1; }
+        .s-stat-item h4 { font-size: 13px; color: var(--text-white); font-weight: 600; }
+        .social-footer { display: flex; justify-content: flex-end; margin-top: 5px;}
+        .btn-manage { background: rgba(255,255,255,0.05); color: var(--text-white); border: 1px solid var(--border-color); padding: 6px 15px; border-radius: 6px; font-size: 11px; cursor: pointer; transition: 0.3s; font-weight:600; }
+        .social-card:hover .btn-manage { background: var(--brand-color); color: #fff; border-color: var(--brand-color); box-shadow: 0 0 10px var(--brand-glow); }
 
         .footer { margin-top: 20px; text-align: center; color: var(--text-muted); font-size: 12px; padding: 15px 0; border-top: 1px solid var(--border-color); }
         .text-danger { color: #dc3545 !important; } .text-success { color: #198754 !important; } .text-warning { color: var(--gold-primary) !important; }
@@ -494,42 +474,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Data sync with exact names from screenshots -->
+                        <!-- Shortened Data Structure for Viewability -->
                         <tr><td>1</td><td>Hyderabad</td><td>Jaseem Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>2</td><td>Hyderabad</td><td>Syed Bilal Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>3</td><td>Hyderabad</td><td>Misbah ur Rehman</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>4</td><td>Hyderabad</td><td>Misbah ul Haq Qadri</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>5</td><td>Nagpur</td><td>Zafar Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>6</td><td>Nagpur</td><td>Ghulam Raza Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>7</td><td>Nagpur</td><td>Dilkash Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>8</td><td>Mumbai</td><td>Kashif Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>9</td><td>Mumbai</td><td>Zulfiqar Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>10</td><td>Mumbai</td><td>Abdul Wajid Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>11</td><td>Mumbai</td><td>Muhammad Nadir Raza</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>12</td><td>Ahmedabad</td><td>Sajjad Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>13</td><td>Ahmedabad</td><td>Aalam Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>14</td><td>Ahmedabad</td><td>Aabid Hussain</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>15</td><td>Ahmedabad</td><td>Muhammad Faizan</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>16</td><td>Ahmedabad</td><td>Muhammad Saleem</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>17</td><td>Modasa</td><td>Javed Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>18</td><td>Modasa</td><td>Imran Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>19</td><td>Modasa</td><td>Bilal Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
-                        <tr><td>20</td><td>Modasa</td><td>Muhammad Irshad</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>2</td><td>Nagpur</td><td>Dilkash Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>3</td><td>Mumbai</td><td>Imran Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>4</td><td>Modasa</td><td>Bilal Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>5</td><td>Modasa</td><td>Javed Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>6</td><td>Hyderabad</td><td>Misbah ur Rehman</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>7</td><td>Ahmedabad</td><td>Aabid Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>8</td><td>Ahmedabad</td><td>Irshad Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>9</td><td>Modasa</td><td>Faizan Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>10</td><td>Nagpur</td><td>Zafar Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>11</td><td>Nagpur</td><td>Ghulam Raza Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>12</td><td>Mumbai</td><td>Kashif Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>13</td><td>Mumbai</td><td>Zulfiqar Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>14</td><td>Ahmedabad</td><td>Sajjad Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>15</td><td>Hyderabad</td><td>Syed Bilal Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>16</td><td>Ahmedabad</td><td>Aalam Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>17</td><td>Mumbai</td><td>Abdul Wajid Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>18</td><td>Ahmedabad</td><td>Saleem Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>19</td><td>Mumbai</td><td>Nadir Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
+                        <tr><td>20</td><td>Mumbai</td><td>Misbah ul Haq Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس صاحب</td><td><input class="table-input" value="3"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
                     </tbody>
                 </table>
             </div>
-
-            <div class="bottom-actions">
-                <button class="btn-bottom">📅 Daily Report <span class="urdu-btn">(روزانہ رپورٹ)</span></button>
-                <button class="btn-bottom">📆 Monthly Report <span class="urdu-btn">(ماہانہ رپورٹ)</span></button>
-                <button class="btn-bottom">📉 Yearly Report <span class="urdu-btn">(سالانہ رپورٹ)</span></button>
-            </div>
-
-            <div class="footer">© 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind</div>
         </div>
     </div>
 
-    <!-- MUFTIYAN-E-KIRAM PAGE WITH UPDATED ID CARDS -->
+    <!-- NEW MUFTIYAN-E-KIRAM PAGE WITH PROFILE CARDS -->
     <div id="muftiyan-page">
         <div class="main">
             <div class="header">
@@ -543,8 +515,8 @@
 
             <div class="toolbar">
                 <div class="toolbar-group">
-                    <input type="text" class="input-control" placeholder="🔍 Search Mufti (مفتی تلاش کریں)...">
-                    <select class="input-control" title="Search by Branch (برانچ کے مطابق تلاش)">
+                    <input type="text" class="input-control" placeholder="🔍 Search Mufti...">
+                    <select class="input-control" title="Search by Branch">
                         <option value="">All Branches (تمام برانچز)</option>
                         <option value="nagpur">Nagpur Branch (ناگپور)</option>
                         <option value="mumbai">Mumbai Branch (ممبئی)</option>
@@ -554,301 +526,278 @@
                     </select>
                 </div>
                 <div class="toolbar-group">
-                    <button class="btn-filter btn-active">✅ Active (فعال)</button>
-                    <button class="btn-filter btn-inactive">⛔ Inactive (غیر فعال)</button>
+                    <button class="btn-filter btn-active">✅ Active</button>
+                    <button class="btn-filter btn-inactive">⛔ Inactive</button>
                 </div>
             </div>
 
             <div class="summary-badge"><h2>کل مفتیان: <span>20</span></h2></div>
 
-            <!-- MUFTI GRID WITH NEW ID CARD LAYOUT -->
-            <div class="mufti-grid">
+            <!-- NEW PROFILE CARDS BASED ON SCREENSHOTS -->
+            <div class="m-profile-grid">
                 
-                <!-- 1. Jaseem Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">جسیم مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> محمد یاسین</div>
-                            <div class="m-row"><strong>پتا:</strong> رامپور، UP</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> حیدرآباد</div>
-                        </div>
+                <!-- 1 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Zafar Madani">
                     </div>
-                    <div class="mufti-stats">
-                        <div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>15</h4></div>
-                        <div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">12</h4></div>
-                        <div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">3</h4></div>
+                    <div class="m-details">
+                        <div class="m-name">ظفر مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">رفیق خان</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">بالاگھاٹ، MP</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">ناگپور</span></div>
                     </div>
                 </div>
 
-                <!-- 2. Syed Bilal Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">سید بلال مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> سید صادق محی الدین</div>
-                            <div class="m-row"><strong>پتا:</strong> کرناٹک</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> حیدرآباد</div>
-                        </div>
+                <!-- 2 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Ghulam Raza Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>18</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">15</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">3</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">غلام رضا مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">نعیم الدین</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">ناگپور</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">ناگپور</span></div>
+                    </div>
                 </div>
 
-                <!-- 3. Misbah ur Rehman -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">مصباح الرحمٰن</div>
-                            <div class="m-row"><strong>ولدیت:</strong> فضل رحمان</div>
-                            <div class="m-row"><strong>پتا:</strong> بہار</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> حیدرآباد</div>
-                        </div>
+                <!-- 3 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Dilkash Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>25</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">20</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">5</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">دلکش مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">سراج الدین انصاری</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">جھارکھنڈ</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">ناگپور</span></div>
+                    </div>
                 </div>
 
-                <!-- 4. Misbah ul Haq Qadri -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">مصباح الحق قادری</div>
-                            <div class="m-row"><strong>ولدیت:</strong> قربان منصوری</div>
-                            <div class="m-row"><strong>پتا:</strong> بہار</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> حیدرآباد</div>
-                        </div>
+                <!-- 4 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Kashif Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>22</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">20</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">2</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">کاشف مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">عبد الرؤف</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">مالیگاؤں، مہاراشٹر</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">ممبئی</span></div>
+                    </div>
                 </div>
 
-                <!-- 5. Zafar Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">ظفر مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> رفیق خان</div>
-                            <div class="m-row"><strong>پتا:</strong> بالا گھاٹ، MP</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> ناگپور</div>
-                        </div>
+                <!-- 5 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Zulfiqar Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>20</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">18</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">2</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">ذوالفقار مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">اکرام الحق</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">راجستھان</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">ممبئی</span></div>
+                    </div>
                 </div>
 
-                <!-- 6. Ghulam Raza Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">غلام رضا مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> نعیم الدین</div>
-                            <div class="m-row"><strong>پتا:</strong> ناگپور</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> ناگپور</div>
-                        </div>
+                <!-- 6 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Abdul Wajid Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>24</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">22</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">2</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">عبدالواجد مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">عثمان علی</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">جھارکھنڈ</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">ممبئی</span></div>
+                    </div>
                 </div>
 
-                <!-- 7. Dilkash Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">دلکش مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> سراج الدین انصاری</div>
-                            <div class="m-row"><strong>پتا:</strong> جھارکھنڈ</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> ناگپور</div>
-                        </div>
+                <!-- 7 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Nadir Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>15</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">15</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-success">0</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">محمد نادر رضا</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">محمد علی</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">امروہا، UP</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">ممبئی</span></div>
+                    </div>
                 </div>
 
-                <!-- 8. Kashif Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">کاشف مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> عبدالرؤف</div>
-                            <div class="m-row"><strong>پتا:</strong> مالیگاؤں، مہاراشٹر</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> ممبئی</div>
-                        </div>
+                <!-- 8 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Sajjad Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>16</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">14</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">2</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">سجاد مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">کیف سرور</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">احمد آباد</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">احمد آباد</span></div>
+                    </div>
                 </div>
 
-                <!-- 9. Zulfiqar Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">ذوالفقار مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> اکرام الحق</div>
-                            <div class="m-row"><strong>پتا:</strong> راجستھان</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> ممبئی</div>
-                        </div>
+                <!-- 9 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Aalam Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>12</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">10</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">2</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">عالم مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">بھورا علی</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">مرادآباد، UP</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">احمد آباد</span></div>
+                    </div>
                 </div>
 
-                <!-- 10. Abdul Wajid Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">عبدالواجد مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> عثمان علی</div>
-                            <div class="m-row"><strong>پتا:</strong> جھارکھنڈ</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> ممبئی</div>
-                        </div>
+                <!-- 10 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Aabid Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>14</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">12</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">2</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">عابد حسین</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">محمد قاسم</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">راجستھان</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">احمد آباد</span></div>
+                    </div>
                 </div>
 
-                <!-- 11. Muhammad Nadir Raza -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">محمد نادر رضا</div>
-                            <div class="m-row"><strong>ولدیت:</strong> محمد علی</div>
-                            <div class="m-row"><strong>پتا:</strong> امروہا، UP</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> ممبئی</div>
-                        </div>
+                <!-- 11 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Faizan Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>10</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">8</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">2</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">محمد فیضان</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">محمد بھائی</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">گجرات</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">احمد آباد</span></div>
+                    </div>
                 </div>
 
-                <!-- 12. Sajjad Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">سجاد مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> کیف سرور</div>
-                            <div class="m-row"><strong>پتا:</strong> احمد آباد</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> احمد آباد</div>
-                        </div>
+                <!-- 12 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Saleem Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>11</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">10</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">1</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">محمد سلیم</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">عزیز خان</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">راجستھان</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">احمد آباد</span></div>
+                    </div>
                 </div>
 
-                <!-- 13. Aalam Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">عالم مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> بھورا علی</div>
-                            <div class="m-row"><strong>پتا:</strong> مرادآباد، UP</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> احمد آباد</div>
-                        </div>
+                <!-- 13 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Javed Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>20</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">18</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">2</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">جاوید مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">انوار حسین</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">مرادآباد، UP</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">موڈاسا</span></div>
+                    </div>
                 </div>
 
-                <!-- 14. Aabid Hussain -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">عابد حسین</div>
-                            <div class="m-row"><strong>ولدیت:</strong> محمد قاسم</div>
-                            <div class="m-row"><strong>پتا:</strong> راجستھان</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> احمد آباد</div>
-                        </div>
+                <!-- 14 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Imran Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>14</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">14</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-success">0</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">عمران مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">محمد تسنیم شمسی</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">پیلی بھیت، UP</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">موڈاسا</span></div>
+                    </div>
                 </div>
 
-                <!-- 15. Muhammad Faizan -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">محمد فیضان</div>
-                            <div class="m-row"><strong>ولدیت:</strong> محمد بھائی</div>
-                            <div class="m-row"><strong>پتا:</strong> گجرات</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> احمد آباد</div>
-                        </div>
+                <!-- 15 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Bilal Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>28</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">24</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">4</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">بلال مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">شمس العارفین</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">کانپور</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">موڈاسا</span></div>
+                    </div>
                 </div>
 
-                <!-- 16. Muhammad Saleem -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">محمد سلیم</div>
-                            <div class="m-row"><strong>ولدیت:</strong> عزیز خان</div>
-                            <div class="m-row"><strong>پتا:</strong> راجستھان</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> احمد آباد</div>
-                        </div>
+                <!-- 16 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Irshad Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>0</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">0</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-success">0</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">محمد ارشاد</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">نور محمد</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">کانپور</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">موڈاسا</span></div>
+                    </div>
                 </div>
 
-                <!-- 17. Javed Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">جاوید مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> انوار حسین</div>
-                            <div class="m-row"><strong>پتا:</strong> مرادآباد، UP</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> موڈاسا</div>
-                        </div>
+                <!-- 17 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Jaseem Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>11</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">10</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">1</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">جسیم مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">محمد یاسین</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">رامپور، UP</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">حیدر آباد</span></div>
+                    </div>
                 </div>
 
-                <!-- 18. Imran Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">عمران مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> محمد تسنیم شمسی</div>
-                            <div class="m-row"><strong>پتا:</strong> پیلی بھیت، UP</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> موڈاسا</div>
-                        </div>
+                <!-- 18 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Syed Bilal Madani">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>15</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">15</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-success">0</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">سید بلال مدنی</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">سید صادق محی الدین</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">کرناٹک</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">حیدر آباد</span></div>
+                    </div>
                 </div>
 
-                <!-- 19. Bilal Madani -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">بلال مدنی</div>
-                            <div class="m-row"><strong>ولدیت:</strong> شمس العارفین</div>
-                            <div class="m-row"><strong>پتا:</strong> کانپور</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> موڈاسا</div>
-                        </div>
+                <!-- 19 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Misbah ur Rehman">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>22</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">18</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">4</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">مصباح الرحمٰن</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">فضل رحمان</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">بہار</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">حیدر آباد</span></div>
+                    </div>
                 </div>
 
-                <!-- 20. Muhammad Irshad -->
-                <div class="mufti-card">
-                    <div class="mufti-id-layout">
-                        <div class="m-photo" title="تصویر شامل کریں" onclick="alert('تصویر اپلوڈ کریں (Upload Photo)')"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="DP"></div>
-                        <div class="m-data">
-                            <div class="m-name">محمد ارشاد</div>
-                            <div class="m-row"><strong>ولدیت:</strong> نور محمد</div>
-                            <div class="m-row"><strong>پتا:</strong> کانپور</div>
-                            <div class="m-row"><strong>مقام تقرری:</strong> موڈاسا</div>
-                        </div>
+                <!-- 20 -->
+                <div class="m-card">
+                    <div class="m-photo" title="تصویر اپلوڈ کریں" onclick="alert('Upload Photo Feature')">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Misbah ul Haq">
                     </div>
-                    <div class="mufti-stats"><div class="stat-box"><span>Today</span><span class="urdu-stat">آج</span><h4>0</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">0</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-success">0</h4></div></div>
+                    <div class="m-details">
+                        <div class="m-name">مصباح الحق قادری</div>
+                        <div class="m-row"><span class="m-lbl">ولدیت :</span><span class="m-val">قربان منصوری</span></div>
+                        <div class="m-row"><span class="m-lbl">پتہ :</span><span class="m-val">بہار</span></div>
+                        <div class="m-row"><span class="m-lbl">مقام تقرری :</span><span class="m-val">حیدر آباد</span></div>
+                    </div>
                 </div>
+
             </div>
-
+            
             <div class="footer">© 2026 Darul Ifta ERP</div>
         </div>
     </div>
@@ -867,6 +816,7 @@
 
             <div class="summary-badge"><h2>کل برانچز: <span>5</span></h2></div>
 
+            <!-- Branch cards remain as they were using the old mufti-card format perfectly -->
             <div class="mufti-grid">
                 <div class="mufti-card">
                     <div class="mufti-header"><div class="mufti-info"><h3>Nagpur Branch</h3><h2>ناگپور برانچ</h2></div><div class="status-badge status-online"><i>👳</i> 3</div></div>
@@ -881,7 +831,7 @@
                     <div class="mufti-stats"><div class="stat-box"><span>Qs</span><span class="urdu-stat">آج</span><h4>64</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">62</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">2</h4></div></div>
                 </div>
                 <div class="mufti-card">
-                    <div class="mufti-header"><div class="mufti-info"><h3>Hyderabad Branch</h3><h2>حیدر آباد برانچ</h2></div><div class="status-badge status-online"><i>👳</i> 4</div></div>
+                    <div class="mufti-header"><div class="mufti-info"><h3>Hyderabad Branch</h3><h2>حیدر آباد برانچ</h2></div><div class="status-badge status-online"><i>👳</i> 3</div></div>
                     <div class="mufti-stats"><div class="stat-box"><span>Qs</span><span class="urdu-stat">آج</span><h4>62</h4></div><div class="stat-box"><span>Ans</span><span class="urdu-stat">جوابات</span><h4 class="text-success">54</h4></div><div class="stat-box"><span>Pend</span><span class="urdu-stat">باقی</span><h4 class="text-danger">8</h4></div></div>
                 </div>
                 <div class="mufti-card">
@@ -984,26 +934,13 @@
             </div>
 
             <div class="social-grid">
-                <div class="social-card" style="--brand-color: #d4af37; --brand-glow: rgba(212, 175, 55, 0.4);">
-                    <div class="social-header"><div class="social-icon" style="color: var(--gold-light);">🌐</div><div class="social-name"><h2>ویب سائٹ</h2></div></div>
-                    <div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div>
-                </div>
-                <div class="social-card" style="--brand-color: #1877F2; --brand-glow: rgba(24, 119, 242, 0.4);">
-                    <div class="social-header"><div class="social-icon" style="color: #1877F2;">📘</div><div class="social-name"><h2>فیس بک</h2></div></div>
-                    <div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div>
-                </div>
-                <div class="social-card" style="--brand-color: #E1306C; --brand-glow: rgba(225, 48, 108, 0.4);">
-                    <div class="social-header"><div class="social-icon" style="color: #E1306C;">📸</div><div class="social-name"><h2>انسٹاگرام</h2></div></div>
-                    <div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div>
-                </div>
-                <div class="social-card" style="--brand-color: #25D366; --brand-glow: rgba(37, 211, 102, 0.4);">
-                    <div class="social-header"><div class="social-icon" style="color: #25D366;">💬</div><div class="social-name"><h2>واٹس ایپ</h2></div></div>
-                    <div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div>
-                </div>
-                <div class="social-card" style="--brand-color: #FF0000; --brand-glow: rgba(255, 0, 0, 0.4);">
-                    <div class="social-header"><div class="social-icon" style="color: #FF0000;">📺</div><div class="social-name"><h2>یوٹیوب</h2></div></div>
-                    <div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-danger">❌</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-danger">Inactive</h4></div></div>
-                </div>
+                <div class="social-card" style="--brand-color: #d4af37; --brand-glow: rgba(212, 175, 55, 0.4);"><div class="social-header"><div class="social-icon" style="color: var(--gold-light);">🌐</div><div class="social-name"><h2>ویب سائٹ</h2></div></div><div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div></div>
+                <div class="social-card" style="--brand-color: #1877F2; --brand-glow: rgba(24, 119, 242, 0.4);"><div class="social-header"><div class="social-icon" style="color:#1877F2;">📘</div><div class="social-name"><h2>فیس بک</h2></div></div><div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div></div>
+                <div class="social-card" style="--brand-color: #E1306C; --brand-glow: rgba(225, 48, 108, 0.4);"><div class="social-header"><div class="social-icon" style="color:#E1306C;">📸</div><div class="social-name"><h2>انسٹاگرام</h2></div></div><div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div></div>
+                <div class="social-card" style="--brand-color: #ffffff; --brand-glow: rgba(255, 255, 255, 0.4);"><div class="social-header"><div class="social-icon" style="color:#ffffff;">✖️</div><div class="social-name"><h2>ٹوئٹر</h2></div></div><div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div></div>
+                <div class="social-card" style="--brand-color: #0088cc; --brand-glow: rgba(0, 136, 204, 0.4);"><div class="social-header"><div class="social-icon" style="color:#0088cc;">✈️</div><div class="social-name"><h2>ٹیلیگرام</h2></div></div><div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div></div>
+                <div class="social-card" style="--brand-color: #25D366; --brand-glow: rgba(37, 211, 102, 0.4);"><div class="social-header"><div class="social-icon" style="color:#25D366;">💬</div><div class="social-name"><h2>واٹس ایپ</h2></div></div><div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div></div>
+                <div class="social-card" style="--brand-color: #FF0000; --brand-glow: rgba(255, 0, 0, 0.4);"><div class="social-header"><div class="social-icon" style="color:#FF0000;">📺</div><div class="social-name"><h2>یوٹیوب</h2></div></div><div class="social-stats"><div class="s-stat-item"><div class="urdu-stat">منسلک</div><h4 class="text-danger">❌</h4></div><div class="s-stat-item"><div class="urdu-stat">حالت</div><h4 class="text-danger">Inactive</h4></div></div></div>
             </div>
         </div>
     </div>
