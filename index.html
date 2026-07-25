@@ -195,13 +195,12 @@
         table td:nth-child(15), table td:nth-child(16), table td:nth-child(17), table td:nth-child(18) { background: rgba(212, 175, 55, 0.05); }
 
         /* ============================
-           NEW MUFTIYAN CARDS (Screenshot Style)
+           NEW MUFTIYAN CARDS (Screenshot Style with Real Upload)
            ============================ */
         .summary-badge { background: var(--card-bg); color: var(--gold-light); padding: 10px 20px; border-radius: 8px; display: inline-block; margin-bottom: 20px; border: 1px solid var(--gold-primary); box-shadow: 0 0 10px var(--gold-glow); }
         .summary-badge h2 { font-family: 'Jameel Noori Nastaleeq'; font-size: 24px; margin: 0; font-weight: normal; }
         .summary-badge span { font-size: 20px; font-weight: bold; font-family: 'Poppins'; margin-left: 8px; color: var(--text-white);}
 
-        /* Grid for the new Mufti Cards */
         .nm-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -209,7 +208,6 @@
             margin-bottom: 40px; 
         }
         
-        /* The Card Container */
         .nm-card {
             display: flex;
             border: 2px solid var(--gold-primary);
@@ -222,32 +220,32 @@
             height: 150px; /* Fixed compact height */
         }
         body.light-mode .nm-card { box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
-        .nm-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px var(--gold-glow);
-        }
+        .nm-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px var(--gold-glow); }
 
         /* Left Side: Photo */
         .nm-photo {
             width: 35%;
-            border-left: 2px solid var(--gold-primary); /* RTL: left border separates photo from details */
+            border-left: 2px solid var(--gold-primary); 
             background: #111;
             position: relative;
             cursor: pointer;
+            overflow: hidden;
         }
         body.light-mode .nm-photo { background: #eee; }
         .nm-photo img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Keeps aspect ratio perfectly */
             display: block;
+            transition: 0.3s ease;
         }
+        .nm-photo:hover img { filter: brightness(0.6); }
+        
         .nm-photo::after {
             content: '📷 اپلوڈ'; 
             font-family: 'Jameel Noori Nastaleeq', sans-serif;
             position: absolute; 
             font-size: 18px; 
-            background: rgba(0,0,0,0.6); 
             color: white; 
             width: 100%; 
             height: 100%;
@@ -257,6 +255,7 @@
             top: 0; left: 0; 
             opacity: 0; 
             transition: 0.3s; 
+            text-shadow: 0 2px 4px #000;
         }
         .nm-photo:hover::after { opacity: 1; }
 
@@ -273,7 +272,7 @@
             padding: 0 10px;
             border-bottom: 1px solid var(--border-color);
             font-family: 'Jameel Noori Nastaleeq', serif;
-            font-size: 18px; /* Big enough for Nastaleeq */
+            font-size: 18px; 
             color: var(--text-white);
             white-space: nowrap;
             overflow: hidden;
@@ -282,7 +281,6 @@
         body.light-mode .nm-row { border-bottom: 1px solid rgba(26, 99, 50, 0.2); }
         .nm-row:last-child { border-bottom: none; }
         
-        /* Specific Row Colors */
         .nm-name {
             background: linear-gradient(135deg, var(--gold-primary), #b58500);
             color: #000;
@@ -292,22 +290,22 @@
             text-shadow: 0 1px 1px rgba(255,255,255,0.3);
         }
         body.light-mode .nm-name {
-            background: var(--gold-primary);
-            color: #fff;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            background: var(--gold-primary); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.4);
         }
         
-        .nm-info {
-            background: rgba(255, 255, 255, 0.03); /* Subtle tint */
-        }
+        .nm-info { background: rgba(255, 255, 255, 0.03); }
         body.light-mode .nm-info { background: #eaf1ed; color: #111; }
         
+        /* Updated Jameel Noori cinematic label */
         .nm-label {
-            font-weight: bold;
-            margin-left: 6px;
+            font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif !important;
+            font-size: 21px; 
+            font-weight: normal;
+            margin-left: 8px;
             color: var(--gold-light);
+            text-shadow: 0 1px 4px var(--gold-glow);
         }
-        body.light-mode .nm-label { color: var(--gold-primary); }
+        body.light-mode .nm-label { color: var(--gold-primary); text-shadow: none; font-weight: bold;}
 
         /* ============================
            OLD CARDS STYLES (Kept intact for Branches Page ONLY)
@@ -465,7 +463,7 @@
         </div>
     </div>
 
-    <!-- DAILY WHATSAPP REPORT PAGE (LIVE EXCEL) -->
+    <!-- DAILY WHATSAPP REPORT PAGE -->
     <div id="whatsapp-report-page">
         <div class="main">
             <div class="header">
@@ -516,7 +514,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Shortened Data Structure for Viewability -->
                         <tr><td>1</td><td>Hyderabad</td><td>Jaseem Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
                         <tr><td>2</td><td>Nagpur</td><td>Dilkash Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
                         <tr><td>3</td><td>Mumbai</td><td>Imran Madani</td><td style="font-family:'Jameel Noori Nastaleeq';font-size:12px;">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRow(this)">💾 Save</button></td></tr>
@@ -543,7 +540,7 @@
         </div>
     </div>
 
-    <!-- MUFTIYAN-E-KIRAM PAGE WITH PHOTO UPLOAD & SCREENSHOT FORMAT -->
+    <!-- MUFTIYAN-E-KIRAM PAGE WITH REAL PHOTO UPLOAD & SCREENSHOT FORMAT -->
     <div id="muftiyan-page">
         <div class="main">
             <div class="header">
@@ -580,8 +577,9 @@
                 
                 <!-- 1 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">ظفر مدنی</div>
@@ -593,8 +591,9 @@
 
                 <!-- 2 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">غلام رضا مدنی</div>
@@ -606,8 +605,9 @@
 
                 <!-- 3 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">دل کش مدنی</div>
@@ -619,8 +619,9 @@
 
                 <!-- 4 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">کاشف مدنی</div>
@@ -632,8 +633,9 @@
 
                 <!-- 5 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">ذوالفقار مدنی</div>
@@ -645,8 +647,9 @@
 
                 <!-- 6 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">عبدالواجد مدنی</div>
@@ -658,8 +661,9 @@
 
                 <!-- 7 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">محمد نادر رضا</div>
@@ -671,8 +675,9 @@
 
                 <!-- 8 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">سجاد مدنی</div>
@@ -684,8 +689,9 @@
 
                 <!-- 9 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">عالم مدنی</div>
@@ -697,8 +703,9 @@
 
                 <!-- 10 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">عابد حسین</div>
@@ -710,8 +717,9 @@
 
                 <!-- 11 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">محمد فیضان</div>
@@ -723,8 +731,9 @@
 
                 <!-- 12 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">محمد سلیم</div>
@@ -736,8 +745,9 @@
 
                 <!-- 13 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">جاوید مدنی</div>
@@ -749,8 +759,9 @@
 
                 <!-- 14 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">عمران مدنی</div>
@@ -762,8 +773,9 @@
 
                 <!-- 15 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">بلال مدنی</div>
@@ -775,8 +787,9 @@
 
                 <!-- 16 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">محمد ارشاد</div>
@@ -788,8 +801,9 @@
 
                 <!-- 17 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">جسیم مدنی</div>
@@ -801,8 +815,9 @@
 
                 <!-- 18 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">سید بلال مدنی</div>
@@ -814,8 +829,9 @@
 
                 <!-- 19 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">مصباح الرحمٰن</div>
@@ -827,8 +843,9 @@
 
                 <!-- 20 -->
                 <div class="nm-card">
-                    <div class="nm-photo" onclick="alert('تصویر اپلوڈ کریں')">
+                    <div class="nm-photo" onclick="this.querySelector('input').click()">
                         <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
+                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
                     </div>
                     <div class="nm-details">
                         <div class="nm-row nm-name">مصباح الحق قادری</div>
@@ -977,11 +994,41 @@
             </div>
 
             <div class="social-grid">
-                <div class="social-card"><div class="social-icon-wrapper"><div class="social-icon" style="color:var(--gold-light);">🌐</div><div class="social-name"><h2>ویب سائٹ</h2></div></div><div class="social-details"><div class="s-detail"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-detail"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div></div>
-                <div class="social-card"><div class="social-icon-wrapper"><div class="social-icon" style="color:#1877F2;">📘</div><div class="social-name"><h2>فیس بک</h2></div></div><div class="social-details"><div class="s-detail"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-detail"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div></div>
-                <div class="social-card"><div class="social-icon-wrapper"><div class="social-icon" style="color:#E1306C;">📸</div><div class="social-name"><h2>انسٹاگرام</h2></div></div><div class="social-details"><div class="s-detail"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-detail"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div></div>
-                <div class="social-card"><div class="social-icon-wrapper"><div class="social-icon" style="color:#25D366;">💬</div><div class="social-name"><h2>واٹس ایپ</h2></div></div><div class="social-details"><div class="s-detail"><div class="urdu-stat">منسلک</div><h4 class="text-success">✅</h4></div><div class="s-detail"><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div></div>
-                <div class="social-card"><div class="social-icon-wrapper"><div class="social-icon" style="color:#FF0000;">📺</div><div class="social-name"><h2>یوٹیوب</h2></div></div><div class="social-details"><div class="s-detail"><div class="urdu-stat">منسلک</div><h4 class="text-danger">❌</h4></div><div class="s-detail"><div class="urdu-stat">حالت</div><h4 class="text-danger">Inactive</h4></div></div></div>
+                <div class="social-card" style="--brand-color: #d4af37; --brand-glow: rgba(212, 175, 55, 0.4);">
+                    <div class="social-header"><div class="social-icon" style="color: var(--gold-light);">🌐</div><div class="social-name"><h3>Website</h3><h2>ویب سائٹ</h2></div></div>
+                    <div class="social-stats"><div class="s-stat-item"><span>Connected</span><div class="urdu-stat">منسلک</div><h4 class="text-success">✅ Yes</h4></div><div class="s-stat-item"><span>Last Sync</span><div class="urdu-stat">آخری مطابقت</div><h4>Just Now</h4></div><div class="s-stat-item"><span>Status</span><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div>
+                    <div class="social-footer"><button class="btn-manage">⚙️ Manage</button></div>
+                </div>
+                <div class="social-card" style="--brand-color: #1877F2; --brand-glow: rgba(24, 119, 242, 0.4);">
+                    <div class="social-header"><div class="social-icon" style="color: #1877F2;">📘</div><div class="social-name"><h3>Facebook</h3><h2>فیس بک</h2></div></div>
+                    <div class="social-stats"><div class="s-stat-item"><span>Connected</span><div class="urdu-stat">منسلک</div><h4 class="text-success">✅ Yes</h4></div><div class="s-stat-item"><span>Last Sync</span><div class="urdu-stat">آخری مطابقت</div><h4>5 Mins Ago</h4></div><div class="s-stat-item"><span>Status</span><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div>
+                    <div class="social-footer"><button class="btn-manage">⚙️ Manage</button></div>
+                </div>
+                <div class="social-card" style="--brand-color: #E1306C; --brand-glow: rgba(225, 48, 108, 0.4);">
+                    <div class="social-header"><div class="social-icon" style="color: #E1306C;">📸</div><div class="social-name"><h3>Instagram</h3><h2>انسٹاگرام</h2></div></div>
+                    <div class="social-stats"><div class="s-stat-item"><span>Connected</span><div class="urdu-stat">منسلک</div><h4 class="text-success">✅ Yes</h4></div><div class="s-stat-item"><span>Last Sync</span><div class="urdu-stat">آخری مطابقت</div><h4>10 Mins Ago</h4></div><div class="s-stat-item"><span>Status</span><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div>
+                    <div class="social-footer"><button class="btn-manage">⚙️ Manage</button></div>
+                </div>
+                <div class="social-card" style="--brand-color: #ffffff; --brand-glow: rgba(255, 255, 255, 0.4);">
+                    <div class="social-header"><div class="social-icon" style="color: #ffffff;">✖️</div><div class="social-name"><h3>X (Twitter)</h3><h2>ٹوئٹر</h2></div></div>
+                    <div class="social-stats"><div class="s-stat-item"><span>Connected</span><div class="urdu-stat">منسلک</div><h4 class="text-success">✅ Yes</h4></div><div class="s-stat-item"><span>Last Sync</span><div class="urdu-stat">آخری مطابقت</div><h4>1 Hour Ago</h4></div><div class="s-stat-item"><span>Status</span><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div>
+                    <div class="social-footer"><button class="btn-manage">⚙️ Manage</button></div>
+                </div>
+                <div class="social-card" style="--brand-color: #0088cc; --brand-glow: rgba(0, 136, 204, 0.4);">
+                    <div class="social-header"><div class="social-icon" style="color: #0088cc;">✈️</div><div class="social-name"><h3>Telegram</h3><h2>ٹیلیگرام</h2></div></div>
+                    <div class="social-stats"><div class="s-stat-item"><span>Connected</span><div class="urdu-stat">منسلک</div><h4 class="text-success">✅ Yes</h4></div><div class="s-stat-item"><span>Last Sync</span><div class="urdu-stat">آخری مطابقت</div><h4>Just Now</h4></div><div class="s-stat-item"><span>Status</span><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div>
+                    <div class="social-footer"><button class="btn-manage">⚙️ Manage</button></div>
+                </div>
+                <div class="social-card" style="--brand-color: #25D366; --brand-glow: rgba(37, 211, 102, 0.4);">
+                    <div class="social-header"><div class="social-icon" style="color: #25D366;">💬</div><div class="social-name"><h3>WhatsApp Channel</h3><h2>واٹس ایپ چینل</h2></div></div>
+                    <div class="social-stats"><div class="s-stat-item"><span>Connected</span><div class="urdu-stat">منسلک</div><h4 class="text-success">✅ Yes</h4></div><div class="s-stat-item"><span>Last Sync</span><div class="urdu-stat">آخری مطابقت</div><h4>2 Mins Ago</h4></div><div class="s-stat-item"><span>Status</span><div class="urdu-stat">حالت</div><h4 class="text-success">Active</h4></div></div>
+                    <div class="social-footer"><button class="btn-manage">⚙️ Manage</button></div>
+                </div>
+                <div class="social-card" style="--brand-color: #FF0000; --brand-glow: rgba(255, 0, 0, 0.4);">
+                    <div class="social-header"><div class="social-icon" style="color: #FF0000;">📺</div><div class="social-name"><h3>YouTube</h3><h2>یوٹیوب</h2></div></div>
+                    <div class="social-stats"><div class="s-stat-item"><span>Connected</span><div class="urdu-stat">منسلک</div><h4 class="text-danger">❌ No</h4></div><div class="s-stat-item"><span>Last Sync</span><div class="urdu-stat">آخری مطابقت</div><h4 class="text-muted">N/A</h4></div><div class="s-stat-item"><span>Status</span><div class="urdu-stat">حالت</div><h4 class="text-danger">Inactive</h4></div></div>
+                    <div class="social-footer"><button class="btn-manage" style="color: #00ff88; border-color: #00ff88;">🔗 Connect</button></div>
+                </div>
             </div>
         </div>
     </div>
@@ -994,6 +1041,20 @@
             const dateInput = document.getElementById('report-date');
             if(dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.value = today; }
         };
+
+        // Real Photo Upload Function
+        function previewImage(event, inputElement) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Find the img tag just above the input field
+                    const img = inputElement.previousElementSibling;
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
 
         function createNewReportSheet() {
             const tableArea = document.getElementById('whatsapp-table-area');
