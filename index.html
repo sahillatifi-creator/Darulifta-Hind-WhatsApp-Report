@@ -227,19 +227,33 @@
         .btn-reset { border-color: #ff4d4d; color: #ff4d4d; background: rgba(255, 77, 77, 0.1); margin-left: 10px;}
         .btn-reset:hover { background: #ff4d4d; color: #fff; box-shadow: 0 0 15px rgba(255,77,77,0.5); }
 
-        /* COMPACT TABLE FOR SCREEN ADJUSTMENT */
+        /* ========================================================
+           SCREEN ADJUSTMENT (COMPACT TABLE FOR BETTER VIEWING)
+           ======================================================== */
         .table-container, .sm-table-container { 
             background: var(--card-bg); backdrop-filter: blur(12px); border-radius: 12px; 
             padding: 10px; border: 1px solid var(--border-color); margin-bottom: 30px; 
             width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; 
             transition: opacity 0.4s ease; box-shadow: 0 8px 25px rgba(0,0,0,0.4); 
         }
-        table { width: 100%; border-collapse: collapse; min-width: 1000px; /* Ensures horizontal scroll if needed */ }
-        table th { background: var(--table-header-bg); color: #fff; padding: 8px 4px; text-align: center; font-size: 11px; border-bottom: 2px solid var(--gold-primary); border-right: 1px solid rgba(255,255,255,0.1); vertical-align: middle; white-space: nowrap; }
-        table th .urdu-th { font-size: 16px; display: block; margin-top: 2px; font-weight: normal; color: var(--gold-primary); line-height: 1.2; text-shadow: 0 1px 2px #000;}
+        table { width: 100%; border-collapse: collapse; min-width: 1050px; }
+        table th { 
+            background: var(--table-header-bg); color: #fff; padding: 8px 4px; 
+            text-align: center; font-size: 11px; border-bottom: 2px solid var(--gold-primary); 
+            border-right: 1px solid rgba(255,255,255,0.1); vertical-align: middle; 
+            white-space: nowrap;
+        }
+        table th .urdu-th { 
+            font-size: 16px; display: block; margin-top: 2px; font-weight: normal; 
+            color: var(--gold-primary); line-height: 1.2; text-shadow: 0 1px 2px #000;
+        }
         body.light-mode table th .urdu-th { color: #d1e7dd; text-shadow: none;}
         
-        table td { padding: 4px; border-bottom: 1px solid var(--table-border); border-right: 1px solid var(--table-border); color: var(--text-white); font-size: 11px; font-weight: 500; text-align: center; vertical-align: middle;}
+        table td { 
+            padding: 4px; border-bottom: 1px solid var(--table-border); 
+            border-right: 1px solid var(--table-border); color: var(--text-white); 
+            font-size: 11px; font-weight: 500; text-align: center; vertical-align: middle;
+        }
         
         /* TABLE INPUTS COMPACT & FULLY ACTIVE */
         .table-input { 
@@ -253,18 +267,15 @@
         }
         .table-input:focus { border-color: var(--gold-primary); box-shadow: 0 0 8px var(--gold-glow); background: rgba(0,0,0,0.8); }
 
-        /* COLOURFUL TABLE COLUMNS */
+        /* ========================================================
+           COLOURFUL TABLE COLUMNS
+           ======================================================== */
         .col-pending { color: #ffc107 !important; background: rgba(255, 193, 7, 0.1) !important; border-color: rgba(255, 193, 7, 0.4) !important; }
         .col-correct { color: #2ecc71 !important; background: rgba(46, 204, 113, 0.1) !important; border-color: rgba(46, 204, 113, 0.4) !important; }
         .col-wrong { color: #e74c3c !important; background: rgba(231, 76, 60, 0.1) !important; border-color: rgba(231, 76, 60, 0.4) !important; }
         .col-edited { color: #9b59b6 !important; background: rgba(155, 89, 182, 0.1) !important; border-color: rgba(155, 89, 182, 0.4) !important; }
         
-        .btn-edit { padding: 6px 12px; font-size: 12px; background: rgba(92, 225, 211, 0.15); color: var(--gold-primary); border: 1px solid var(--gold-primary); border-radius: 6px; cursor:pointer; font-weight: bold; width: 100%; transition: 0.3s; display:flex; align-items:center; justify-content:center;}
-        .btn-edit:hover { background: var(--gold-primary); color: #000; box-shadow: 0 0 12px var(--gold-glow);}
-
-        /* ========================================================
-           REPORTS MODULE TABS
-           ======================================================== */
+        /* REPORTS MODULE TABS */
         .report-tabs-wrapper { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
         .report-tab {
             background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);
@@ -304,8 +315,8 @@
         /* WHATSAPP SUWALAT & OTHER MODULES */
         .ws-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 25px; margin-bottom: 30px; }
         .ws-duplicate-warn { color: var(--gold-primary); font-size: 12px; margin-top: 5px; display: none; font-weight: bold; background: rgba(0,0,0,0.5); padding: 8px; border-radius: 6px;}
-
-        /* Social Summary Cards - Glassmorphic */
+        
+        /* Social Summary Cards */
         .social-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; margin-bottom: 30px; }
         .social-summary-card { background: var(--card-bg); backdrop-filter: blur(10px); padding: 20px; border-radius: 12px; border-bottom: 4px solid var(--gold-primary); border-top: 1px solid var(--border-color); text-align: center; transition: 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; cursor: pointer; }
         .social-summary-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px var(--gold-glow); background: rgba(255,255,255,0.15); }
@@ -317,7 +328,7 @@
         /* Social Media Platform Cards */
         .sm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-bottom: 35px; }
         .sm-card { display: flex; align-items: center; gap: 18px; border-left: 4px solid var(--gold-primary); background: var(--card-bg); backdrop-filter: blur(10px); padding: 15px; border-radius: 12px; }
-        .sm-icon-wrapper { width: 60px; height: 60px; border-radius: 14px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: center; align-items: center; box-shadow: inset 0 0 20px rgba(255,255,255,0.05); transition: 0.3s; }
+        .sm-icon-wrapper { width: 60px; height: 60px; border-radius: 14px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: center; align-items: center; font-size: 32px; box-shadow: inset 0 0 20px rgba(255,255,255,0.05); transition: 0.3s; color: var(--gold-primary); text-shadow: 0 0 10px var(--gold-primary); }
         .premium-box:hover .sm-icon-wrapper { transform: scale(1.1) rotate(10deg); box-shadow: inset 0 0 20px var(--gold-glow); }
         .sm-details h3 { color: var(--text-muted); font-size: 13px; text-transform: uppercase; margin-bottom: 2px;}
         .sm-details h2 { color: var(--text-white); font-size: 28px; margin: 0; line-height: 1.1; text-shadow: 0 2px 5px rgba(0,0,0,0.8);}
@@ -328,6 +339,7 @@
         
         .settings-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
         .settings-header { display: flex; align-items: center; gap: 18px; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 18px; }
+        .settings-header .icon { font-size: 35px; color: var(--gold-primary); filter: drop-shadow(0 0 8px currentColor); }
         .settings-header h2 { color: var(--text-white); font-size: 30px; margin: 0; text-shadow: 0 2px 5px rgba(0,0,0,0.5);}
         .setting-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(0,0,0,0.3); border-radius: 10px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; cursor: pointer; backdrop-filter: blur(5px);}
         .setting-item:hover { background: rgba(92, 225, 211, 0.15); border-color: var(--gold-primary); transform: translateX(8px); box-shadow: 0 0 15px var(--gold-glow); }
@@ -369,7 +381,6 @@
             .nm-photo { width: 100%; height: 220px; border-left: none; border-bottom: 1px solid var(--border-color);}
             .nm-details { width: 100%; padding: 15px 0; }
             .report-tab { min-width: 100%; }
-            /* Table adjustments for mobile */
             table th { padding: 8px 2px; font-size: 10px; }
             .table-input { padding: 4px; font-size: 10px; min-width: 40px; }
         }
@@ -486,7 +497,7 @@
     </div>
 
     <!-- ==========================================
-         NEW MODULE: REPORTS (ALL-IN-ONE) 
+         REPORTS MODULE (ALL-IN-ONE) 
          ========================================== -->
     <div id="reports-page">
         <div class="main">
@@ -547,9 +558,9 @@
                         <table id="table-daily">
                             <thead><tr><th><span class="eng-text">Date</span> <span class="urdu-th">تاریخ</span></th><th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th><th><span class="eng-text">Answered</span> <span class="urdu-th">جوابات</span></th><th><span class="eng-text">Pending</span> <span class="urdu-th">باقی</span></th></tr></thead>
                             <tbody id="tbl-daily" class="eng-text">
-                                <tr><td contenteditable="true">27-07-2026</td><td contenteditable="true" oninput="updateGeneralRow(this)">120</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">100</td><td style="color:#ffc107;" contenteditable="true">20</td></tr>
-                                <tr><td contenteditable="true">26-07-2026</td><td contenteditable="true" oninput="updateGeneralRow(this)">110</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">95</td><td style="color:#ffc107;" contenteditable="true">15</td></tr>
-                                <tr><td contenteditable="true">25-07-2026</td><td contenteditable="true" oninput="updateGeneralRow(this)">130</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">120</td><td style="color:#ffc107;" contenteditable="true">10</td></tr>
+                                <tr><td contenteditable="true">27-07-2026</td><td contenteditable="true" oninput="updateGeneralRow(this)">120</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">100</td><td class="text-danger" contenteditable="true">20</td></tr>
+                                <tr><td contenteditable="true">26-07-2026</td><td contenteditable="true" oninput="updateGeneralRow(this)">110</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">95</td><td class="text-danger" contenteditable="true">15</td></tr>
+                                <tr><td contenteditable="true">25-07-2026</td><td contenteditable="true" oninput="updateGeneralRow(this)">130</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">120</td><td class="text-danger" contenteditable="true">10</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -574,9 +585,9 @@
                         <table id="table-weekly">
                             <thead><tr><th><span class="eng-text">Week</span> <span class="urdu-th">ہفتہ</span></th><th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th><th><span class="eng-text">Answered</span> <span class="urdu-th">جوابات</span></th><th><span class="eng-text">Pending</span> <span class="urdu-th">باقی</span></th></tr></thead>
                             <tbody id="tbl-weekly" class="eng-text">
-                                <tr><td contenteditable="true">Week 1 (July)</td><td contenteditable="true" oninput="updateGeneralRow(this)">500</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">450</td><td style="color:#ffc107;" contenteditable="true">50</td></tr>
-                                <tr><td contenteditable="true">Week 2 (July)</td><td contenteditable="true" oninput="updateGeneralRow(this)">480</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">460</td><td style="color:#ffc107;" contenteditable="true">20</td></tr>
-                                <tr><td contenteditable="true">Week 3 (July)</td><td contenteditable="true" oninput="updateGeneralRow(this)">520</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">500</td><td style="color:#ffc107;" contenteditable="true">20</td></tr>
+                                <tr><td contenteditable="true">Week 1 (July)</td><td contenteditable="true" oninput="updateGeneralRow(this)">500</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">450</td><td class="text-danger" contenteditable="true">50</td></tr>
+                                <tr><td contenteditable="true">Week 2 (July)</td><td contenteditable="true" oninput="updateGeneralRow(this)">480</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">460</td><td class="text-danger" contenteditable="true">20</td></tr>
+                                <tr><td contenteditable="true">Week 3 (July)</td><td contenteditable="true" oninput="updateGeneralRow(this)">520</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">500</td><td class="text-danger" contenteditable="true">20</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -601,9 +612,9 @@
                         <table id="table-monthly">
                             <thead><tr><th><span class="eng-text">Month</span> <span class="urdu-th">مہینہ</span></th><th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th><th><span class="eng-text">Ans</span> <span class="urdu-th">جواب</span></th><th><span class="eng-text">Pending</span> <span class="urdu-th">باقی</span></th></tr></thead>
                             <tbody id="tbl-monthly" class="eng-text">
-                                <tr><td contenteditable="true">Jan <span class="urdu-text">(جنوری)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">2000</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">1900</td><td style="color:#ffc107;" contenteditable="true">100</td></tr>
-                                <tr><td contenteditable="true">Feb <span class="urdu-text">(فروری)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">1800</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">1750</td><td style="color:#ffc107;" contenteditable="true">50</td></tr>
-                                <tr><td contenteditable="true">Mar <span class="urdu-text">(مارچ)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">2200</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">2100</td><td style="color:#ffc107;" contenteditable="true">100</td></tr>
+                                <tr><td contenteditable="true">Jan <span class="urdu-text">(جنوری)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">2000</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">1900</td><td class="text-danger" contenteditable="true">100</td></tr>
+                                <tr><td contenteditable="true">Feb <span class="urdu-text">(فروری)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">1800</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">1750</td><td class="text-danger" contenteditable="true">50</td></tr>
+                                <tr><td contenteditable="true">Mar <span class="urdu-text">(مارچ)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">2200</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">2100</td><td class="text-danger" contenteditable="true">100</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -627,9 +638,9 @@
                         <table id="table-yearly">
                             <thead><tr><th><span class="eng-text">Year</span> <span class="urdu-th">سال</span></th><th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th><th><span class="eng-text">Ans</span> <span class="urdu-th">جواب</span></th><th><span class="eng-text">Pending</span> <span class="urdu-th">باقی</span></th></tr></thead>
                             <tbody id="tbl-yearly" class="eng-text">
-                                <tr><td contenteditable="true">2024</td><td contenteditable="true" oninput="updateGeneralRow(this)">25000</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">24500</td><td style="color:#ffc107;" contenteditable="true">500</td></tr>
-                                <tr><td contenteditable="true">2025</td><td contenteditable="true" oninput="updateGeneralRow(this)">28000</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">27800</td><td style="color:#ffc107;" contenteditable="true">200</td></tr>
-                                <tr><td contenteditable="true">2026 (YTD)</td><td contenteditable="true" oninput="updateGeneralRow(this)">15000</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">14000</td><td style="color:#ffc107;" contenteditable="true">1000</td></tr>
+                                <tr><td contenteditable="true">2024</td><td contenteditable="true" oninput="updateGeneralRow(this)">25000</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">24500</td><td class="text-danger" contenteditable="true">500</td></tr>
+                                <tr><td contenteditable="true">2025</td><td contenteditable="true" oninput="updateGeneralRow(this)">28000</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">27800</td><td class="text-danger" contenteditable="true">200</td></tr>
+                                <tr><td contenteditable="true">2026 (YTD)</td><td contenteditable="true" oninput="updateGeneralRow(this)">15000</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">14000</td><td class="text-danger" contenteditable="true">1000</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -653,10 +664,10 @@
                         <table id="table-mufti-wise">
                             <thead><tr><th><span class="eng-text">Mufti</span> <span class="urdu-th">مفتی</span></th><th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th><th><span class="eng-text">Answered</span> <span class="urdu-th">جوابات</span></th><th><span class="eng-text">Pending</span> <span class="urdu-th">باقی</span></th><th><span class="eng-text">Perf %</span> <span class="urdu-th">کارکردگی</span></th></tr></thead>
                             <tbody id="tbl-mufti-wise" class="eng-text">
-                                <tr><td contenteditable="true">Mufti Zafar</td><td contenteditable="true" oninput="updateMuftiBranchRow(this)">500</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateMuftiBranchRow(this)">480</td><td style="color:#ffc107;" contenteditable="true">20</td><td style="color:var(--gold-primary); font-weight:bold;" contenteditable="true">96%</td></tr>
-                                <tr><td contenteditable="true">Mufti Kashif</td><td contenteditable="true" oninput="updateMuftiBranchRow(this)">450</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateMuftiBranchRow(this)">400</td><td style="color:#ffc107;" contenteditable="true">50</td><td style="color:var(--gold-primary); font-weight:bold;" contenteditable="true">88%</td></tr>
-                                <tr><td contenteditable="true">Mufti Aalam</td><td contenteditable="true" oninput="updateMuftiBranchRow(this)">600</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateMuftiBranchRow(this)">600</td><td style="color:#ffc107;" contenteditable="true">0</td><td style="color:var(--gold-primary); font-weight:bold;" contenteditable="true">100%</td></tr>
-                                <tr><td contenteditable="true">Mufti Sajjad</td><td contenteditable="true" oninput="updateMuftiBranchRow(this)">350</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateMuftiBranchRow(this)">320</td><td style="color:#ffc107;" contenteditable="true">30</td><td style="color:var(--gold-primary); font-weight:bold;" contenteditable="true">91%</td></tr>
+                                <tr><td contenteditable="true">Mufti Zafar</td><td contenteditable="true" oninput="updateMuftiBranchRow(this)">500</td><td class="text-success" contenteditable="true" oninput="updateMuftiBranchRow(this)">480</td><td class="text-danger" contenteditable="true">20</td><td style="color:var(--gold-primary); font-weight:bold;" contenteditable="true">96%</td></tr>
+                                <tr><td contenteditable="true">Mufti Kashif</td><td contenteditable="true" oninput="updateMuftiBranchRow(this)">450</td><td class="text-success" contenteditable="true" oninput="updateMuftiBranchRow(this)">400</td><td class="text-danger" contenteditable="true">50</td><td style="color:var(--gold-primary); font-weight:bold;" contenteditable="true">88%</td></tr>
+                                <tr><td contenteditable="true">Mufti Aalam</td><td contenteditable="true" oninput="updateMuftiBranchRow(this)">600</td><td class="text-success" contenteditable="true" oninput="updateMuftiBranchRow(this)">600</td><td class="text-danger" contenteditable="true">0</td><td style="color:var(--gold-primary); font-weight:bold;" contenteditable="true">100%</td></tr>
+                                <tr><td contenteditable="true">Mufti Sajjad</td><td contenteditable="true" oninput="updateMuftiBranchRow(this)">350</td><td class="text-success" contenteditable="true" oninput="updateMuftiBranchRow(this)">320</td><td class="text-danger" contenteditable="true">30</td><td style="color:var(--gold-primary); font-weight:bold;" contenteditable="true">91%</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -680,11 +691,11 @@
                         <table id="table-branch-wise">
                             <thead><tr><th><span class="eng-text">Branch</span> <span class="urdu-th">برانچ</span></th><th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th><th><span class="eng-text">Answered</span> <span class="urdu-th">جوابات</span></th><th><span class="eng-text">Pending</span> <span class="urdu-th">باقی</span></th></tr></thead>
                             <tbody id="tbl-branch-wise" class="eng-text">
-                                <tr><td contenteditable="true">Nagpur <span class="urdu-text">(ناگپور)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">1200</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">1150</td><td style="color:#ffc107;" contenteditable="true">50</td></tr>
-                                <tr><td contenteditable="true">Mumbai <span class="urdu-text">(ممبئی)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">1500</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">1400</td><td style="color:#ffc107;" contenteditable="true">100</td></tr>
-                                <tr><td contenteditable="true">Ahmedabad <span class="urdu-text">(احمدآباد)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">900</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">880</td><td style="color:#ffc107;" contenteditable="true">20</td></tr>
-                                <tr><td contenteditable="true">Hyderabad <span class="urdu-text">(حیدرآباد)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">850</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">800</td><td style="color:#ffc107;" contenteditable="true">50</td></tr>
-                                <tr><td contenteditable="true">Modasa <span class="urdu-text">(موڈاسہ)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">600</td><td style="color:#2ecc71;" contenteditable="true" oninput="updateGeneralRow(this)">580</td><td style="color:#ffc107;" contenteditable="true">20</td></tr>
+                                <tr><td contenteditable="true">Nagpur <span class="urdu-text">(ناگپور)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">1200</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">1150</td><td class="text-danger" contenteditable="true">50</td></tr>
+                                <tr><td contenteditable="true">Mumbai <span class="urdu-text">(ممبئی)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">1500</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">1400</td><td class="text-danger" contenteditable="true">100</td></tr>
+                                <tr><td contenteditable="true">Ahmedabad <span class="urdu-text">(احمدآباد)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">900</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">880</td><td class="text-danger" contenteditable="true">20</td></tr>
+                                <tr><td contenteditable="true">Hyderabad <span class="urdu-text">(حیدرآباد)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">850</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">800</td><td class="text-danger" contenteditable="true">50</td></tr>
+                                <tr><td contenteditable="true">Modasa <span class="urdu-text">(موڈاسہ)</span></td><td contenteditable="true" oninput="updateGeneralRow(this)">600</td><td class="text-success" contenteditable="true" oninput="updateGeneralRow(this)">580</td><td class="text-danger" contenteditable="true">20</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -697,7 +708,7 @@
     <!-- END REPORTS MODULE -->
 
 
-    <!-- WHATSAPP REPORT PAGE (The Main Data Entry Sheet) -->
+    <!-- DAILY WHATSAPP REPORT PAGE (Main Daily Entry Form) -->
     <div id="whatsapp-report-page">
         <div class="main">
             <div class="header">
@@ -720,7 +731,8 @@
             
             <h2 id="report-dynamic-title" class="urdu-text" style="color: var(--gold-primary); text-align: center; font-size: 32px; font-weight: normal; margin-bottom: 20px; display: none; text-shadow: 0 0 10px var(--gold-glow);">آج کی رپورٹ درج کریں</h2>
 
-            <div class="table-container premium-box" id="whatsapp-table-area" style="padding: 15px; border-top: 2px solid var(--gold-primary);">
+            <!-- COMPACT TABLE CONTAINER -->
+            <div class="table-container premium-box" id="whatsapp-table-area" style="padding: 10px; border-top: 2px solid var(--gold-primary);">
                 <table id="report-table-id">
                     <thead>
                         <tr>
@@ -1111,7 +1123,7 @@
                             <td contenteditable="true">Nadir Madani</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="3"></td>
-                            <td><input class="table-input" value="0"></td>
+                            <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="date" class="table-input"></td>
@@ -1338,81 +1350,6 @@
         </div>
     </div>
 
-    <!-- FATWA MANAGEMENT PAGE -->
-    <div id="fatwa-management-page">
-        <div class="main">
-            <div class="header">
-                <div class="header-left"><button class="btn-back eng-text" onclick="closeFatwaManagement()">⬅ Back</button></div>
-                <h1 class="urdu-text">فتویٰ مینجمنٹ</h1>
-                <div class="header-right"><div class="user eng-text" contenteditable="true">Admin</div></div>
-            </div>
-            <div class="menu-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-                <div class="menu-box" style="height: 250px; width: 220px;" onclick="alert('نیا فتویٰ')"><div class="box-icon" style="font-size: 50px;"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Memo.png"></div><div class="urdu-3d urdu-text" style="font-size: 32px; margin-top: 15px;">نیا فتویٰ</div></div>
-                <div class="menu-box" style="height: 250px; width: 220px;" onclick="alert('شائع کریں')"><div class="box-icon" style="font-size: 50px;"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Loudspeaker.png"></div><div class="urdu-3d urdu-text" style="font-size: 32px; margin-top: 15px;">شائع کریں</div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SOCIAL MEDIA PAGE -->
-    <div id="social-media-page">
-        <div class="main">
-            <div class="header">
-                <div class="header-left"><button class="btn-back eng-text" onclick="closeSocialMedia()">⬅ Back</button></div>
-                <h1 class="urdu-text">سوشل میڈیا ڈیش بورڈ</h1>
-                <div class="header-right"><div class="user eng-text" contenteditable="true">Admin</div></div>
-            </div>
-            
-            <div class="sm-grid">
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Speech%20Balloon.png"></div><div class="sm-details"><h3 class="eng-text">WhatsApp</h3><h2 class="urdu-text">واٹس ایپ</h2><h1 class="eng-text" contenteditable="true">120 Fatwe</h1></div></div>
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png"></div><div class="sm-details"><h3 class="eng-text">YouTube</h3><h2 class="urdu-text">یوٹیوب</h2><h1 class="eng-text" contenteditable="true">85 Videos</h1></div></div>
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Blue%20Book.png"></div><div class="sm-details"><h3 class="eng-text">Facebook</h3><h2 class="urdu-text">فیس بک</h2><h1 class="eng-text" contenteditable="true">110 Posts</h1></div></div>
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Camera%20with%20Flash.png"></div><div class="sm-details"><h3 class="eng-text">Instagram</h3><h2 class="urdu-text">انسٹاگرام</h2><h1 class="eng-text" contenteditable="true">95 Posts</h1></div></div>
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Airplane.png"></div><div class="sm-details"><h3 class="eng-text">Telegram</h3><h2 class="urdu-text">ٹیلیگرام</h2><h1 class="eng-text" contenteditable="true">105 Posts</h1></div></div>
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Cross%20Mark.png"></div><div class="sm-details"><h3 class="eng-text">X (Twitter)</h3><h2 class="urdu-text">ٹوئٹر</h2><h1 class="eng-text" style="color:var(--text-white);" contenteditable="true">80 Posts</h1></div></div>
-            </div>
-
-            <div class="sm-toolbar" style="margin-top: 20px;">
-                <div class="toolbar-group"><h3 class="urdu-text" style="color: var(--gold-primary); font-size: 26px; font-weight: normal; margin:0; text-shadow: 0 0 10px var(--gold-glow);">پلیٹ فارم منتخب کریں:</h3></div>
-                <div class="toolbar-group">
-                    <select class="input-control eng-text" id="social-platform-select" style="font-size: 14px; min-width: 250px;" onchange="filterSocialMedia()">
-                        <option value="all">🌐 All Platforms (تمام)</option><option value="whatsapp">💬 WhatsApp Channel</option><option value="youtube">▶ YouTube</option><option value="facebook">📘 Facebook</option><option value="instagram">📸 Instagram</option><option value="telegram">✈ Telegram</option><option value="twitter">✖ X (Twitter)</option>
-                    </select>
-                </div>
-                <div class="toolbar-group" style="margin-left: auto;"><input type="month" id="social-month-select" class="input-control eng-text"></div>
-            </div>
-
-            <div class="sm-table-container">
-                <table id="social-media-table">
-                    <thead><tr><th><span class="eng-text">Date</span> <span class="urdu-th">تاریخ</span></th><th><span class="eng-text">Fatwa Title</span> <span class="urdu-th">عنوان</span></th><th><span class="eng-text">Hindi</span> <span class="urdu-th">ہندی</span></th><th><span class="eng-text">Roman</span> <span class="urdu-th">رومن</span></th><th><span class="eng-text">Urdu</span> <span class="urdu-th">اردو</span></th><th><span class="eng-text">Link</span> <span class="urdu-th">لنک</span></th><th><span class="eng-text">Status</span> <span class="urdu-th">حالت</span></th><th><span class="eng-text">Action</span> <span class="urdu-th">محفوظ</span></th></tr></thead>
-                    <tbody class="eng-text">
-                        <tr data-platform="whatsapp"><td><input type="date" class="table-input" value="2026-07-25"></td><td><input type="text" class="table-input" style="font-size:12px;" value="T-Shirt pehen kar Namaz"></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><input type="url" class="table-input" value="https://wa.me/channel/123" placeholder="Paste Link"></td><td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td><td><button class="btn-edit" onclick="saveRowFlash(this)"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pencil.png"> Edit</button></td></tr>
-                        <tr data-platform="youtube"><td><input type="date" class="table-input" value="2026-07-24"></td><td><input type="text" class="table-input" style="font-size:12px;" value="Safar mein Namaz e Qasr"></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option selected>❌ No</option><option>✅ Yes</option></select></td><td><input type="url" class="table-input" value="https://youtube.com/..." placeholder="Paste Link"></td><td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td><td><button class="btn-edit" onclick="saveRowFlash(this)"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pencil.png"> Edit</button></td></tr>
-                        <tr data-platform="facebook"><td><input type="date" class="table-input" value="2026-07-23"></td><td><input type="text" class="table-input" style="font-size:12px;" value="Zakat ke Masail"></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><input type="url" class="table-input" value="" placeholder="Paste Link"></td><td><select class="table-input" style="font-size:12px; font-weight:bold; color:#ffc107;"><option selected>Pending</option><option>Published</option></select></td><td><button class="btn-edit" onclick="saveRowFlash(this)"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pencil.png"> Edit</button></td></tr>
-                        <tr data-platform="instagram"><td><input type="date" class="table-input" value="2026-07-22"></td><td><input type="text" class="table-input" style="font-size:12px;" value="Wuzu ka Tariqa"></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><input type="url" class="table-input" value="" placeholder="Paste Link"></td><td><select class="table-input" style="font-size:12px; font-weight:bold; color:#ffc107;"><option selected>Pending</option><option>Published</option></select></td><td><button class="btn-edit" onclick="saveRowFlash(this)"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pencil.png"> Edit</button></td></tr>
-                        <tr data-platform="telegram"><td><input type="date" class="table-input" value="2026-07-21"></td><td><input type="text" class="table-input" style="font-size:12px;" value="Ghusl ke Faraiz"></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><input type="url" class="table-input" value="" placeholder="Paste Link"></td><td><select class="table-input" style="font-size:12px; font-weight:bold; color:#ffc107;"><option selected>Pending</option><option>Published</option></select></td><td><button class="btn-edit" onclick="saveRowFlash(this)"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pencil.png"> Edit</button></td></tr>
-                        <tr data-platform="twitter"><td><input type="date" class="table-input" value="2026-07-20"></td><td><input type="text" class="table-input" style="font-size:12px;" value="Haj ke Masail"></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td><td><input type="url" class="table-input" value="" placeholder="Paste Link"></td><td><select class="table-input" style="font-size:12px; font-weight:bold; color:#ffc107;"><option selected>Pending</option><option>Published</option></select></td><td><button class="btn-edit" onclick="saveRowFlash(this)"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pencil.png"> Edit</button></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="sm-toolbar" style="margin-top: 10px; justify-content: center; padding: 15px; border:none; background: transparent;">
-                <h2 class="urdu-text" style="color: var(--gold-primary); font-size: 32px; margin:0; font-weight: normal; text-shadow: 0 0 10px var(--gold-glow);">ماہانہ خلاصہ <span class="eng-text" style="font-size: 20px;">(Monthly Summary)</span></h2>
-            </div>
-            <div class="monthly-summary-line">
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);"><h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Total Shared</h3><h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">کل شیئر</h2><h1 class="text-success eng-text" style="font-size: 32px; margin-top: auto;" contenteditable="true">85</h1></div>
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);"><h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Hindi Posts</h3><h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">ہندی</h2><h1 class="eng-text" style="color: var(--gold-primary); font-size: 32px; margin-top: auto;" contenteditable="true">30</h1></div>
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);"><h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Roman Posts</h3><h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">رومن</h2><h1 class="eng-text" style="color: var(--gold-primary); font-size: 32px; margin-top: auto;" contenteditable="true">25</h1></div>
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);"><h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Urdu Posts</h3><h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">اردو</h2><h1 class="eng-text" style="color: var(--gold-primary); font-size: 32px; margin-top: auto;" contenteditable="true">30</h1></div>
-            </div>
-            
-            <div class="bottom-actions">
-                <button class="btn-bottom eng-text" onclick="window.print()"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Memo.png"> PDF <span class="urdu-btn">(پی ڈی ایف)</span></button>
-                <button class="btn-bottom eng-text" onclick="exportToCSV('social-media-report.csv', 'social-media-table')"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png"> Excel <span class="urdu-btn">(ایکسل)</span></button>
-                <button class="btn-bottom eng-text" onclick="window.print()"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Printer.png"> Print <span class="urdu-btn">(پرنٹ)</span></button>
-            </div>
-        </div>
-    </div>
-
     <!-- JAVASCRIPT SYSTEM -->
     <script>
         function toggleTheme() { document.body.classList.toggle('light-mode'); }
@@ -1604,7 +1541,6 @@
             btn.innerHTML = '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png" style="width:28px; margin-right:8px;"> محفوظ ہو گیا <span class="eng-text" style="font-size:16px; margin-left:8px; margin-top:4px;">(Saved Successfully)</span>';
             btn.style.background = '#2ecc71';
             
-            // Also turn off active states in table inputs for visual feedback
             let activeInputs = document.querySelectorAll('#whatsapp-table-area .table-input');
             activeInputs.forEach(inp => {
                 inp.style.background = 'rgba(0,0,0,0.2)';
@@ -1614,6 +1550,10 @@
             setTimeout(() => {
                 btn.innerHTML = originalHTML;
                 btn.style.background = 'linear-gradient(135deg, var(--gold-primary), #00796b)';
+                activeInputs.forEach(inp => {
+                    inp.style.background = 'rgba(0,0,0,0.3)';
+                    inp.style.borderColor = 'rgba(92,225,211,0.3)';
+                });
             }, 3000);
         }
 
@@ -1692,7 +1632,7 @@
             const dateVal = document.getElementById('report-date').value;
             tableArea.style.opacity = '0';
             setTimeout(() => {
-                resetToZero('wa-report-body'); // Uses our new reset function for the main table too
+                resetToZero('wa-report-body'); 
                 dynamicTitle.style.display = 'block';
                 dynamicTitle.innerHTML = `رپورٹ برائے تاریخ: <span style="font-family: 'Poppins';">${dateVal}</span>`;
                 tableArea.style.opacity = '1';
