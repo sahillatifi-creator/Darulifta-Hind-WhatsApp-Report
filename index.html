@@ -231,6 +231,10 @@
         .btn-action:hover { background: var(--gold-primary); color: #000; box-shadow: 0 0 15px var(--gold-glow); transform: translateY(-2px);}
         body:not(.light-mode) .btn-action:hover { color: #000; }
 
+        /* NEW: Reset Button Style */
+        .btn-reset { border-color: #ff4d4d; color: #ff4d4d; background: rgba(255, 77, 77, 0.1); margin-left: 10px;}
+        .btn-reset:hover { background: #ff4d4d; color: #fff; box-shadow: 0 0 15px rgba(255,77,77,0.5); }
+
         .table-container, .sm-table-container { background: var(--card-bg); backdrop-filter: blur(12px); border-radius: 12px; padding: 15px; border: 1px solid var(--border-color); margin-bottom: 30px; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; transition: opacity 0.4s ease; box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
         table { width: 100%; border-collapse: collapse; min-width:850px; }
         table th { background: var(--table-header-bg); color: #fff; padding: 12px 8px; text-align: center; font-size: 12px; border-bottom: 2px solid var(--gold-primary); border-right: 1px solid rgba(255,255,255,0.1); vertical-align: middle; }
@@ -239,7 +243,7 @@
         
         table td { padding: 8px 5px; border-bottom: 1px solid var(--table-border); border-right: 1px solid var(--table-border); color: var(--text-white); font-size: 12px; font-weight: 500; text-align: center; vertical-align: middle;}
         
-        /* TABLE INPUTS NOW FULLY ACTIVE BY DEFAULT */
+        /* TABLE INPUTS FULLY ACTIVE */
         .table-input { 
             width: 100%; min-width: 45px; 
             background: rgba(0,0,0,0.3); 
@@ -247,8 +251,7 @@
             color: var(--text-white); text-align: center; 
             font-size: 12px; font-weight: 600; border-radius: 6px; 
             padding: 8px 5px; transition: 0.3s; 
-            pointer-events: auto; /* Made active */
-            opacity: 1; /* Fully visible */
+            pointer-events: auto; opacity: 1; 
         }
         .table-input:focus { border-color: var(--gold-primary); box-shadow: 0 0 8px var(--gold-glow); background: rgba(0,0,0,0.8); }
         
@@ -281,11 +284,6 @@
         /* WHATSAPP SUWALAT & OTHER MODULES */
         .ws-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 25px; margin-bottom: 30px; }
         .ws-duplicate-warn { color: var(--gold-primary); font-size: 12px; margin-top: 5px; display: none; font-weight: bold; background: rgba(0,0,0,0.5); padding: 8px; border-radius: 6px;}
-        .status-new { color: var(--gold-primary); font-weight: bold; }
-        .status-research { color: #3498db; font-weight: bold; }
-        .status-typing { color: #9b59b6; font-weight: bold; }
-        .status-ready { color: #2ecc71; font-weight: bold; }
-        .status-sent { color: #1abc9c; font-weight: bold; }
 
         /* Social Summary Cards */
         .social-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; margin-bottom: 30px; }
@@ -476,41 +474,42 @@
                 <div class="header-right"><div class="user eng-text" contenteditable="true">Admin</div></div>
             </div>
 
-            <!-- ALL NUMBERS BELOW ARE NOW CONTENT-EDITABLE SO YOU CAN ZERO THEM OUT -->
+            <!-- TOP CARDS: AUTO SYNCED -->
             <div class="social-summary-grid">
                 <div class="premium-box social-summary-card">
                     <div class="social-summary-icon">📩</div>
                     <h3 class="eng-text" style="color:var(--text-white);">Total Questions</h3>
                     <h2 class="urdu-text" style="color:var(--text-white);">کل سوالات</h2>
-                    <h1 class="eng-text" style="color:var(--text-white);" contenteditable="true">345</h1>
+                    <h1 class="eng-text" style="color:var(--text-white);" id="sum-total" contenteditable="true">4</h1>
                 </div>
                 <div class="premium-box social-summary-card" style="border-bottom-color: var(--gold-primary);">
                     <div class="social-summary-icon text-success">✅</div>
                     <h3 class="eng-text" style="color:var(--text-white);">Answered</h3>
                     <h2 class="urdu-text text-success">جوابات</h2>
-                    <h1 class="text-success eng-text" contenteditable="true">210</h1>
+                    <h1 class="text-success eng-text" id="sum-answered" contenteditable="true">1</h1>
                 </div>
                 <div class="premium-box social-summary-card" style="border-bottom-color: #ffc107;">
                     <div class="social-summary-icon" style="color:#ffc107;">⏳</div>
                     <h3 class="eng-text" style="color:var(--text-white);">Pending</h3>
                     <h2 class="urdu-text" style="color:#ffc107;">باقی</h2>
-                    <h1 class="eng-text" style="color:#ffc107;" contenteditable="true">135</h1>
+                    <h1 class="eng-text" style="color:#ffc107;" id="sum-pending" contenteditable="true">1</h1>
                 </div>
                 <div class="premium-box social-summary-card" style="border-bottom-color: #3498db;">
                     <div class="social-summary-icon" style="color:#3498db;">🔵</div>
                     <h3 class="eng-text" style="color:var(--text-white);">Research</h3>
                     <h2 class="urdu-text" style="color:#3498db;">تحقیق میں</h2>
-                    <h1 class="eng-text" style="color:#3498db;" contenteditable="true">40</h1>
+                    <h1 class="eng-text" style="color:#3498db;" id="sum-research" contenteditable="true">1</h1>
                 </div>
                 <div class="premium-box social-summary-card" style="border-bottom-color: #9b59b6;">
                     <div class="social-summary-icon" style="color:#9b59b6;">🟣</div>
                     <h3 class="eng-text" style="color:var(--text-white);">Typing</h3>
                     <h2 class="urdu-text" style="color:#9b59b6;">ٹائپنگ میں</h2>
-                    <h1 class="eng-text" style="color:#9b59b6;" contenteditable="true">65</h1>
+                    <h1 class="eng-text" style="color:#9b59b6;" id="sum-typing" contenteditable="true">1</h1>
                 </div>
             </div>
 
             <div class="ws-grid">
+                <!-- FORM -->
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="sm-toolbar" style="margin-bottom: 25px; box-shadow: none; border-color: var(--gold-primary); background: rgba(92,225,211,0.1);">
                         <h2 style="color: var(--gold-primary); font-size: 30px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">نیا سوال درج کریں</span> <span class="eng-text" style="font-size:20px;">(New Question)</span></h2>
@@ -525,8 +524,6 @@
                             <input type="text" class="input-control eng-text" id="ws-mobile" placeholder="e.g. 03001234567" onkeyup="checkDuplicateMobile()">
                             <div id="ws-mobile-alert" class="ws-duplicate-warn urdu-text"></div>
                         </div>
-                        
-                        <!-- NOTE: "Name (نام)" input field has been DELETED successfully as requested. -->
                         
                         <div class="input-group">
                             <label><span class="eng-text">Language</span> <span class="urdu-text">(زبان)</span></label>
@@ -562,7 +559,6 @@
                             </select>
                         </div>
                         <div class="input-group">
-                            <!-- 20 MUFTI NAMES ADDED BELOW AS REQUESTED -->
                             <label><span class="eng-text">Mufti Assign</span> <span class="urdu-text">(مفتی مقرر کریں)</span></label>
                             <select class="input-control">
                                 <option class="eng-text">Mufti Zafar Madani</option>
@@ -592,36 +588,36 @@
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 20px;">
-                    <!-- NOTE: Reminders Box and 3 Days Pending Box DELETED successfully as requested. -->
-                    
+                    <!-- DAILY COUNT: AUTO SYNCED -->
                     <div class="premium-box" style="flex-grow: 1; border-top: 2px solid var(--gold-primary);">
                         <div class="sm-toolbar" style="margin-bottom: 20px; box-shadow: none; border-color: var(--gold-primary); background: rgba(92,225,211,0.1); padding: 12px;">
                             <h2 style="color: var(--gold-primary); font-size: 26px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">آج کی گنتی</span> <span class="eng-text" style="font-size:16px;">(Daily Count)</span></h2>
                         </div>
-                        <div class="setting-item" style="border-left: 3px solid #fff;">
+                        <div class="setting-item" style="cursor:default; border-left: 3px solid #fff;">
                             <div class="setting-item-text"><h4 style="color:var(--text-white);"><span class="eng-text">Aaj Aaye</span> <span class="urdu-text" style="font-size:22px;">(آج موصول ہوئے)</span></h4></div>
-                            <h4 class="eng-text" style="color:var(--gold-primary); font-size:22px;" contenteditable="true">45</h4>
+                            <h4 class="eng-text" style="color:var(--gold-primary); font-size:22px;" id="daily-total" contenteditable="true">4</h4>
                         </div>
-                        <div class="setting-item" style="border-left: 3px solid var(--gold-primary);">
+                        <div class="setting-item" style="cursor:default; border-left: 3px solid var(--gold-primary);">
                             <div class="setting-item-text"><h4 class="text-success"><span class="eng-text">Jawab Diye</span> <span class="urdu-text" style="font-size:22px;">(جواب دیئے)</span></h4></div>
-                            <h4 class="text-success eng-text" style="font-size:22px;" contenteditable="true">30</h4>
+                            <h4 class="text-success eng-text" style="font-size:22px;" id="daily-answered" contenteditable="true">1</h4>
                         </div>
-                        <div class="setting-item" style="border-left: 3px solid #ffc107;">
+                        <div class="setting-item" style="cursor:default; border-left: 3px solid #ffc107;">
                             <div class="setting-item-text"><h4 style="color:#ffc107;"><span class="eng-text">Pending</span> <span class="urdu-text" style="font-size:22px;">(باقی)</span></h4></div>
-                            <h4 class="eng-text" style="color:#ffc107; font-size:22px;" contenteditable="true">15</h4>
+                            <h4 class="eng-text" style="color:#ffc107; font-size:22px;" id="daily-pending" contenteditable="true">1</h4>
                         </div>
-                        <div class="setting-item" style="border-left: 3px solid #3498db;">
+                        <div class="setting-item" style="cursor:default; border-left: 3px solid #3498db;">
                             <div class="setting-item-text"><h4 style="color:#3498db;"><span class="eng-text">Research Me</span> <span class="urdu-text" style="font-size:22px;">(تحقیق میں)</span></h4></div>
-                            <h4 class="eng-text" style="color:#3498db; font-size:22px;" contenteditable="true">5</h4>
+                            <h4 class="eng-text" style="color:#3498db; font-size:22px;" id="daily-research" contenteditable="true">1</h4>
                         </div>
-                        <div class="setting-item" style="border-left: 3px solid #9b59b6;">
+                        <div class="setting-item" style="cursor:default; border-left: 3px solid #9b59b6;">
                             <div class="setting-item-text"><h4 style="color:#9b59b6;"><span class="eng-text">Typing Me</span> <span class="urdu-text" style="font-size:22px;">(ٹائپنگ میں)</span></h4></div>
-                            <h4 class="eng-text" style="color:#9b59b6; font-size:22px;" contenteditable="true">10</h4>
+                            <h4 class="eng-text" style="color:#9b59b6; font-size:22px;" id="daily-typing" contenteditable="true">1</h4>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- QUESTION STATUS TABLE (Triggers Auto Updates) -->
             <div class="premium-box" style="margin-bottom: 30px; border-top: 2px solid var(--gold-primary);">
                 <div class="sm-toolbar" style="margin-bottom: 20px;">
                     <h2 style="color: var(--gold-primary); font-size: 32px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">سوالات کی حالت</span> <span class="eng-text" style="font-size:20px;">(Question Status)</span></h2>
@@ -642,28 +638,28 @@
                                 <td class="eng-text" contenteditable="true">03001234567</td>
                                 <td class="eng-text" style="max-width:200px; overflow:hidden; text-overflow:ellipsis;" contenteditable="true">Zakat kis par farz hai?</td>
                                 <td class="eng-text" contenteditable="true">Mufti Zafar</td>
-                                <td><select class="table-input status-new eng-text"><option selected>🟡 New Question</option><option>🔵 Under Research</option><option>🟣 Software Typing</option><option>🟢 Answer Ready</option><option>✅ Answer Sent</option></select></td>
+                                <td><select class="table-input status-new eng-text" onchange="updateWhatsAppSummary()"><option selected>🟡 New Question</option><option>🔵 Under Research</option><option>🟣 Software Typing</option><option>🟢 Answer Ready</option><option>✅ Answer Sent</option></select></td>
                                 <td><button class="btn-edit eng-text" onclick="saveRowFlash(this)">💾 Save</button></td>
                             </tr>
                             <tr>
                                 <td class="eng-text" contenteditable="true">03119876543</td>
                                 <td class="eng-text" style="max-width:200px; overflow:hidden; text-overflow:ellipsis;" contenteditable="true">Safar me namaz qasr...</td>
                                 <td class="eng-text" contenteditable="true">Mufti Kashif</td>
-                                <td><select class="table-input status-research eng-text"><option>🟡 New Question</option><option selected>🔵 Under Research</option><option>🟣 Software Typing</option><option>🟢 Answer Ready</option><option>✅ Answer Sent</option></select></td>
+                                <td><select class="table-input status-research eng-text" onchange="updateWhatsAppSummary()"><option>🟡 New Question</option><option selected>🔵 Under Research</option><option>🟣 Software Typing</option><option>🟢 Answer Ready</option><option>✅ Answer Sent</option></select></td>
                                 <td><button class="btn-edit eng-text" onclick="saveRowFlash(this)">💾 Save</button></td>
                             </tr>
                             <tr>
                                 <td class="eng-text" contenteditable="true">03221234567</td>
                                 <td class="eng-text" style="max-width:200px; overflow:hidden; text-overflow:ellipsis;" contenteditable="true">Talaq ke masail...</td>
                                 <td class="eng-text" contenteditable="true">Mufti Aalam</td>
-                                <td><select class="table-input status-typing eng-text"><option>🟡 New Question</option><option>🔵 Under Research</option><option selected>🟣 Software Typing</option><option>🟢 Answer Ready</option><option>✅ Answer Sent</option></select></td>
+                                <td><select class="table-input status-typing eng-text" onchange="updateWhatsAppSummary()"><option>🟡 New Question</option><option>🔵 Under Research</option><option selected>🟣 Software Typing</option><option>🟢 Answer Ready</option><option>✅ Answer Sent</option></select></td>
                                 <td><button class="btn-edit eng-text" onclick="saveRowFlash(this)">💾 Save</button></td>
                             </tr>
                             <tr>
                                 <td class="eng-text" contenteditable="true">03337654321</td>
                                 <td class="eng-text" style="max-width:200px; overflow:hidden; text-overflow:ellipsis;" contenteditable="true">Wuzu ka tariqa...</td>
                                 <td class="eng-text" contenteditable="true">Mufti Sajjad</td>
-                                <td><select class="table-input status-sent eng-text"><option>🟡 New Question</option><option>🔵 Under Research</option><option>🟣 Software Typing</option><option>🟢 Answer Ready</option><option selected>✅ Answer Sent</option></select></td>
+                                <td><select class="table-input status-sent eng-text" onchange="updateWhatsAppSummary()"><option>🟡 New Question</option><option>🔵 Under Research</option><option>🟣 Software Typing</option><option>🟢 Answer Ready</option><option selected>✅ Answer Sent</option></select></td>
                                 <td><button class="btn-edit eng-text" onclick="saveRowFlash(this)">💾 Save</button></td>
                             </tr>
                         </tbody>
@@ -671,9 +667,13 @@
                 </div>
             </div>
 
+            <!-- MONTHLY AUTO SHEET -->
             <div class="premium-box" style="margin-bottom: 30px; border-top: 2px solid var(--gold-primary);">
                 <div class="sm-toolbar" style="margin-bottom: 20px;">
-                    <h2 style="color: var(--gold-primary); font-size: 32px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">ماہانہ رپورٹ اور مفتی کارکردگی</span> <span class="eng-text" style="font-size:20px;">(Monthly Auto Sheet)</span></h2>
+                    <div style="display:flex; align-items:center; gap:15px;">
+                        <h2 style="color: var(--gold-primary); font-size: 32px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">ماہانہ رپورٹ اور مفتی کارکردگی</span> <span class="eng-text" style="font-size:20px;">(Monthly Auto Sheet)</span></h2>
+                        <button class="btn-action btn-reset eng-text" onclick="resetToZero('monthly-sheet-body')">🔄 Zero <span class="urdu-btn">(زیرو کریں)</span></button>
+                    </div>
                     <input type="month" id="ws-month" class="input-control eng-text" style="background: rgba(0,0,0,0.5);">
                 </div>
                 <div class="sm-table-container" style="box-shadow:none; border:none; margin-bottom:0;">
@@ -691,13 +691,13 @@
                                 <th><span class="eng-text">Perf %</span> <span class="urdu-th">کارکردگی</span></th>
                             </tr>
                         </thead>
-                        <tbody class="eng-text">
-                            <tr><td contenteditable="true">Mufti Zafar</td><td contenteditable="true">45</td><td class="text-success" contenteditable="true">40</td><td contenteditable="true">5</td><td contenteditable="true">2</td><td contenteditable="true">3</td><td class="text-danger" contenteditable="true">0</td><td contenteditable="true">2h 15m</td><td contenteditable="true"><span style="color:var(--gold-primary); font-weight:bold;">88%</span></td></tr>
-                            <tr><td contenteditable="true">Mufti Kashif</td><td contenteditable="true">50</td><td class="text-success" contenteditable="true">35</td><td contenteditable="true">15</td><td contenteditable="true">5</td><td contenteditable="true">10</td><td class="text-danger" contenteditable="true">2</td><td contenteditable="true">3h 30m</td><td contenteditable="true"><span style="color:var(--text-white); font-weight:bold;">70%</span></td></tr>
-                            <tr><td contenteditable="true">Mufti Aalam</td><td contenteditable="true">30</td><td class="text-success" contenteditable="true">30</td><td contenteditable="true">0</td><td contenteditable="true">0</td><td contenteditable="true">0</td><td class="text-danger" contenteditable="true">0</td><td contenteditable="true">1h 45m</td><td contenteditable="true"><span style="color:var(--gold-primary); font-weight:bold;">100%</span></td></tr>
-                            <tr><td contenteditable="true">Mufti Sajjad</td><td contenteditable="true">60</td><td class="text-success" contenteditable="true">50</td><td contenteditable="true">10</td><td contenteditable="true">4</td><td contenteditable="true">6</td><td class="text-danger" contenteditable="true">1</td><td contenteditable="true">2h 50m</td><td contenteditable="true"><span style="color:var(--gold-primary); font-weight:bold;">83%</span></td></tr>
+                        <tbody id="monthly-sheet-body" class="eng-text">
+                            <tr><td contenteditable="true">Mufti Zafar</td><td contenteditable="true" oninput="updateMonthlySheet()">45</td><td class="text-success" contenteditable="true" oninput="updateMonthlySheet()">40</td><td contenteditable="true" oninput="updateMonthlySheet()">5</td><td contenteditable="true" oninput="updateMonthlySheet()">2</td><td contenteditable="true" oninput="updateMonthlySheet()">3</td><td class="text-danger" contenteditable="true" oninput="updateMonthlySheet()">0</td><td contenteditable="true">2h 15m</td><td contenteditable="true"><span style="color:var(--gold-primary); font-weight:bold;">88%</span></td></tr>
+                            <tr><td contenteditable="true">Mufti Kashif</td><td contenteditable="true" oninput="updateMonthlySheet()">50</td><td class="text-success" contenteditable="true" oninput="updateMonthlySheet()">35</td><td contenteditable="true" oninput="updateMonthlySheet()">15</td><td contenteditable="true" oninput="updateMonthlySheet()">5</td><td contenteditable="true" oninput="updateMonthlySheet()">10</td><td class="text-danger" contenteditable="true" oninput="updateMonthlySheet()">2</td><td contenteditable="true">3h 30m</td><td contenteditable="true"><span style="color:var(--text-white); font-weight:bold;">70%</span></td></tr>
+                            <tr><td contenteditable="true">Mufti Aalam</td><td contenteditable="true" oninput="updateMonthlySheet()">30</td><td class="text-success" contenteditable="true" oninput="updateMonthlySheet()">30</td><td contenteditable="true" oninput="updateMonthlySheet()">0</td><td contenteditable="true" oninput="updateMonthlySheet()">0</td><td contenteditable="true" oninput="updateMonthlySheet()">0</td><td class="text-danger" contenteditable="true" oninput="updateMonthlySheet()">0</td><td contenteditable="true">1h 45m</td><td contenteditable="true"><span style="color:var(--gold-primary); font-weight:bold;">100%</span></td></tr>
+                            <tr><td contenteditable="true">Mufti Sajjad</td><td contenteditable="true" oninput="updateMonthlySheet()">60</td><td class="text-success" contenteditable="true" oninput="updateMonthlySheet()">50</td><td contenteditable="true" oninput="updateMonthlySheet()">10</td><td contenteditable="true" oninput="updateMonthlySheet()">4</td><td contenteditable="true" oninput="updateMonthlySheet()">6</td><td class="text-danger" contenteditable="true" oninput="updateMonthlySheet()">1</td><td contenteditable="true">2h 50m</td><td contenteditable="true"><span style="color:var(--gold-primary); font-weight:bold;">83%</span></td></tr>
                         </tbody>
-                        <tfoot>
+                        <tfoot id="monthly-sheet-foot">
                             <tr style="background: rgba(92,225,211,0.15); font-weight: bold;">
                                 <td style="color:var(--gold-light);"><span class="eng-text">TOTAL</span> <span class="urdu-text">(کل)</span></td>
                                 <td class="eng-text" style="color:var(--gold-light);" contenteditable="true">185</td>
@@ -714,22 +714,24 @@
                 </div>
             </div>
 
+            <!-- YEARLY REPORT & BRANCH PERF -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 40px;" class="settings-container">
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="sm-toolbar" style="margin-bottom: 20px; padding: 15px; background: transparent; border:none; border-bottom: 1px solid rgba(255,255,255,0.1);">
                         <h2 style="color: var(--gold-primary); font-size: 28px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">سالانہ رپورٹ</span> <span class="eng-text" style="font-size:18px;">(Yearly Report)</span></h2>
+                        <button class="btn-action btn-reset eng-text" onclick="resetToZero('yearly-sheet-body')">🔄 Zero <span class="urdu-btn">(زیرو کریں)</span></button>
                     </div>
                     <div class="sm-table-container" style="box-shadow:none; border:none; margin-bottom:0; background:transparent;">
                         <table>
                             <thead><tr><th><span class="eng-text">Month</span> <span class="urdu-th">مہینہ</span></th><th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th><th><span class="eng-text">Ans</span> <span class="urdu-th">جواب</span></th></tr></thead>
-                            <tbody class="eng-text">
-                                <tr><td>Jan <span class="urdu-text">(جنوری)</span></td><td contenteditable="true">500</td><td class="text-success" contenteditable="true">480</td></tr>
-                                <tr><td>Feb <span class="urdu-text">(فروری)</span></td><td contenteditable="true">650</td><td class="text-success" contenteditable="true">600</td></tr>
-                                <tr><td>Mar <span class="urdu-text">(مارچ)</span></td><td contenteditable="true">700</td><td class="text-success" contenteditable="true">680</td></tr>
-                                <tr><td>Apr <span class="urdu-text">(اپریل)</span></td><td contenteditable="true">450</td><td class="text-success" contenteditable="true">400</td></tr>
-                                <tr><td>May <span class="urdu-text">(مئی)</span></td><td contenteditable="true">800</td><td class="text-success" contenteditable="true">750</td></tr>
-                                <tr><td>Jun <span class="urdu-text">(جون)</span></td><td contenteditable="true">550</td><td class="text-success" contenteditable="true">520</td></tr>
-                                <tr><td style="color:var(--gold-primary); font-weight:bold;">YTD <span class="urdu-text">(مجموعہ)</span></td><td style="color:var(--gold-primary); font-weight:bold;" contenteditable="true">3650</td><td class="text-success" style="font-weight:bold;" contenteditable="true">3430</td></tr>
+                            <tbody id="yearly-sheet-body" class="eng-text">
+                                <tr><td contenteditable="true">Jan <span class="urdu-text">(جنوری)</span></td><td contenteditable="true" oninput="updateYearlyReport()">500</td><td class="text-success" contenteditable="true" oninput="updateYearlyReport()">480</td></tr>
+                                <tr><td contenteditable="true">Feb <span class="urdu-text">(فروری)</span></td><td contenteditable="true" oninput="updateYearlyReport()">650</td><td class="text-success" contenteditable="true" oninput="updateYearlyReport()">600</td></tr>
+                                <tr><td contenteditable="true">Mar <span class="urdu-text">(مارچ)</span></td><td contenteditable="true" oninput="updateYearlyReport()">700</td><td class="text-success" contenteditable="true" oninput="updateYearlyReport()">680</td></tr>
+                                <tr><td contenteditable="true">Apr <span class="urdu-text">(اپریل)</span></td><td contenteditable="true" oninput="updateYearlyReport()">450</td><td class="text-success" contenteditable="true" oninput="updateYearlyReport()">400</td></tr>
+                                <tr><td contenteditable="true">May <span class="urdu-text">(مئی)</span></td><td contenteditable="true" oninput="updateYearlyReport()">800</td><td class="text-success" contenteditable="true" oninput="updateYearlyReport()">750</td></tr>
+                                <tr><td contenteditable="true">Jun <span class="urdu-text">(جون)</span></td><td contenteditable="true" oninput="updateYearlyReport()">550</td><td class="text-success" contenteditable="true" oninput="updateYearlyReport()">520</td></tr>
+                                <tr style="background: rgba(92,225,211,0.1);"><td style="color:var(--gold-primary); font-weight:bold;">YTD <span class="urdu-text">(مجموعہ)</span></td><td id="yr-total" style="color:var(--gold-primary); font-weight:bold;" contenteditable="true">3650</td><td id="yr-ans" class="text-success" style="font-weight:bold;" contenteditable="true">3430</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -738,16 +740,17 @@
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="sm-toolbar" style="margin-bottom: 20px; padding: 15px; background: transparent; border:none; border-bottom: 1px solid rgba(255,255,255,0.1);">
                         <h2 style="color: var(--gold-primary); font-size: 28px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">برانچ کارکردگی</span> <span class="eng-text" style="font-size:18px;">(Branch Performance)</span></h2>
+                        <button class="btn-action btn-reset eng-text" onclick="resetToZero('branch-perf-body')">🔄 Zero <span class="urdu-btn">(زیرو کریں)</span></button>
                     </div>
                     <div class="sm-table-container" style="box-shadow:none; border:none; margin-bottom:0; background:transparent;">
                         <table>
                             <thead><tr><th><span class="eng-text">Branch</span> <span class="urdu-th">برانچ</span></th><th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th><th><span class="eng-text">Ans</span> <span class="urdu-th">جواب</span></th><th><span class="eng-text">Pend</span> <span class="urdu-th">باقی</span></th></tr></thead>
-                            <tbody class="eng-text">
-                                <tr><td contenteditable="true">Nagpur <span class="urdu-text">(ناگپور)</span></td><td contenteditable="true">1200</td><td class="text-success" contenteditable="true">1150</td><td class="text-danger" contenteditable="true">50</td></tr>
-                                <tr><td contenteditable="true">Mumbai <span class="urdu-text">(ممبئی)</span></td><td contenteditable="true">1500</td><td class="text-success" contenteditable="true">1400</td><td class="text-danger" contenteditable="true">100</td></tr>
-                                <tr><td contenteditable="true">Ahmedabad <span class="urdu-text">(احمدآباد)</span></td><td contenteditable="true">900</td><td class="text-success" contenteditable="true">880</td><td class="text-danger" contenteditable="true">20</td></tr>
-                                <tr><td contenteditable="true">Hyderabad <span class="urdu-text">(حیدرآباد)</span></td><td contenteditable="true">850</td><td class="text-success" contenteditable="true">800</td><td class="text-danger" contenteditable="true">50</td></tr>
-                                <tr><td contenteditable="true">Modasa <span class="urdu-text">(موڈاسہ)</span></td><td contenteditable="true">600</td><td class="text-success" contenteditable="true">580</td><td class="text-danger" contenteditable="true">20</td></tr>
+                            <tbody id="branch-perf-body" class="eng-text">
+                                <tr><td contenteditable="true">Nagpur <span class="urdu-text">(ناگپور)</span></td><td contenteditable="true" oninput="updateBranchPerf()">1200</td><td class="text-success" contenteditable="true" oninput="updateBranchPerf()">1150</td><td class="text-danger" contenteditable="true" oninput="updateBranchPerf()">50</td></tr>
+                                <tr><td contenteditable="true">Mumbai <span class="urdu-text">(ممبئی)</span></td><td contenteditable="true" oninput="updateBranchPerf()">1500</td><td class="text-success" contenteditable="true" oninput="updateBranchPerf()">1400</td><td class="text-danger" contenteditable="true" oninput="updateBranchPerf()">100</td></tr>
+                                <tr><td contenteditable="true">Ahmedabad <span class="urdu-text">(احمدآباد)</span></td><td contenteditable="true" oninput="updateBranchPerf()">900</td><td class="text-success" contenteditable="true" oninput="updateBranchPerf()">880</td><td class="text-danger" contenteditable="true" oninput="updateBranchPerf()">20</td></tr>
+                                <tr><td contenteditable="true">Hyderabad <span class="urdu-text">(حیدرآباد)</span></td><td contenteditable="true" oninput="updateBranchPerf()">850</td><td class="text-success" contenteditable="true" oninput="updateBranchPerf()">800</td><td class="text-danger" contenteditable="true" oninput="updateBranchPerf()">50</td></tr>
+                                <tr><td contenteditable="true">Modasa <span class="urdu-text">(موڈاسہ)</span></td><td contenteditable="true" oninput="updateBranchPerf()">600</td><td class="text-success" contenteditable="true" oninput="updateBranchPerf()">580</td><td class="text-danger" contenteditable="true" oninput="updateBranchPerf()">20</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -772,6 +775,7 @@
                 <div class="toolbar-group">
                     <input type="date" class="input-control eng-text" id="report-date" onchange="createNewReportSheet()">
                     <input type="text" class="input-control eng-text" placeholder="🔍 Search...">
+                    <button class="btn-action btn-reset eng-text" onclick="resetToZero('wa-report-body')">🔄 Zero Data <span class="urdu-btn">(زیرو کریں)</span></button>
                 </div>
                 <div class="toolbar-group">
                     <button class="btn-action eng-text" onclick="exportToCSV('whatsapp-report.csv', 'report-table-id')">📥 Excel / CSV</button>
@@ -806,7 +810,7 @@
                             <th><span class="eng-text">Action</span> <span class="urdu-th">محفوظ</span></th>
                         </tr>
                     </thead>
-                    <tbody class="eng-text">
+                    <tbody id="wa-report-body" class="eng-text">
                         <tr><td contenteditable="true">1</td><td contenteditable="true">Hyderabad</td><td contenteditable="true">Jaseem Madani</td><td class="urdu-text" style="font-size:18px;" contenteditable="true">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRowFlash(this)">💾 Save</button></td></tr>
                         <tr><td contenteditable="true">2</td><td contenteditable="true">Nagpur</td><td contenteditable="true">Dilkash Madani</td><td class="urdu-text" style="font-size:18px;" contenteditable="true">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRowFlash(this)">💾 Save</button></td></tr>
                         <tr><td contenteditable="true">3</td><td contenteditable="true">Mumbai</td><td contenteditable="true">Imran Madani</td><td class="urdu-text" style="font-size:18px;" contenteditable="true">مفتی انس + نورالمصطفیٰ</td><td><input class="table-input" value="4"></td><td><input class="table-input" value="0"></td><td><input class="table-input" data-type="time" value="10:00am"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="01-07"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><input class="table-input" value="0"></td><td><button class="btn-edit" onclick="saveRowFlash(this)">💾 Save</button></td></tr>
@@ -959,11 +963,12 @@
             </div>
             <div class="toolbar premium-box" style="padding: 15px 20px; border-top: 2px solid var(--gold-primary);">
                 <div class="toolbar-group"><input type="text" class="input-control urdu-text" placeholder="🔍 Search Branch (برانچ تلاش کریں)..."></div>
+                <div class="toolbar-group"><button class="btn-action btn-reset eng-text" onclick="resetToZero('branches-container')">🔄 Zero Data <span class="urdu-btn">(زیرو کریں)</span></button></div>
             </div>
             <div class="summary-badge" style="background: transparent; border: none; box-shadow: none; text-align: center; margin-bottom: 25px;">
                 <h2 style="color: var(--gold-primary); text-shadow: 0 0 10px var(--gold-glow); font-size:32px;"><span class="urdu-text">کل برانچز: </span><span style="color: #fff;" class="eng-text" contenteditable="true">5</span></h2>
             </div>
-            <div class="settings-container">
+            <div class="settings-container" id="branches-container">
                 <div class="premium-box" style="border-top: 3px solid var(--gold-primary);"><div class="branch-header"><div class="mufti-info"><h3 class="eng-text" contenteditable="true">Nagpur Branch</h3><h2 class="urdu-text" contenteditable="true">ناگپور برانچ</h2></div><div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);"><i>👳</i> <span contenteditable="true">3</span></div></div><div class="branch-stats"><div class="b-stat"><span class="eng-text">Qs</span><div class="u-s urdu-text">آج</div><h4 class="eng-text" contenteditable="true">53</h4></div><div class="b-stat"><span class="eng-text">Ans</span><div class="u-s urdu-text">جوابات</div><h4 class="text-success eng-text" contenteditable="true">45</h4></div><div class="b-stat"><span class="eng-text">Pend</span><div class="u-s urdu-text">باقی</div><h4 class="text-danger eng-text" contenteditable="true">8</h4></div></div></div>
                 <div class="premium-box" style="border-top: 3px solid var(--gold-primary);"><div class="branch-header"><div class="mufti-info"><h3 class="eng-text" contenteditable="true">Mumbai Branch</h3><h2 class="urdu-text" contenteditable="true">ممبئی برانچ</h2></div><div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);"><i>👳</i> <span contenteditable="true">4</span></div></div><div class="branch-stats"><div class="b-stat"><span class="eng-text">Qs</span><div class="u-s urdu-text">آج</div><h4 class="eng-text" contenteditable="true">85</h4></div><div class="b-stat"><span class="eng-text">Ans</span><div class="u-s urdu-text">جوابات</div><h4 class="text-success eng-text" contenteditable="true">72</h4></div><div class="b-stat"><span class="eng-text">Pend</span><div class="u-s urdu-text">باقی</div><h4 class="text-danger eng-text" contenteditable="true">13</h4></div></div></div>
                 <div class="premium-box" style="border-top: 3px solid var(--gold-primary);"><div class="branch-header"><div class="mufti-info"><h3 class="eng-text" contenteditable="true">Ahmedabad Branch</h3><h2 class="urdu-text" contenteditable="true">احمدآباد برانچ</h2></div><div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);"><i>👳</i> <span contenteditable="true">5</span></div></div><div class="branch-stats"><div class="b-stat"><span class="eng-text">Qs</span><div class="u-s urdu-text">آج</div><h4 class="eng-text" contenteditable="true">64</h4></div><div class="b-stat"><span class="eng-text">Ans</span><div class="u-s urdu-text">جوابات</div><h4 class="text-success eng-text" contenteditable="true">62</h4></div><div class="b-stat"><span class="eng-text">Pend</span><div class="u-s urdu-text">باقی</div><h4 class="text-danger eng-text" contenteditable="true">2</h4></div></div></div>
@@ -1087,8 +1092,10 @@
 
     <!-- JAVASCRIPT SYSTEM -->
     <script>
+        // Theme Toggle
         function toggleTheme() { document.body.classList.toggle('light-mode'); }
 
+        // Setting default dates and times
         window.onload = function() {
             const today = new Date();
             const dateInput = document.getElementById('report-date');
@@ -1115,6 +1122,7 @@
             }
         };
 
+        // Photo Upload Preview
         function previewImage(event, inputElement) {
             const file = event.target.files[0];
             if (file) {
@@ -1126,6 +1134,133 @@
                 reader.readAsDataURL(file);
             }
         }
+
+        // ==========================================
+        // AUTO CALCULATION LOGIC 
+        // ==========================================
+
+        // Update Whatsapp Status top counters automatically based on table selections
+        function updateWhatsAppSummary() {
+            let table = document.getElementById('wa-status-table');
+            if(!table) return;
+            
+            let selects = table.querySelectorAll('tbody select');
+            let total = selects.length;
+            let answered = 0, pending = 0, research = 0, typing = 0;
+
+            selects.forEach(sel => {
+                let val = sel.value;
+                if(val.includes('Answer Sent')) answered++;
+                else if(val.includes('Under Research')) research++;
+                else if(val.includes('Software Typing')) typing++;
+                else pending++; 
+            });
+
+            // Update Top Summary Boxes
+            document.getElementById('sum-total').innerText = total;
+            document.getElementById('sum-answered').innerText = answered;
+            document.getElementById('sum-pending').innerText = pending;
+            document.getElementById('sum-research').innerText = research;
+            document.getElementById('sum-typing').innerText = typing;
+
+            // Update Daily Count Boxes
+            document.getElementById('daily-total').innerText = total;
+            document.getElementById('daily-answered').innerText = answered;
+            document.getElementById('daily-pending').innerText = pending;
+            document.getElementById('daily-research').innerText = research;
+            document.getElementById('daily-typing').innerText = typing;
+        }
+
+        // Auto sum for Monthly Sheet
+        function updateMonthlySheet() {
+            let tbody = document.getElementById('monthly-sheet-body');
+            let tfoot = document.getElementById('monthly-sheet-foot');
+            if(!tbody || !tfoot) return;
+            
+            let totalQs = 0, answered = 0, pending = 0, research = 0, typing = 0, daysPend = 0;
+            
+            let rows = tbody.querySelectorAll('tr');
+            rows.forEach(row => {
+                let cells = row.querySelectorAll('td');
+                if(cells.length > 8) {
+                    totalQs += parseInt(cells[1].innerText) || 0;
+                    answered += parseInt(cells[2].innerText) || 0;
+                    pending += parseInt(cells[3].innerText) || 0;
+                    research += parseInt(cells[4].innerText) || 0;
+                    typing += parseInt(cells[5].innerText) || 0;
+                    daysPend += parseInt(cells[6].innerText) || 0;
+                }
+            });
+            
+            let footCells = tfoot.querySelectorAll('td');
+            if(footCells.length > 8) {
+                footCells[1].innerText = totalQs;
+                footCells[2].innerText = answered;
+                footCells[3].innerText = pending;
+                footCells[4].innerText = research;
+                footCells[5].innerText = typing;
+                footCells[6].innerText = daysPend;
+                
+                let perf = totalQs > 0 ? Math.round((answered/totalQs)*100) : 0;
+                footCells[8].innerText = perf + '%';
+            }
+        }
+
+        // Auto sum for Yearly Report
+        function updateYearlyReport() {
+            let tbody = document.getElementById('yearly-sheet-body');
+            if(!tbody) return;
+            let rows = tbody.querySelectorAll('tr');
+            let sumTotal = 0, sumAns = 0;
+            
+            // Loop all except the very last YTD row
+            for(let i=0; i<rows.length - 1; i++) {
+                let cells = rows[i].querySelectorAll('td');
+                sumTotal += parseInt(cells[1].innerText) || 0;
+                sumAns += parseInt(cells[2].innerText) || 0;
+            }
+            
+            // Update the last row
+            document.getElementById('yr-total').innerText = sumTotal;
+            document.getElementById('yr-ans').innerText = sumAns;
+        }
+
+        // Auto sum for Branch Performance (Usually Total = Ans + Pend)
+        function updateBranchPerf() {
+            let tbody = document.getElementById('branch-perf-body');
+            if(!tbody) return;
+            let rows = tbody.querySelectorAll('tr');
+            rows.forEach(row => {
+                let cells = row.querySelectorAll('td');
+                if(cells.length >= 4) {
+                    let ans = parseInt(cells[2].innerText) || 0;
+                    let pend = parseInt(cells[3].innerText) || 0;
+                    cells[1].innerText = ans + pend; // Total updates automatically
+                }
+            });
+        }
+
+        // Universal Zero Reset Function
+        function resetToZero(tableBodyId) {
+            let container = document.getElementById(tableBodyId);
+            if(!container) return;
+            
+            let editableCells = container.querySelectorAll('[contenteditable="true"]');
+            editableCells.forEach(cell => {
+                if(!isNaN(parseInt(cell.innerText))) { // Only zero out numeric fields
+                    cell.innerText = '0';
+                }
+            });
+            
+            // Re-trigger calculations based on what we reset
+            if(tableBodyId === 'monthly-sheet-body') updateMonthlySheet();
+            if(tableBodyId === 'yearly-sheet-body') updateYearlyReport();
+            if(tableBodyId === 'branch-perf-body') updateBranchPerf();
+        }
+
+        // ==========================================
+        // OTHER LOGICS
+        // ==========================================
 
         function filterMuftis() {
             let input = document.getElementById('search-mufti').value.toLowerCase();
@@ -1157,12 +1292,10 @@
                 const inputs = document.querySelectorAll('#whatsapp-table-area .table-input');
                 inputs.forEach(input => { if (input.dataset.type === 'time') { input.value = '10:00am'; } else if (input.tagName === 'INPUT' && input.type !== 'date') { input.value = '0'; } });
                 
-                // Clear out content-editable fields for a fresh sheet
+                // Clear content-editable text
                 const editableCells = tableArea.querySelectorAll('td[contenteditable="true"]');
                 editableCells.forEach(cell => {
-                    if(!cell.innerText.includes('مفتی')) {
-                        cell.innerText = '-';
-                    }
+                    if(!cell.innerText.includes('مفتی')) { cell.innerText = '-'; }
                 });
                 
                 dynamicTitle.style.display = 'block';
@@ -1171,7 +1304,6 @@
             }, 400);
         }
 
-        /* Simplified Save Button (Since inputs are active by default now) */
         function saveRowFlash(btn) {
             btn.innerHTML = '✅ Saved';
             btn.style.background = 'rgba(26, 188, 156, 0.2)';
@@ -1185,11 +1317,6 @@
                 btn.style.borderColor = 'var(--gold-primary)';
             }, 2000);
         }
-        
-        /* Keeping legacy function name just in case */
-        function toggleEditSaveRow(btn) {
-            saveRowFlash(btn);
-        }
 
         function exportToCSV(filename, tableId) {
             let csv = [];
@@ -1197,13 +1324,10 @@
             
             for (let i = 0; i < rows.length; i++) {
                 let row = [], cols = rows[i].querySelectorAll("td, th");
-                
                 for (let j = 0; j < cols.length; j++) {
                     let data = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, "").trim();
                     let inputElement = cols[j].querySelector('input, select');
-                    if (inputElement) {
-                        data = inputElement.value;
-                    }
+                    if (inputElement) { data = inputElement.value; }
                     row.push('"' + data + '"');
                 }
                 csv.push(row.join(","));
@@ -1248,6 +1372,7 @@
             }, 1000);
         }
 
+        // Menu Navigation
         function processLogin() { document.getElementById('login-page').style.opacity = '0'; setTimeout(() => { document.getElementById('login-page').style.display = 'none'; document.getElementById('dashboard-page').style.display = 'block'; }, 500); }
         function logout() { document.querySelectorAll('.main').forEach(m => m.parentElement.style.display = 'none'); const loginPage = document.getElementById('login-page'); loginPage.style.display = 'flex'; setTimeout(() => { loginPage.style.opacity = '1'; }, 50); }
 
@@ -1275,7 +1400,7 @@
         function openWhatsAppSuwalat() { 
             document.getElementById('dashboard-page').style.display = 'none'; 
             document.getElementById('whatsapp-suwalat-page').style.display = 'block'; 
-            checkDelayedQuestions(); /* Triggers the 3 days delay popup alert */
+            checkDelayedQuestions(); 
         }
         function closeWhatsAppSuwalat() { document.getElementById('whatsapp-suwalat-page').style.display = 'none'; document.getElementById('dashboard-page').style.display = 'block'; }
     </script>
