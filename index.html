@@ -89,7 +89,7 @@
         .eng-text { font-family: 'Poppins', sans-serif !important; }
 
         /* ========================================================
-           FUTURISTIC TECH BACKGROUND RINGS (Matches Screenshot)
+           FUTURISTIC TECH BACKGROUND RINGS 
            ======================================================== */
         .tech-bg {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
@@ -162,7 +162,7 @@
         body.light-mode .user { color: #fff; }
 
         /* ========================================================
-           HEXAGONAL DASHBOARD MENU (Matches Screenshot Perfectly)
+           HEXAGONAL DASHBOARD MENU
            ======================================================== */
         .menu-grid { 
             display: flex; 
@@ -179,19 +179,14 @@
             background: var(--card-bg); 
             backdrop-filter: blur(12px); 
             -webkit-backdrop-filter: blur(12px);
-            border: none; /* Borders hide behind clip-path */
+            border: none;
             text-align: center; 
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             cursor: pointer; 
             position: relative; 
-            
-            /* Hexagon Shape (Pointy Top & Bottom, Flat Sides) */
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            
-            /* Sizing */
             width: 190px;
             height: 220px; 
-            
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -199,7 +194,6 @@
             padding: 30px 15px;
         }
         
-        /* Simulated inner border for hexagon */
         .menu-box::before {
             content: ''; position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px;
             background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
@@ -209,7 +203,7 @@
 
         .menu-box:hover { 
             transform: scale(1.08); 
-            background: rgba(92, 225, 211, 0.25); /* Glowing teal hover */
+            background: rgba(92, 225, 211, 0.25); 
             z-index: 10;
         }
         
@@ -221,7 +215,7 @@
             margin-bottom: 12px; 
             transition: 0.3s ease; 
             display: inline-block; 
-            color: #ffffff; /* Pure white icons like screenshot */
+            color: #ffffff; 
             filter: drop-shadow(0 0 8px rgba(255,255,255,0.8)); 
         }
         .menu-box:hover .box-icon { transform: scale(1.15) translateY(-5px); }
@@ -246,18 +240,14 @@
         }
         .menu-box:hover .urdu-3d, .menu-box:hover .text-3d { text-shadow: 0 0 10px #fff; }
 
-        /* Remove the rainbow colors, unify with Medical/Tech Teal Glass Theme */
         .color-wa, .color-report, .color-fatwa, .color-mufti, .color-branches, .color-reports, .color-social, .color-notif, .color-settings, .color-logout {
-            /* All use the default glassmorphic hexagon style */
             background: rgba(255, 255, 255, 0.08);
         }
 
         .fatwa-card { padding: 40px 20px; clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%); border-radius: 0; }
         .fatwa-card .box-icon { font-size: 60px; }
 
-        /* ========================================================
-           COMMON TOOLBAR & TABLE (Futuristic Styling)
-           ======================================================== */
+        /* COMMON TOOLBAR & TABLE */
         .toolbar { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); backdrop-filter: blur(10px); padding: 15px 25px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 25px; flex-wrap: wrap; gap: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
         .toolbar-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
         
@@ -284,7 +274,7 @@
         .btn-edit { padding: 6px 12px; font-size: 12px; background: rgba(92, 225, 211, 0.15); color: var(--gold-primary); border: 1px solid var(--gold-primary); border-radius: 6px; cursor:pointer; font-weight: bold; width: 100%; transition: 0.3s;}
         .btn-edit:hover { background: var(--gold-primary); color: #000; box-shadow: 0 0 12px var(--gold-glow);}
 
-        /* MUFTIYAN CARDS - Glassmorphic Edit */
+        /* MUFTIYAN CARDS */
         .nm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 40px; }
         .nm-card { display: flex; border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; background: var(--card-bg); backdrop-filter: blur(10px); direction: rtl; box-shadow: 0 8px 25px rgba(0,0,0,0.4); transition: 0.3s ease; min-height: 160px; perspective: 1000px; }
         .nm-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px var(--gold-glow); border-color: var(--gold-primary); }
@@ -307,18 +297,9 @@
         body:not(.light-mode) .btn-bottom:hover { color: #000; }
         .btn-bottom .urdu-btn { font-size: 22px; font-weight: normal; }
 
-        /* ========================================================
-           WHATSAPP SUWALAT & OTHER MODULES
-           ======================================================== */
+        /* WHATSAPP SUWALAT & OTHER MODULES */
         .ws-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 25px; margin-bottom: 30px; }
         
-        .ws-alert-badge {
-            background: rgba(255, 255, 255, 0.05); border-left: 4px solid var(--gold-primary); padding: 12px 15px; 
-            border-radius: 8px; margin-bottom: 12px; color: var(--text-white); font-size: 13px; display: flex; align-items: center; gap: 12px;
-            backdrop-filter: blur(5px); box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        .ws-alert-badge.red { border-left-color: #ff4d4d; }
-        .ws-alert-icon { font-size: 22px; filter: drop-shadow(0 0 5px currentColor); }
         .ws-duplicate-warn { color: var(--gold-primary); font-size: 12px; margin-top: 5px; display: none; font-weight: bold; background: rgba(0,0,0,0.5); padding: 8px; border-radius: 6px;}
 
         .status-new { color: var(--gold-primary); font-weight: bold; }
@@ -383,7 +364,7 @@
             .header { flex-direction: column; gap: 20px; margin-bottom: 30px;}
             .header-left, .header-right { position: static; display: flex; justify-content: space-between; width: 100%; gap: 10px; flex-wrap: wrap;}
             .header h1 { font-size: 36px; text-align: center; line-height: 1.4; width: 100%;}
-            /* Hexagons scale down on mobile nicely due to fixed sizing, flex wrap naturally pushes them to new lines */
+            /* Hexagons scale down on mobile nicely due to fixed sizing */
             .menu-box { width: 150px; height: 173px; padding: 20px 10px; }
             .box-icon { font-size: 35px; }
             .urdu-3d { font-size: 18px; }
@@ -533,9 +514,6 @@
                 <div class="premium-box social-summary-card" style="border-bottom-color: #9b59b6;">
                     <div class="social-summary-icon" style="color:#9b59b6;">🟣</div><h3 class="eng-text" style="color:var(--text-white);">Typing</h3><h2 class="urdu-text" style="color:#9b59b6;">ٹائپنگ میں</h2><h1 class="eng-text" style="color:#9b59b6;">65</h1>
                 </div>
-                <div class="premium-box social-summary-card" style="border-bottom-color: #ff4d4d;">
-                    <div class="social-summary-icon text-danger">🚨</div><h3 class="eng-text" style="color:var(--text-white);">3 Days Pending</h3><h2 class="urdu-text text-danger">دن سے زائد 3</h2><h1 class="text-danger eng-text">30</h1>
-                </div>
             </div>
 
             <div class="ws-grid">
@@ -552,7 +530,7 @@
                             <input type="text" class="input-control eng-text" id="ws-mobile" placeholder="e.g. 03001234567" onkeyup="checkDuplicateMobile()">
                             <div id="ws-mobile-alert" class="ws-duplicate-warn urdu-text"></div>
                         </div>
-                        <div class="input-group" style="grid-column: span 2;"><label><span class="eng-text">Name</span> <span class="urdu-text">(نام)</span></label><input type="text" class="input-control eng-text" placeholder="Sender Name"></div>
+                        
                         <div class="input-group">
                             <label><span class="eng-text">Language</span> <span class="urdu-text">(زبان)</span></label>
                             <select class="input-control"><option class="urdu-text">Urdu (اردو)</option><option class="urdu-text">Roman (رومن)</option><option class="urdu-text">Hindi (ہندی)</option><option class="urdu-text">English (انگریزی)</option></select>
@@ -572,21 +550,34 @@
                         </div>
                         <div class="input-group">
                             <label><span class="eng-text">Mufti Assign</span> <span class="urdu-text">(مفتی مقرر کریں)</span></label>
-                            <select class="input-control"><option class="eng-text">Mufti Zafar Madani</option><option class="eng-text">Mufti Kashif Madani</option><option class="eng-text">Mufti Aalam Madani</option></select>
+                            <select class="input-control">
+                                <option class="eng-text">Mufti Zafar Madani</option>
+                                <option class="eng-text">Mufti Ghulam Raza Madani</option>
+                                <option class="eng-text">Mufti Dilkash Madani</option>
+                                <option class="eng-text">Mufti Kashif Madani</option>
+                                <option class="eng-text">Mufti Zulfiqar Madani</option>
+                                <option class="eng-text">Mufti Abdul Wajid Madani</option>
+                                <option class="eng-text">Mufti Muhammad Nadir Raza</option>
+                                <option class="eng-text">Mufti Sajjad Madani</option>
+                                <option class="eng-text">Mufti Aalam Madani</option>
+                                <option class="eng-text">Mufti Aabid Hussain</option>
+                                <option class="eng-text">Mufti Muhammad Faizan</option>
+                                <option class="eng-text">Mufti Muhammad Saleem</option>
+                                <option class="eng-text">Mufti Javed Madani</option>
+                                <option class="eng-text">Mufti Imran Madani</option>
+                                <option class="eng-text">Mufti Bilal Madani</option>
+                                <option class="eng-text">Mufti Muhammad Irshad</option>
+                                <option class="eng-text">Mufti Jaseem Madani</option>
+                                <option class="eng-text">Mufti Syed Bilal Madani</option>
+                                <option class="eng-text">Mufti Misbah ur Rehman</option>
+                                <option class="eng-text">Mufti Misbah ul Haq Qadri</option>
+                            </select>
                         </div>
                     </div>
                     <button class="btn-action urdu-text" style="width: 100%; justify-content: center; margin-top: 25px; padding: 15px; font-size: 24px; background: linear-gradient(135deg, var(--gold-primary), #00796b); color:#000; border:none; box-shadow: 0 4px 20px var(--gold-glow);" onclick="alert('✅ سوال کامیابی کے ساتھ محفوظ ہو گیا ہے۔')">محفوظ کریں <span class="eng-text" style="font-size:16px;">(Save)</span></button>
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 20px;">
-                    <div class="premium-box" style="border-top: 2px solid var(--text-muted);">
-                        <div class="sm-toolbar" style="margin-bottom: 15px; box-shadow: none; border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); padding: 12px;">
-                            <h2 style="color: var(--text-white); font-size: 26px; margin:0; text-shadow: 0 0 10px rgba(255,255,255,0.3);"><span class="urdu-text">الرٹ</span> <span class="eng-text" style="font-size:16px;">(Reminders)</span></h2>
-                        </div>
-                        <div class="ws-alert-badge"><div class="ws-alert-icon" style="color:#ffc107;">🟡</div><div class="eng-text"><b>Yellow Alert:</b> 15 Sawal 24 ghante se zayed ho gaye.</div></div>
-                        <div class="ws-alert-badge red"><div class="ws-alert-icon" style="color:#ff4d4d;">🔴</div><div class="eng-text"><b>Red Alert:</b> 8 Sawal 3 din se pending hain!</div></div>
-                    </div>
-
                     <div class="premium-box" style="flex-grow: 1; border-top: 2px solid var(--gold-primary);">
                         <div class="sm-toolbar" style="margin-bottom: 20px; box-shadow: none; border-color: var(--gold-primary); background: rgba(92,225,211,0.1); padding: 12px;">
                             <h2 style="color: var(--gold-primary); font-size: 26px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">آج کی گنتی</span> <span class="eng-text" style="font-size:16px;">(Daily Count)</span></h2>
@@ -1209,6 +1200,14 @@
             }
         }
 
+        /* SIMULATED 3 DAY DELAY POPUP */
+        function checkDelayedQuestions() {
+            // Simulated delay to feel natural
+            setTimeout(() => {
+                alert('⚠️ الرٹ: 8 سوالات کو 3 دن سے زیادہ کا وقت گزر چکا ہے، براہ کرم فوراً جواب دیں!\n\n(Alert: 8 Questions are pending for over 3 days!)');
+            }, 1000);
+        }
+
         function processLogin() { document.getElementById('login-page').style.opacity = '0'; setTimeout(() => { document.getElementById('login-page').style.display = 'none'; document.getElementById('dashboard-page').style.display = 'block'; }, 500); }
         function logout() { document.querySelectorAll('.main').forEach(m => m.parentElement.style.display = 'none'); const loginPage = document.getElementById('login-page'); loginPage.style.display = 'flex'; setTimeout(() => { loginPage.style.opacity = '1'; }, 50); }
 
@@ -1233,7 +1232,12 @@
         function openSocialMedia() { document.getElementById('dashboard-page').style.display = 'none'; document.getElementById('social-media-page').style.display = 'block'; filterSocialMedia(); }
         function closeSocialMedia() { document.getElementById('social-media-page').style.display = 'none'; document.getElementById('dashboard-page').style.display = 'block'; }
 
-        function openWhatsAppSuwalat() { document.getElementById('dashboard-page').style.display = 'none'; document.getElementById('whatsapp-suwalat-page').style.display = 'block'; }
+        function openWhatsAppSuwalat() { 
+            document.getElementById('dashboard-page').style.display = 'none'; 
+            document.getElementById('whatsapp-suwalat-page').style.display = 'block'; 
+            // Call the 3 Days Alert Popup
+            checkDelayedQuestions();
+        }
         function closeWhatsAppSuwalat() { document.getElementById('whatsapp-suwalat-page').style.display = 'none'; document.getElementById('dashboard-page').style.display = 'block'; }
     </script>
 </body>
