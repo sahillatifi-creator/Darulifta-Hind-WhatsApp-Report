@@ -555,12 +555,6 @@
             text-shadow: 0 0 10px #fff; 
         }
 
-        .fatwa-card { 
-            padding: 40px 20px; 
-            clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%); 
-            border-radius: 0; 
-        }
-        
         /* ========================================================
            COMMON TOOLBAR & TABLE
            ======================================================== */
@@ -763,7 +757,7 @@
             background: rgba(0,0,0,0.8); 
         }
 
-        /* COLOURFUL TABLE COLUMNS (As per request) */
+        /* COLOURFUL TABLE COLUMNS */
         .col-pending { 
             color: #ffc107 !important; 
             background: rgba(255, 193, 7, 0.1) !important; 
@@ -786,6 +780,28 @@
             color: #9b59b6 !important; 
             background: rgba(155, 89, 182, 0.1) !important; 
             border-color: rgba(155, 89, 182, 0.4) !important; 
+        }
+        
+        .btn-edit { 
+            padding: 6px 12px; 
+            font-size: 12px; 
+            background: rgba(92, 225, 211, 0.15); 
+            color: var(--gold-primary); 
+            border: 1px solid var(--gold-primary); 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            width: 100%; 
+            transition: 0.3s; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        
+        .btn-edit:hover { 
+            background: var(--gold-primary); 
+            color: #000; 
+            box-shadow: 0 0 12px var(--gold-glow);
         }
 
         /* ========================================================
@@ -1365,8 +1381,8 @@
         <div class="ring r3"></div>
     </div>
 
-    <!-- FLOATING LOGOUT CORNER BUTTON -->
-    <div class="logout-corner-btn" onclick="logout()">
+    <!-- FLOATING LOGOUT CORNER BUTTON (Always visible at bottom right) -->
+    <div class="logout-corner-btn" onclick="logout()" style="position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; padding: 12px 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(231,76,60,0.4); cursor: pointer; z-index: 9999; display: flex; align-items: center; gap: 10px; font-weight: bold; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.2);">
         <div class="box-icon" style="margin-bottom:0; font-size: 20px;">
             🚪
         </div>
@@ -1376,6 +1392,7 @@
     <!-- LOGIN PAGE -->
     <div id="login-page">
         <div class="login-box">
+            <!-- UPDATED LOGIN LOGO -->
             <img src="WhatsApp Image 2024-09-05 at 3.43.00 PM.jpeg" alt="Darul Iftaa Logo">
             <h2>System Login</h2>
             <div class="input-group">
@@ -1395,6 +1412,7 @@
         <div class="main">
             <div class="header">
                 <div class="header-left">
+                    <!-- UPDATED DASHBOARD HEADER LOGO (Rectangular) -->
                     <img src="WhatsApp Image 2024-09-06 at 10.21.25 PM.jpeg" alt="Darul Ifta Logo" style="max-height: 60px; filter: drop-shadow(0px 0px 8px var(--gold-glow));">
                 </div>
                 <h1 class="urdu-text">ڈیش بورڈ</h1>
@@ -1407,7 +1425,7 @@
                 </div>
             </div>
 
-            <!-- HEXAGONAL MENU GRID WITH NORMAL EMOJIS -->
+            <!-- HEXAGONAL MENU GRID WITH LARGE EMOJIS -->
             <div class="menu-grid">
                 <div class="menu-box" onclick="openWhatsAppSuwalat()">
                     <div class="box-icon">💬</div>
@@ -1592,7 +1610,7 @@
                 </div>
             </div>
 
-            <!-- 3. MONTHLY REPORT SECTION -->
+            <!-- 3. MONTHLY REPORT SECTION (WITH 20 MUFTIS) -->
             <div id="report-monthly" class="report-section">
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="sm-toolbar">
@@ -1622,7 +1640,7 @@
                             </thead>
                             <tbody id="tbl-monthly" class="eng-text">
                                 <tr>
-                                    <td>Mufti Zafar Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی ظفر مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1633,7 +1651,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Ghulam Raza Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی غلام رضا مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1644,7 +1662,7 @@
                                     <td><span style="color:var(--text-white); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Dilkash Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی دل کش مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1655,7 +1673,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Kashif Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی کاشف مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1666,7 +1684,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Zulfiqar Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی ذوالفقار مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1677,7 +1695,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Abdul Wajid Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی عبدالواجد مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1688,7 +1706,7 @@
                                     <td><span style="color:var(--text-white); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Muhammad Nadir Raza</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی محمد نادر رضا</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1699,7 +1717,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Sajjad Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی سجاد مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1710,7 +1728,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Aalam Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی عالم مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1721,7 +1739,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Aabid Hussain</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی عابد حسین</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1732,7 +1750,7 @@
                                     <td><span style="color:var(--text-white); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Muhammad Faizan</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی محمد فیضان</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1743,7 +1761,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Muhammad Saleem</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی محمد سلیم</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1754,7 +1772,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Javed Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی جاوید مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1765,7 +1783,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Imran Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی عمران مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1776,7 +1794,7 @@
                                     <td><span style="color:var(--text-white); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Bilal Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی بلال مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1787,7 +1805,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Muhammad Irshad</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی محمد ارشاد</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1798,7 +1816,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Jaseem Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی جسیم مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1809,7 +1827,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Syed Bilal Madani</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی سید بلال مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1820,7 +1838,7 @@
                                     <td><span style="color:var(--text-white); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Misbah ur Rehman</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی مصباح الرحمٰن</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1831,7 +1849,7 @@
                                     <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Misbah ul Haq Qadri</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی مصباح الحق قادری</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td>0</td>
@@ -1860,7 +1878,7 @@
                 </div>
             </div>
 
-            <!-- 4. YEARLY REPORT SECTION -->
+            <!-- 4. YEARLY REPORT SECTION (ALL 12 MONTHS ADDED) -->
             <div id="report-yearly" class="report-section">
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="sm-toolbar">
@@ -1953,7 +1971,7 @@
                 </div>
             </div>
 
-            <!-- 5. MUFTI-WISE REPORT SECTION -->
+            <!-- 5. MUFTI-WISE REPORT SECTION (20 MUFTIS) -->
             <div id="report-mufti" class="report-section">
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="sm-toolbar">
@@ -1978,28 +1996,140 @@
                             </thead>
                             <tbody id="tbl-mufti-wise" class="eng-text">
                                 <tr>
-                                    <td>Mufti Zafar</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی ظفر مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td class="text-danger">0</td>
                                     <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Kashif</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی غلام رضا مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td class="text-danger">0</td>
                                     <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Aalam</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی دل کش مدنی</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td class="text-danger">0</td>
                                     <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
                                 </tr>
                                 <tr>
-                                    <td>Mufti Sajjad</td>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی کاشف مدنی</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی ذوالفقار مدنی</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی عبدالواجد مدنی</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی محمد نادر رضا</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی سجاد مدنی</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی عالم مدنی</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی عابد حسین</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی محمد فیضان</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی محمد سلیم</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی جاوید مدنی</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی عمران مدنی</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی بلال مدنی</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی محمد ارشاد</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی جسیم مدنی</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی سید بلال مدنی</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی مصباح الرحمٰن</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="urdu-text" style="font-size: 16px;">مفتی مصباح الحق قادری</td>
                                     <td>0</td>
                                     <td class="text-success">0</td>
                                     <td class="text-danger">0</td>
@@ -2076,315 +2206,6 @@
     <!-- END REPORTS MODULE -->
 
 
-    <!-- WHATSAPP SUWALAT MODULE -->
-    <div id="whatsapp-suwalat-page">
-        <div class="main">
-            <div class="header">
-                <div class="header-left">
-                    <button class="btn-back eng-text" onclick="closeWhatsAppSuwalat()">⬅ Back</button>
-                </div>
-                <h1><span class="urdu-text">واٹس ایپ سوالات</span> <span class="eng-text" style="font-size:32px;">(WhatsApp Suwalat)</span></h1>
-                <div class="header-right"></div>
-            </div>
-
-            <!-- TOP CARDS: AUTO SYNCED (ZERO DATA) -->
-            <div class="social-summary-grid">
-                <div class="premium-box social-summary-card">
-                    <div class="social-summary-icon">📩</div>
-                    <h3 class="eng-text" style="color:var(--text-white);">Total Questions</h3>
-                    <h2 class="urdu-text" style="color:var(--text-white);">کل سوالات</h2>
-                    <h1 class="eng-text" style="color:var(--text-white);" id="sum-total">0</h1>
-                </div>
-                <div class="premium-box social-summary-card" style="border-bottom-color: var(--gold-primary);">
-                    <div class="social-summary-icon text-success">✅</div>
-                    <h3 class="eng-text" style="color:var(--text-white);">Answered</h3>
-                    <h2 class="urdu-text text-success">جوابات</h2>
-                    <h1 class="text-success eng-text" id="sum-answered">0</h1>
-                </div>
-                <div class="premium-box social-summary-card" style="border-bottom-color: #ffc107;">
-                    <div class="social-summary-icon" style="color:#ffc107;">⏳</div>
-                    <h3 class="eng-text" style="color:var(--text-white);">Pending</h3>
-                    <h2 class="urdu-text" style="color:#ffc107;">باقی</h2>
-                    <h1 class="eng-text" style="color:#ffc107;" id="sum-pending">0</h1>
-                </div>
-                <div class="premium-box social-summary-card" style="border-bottom-color: #3498db;">
-                    <div class="social-summary-icon" style="color:#3498db;">🔵</div>
-                    <h3 class="eng-text" style="color:var(--text-white);">Research</h3>
-                    <h2 class="urdu-text" style="color:#3498db;">تحقیق میں</h2>
-                    <h1 class="eng-text" style="color:#3498db;" id="sum-research">0</h1>
-                </div>
-                <div class="premium-box social-summary-card" style="border-bottom-color: #9b59b6;">
-                    <div class="social-summary-icon" style="color:#9b59b6;">🟣</div>
-                    <h3 class="eng-text" style="color:var(--text-white);">Typing</h3>
-                    <h2 class="urdu-text" style="color:#9b59b6;">ٹائپنگ میں</h2>
-                    <h1 class="eng-text" style="color:#9b59b6;" id="sum-typing">0</h1>
-                </div>
-            </div>
-
-            <div class="ws-grid">
-                <!-- FORM TO ADD NEW QUESTION -->
-                <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
-                    <div class="sm-toolbar" style="margin-bottom: 25px; box-shadow: none; border-color: var(--gold-primary); background: rgba(92,225,211,0.1);">
-                        <h2 style="color: var(--gold-primary); font-size: 30px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">نیا سوال درج کریں</span> <span class="eng-text" style="font-size:20px;">(New Question)</span></h2>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="input-group">
-                            <label><span class="eng-text">Date</span> <span class="urdu-text">(تاریخ)</span></label>
-                            <input type="date" class="input-control eng-text" id="ws-date">
-                        </div>
-                        <div class="input-group">
-                            <label><span class="eng-text">Time</span> <span class="urdu-text">(وقت)</span></label>
-                            <input type="time" class="input-control eng-text" id="ws-time">
-                        </div>
-                        
-                        <div class="input-group" style="grid-column: span 2;">
-                            <label><span class="eng-text">Mobile Number</span> <span class="urdu-text">(موبائل نمبر)</span></label>
-                            <input type="text" class="input-control eng-text" id="ws-mobile" placeholder="e.g. 03001234567" onkeyup="checkDuplicateMobile()">
-                            <div id="ws-mobile-alert" class="ws-duplicate-warn urdu-text"></div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label><span class="eng-text">Language</span> <span class="urdu-text">(زبان)</span></label>
-                            <select class="input-control">
-                                <option class="urdu-text">Urdu (اردو)</option>
-                                <option class="urdu-text">Roman (رومن)</option>
-                                <option class="urdu-text">Hindi (ہندی)</option>
-                                <option class="urdu-text">English (انگریزی)</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label><span class="eng-text">Type</span> <span class="urdu-text">(قسم)</span></label>
-                            <select class="input-control">
-                                <option class="urdu-text">Text (ٹیکسٹ)</option>
-                                <option class="urdu-text">Voice (وائس)</option>
-                                <option class="urdu-text">Image (تصویر)</option>
-                                <option class="urdu-text">PDF (پی ڈی ایف)</option>
-                            </select>
-                        </div>
-                        <div class="input-group" style="grid-column: span 2;">
-                            <label><span class="eng-text">Question</span> <span class="urdu-text">(سوال)</span></label>
-                            <textarea class="input-control urdu-text" id="ws-question" rows="4" placeholder="Type question here..." onkeyup="checkDuplicateQuestion()"></textarea>
-                            <div id="ws-question-alert" class="ws-duplicate-warn urdu-text"></div>
-                        </div>
-                        <div class="input-group">
-                            <label><span class="eng-text">Branch</span> <span class="urdu-text">(برانچ)</span></label>
-                            <select class="input-control" id="ws-branch">
-                                <option class="urdu-text">Nagpur (ناگپور)</option>
-                                <option class="urdu-text">Mumbai (ممبئی)</option>
-                                <option class="urdu-text">Ahmedabad (احمدآباد)</option>
-                                <option class="urdu-text">Hyderabad (حیدرآباد)</option>
-                                <option class="urdu-text">Modasa (موڈاسہ)</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label><span class="eng-text">Mufti Assign</span> <span class="urdu-text">(مفتی مقرر کریں)</span></label>
-                            <select class="input-control" id="ws-mufti">
-                                <option class="eng-text">Mufti Zafar Madani</option>
-                                <option class="eng-text">Mufti Ghulam Raza Madani</option>
-                                <option class="eng-text">Mufti Dilkash Madani</option>
-                                <option class="eng-text">Mufti Kashif Madani</option>
-                                <option class="eng-text">Mufti Zulfiqar Madani</option>
-                                <option class="eng-text">Mufti Abdul Wajid Madani</option>
-                                <option class="eng-text">Mufti Muhammad Nadir Raza</option>
-                                <option class="eng-text">Mufti Sajjad Madani</option>
-                                <option class="eng-text">Mufti Aalam Madani</option>
-                                <option class="eng-text">Mufti Aabid Hussain</option>
-                                <option class="eng-text">Mufti Muhammad Faizan</option>
-                                <option class="eng-text">Mufti Muhammad Saleem</option>
-                                <option class="eng-text">Mufti Javed Madani</option>
-                                <option class="eng-text">Mufti Imran Madani</option>
-                                <option class="eng-text">Mufti Bilal Madani</option>
-                                <option class="eng-text">Mufti Muhammad Irshad</option>
-                                <option class="eng-text">Mufti Jaseem Madani</option>
-                                <option class="eng-text">Mufti Syed Bilal Madani</option>
-                                <option class="eng-text">Mufti Misbah ur Rehman</option>
-                                <option class="eng-text">Mufti Misbah ul Haq Qadri</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button class="btn-action urdu-text" style="width: 100%; justify-content: center; margin-top: 25px; padding: 15px; font-size: 24px; background: linear-gradient(135deg, var(--gold-primary), #00796b); color:#000; border:none; box-shadow: 0 4px 20px var(--gold-glow);" onclick="addNewQuestion()">محفوظ کریں <span class="eng-text" style="font-size:16px;">(Save)</span></button>
-                </div>
-
-                <div style="display: flex; flex-direction: column; gap: 20px;">
-                    <!-- DAILY COUNT: AUTO SYNCED (ZERO DATA) -->
-                    <div class="premium-box" style="flex-grow: 1; border-top: 2px solid var(--gold-primary);">
-                        <div class="sm-toolbar" style="margin-bottom: 20px; box-shadow: none; border-color: var(--gold-primary); background: rgba(92,225,211,0.1); padding: 12px;">
-                            <h2 style="color: var(--gold-primary); font-size: 26px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">آج کی گنتی</span> <span class="eng-text" style="font-size:16px;">(Daily Count)</span></h2>
-                        </div>
-                        <div class="setting-item" style="cursor:default; border-left: 3px solid #fff;">
-                            <div class="setting-item-text"><h4 style="color:var(--text-white);"><span class="eng-text">Aaj Aaye</span> <span class="urdu-text" style="font-size:22px;">(آج موصول ہوئے)</span></h4></div>
-                            <h4 class="eng-text" style="color:var(--gold-primary); font-size:22px;" id="daily-total">0</h4>
-                        </div>
-                        <div class="setting-item" style="cursor:default; border-left: 3px solid var(--gold-primary);">
-                            <div class="setting-item-text"><h4 class="text-success"><span class="eng-text">Jawab Diye</span> <span class="urdu-text" style="font-size:22px;">(جواب دیئے)</span></h4></div>
-                            <h4 class="text-success eng-text" style="font-size:22px;" id="daily-answered">0</h4>
-                        </div>
-                        <div class="setting-item" style="cursor:default; border-left: 3px solid #ffc107;">
-                            <div class="setting-item-text"><h4 style="color:#ffc107;"><span class="eng-text">Pending</span> <span class="urdu-text" style="font-size:22px;">(باقی)</span></h4></div>
-                            <h4 class="eng-text" style="color:#ffc107; font-size:22px;" id="daily-pending">0</h4>
-                        </div>
-                        <div class="setting-item" style="cursor:default; border-left: 3px solid #3498db;">
-                            <div class="setting-item-text"><h4 style="color:#3498db;"><span class="eng-text">Research Me</span> <span class="urdu-text" style="font-size:22px;">(تحقیق میں)</span></h4></div>
-                            <h4 class="eng-text" style="color:#3498db; font-size:22px;" id="daily-research">0</h4>
-                        </div>
-                        <div class="setting-item" style="cursor:default; border-left: 3px solid #9b59b6;">
-                            <div class="setting-item-text"><h4 style="color:#9b59b6;"><span class="eng-text">Typing Me</span> <span class="urdu-text" style="font-size:22px;">(ٹائپنگ میں)</span></h4></div>
-                            <h4 class="eng-text" style="color:#9b59b6; font-size:22px;" id="daily-typing">0</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- QUESTION STATUS TABLE (EMPTY BY DEFAULT) -->
-            <div class="premium-box" style="margin-bottom: 30px; border-top: 2px solid var(--gold-primary);">
-                <div class="sm-toolbar" style="margin-bottom: 20px;">
-                    <h2 style="color: var(--gold-primary); font-size: 32px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">سوالات کی حالت</span> <span class="eng-text" style="font-size:20px;">(Question Status)</span></h2>
-                </div>
-                <div class="sm-table-container" style="box-shadow:none; border:none; margin-bottom:0;">
-                    <table id="wa-status-table">
-                        <thead>
-                            <tr>
-                                <th><span class="eng-text">Mobile</span> <span class="urdu-th">موبائل</span></th>
-                                <th><span class="eng-text">Question</span> <span class="urdu-th">سوال</span></th>
-                                <th><span class="eng-text">Mufti</span> <span class="urdu-th">مفتی</span></th>
-                                <th><span class="eng-text">Status</span> <span class="urdu-th">حالت</span></th>
-                            </tr>
-                        </thead>
-                        <tbody id="ws-status-body">
-                            <!-- New questions will appear here when added from the form -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="premium-box" style="margin-bottom: 30px; border-top: 2px solid var(--gold-primary);">
-                <div class="sm-toolbar" style="margin-bottom: 20px;">
-                    <h2 style="color: var(--gold-primary); font-size: 32px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">ماہانہ رپورٹ اور مفتی کارکردگی</span> <span class="eng-text" style="font-size:20px;">(Monthly Auto Sheet)</span></h2>
-                    <input type="month" id="ws-month" class="input-control eng-text" style="background: rgba(0,0,0,0.5);">
-                </div>
-                <div class="sm-table-container" style="box-shadow:none; border:none; margin-bottom:0;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th><span class="eng-text">Mufti</span> <span class="urdu-th">مفتی</span></th>
-                                <th><span class="eng-text">Total Qs</span> <span class="urdu-th">کل سوالات</span></th>
-                                <th><span class="eng-text">Answered</span> <span class="urdu-th">جواب دیئے</span></th>
-                                <th><span class="eng-text">Pending</span> <span class="urdu-th">باقی</span></th>
-                                <th><span class="eng-text">Research</span> <span class="urdu-th">تحقیق</span></th>
-                                <th><span class="eng-text">Typing</span> <span class="urdu-th">ٹائپنگ</span></th>
-                                <th><span class="eng-text">3 Days Pend</span> <span class="urdu-th">3 دن تاخیر</span></th>
-                                <th><span class="eng-text">Avg Time</span> <span class="urdu-th">اوسط وقت</span></th>
-                                <th><span class="eng-text">Perf %</span> <span class="urdu-th">کارکردگی</span></th>
-                            </tr>
-                        </thead>
-                        <tbody class="eng-text">
-                            <tr><td>Mufti Zafar Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Ghulam Raza Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--text-white); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Dilkash Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Kashif Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Zulfiqar Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Abdul Wajid Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--text-white); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Muhammad Nadir Raza</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Sajjad Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Aalam Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Aabid Hussain</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--text-white); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Muhammad Faizan</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Muhammad Saleem</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Javed Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Imran Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--text-white); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Bilal Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Muhammad Irshad</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Jaseem Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Syed Bilal Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--text-white); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Misbah ur Rehman</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                            <tr><td>Mufti Misbah ul Haq Qadri</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                        </tbody>
-                        <tfoot>
-                            <tr style="background: rgba(92,225,211,0.15); font-weight: bold;">
-                                <td style="color:var(--gold-light);"><span class="eng-text">TOTAL</span> <span class="urdu-text">(کل)</span></td>
-                                <td class="eng-text" style="color:var(--gold-light);">0</td>
-                                <td class="eng-text text-success">0</td>
-                                <td class="eng-text" style="color:var(--gold-light);">0</td>
-                                <td class="eng-text" style="color:var(--gold-light);">0</td>
-                                <td class="eng-text" style="color:var(--gold-light);">0</td>
-                                <td class="eng-text text-danger">0</td>
-                                <td class="eng-text" style="color:var(--gold-light);">-</td>
-                                <td class="eng-text" style="color:var(--gold-primary);">0%</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 40px;" class="settings-container">
-                <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
-                    <div class="sm-toolbar" style="margin-bottom: 20px; padding: 15px; background: transparent; border:none; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                        <h2 style="color: var(--gold-primary); font-size: 28px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">سالانہ رپورٹ</span> <span class="eng-text" style="font-size:18px;">(Yearly Report)</span></h2>
-                    </div>
-                    <div class="sm-table-container" style="box-shadow:none; border:none; margin-bottom:0; background:transparent;">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><span class="eng-text">Month</span> <span class="urdu-th">مہینہ</span></th>
-                                    <th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th>
-                                    <th><span class="eng-text">Ans</span> <span class="urdu-th">جواب</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="eng-text">
-                                <tr><td>Jan <span class="urdu-text">(جنوری)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Feb <span class="urdu-text">(فروری)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Mar <span class="urdu-text">(مارچ)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Apr <span class="urdu-text">(اپریل)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>May <span class="urdu-text">(مئی)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Jun <span class="urdu-text">(جون)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Jul <span class="urdu-text">(جولائی)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Aug <span class="urdu-text">(اگست)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Sep <span class="urdu-text">(ستمبر)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Oct <span class="urdu-text">(اکتوبر)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Nov <span class="urdu-text">(نومبر)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Dec <span class="urdu-text">(دسمبر)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr style="background: rgba(92,225,211,0.1);">
-                                    <td style="color:var(--gold-primary); font-weight:bold;">YTD <span class="urdu-text">(مجموعہ)</span></td>
-                                    <td style="color:var(--gold-primary); font-weight:bold;">0</td>
-                                    <td class="text-success" style="font-weight:bold;">0</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
-                    <div class="sm-toolbar" style="margin-bottom: 20px; padding: 15px; background: transparent; border:none; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                        <h2 style="color: var(--gold-primary); font-size: 28px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">برانچ کارکردگی</span> <span class="eng-text" style="font-size:18px;">(Branch Performance)</span></h2>
-                    </div>
-                    <div class="sm-table-container" style="box-shadow:none; border:none; margin-bottom:0; background:transparent;">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><span class="eng-text">Branch</span> <span class="urdu-th">برانچ</span></th>
-                                    <th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th>
-                                    <th><span class="eng-text">Ans</span> <span class="urdu-th">جواب</span></th>
-                                    <th><span class="eng-text">Pend</span> <span class="urdu-th">باقی</span></th>
-                                </tr>
-                            </thead>
-                            <tbody class="eng-text">
-                                <tr><td>Nagpur <span class="urdu-text">(ناگپور)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>Mumbai <span class="urdu-text">(ممبئی)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>Ahmedabad <span class="urdu-text">(احمدآباد)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>Hyderabad <span class="urdu-text">(حیدرآباد)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>Modasa <span class="urdu-text">(موڈاسہ)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer eng-text">© 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind</div>
-        </div>
-    </div>
-    <!-- END WHATSAPP SUWALAT -->
-
     <!-- DAILY WHATSAPP REPORT PAGE (Main Daily Entry Form) -->
     <div id="whatsapp-report-page">
         <div class="main">
@@ -2439,8 +2260,8 @@
                     <tbody id="wa-report-body" class="eng-text">
                         <tr>
                             <td contenteditable="true">1</td>
-                            <td contenteditable="true">Hyderabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Nagpur</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی ظفر مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2459,7 +2280,7 @@
                         <tr>
                             <td contenteditable="true">2</td>
                             <td contenteditable="true">Nagpur</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی غلام رضا مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2477,8 +2298,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">3</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Nagpur</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی دل کش مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2496,8 +2317,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">4</td>
-                            <td contenteditable="true">Modasa</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Mumbai</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی کاشف مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2515,8 +2336,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">5</td>
-                            <td contenteditable="true">Modasa</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Mumbai</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی ذوالفقار مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2534,8 +2355,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">6</td>
-                            <td contenteditable="true">Hyderabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Mumbai</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی عبدالواجد مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2553,8 +2374,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">7</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Mumbai</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی محمد نادر رضا</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2573,7 +2394,7 @@
                         <tr>
                             <td contenteditable="true">8</td>
                             <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی سجاد مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2591,8 +2412,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">9</td>
-                            <td contenteditable="true">Modasa</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Ahmedabad</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی عالم مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2610,8 +2431,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">10</td>
-                            <td contenteditable="true">Nagpur</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Ahmedabad</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی عابد حسین</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2629,8 +2450,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">11</td>
-                            <td contenteditable="true">Nagpur</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Ahmedabad</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی محمد فیضان</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2648,8 +2469,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">12</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Ahmedabad</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی محمد سلیم</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2667,8 +2488,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">13</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Modasa</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی جاوید مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2686,8 +2507,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">14</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Modasa</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی عمران مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2705,8 +2526,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">15</td>
-                            <td contenteditable="true">Hyderabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Modasa</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی بلال مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2724,8 +2545,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">16</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Modasa</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی محمد ارشاد</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2743,8 +2564,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">17</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Hyderabad</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی جسیم مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2762,8 +2583,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">18</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Hyderabad</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی سید بلال مدنی</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2781,8 +2602,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">19</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Hyderabad</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی مصباح الرحمٰن</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2800,8 +2621,8 @@
                         </tr>
                         <tr>
                             <td contenteditable="true">20</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
+                            <td contenteditable="true">Hyderabad</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی مصباح الحق قادری</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2847,7 +2668,7 @@
             </div>
 
             <div class="summary-badge" style="background: transparent; border: none; box-shadow: none; text-align: center; margin-bottom: 25px;">
-                <h2 style="color: var(--gold-primary); text-shadow: 0 0 10px var(--gold-glow); font-size:32px;"><span class="urdu-text">کل مفتیان: </span><span style="color: #fff;" class="eng-text">20</span></h2>
+                <h2 style="color: var(--gold-primary); text-shadow: 0 0 10px var(--gold-glow); font-size:32px;"><span class="urdu-text">کل مفتیان: </span><span style="color: #fff;" class="eng-text" contenteditable="true">20</span></h2>
             </div>
 
             <div class="nm-grid" id="mufti-list-container">
@@ -2949,7 +2770,6 @@
             </div>
             <div class="toolbar premium-box" style="padding: 15px 20px; border-top: 2px solid var(--gold-primary);">
                 <div class="toolbar-group"><input type="text" class="input-control urdu-text" placeholder="🔍 Search Branch (برانچ تلاش کریں)..."></div>
-                <div class="toolbar-group"><button class="btn-action btn-reset eng-text" onclick="resetToZero('branches-container')">🔄 Zero Data <span class="urdu-btn">(زیرو کریں)</span></button></div>
             </div>
             <div class="summary-badge" style="background: transparent; border: none; box-shadow: none; text-align: center; margin-bottom: 25px;">
                 <h2 style="color: var(--gold-primary); text-shadow: 0 0 10px var(--gold-glow); font-size:32px;"><span class="urdu-text">کل برانچز: </span><span style="color: #fff;" class="eng-text">5</span></h2>
@@ -2958,11 +2778,11 @@
                 <div class="premium-box" style="border-top: 3px solid var(--gold-primary);">
                     <div class="branch-header">
                         <div class="mufti-info">
-                            <h3 class="eng-text">Nagpur Branch</h3>
-                            <h2 class="urdu-text">ناگپور برانچ</h2>
+                            <h3 class="eng-text" contenteditable="true">Nagpur Branch</h3>
+                            <h2 class="urdu-text" contenteditable="true">ناگپور برانچ</h2>
                         </div>
                         <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span>Active</span>
+                            <i>🏢</i> <span contenteditable="true">Active</span>
                         </div>
                     </div>
                     <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
@@ -2974,11 +2794,11 @@
                 <div class="premium-box" style="border-top: 3px solid var(--gold-primary);">
                     <div class="branch-header">
                         <div class="mufti-info">
-                            <h3 class="eng-text">Mumbai Branch</h3>
-                            <h2 class="urdu-text">ممبئی برانچ</h2>
+                            <h3 class="eng-text" contenteditable="true">Mumbai Branch</h3>
+                            <h2 class="urdu-text" contenteditable="true">ممبئی برانچ</h2>
                         </div>
                         <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span>Active</span>
+                            <i>🏢</i> <span contenteditable="true">Active</span>
                         </div>
                     </div>
                     <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
@@ -2990,11 +2810,11 @@
                 <div class="premium-box" style="border-top: 3px solid var(--gold-primary);">
                     <div class="branch-header">
                         <div class="mufti-info">
-                            <h3 class="eng-text">Ahmedabad Branch</h3>
-                            <h2 class="urdu-text">احمدآباد برانچ</h2>
+                            <h3 class="eng-text" contenteditable="true">Ahmedabad Branch</h3>
+                            <h2 class="urdu-text" contenteditable="true">احمدآباد برانچ</h2>
                         </div>
                         <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span>Active</span>
+                            <i>🏢</i> <span contenteditable="true">Active</span>
                         </div>
                     </div>
                     <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
@@ -3006,11 +2826,11 @@
                 <div class="premium-box" style="border-top: 3px solid var(--gold-primary);">
                     <div class="branch-header">
                         <div class="mufti-info">
-                            <h3 class="eng-text">Hyderabad Branch</h3>
-                            <h2 class="urdu-text">حیدر آباد برانچ</h2>
+                            <h3 class="eng-text" contenteditable="true">Hyderabad Branch</h3>
+                            <h2 class="urdu-text" contenteditable="true">حیدر آباد برانچ</h2>
                         </div>
                         <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span>Active</span>
+                            <i>🏢</i> <span contenteditable="true">Active</span>
                         </div>
                     </div>
                     <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
@@ -3022,11 +2842,11 @@
                 <div class="premium-box" style="border-top: 3px solid var(--gold-primary);">
                     <div class="branch-header">
                         <div class="mufti-info">
-                            <h3 class="eng-text">Modasa Branch</h3>
-                            <h2 class="urdu-text">موڈاسہ برانچ</h2>
+                            <h3 class="eng-text" contenteditable="true">Modasa Branch</h3>
+                            <h2 class="urdu-text" contenteditable="true">موڈاسہ برانچ</h2>
                         </div>
                         <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span>Active</span>
+                            <i>🏢</i> <span contenteditable="true">Active</span>
                         </div>
                     </div>
                     <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
@@ -3280,7 +3100,10 @@
             }
         }
 
-        /* AUTO CALCULATION LOGIC */
+        /* ==========================================
+           AUTO CALCULATION LOGIC 
+           ========================================== */
+
         function updateWhatsAppSummary() {
             let table = document.getElementById('wa-status-table');
             if(!table) return;
@@ -3557,7 +3380,9 @@
         }
 
         function checkDelayedQuestions() {
-            setTimeout(() => { alert('⚠️ الرٹ: 8 سوالات کو 3 دن سے زیادہ کا وقت گزر چکا ہے، براہ کرم فوراً جواب دیں!\n\n(Alert: 8 Questions are pending for over 3 days!)'); }, 1000);
+            setTimeout(() => { 
+                alert('⚠️ الرٹ: 8 سوالات کو 3 دن سے زیادہ کا وقت گزر چکا ہے، براہ کرم فوراً جواب دیں!\n\n(Alert: 8 Questions are pending for over 3 days!)'); 
+            }, 1000);
         }
 
         /* LIVE SETTINGS TRIGGERS */
