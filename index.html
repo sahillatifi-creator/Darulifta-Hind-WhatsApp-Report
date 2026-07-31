@@ -107,6 +107,84 @@
         }
 
         /* ========================================================
+           3D REALISTIC EMOJI CSS (For Images) - RESTORED
+           ======================================================== */
+        .box-icon img { 
+            width: 65px; 
+            height: 65px; 
+            object-fit: contain; 
+            filter: drop-shadow(0 8px 10px rgba(0,0,0,0.6)); 
+            transition: 0.3s ease; 
+        }
+        
+        .menu-box:hover .box-icon img { 
+            transform: scale(1.15) translateY(-5px); 
+        }
+        
+        .social-summary-icon img { 
+            width: 45px; 
+            height: 45px; 
+            object-fit: contain; 
+            filter: drop-shadow(0 5px 8px rgba(0,0,0,0.5)); 
+        }
+        
+        .tab-icon img { 
+            width: 32px; 
+            height: 32px; 
+            object-fit: contain; 
+            margin-bottom: 5px; 
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4)); 
+        }
+        
+        .notif-icon img { 
+            width: 35px; 
+            height: 35px; 
+            object-fit: contain; 
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5)); 
+        }
+        
+        .settings-header .icon img { 
+            width: 38px; 
+            height: 38px; 
+            object-fit: contain; 
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); 
+        }
+        
+        .sm-icon-wrapper img { 
+            width: 35px; 
+            height: 35px; 
+            object-fit: contain; 
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4)); 
+        }
+        
+        .fatwa-card .box-icon img { 
+            width: 65px; 
+            height: 65px; 
+        }
+        
+        .status-badge i img { 
+            width: 18px; 
+            height: 18px; 
+            vertical-align: middle; 
+            margin-right: 5px; 
+        }
+        
+        .btn-action img, 
+        .btn-bottom img { 
+            width: 20px; 
+            height: 20px; 
+            object-fit: contain; 
+            vertical-align: middle; 
+            margin-right: 5px; 
+        }
+        
+        .ws-alert-icon img { 
+            width: 26px; 
+            height: 26px; 
+            object-fit: contain; 
+        }
+
+        /* ========================================================
            EDITABLE CONTENT CSS
            ======================================================== */
         [contenteditable="true"] {
@@ -428,32 +506,39 @@
             color: #000; 
             box-shadow: 0 0 15px var(--gold-glow); 
         }
-
-        /* LOGOUT BUTTON (DASHBOARD ONLY - TOP RIGHT) */
-        .logout-btn-header {
-            padding: 8px 15px; 
-            border-radius: 8px; 
-            background: rgba(220,53,69,0.1); 
-            backdrop-filter: blur(10px); 
-            border: 1px solid #ff4d4d; 
-            color: #ff4d4d; 
-            font-size: 13px; 
-            font-weight: 600; 
-            outline: none; 
-            cursor: pointer; 
-            transition: 0.3s; 
-            display: flex; 
-            align-items: center; 
-            gap: 5px; 
+        
+        /* LOGOUT CORNER BUTTON (Always visible at bottom right) */
+        .logout-corner-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(231,76,60,0.4);
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        .logout-btn-header:hover {
-            background: #ff4d4d; 
-            color: #fff; 
-            box-shadow: 0 0 15px rgba(255,77,77,0.5); 
+        
+        .logout-corner-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(231,76,60,0.6);
+        }
+        
+        .logout-corner-btn .urdu-text { 
+            font-size: 20px; 
+            margin-top: 4px; 
         }
 
         /* ========================================================
-           HEXAGONAL DASHBOARD MENU (RESTORED LARGE EMOJIS)
+           HEXAGONAL DASHBOARD MENU
            ======================================================== */
         .menu-grid { 
             display: flex; 
@@ -509,19 +594,6 @@
         
         body.light-mode .menu-box:hover { 
             background: rgba(0, 121, 107, 0.3); 
-        }
-
-        /* BIG EMOJIS Restored */
-        .box-icon { 
-            font-size: 60px; /* Restored to Big Size */
-            margin-bottom: 15px; 
-            transition: 0.3s ease; 
-            display: inline-block; 
-            filter: drop-shadow(0 0 8px rgba(255,255,255,0.8)); 
-        }
-        
-        .menu-box:hover .box-icon { 
-            transform: scale(1.15) translateY(-5px); 
         }
         
         .text-3d { 
@@ -809,9 +881,37 @@
         }
         
         .col-edited { 
+            color: #9b59b6 !important; 
+            background: rgba(155, 89, 182, 0.1) !important; 
+            border-color: rgba(155, 89, 182, 0.4) !important; 
+        }
+        
+        .col-research { 
             color: #3498db !important; 
             background: rgba(52, 152, 219, 0.1) !important; 
             border-color: rgba(52, 152, 219, 0.4) !important; 
+        }
+        
+        .btn-edit { 
+            padding: 6px 12px; 
+            font-size: 12px; 
+            background: rgba(92, 225, 211, 0.15); 
+            color: var(--gold-primary); 
+            border: 1px solid var(--gold-primary); 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            width: 100%; 
+            transition: 0.3s; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        
+        .btn-edit:hover { 
+            background: var(--gold-primary); 
+            color: #000; 
+            box-shadow: 0 0 12px var(--gold-glow);
         }
 
         /* ========================================================
@@ -840,6 +940,13 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+        
+        .main-report-btn img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
         }
         
         .main-report-btn:hover {
@@ -1086,7 +1193,7 @@
             border-radius: 6px;
         }
 
-        /* COMPACT Social Summary Cards (As per user request to make boxes smaller) */
+        /* COMPACT Social Summary Cards (Restored 3D Emojis) */
         .social-summary-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
@@ -1097,7 +1204,7 @@
         .social-summary-card { 
             background: var(--card-bg); 
             backdrop-filter: blur(10px); 
-            padding: 12px 15px; /* Reduced padding */
+            padding: 12px 15px; 
             border-radius: 12px; 
             border-bottom: 4px solid var(--gold-primary); 
             border-top: 1px solid var(--border-color); 
@@ -1116,19 +1223,23 @@
         }
         
         .social-summary-icon { 
-            font-size: 30px; /* Reduced size */
             margin-bottom: 5px; 
-            color: var(--gold-primary); 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            height: 35px; /* Reduced height */
-            filter: drop-shadow(0 0 10px currentColor); 
+            height: 35px; 
+        }
+        
+        .social-summary-icon img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.5));
         }
         
         .social-summary-card h3 { 
             color: var(--text-muted); 
-            font-size: 10px; /* Reduced size */
+            font-size: 10px; 
             margin-bottom: 2px; 
             text-transform: uppercase; 
             font-family: 'Poppins', sans-serif;
@@ -1136,13 +1247,13 @@
         }
         
         .social-summary-card h2 { 
-            font-size: 16px; /* Reduced size */
+            font-size: 16px; 
             margin-bottom: 2px; 
             color: var(--text-white);
         }
         
         .social-summary-card h1 { 
-            font-size: 22px; /* Reduced size */
+            font-size: 22px; 
             color: var(--gold-primary); 
             text-shadow: 0 0 10px var(--gold-glow); 
             font-family: 'Poppins', sans-serif; 
@@ -1150,7 +1261,7 @@
             margin-top: auto;
         }
 
-        /* Social Media Platform Cards */
+        /* Social Media Platform Cards (Restored 3D Emojis) */
         .sm-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
@@ -1178,11 +1289,15 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            font-size: 32px; 
             box-shadow: inset 0 0 20px rgba(255,255,255,0.05); 
             transition: 0.3s; 
-            color: var(--gold-primary); 
-            text-shadow: 0 0 10px var(--gold-primary); 
+        }
+        
+        .sm-icon-wrapper img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.5));
         }
         
         .premium-box:hover .sm-icon-wrapper { 
@@ -1248,10 +1363,10 @@
             padding-bottom: 18px; 
         }
         
-        .settings-header .icon { 
-            font-size: 35px; 
-            color: var(--gold-primary); 
-            filter: drop-shadow(0 0 8px currentColor); 
+        .settings-header .icon img { 
+            width: 38px;
+            height: 38px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); 
         }
         
         .settings-header h2 { 
@@ -1292,6 +1407,59 @@
             text-shadow: 0 0 8px rgba(0,0,0,0.5);
         }
 
+        .branch-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            padding-bottom: 12px; 
+            margin-bottom: 18px;
+        }
+        
+        .branch-header h3 { 
+            font-size: 15px; 
+            text-transform: uppercase; 
+            color: var(--text-muted); 
+            font-weight: bold; 
+            letter-spacing: 1px;
+        }
+        
+        .branch-header h2 { 
+            font-size: 30px; 
+            color: var(--gold-primary); 
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .branch-stats { 
+            display: flex; 
+            justify-content: space-between; 
+            text-align: center; 
+            background: rgba(0,0,0,0.4); 
+            border-radius: 10px; 
+            padding: 15px; 
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .b-stat span { 
+            display: block; 
+            font-size: 11px; 
+            color: var(--text-muted); 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        
+        .b-stat .u-s { 
+            font-size: 20px; 
+            color: var(--text-white); 
+        }
+        
+        .b-stat h4 { 
+            font-size: 20px; 
+            font-weight: bold; 
+            margin-top: 4px; 
+            color: var(--gold-primary);
+        }
+
         .footer { 
             margin-top: 30px; 
             text-align: center; 
@@ -1321,6 +1489,15 @@
             .nm-details { width: 100%; padding: 15px 0; }
             table th { padding: 8px 2px; font-size: 10px; }
             .table-input { padding: 4px; font-size: 10px; min-width: 40px; }
+            
+            .logout-corner-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 15px;
+            }
+            .logout-corner-btn span {
+                display: none; 
+            }
         }
 
         /* PRINT STYLES */
@@ -1328,7 +1505,7 @@
             body { background: #fff !important; color: #000 !important; }
             .tech-bg { display: none !important; }
             .main { padding: 0 !important; overflow: visible !important; position: absolute; left: 0; top: 0; width: 100%; height: auto;}
-            .btn-back, .toolbar-group button, .theme-toggle-btn, .header-right, .bottom-actions, .menu-grid, select.lang-select, .ws-grid button, .report-tabs-wrapper, .main-report-tabs, .sub-report-tabs { display: none !important; }
+            .btn-back, .toolbar-group button, .theme-toggle-btn, .header-right, .bottom-actions, .menu-grid, select.lang-select, .ws-grid button, .report-tabs-wrapper, .main-report-tabs, .sub-report-tabs, .logout-corner-btn { display: none !important; }
             .premium-box { border: 1px solid #ccc !important; box-shadow: none !important; background: transparent !important; backdrop-filter: none !important; page-break-inside: avoid; }
             table th { background: #eee !important; color: #000 !important; border-color: #000 !important; text-shadow: none !important;}
             table th .urdu-th { color: #000 !important; text-shadow: none !important; }
@@ -1356,7 +1533,7 @@
     <!-- LOGIN PAGE -->
     <div id="login-page">
         <div class="login-box">
-            <!-- LOGO -->
+            <!-- UPDATED LOGIN LOGO -->
             <img src="WhatsApp Image 2024-09-05 at 3.43.00 PM.jpeg" alt="Darul Iftaa Logo">
             <h2>System Login</h2>
             <div class="input-group">
@@ -1376,7 +1553,7 @@
         <div class="main">
             <div class="header">
                 <div class="header-left">
-                    <!-- LOGO -->
+                    <!-- UPDATED DASHBOARD HEADER LOGO (Rectangular) -->
                     <img src="WhatsApp Image 2024-09-06 at 10.21.25 PM.jpeg" alt="Darul Ifta Logo" style="max-height: 60px; filter: drop-shadow(0px 0px 8px var(--gold-glow));">
                 </div>
                 <h1 class="urdu-text">ڈیش بورڈ</h1>
@@ -1386,53 +1563,67 @@
                         <option value="ur">Urdu (اردو)</option>
                         <option value="en">English</option>
                     </select>
-                    <!-- LOGOUT BUTTON IN DASHBOARD CORNER ONLY (As requested) -->
+                    <!-- LOGOUT BUTTON IN DASHBOARD CORNER ONLY -->
                     <button class="btn-action eng-text" onclick="logout()" style="border-color: #ff4d4d; color: #ff4d4d; background: rgba(220,53,69,0.1); padding: 8px 15px; margin-left: 5px;">
-                        🚪 Logout
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Door.png" alt="Logout" style="width: 18px; height: 18px; margin-right: 5px;"> Logout
                     </button>
                 </div>
             </div>
 
-            <!-- HEXAGONAL MENU GRID WITH LARGE EMOJIS AND BADGES -->
+            <!-- HEXAGONAL MENU GRID WITH 3D EMOJIS AND BADGES -->
             <div class="menu-grid">
                 <div class="menu-box" onclick="openWhatsAppSuwalat()">
                     <div class="dashboard-badge" style="background:#2ecc71;">Active</div>
-                    <div class="box-icon">💬</div>
+                    <div class="box-icon">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Speech%20Balloon.png" alt="WhatsApp Suwalat">
+                    </div>
                     <div class="title-eng text-3d eng-text">WhatsApp Suwalat</div>
                     <div class="title-urdu urdu-3d urdu-text">واٹس ایپ سوالات</div>
                 </div>
                 <div class="menu-box" onclick="openWhatsAppReport()">
                     <div class="dashboard-badge" style="background:#3498db;">Updated</div>
-                    <div class="box-icon">📲</div>
+                    <div class="box-icon">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mobile%20Phone%20with%20Arrow.png" alt="WhatsApp Report">
+                    </div>
                     <div class="title-eng text-3d eng-text">WhatsApp Report</div>
                     <div class="title-urdu urdu-3d urdu-text">واٹس ایپ کارکردگی</div>
                 </div>
                 <div class="menu-box" onclick="openMuftiyan()">
                     <div class="dashboard-badge">20 Active</div>
-                    <div class="box-icon">👳</div>
+                    <div class="box-icon">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Person%20Wearing%20Turban.png" alt="Muftiyan-e-Kiram">
+                    </div>
                     <div class="title-eng text-3d eng-text">Muftiyan-e-Kiram</div>
                     <div class="title-urdu urdu-3d urdu-text">مفتیانِ کرام</div>
                 </div>
                 <div class="menu-box" onclick="openBranches()">
                     <div class="dashboard-badge">5 Active</div>
-                    <div class="box-icon">🏢</div>
+                    <div class="box-icon">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Office%20Building.png" alt="Branches">
+                    </div>
                     <div class="title-eng text-3d eng-text">Darulifta Branches</div>
                     <div class="title-urdu urdu-3d urdu-text">دارالافتاء کی برانچز</div>
                 </div>
                 <div class="menu-box" onclick="openReports()">
                     <div class="dashboard-badge" style="background:#e74c3c;">Live Data</div>
-                    <div class="box-icon">📊</div>
+                    <div class="box-icon">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" alt="Reports">
+                    </div>
                     <div class="title-eng text-3d eng-text">Reports</div>
                     <div class="title-urdu urdu-3d urdu-text">رپورٹس</div>
                 </div>
                 <div class="menu-box" onclick="openSocialMedia()">
                     <div class="dashboard-badge" style="background:#9b59b6;">Stats</div>
-                    <div class="box-icon">🌐</div>
+                    <div class="box-icon">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Globe%20with%20Meridians.png" alt="Social Media">
+                    </div>
                     <div class="title-eng text-3d eng-text">Social Media</div>
                     <div class="title-urdu urdu-3d urdu-text">سوشل میڈیا</div>
                 </div>
                 <div class="menu-box" onclick="openSettings()">
-                    <div class="box-icon">⚙️</div>
+                    <div class="box-icon">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" alt="Settings">
+                    </div>
                     <div class="title-eng text-3d eng-text">Settings</div>
                     <div class="title-urdu urdu-3d urdu-text">ترتیبات</div>
                 </div>
@@ -1458,16 +1649,16 @@
             <!-- MAIN TABS (4 Categories) -->
             <div class="main-report-tabs">
                 <button id="btn_main_ws_suwalat" class="main-report-btn active eng-text" onclick="switchMainReport('ws_suwalat')">
-                    💬 WhatsApp Suwalat <span class="urdu-btn">(واٹس ایپ سوالات)</span>
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Speech%20Balloon.png"> WhatsApp Suwalat <span class="urdu-btn">(واٹس ایپ سوالات)</span>
                 </button>
                 <button id="btn_main_ws_report" class="main-report-btn eng-text" onclick="switchMainReport('ws_report')">
-                    📲 WhatsApp Report <span class="urdu-btn">(واٹس ایپ کارکردگی)</span>
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mobile%20Phone%20with%20Arrow.png"> WhatsApp Report <span class="urdu-btn">(واٹس ایپ کارکردگی)</span>
                 </button>
                 <button id="btn_main_mufti" class="main-report-btn eng-text" onclick="switchMainReport('mufti')">
-                    👳 Muftiyan-e-Kiram <span class="urdu-btn">(مفتیان کرام)</span>
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Person%20Wearing%20Turban.png"> Muftiyan-e-Kiram <span class="urdu-btn">(مفتیان کرام)</span>
                 </button>
                 <button id="btn_main_social" class="main-report-btn eng-text" onclick="switchMainReport('social')">
-                    🌐 Social Media <span class="urdu-btn">(سوشل میڈیا)</span>
+                    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Globe%20with%20Meridians.png"> Social Media <span class="urdu-btn">(سوشل میڈیا)</span>
                 </button>
             </div>
 
@@ -1798,37 +1989,37 @@
                 <div class="header-right"></div>
             </div>
 
-            <!-- RESTORED: SUMMARY CARDS FOR WHATSAPP REPORT PAGE -->
+            <!-- RESTORED: SUMMARY CARDS FOR WHATSAPP REPORT PAGE WITH 3D EMOJIS -->
             <div class="social-summary-grid">
                 <div class="premium-box social-summary-card">
-                    <div class="social-summary-icon">📩</div>
+                    <div class="social-summary-icon"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Inbox%20Tray.png"></div>
                     <h3 class="eng-text" style="color:var(--text-white);">Total Questions</h3>
                     <h2 class="urdu-text" style="color:var(--text-white);">کل سوالات</h2>
-                    <h1 class="eng-text" style="color:var(--text-white);" id="wr-total">0</h1>
+                    <h1 class="eng-text" style="color:var(--text-white);" id="wr-total">40</h1>
                 </div>
                 <div class="premium-box social-summary-card" style="border-bottom-color: var(--gold-primary);">
-                    <div class="social-summary-icon text-success">✅</div>
+                    <div class="social-summary-icon text-success"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Check%20Mark%20Button.png"></div>
                     <h3 class="eng-text" style="color:var(--text-white);">Correct</h3>
                     <h2 class="urdu-text text-success">صحیح</h2>
-                    <h1 class="text-success eng-text" id="wr-correct">0</h1>
+                    <h1 class="text-success eng-text" id="wr-correct">35</h1>
                 </div>
                 <div class="premium-box social-summary-card" style="border-bottom-color: #ffc107;">
-                    <div class="social-summary-icon" style="color:#ffc107;">⏳</div>
+                    <div class="social-summary-icon" style="color:#ffc107;"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hourglass%20Not%20Done.png"></div>
                     <h3 class="eng-text" style="color:var(--text-white);">Pending</h3>
                     <h2 class="urdu-text" style="color:#ffc107;">باقی</h2>
-                    <h1 class="eng-text" style="color:#ffc107;" id="wr-pending">0</h1>
+                    <h1 class="eng-text" style="color:#ffc107;" id="wr-pending">2</h1>
                 </div>
                 <div class="premium-box social-summary-card" style="border-bottom-color: #e74c3c;">
-                    <div class="social-summary-icon" style="color:#e74c3c;">❌</div>
+                    <div class="social-summary-icon" style="color:#e74c3c;"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Cross%20Mark.png"></div>
                     <h3 class="eng-text" style="color:var(--text-white);">Wrong</h3>
                     <h2 class="urdu-text" style="color:#e74c3c;">غلط</h2>
-                    <h1 class="eng-text" style="color:#e74c3c;" id="wr-wrong">0</h1>
+                    <h1 class="eng-text" style="color:#e74c3c;" id="wr-wrong">2</h1>
                 </div>
                 <div class="premium-box social-summary-card" style="border-bottom-color: #3498db;">
-                    <div class="social-summary-icon" style="color:#3498db;">📝</div>
+                    <div class="social-summary-icon" style="color:#3498db;"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Memo.png"></div>
                     <h3 class="eng-text" style="color:var(--text-white);">Edited</h3>
                     <h2 class="urdu-text" style="color:#3498db;">ترمیم شدہ</h2>
-                    <h1 class="eng-text" style="color:#3498db;" id="wr-edited">0</h1>
+                    <h1 class="eng-text" style="color:#3498db;" id="wr-edited">1</h1>
                 </div>
             </div>
 
@@ -1837,15 +2028,19 @@
                     <input type="date" class="input-control eng-text" id="report-date" onchange="createNewReportSheet()">
                     <input type="text" class="input-control eng-text" placeholder="🔍 Search...">
                     <button class="btn-action btn-reset eng-text" onclick="resetToZero('wa-report-body')" style="border-color: #ff4d4d; color: #ff4d4d; background: rgba(255, 77, 77, 0.1);">
-                        🔄 Zero Data <span class="urdu-btn" style="font-size: 14px;">(زیرو کریں)</span>
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Counterclockwise%20Arrows%20Button.png"> Zero Data <span class="urdu-btn" style="font-size: 14px;">(زیرو کریں)</span>
                     </button>
                 </div>
                 <div class="toolbar-group" style="margin-left: auto;">
-                    <button class="btn-action eng-text" onclick="exportToCSV('whatsapp-report.csv', 'report-table-id')">📥 Excel / CSV</button>
-                    <button class="btn-action eng-text" onclick="window.print()">🖨 Print / PDF</button>
+                    <button class="btn-action eng-text" onclick="exportToCSV('whatsapp-report.csv', 'report-table-id')">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png"> Excel / CSV
+                    </button>
+                    <button class="btn-action eng-text" onclick="window.print()">
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Printer.png"> Print / PDF
+                    </button>
                     <!-- MASTER SAVE BUTTON IN TOOLBAR -->
                     <button id="master-save-btn" class="btn-action urdu-text" style="padding: 8px 20px; font-size: 16px; background: linear-gradient(135deg, var(--gold-primary), #00796b); color:#000; border:none; box-shadow: 0 4px 15px var(--gold-glow); font-weight:bold;" onclick="saveAllReports(this)">
-                        💾 Save All Data <span class="eng-text" style="font-size:14px; margin-left:5px;">(سب محفوظ کریں)</span>
+                        <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Floppy%20Disk.png"> Save All Data <span class="eng-text" style="font-size:14px; margin-left:5px;">(سب محفوظ کریں)</span>
                     </button>
                 </div>
             </div>
@@ -1881,9 +2076,11 @@
                         <tr>
                             <td contenteditable="true">1</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">ناگپور</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی ظفر مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی ظفر مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -1901,9 +2098,11 @@
                         <tr>
                             <td contenteditable="true">2</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">ناگپور</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی غلام رضا مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی غلام رضا مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -1921,9 +2120,11 @@
                         <tr>
                             <td contenteditable="true">3</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">ناگپور</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی دل کش مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی دل کش مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -1941,9 +2142,11 @@
                         <tr>
                             <td contenteditable="true">4</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">ممبئی</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی کاشف مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی کاشف مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -1961,9 +2164,11 @@
                         <tr>
                             <td contenteditable="true">5</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">ممبئی</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی ذوالفقار مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی ذوالفقار مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -1981,9 +2186,11 @@
                         <tr>
                             <td contenteditable="true">6</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">ممبئی</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی عبدالواجد مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی عبدالواجد مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="3" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2001,9 +2208,11 @@
                         <tr>
                             <td contenteditable="true">7</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">ممبئی</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی محمد نادر رضا</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی محمد نادر رضا</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="3" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2021,9 +2230,11 @@
                         <tr>
                             <td contenteditable="true">8</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">احمدآباد</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی سجاد مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی سجاد مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="3" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2041,9 +2252,11 @@
                         <tr>
                             <td contenteditable="true">9</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">احمدآباد</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی عالم مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی عالم مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="3" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2061,9 +2274,11 @@
                         <tr>
                             <td contenteditable="true">10</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">احمدآباد</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی عابد حسین</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی عابد حسین</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2081,9 +2296,11 @@
                         <tr>
                             <td contenteditable="true">11</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">احمدآباد</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی محمد فیضان</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی محمد فیضان</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2101,9 +2318,11 @@
                         <tr>
                             <td contenteditable="true">12</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">احمدآباد</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی محمد سلیم</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی محمد سلیم</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2121,9 +2340,11 @@
                         <tr>
                             <td contenteditable="true">13</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">موڈاسہ</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی جاوید مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی جاوید مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2141,9 +2362,11 @@
                         <tr>
                             <td contenteditable="true">14</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">موڈاسہ</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی عمران مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی عمران مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2161,9 +2384,11 @@
                         <tr>
                             <td contenteditable="true">15</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">موڈاسہ</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی بلال مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی بلال مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="4" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2181,9 +2406,11 @@
                         <tr>
                             <td contenteditable="true">16</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">موڈاسہ</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی محمد ارشاد</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی محمد ارشاد</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="3" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2201,9 +2428,11 @@
                         <tr>
                             <td contenteditable="true">17</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">حیدرآباد</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی جسیم مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی جسیم مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="3" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2221,9 +2450,11 @@
                         <tr>
                             <td contenteditable="true">18</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">حیدرآباد</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی سید بلال مدنی</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی سید بلال مدنی</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="3" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2241,9 +2472,11 @@
                         <tr>
                             <td contenteditable="true">19</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">حیدرآباد</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی مصباح الرحمٰن</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی مصباح الرحمٰن</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="3" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2261,9 +2494,11 @@
                         <tr>
                             <td contenteditable="true">20</td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">حیدرآباد</td>
-                            <td style="padding: 5px;"><div class="name-box urdu-text" contenteditable="true">مفتی مصباح الحق قادری</div></td>
+                            <td style="padding: 5px;">
+                                <div class="name-box urdu-text" contenteditable="true">مفتی مصباح الحق قادری</div>
+                            </td>
                             <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input total-input" value="0" onkeyup="calcWhatsAppReport()"></td>
+                            <td><input type="number" class="table-input total-input" value="3" onkeyup="calcWhatsAppReport()"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
                             <td><input type="number" class="table-input" value="0"></td>
@@ -2422,7 +2657,7 @@
                             <h2 class="urdu-text" contenteditable="true">ناگپور برانچ</h2>
                         </div>
                         <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span contenteditable="true">Active</span>
+                            <i><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Office%20Building.png"></i> <span contenteditable="true">Active</span>
                         </div>
                     </div>
                     <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
@@ -2438,7 +2673,7 @@
                             <h2 class="urdu-text" contenteditable="true">ممبئی برانچ</h2>
                         </div>
                         <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span contenteditable="true">Active</span>
+                            <i><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Office%20Building.png"></i> <span contenteditable="true">Active</span>
                         </div>
                     </div>
                     <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
@@ -2454,7 +2689,7 @@
                             <h2 class="urdu-text" contenteditable="true">احمدآباد برانچ</h2>
                         </div>
                         <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span contenteditable="true">Active</span>
+                            <i><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Office%20Building.png"></i> <span contenteditable="true">Active</span>
                         </div>
                     </div>
                     <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
@@ -2470,7 +2705,7 @@
                             <h2 class="urdu-text" contenteditable="true">حیدر آباد برانچ</h2>
                         </div>
                         <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span contenteditable="true">Active</span>
+                            <i><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Office%20Building.png"></i> <span contenteditable="true">Active</span>
                         </div>
                     </div>
                     <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
@@ -2486,7 +2721,7 @@
                             <h2 class="urdu-text" contenteditable="true">موڈاسہ برانچ</h2>
                         </div>
                         <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span contenteditable="true">Active</span>
+                            <i><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Office%20Building.png"></i> <span contenteditable="true">Active</span>
                         </div>
                     </div>
                     <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
@@ -2510,7 +2745,7 @@
             <div class="settings-container">
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="settings-header">
-                        <div class="icon">👤</div>
+                        <div class="icon"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Bust%20in%20Silhouette.png"></div>
                         <div><h2 class="urdu-text">ایڈمن ترتیبات</h2></div>
                     </div>
                     <div class="setting-item" onclick="triggerSetting('admin')">
@@ -2523,7 +2758,7 @@
                 
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="settings-header">
-                        <div class="icon">👳</div>
+                        <div class="icon"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Person%20Wearing%20Turban.png"></div>
                         <div><h2 class="urdu-text">مفتی ترتیبات</h2></div>
                     </div>
                     <div class="setting-item" onclick="triggerSetting('add_mufti')">
@@ -2536,7 +2771,7 @@
                 
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="settings-header">
-                        <div class="icon">🏢</div>
+                        <div class="icon"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Office%20Building.png"></div>
                         <div><h2 class="urdu-text">برانچ ترتیبات</h2></div>
                     </div>
                     <div class="setting-item" onclick="triggerSetting('add_branch')">
@@ -2549,7 +2784,7 @@
                 
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="settings-header">
-                        <div class="icon">⚙️</div>
+                        <div class="icon"><img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png"></div>
                         <div><h2 class="urdu-text">سسٹم ترتیبات</h2></div>
                     </div>
                     <div class="setting-item" onclick="toggleTheme()">
@@ -2557,140 +2792,6 @@
                         <div class="setting-item-icon">🌓</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SOCIAL MEDIA PAGE -->
-    <div id="social-media-page">
-        <div class="main">
-            <div class="header">
-                <div class="header-left"><button class="btn-back eng-text" onclick="closeSocialMedia()">⬅ Back</button></div>
-                <h1 class="urdu-text">سوشل میڈیا ڈیش بورڈ</h1>
-                <div class="header-right"></div>
-            </div>
-            
-            <div class="sm-grid">
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper">💬</div><div class="sm-details"><h3 class="eng-text">WhatsApp</h3><h2 class="urdu-text">واٹس ایپ</h2><h1 class="eng-text">0 Fatwe</h1></div></div>
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper">▶</div><div class="sm-details"><h3 class="eng-text">YouTube</h3><h2 class="urdu-text">یوٹیوب</h2><h1 class="eng-text">0 Videos</h1></div></div>
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper">📘</div><div class="sm-details"><h3 class="eng-text">Facebook</h3><h2 class="urdu-text">فیس بک</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper">📸</div><div class="sm-details"><h3 class="eng-text">Instagram</h3><h2 class="urdu-text">انسٹاگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper">✈</div><div class="sm-details"><h3 class="eng-text">Telegram</h3><h2 class="urdu-text">ٹیلیگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card"><div class="sm-icon-wrapper">✖</div><div class="sm-details"><h3 class="eng-text">X (Twitter)</h3><h2 class="urdu-text">ٹوئٹر</h2><h1 class="eng-text" style="color:var(--text-white);">0 Posts</h1></div></div>
-            </div>
-
-            <div class="sm-toolbar" style="margin-top: 20px;">
-                <div class="toolbar-group"><h3 class="urdu-text" style="color: var(--gold-primary); font-size: 26px; font-weight: normal; margin:0; text-shadow: 0 0 10px var(--gold-glow);">پلیٹ فارم منتخب کریں:</h3></div>
-                <div class="toolbar-group">
-                    <select class="input-control eng-text" id="social-platform-select" style="font-size: 14px; min-width: 250px;" onchange="filterSocialMedia()">
-                        <option value="all">🌐 All Platforms (تمام)</option><option value="whatsapp">💬 WhatsApp Channel</option><option value="youtube">▶ YouTube</option><option value="facebook">📘 Facebook</option><option value="instagram">📸 Instagram</option><option value="telegram">✈ Telegram</option><option value="twitter">✖ X (Twitter)</option>
-                    </select>
-                </div>
-                <div class="toolbar-group" style="margin-left: auto;"><input type="month" id="social-month-select" class="input-control eng-text"></div>
-            </div>
-
-            <div class="sm-table-container">
-                <table id="social-media-table">
-                    <thead>
-                        <tr>
-                            <th><span class="eng-text">Date</span> <span class="urdu-th">تاریخ</span></th>
-                            <th><span class="eng-text">Fatwa Title</span> <span class="urdu-th">عنوان</span></th>
-                            <th><span class="eng-text">Hindi</span> <span class="urdu-th">ہندی</span></th>
-                            <th><span class="eng-text">Roman</span> <span class="urdu-th">رومن</span></th>
-                            <th><span class="eng-text">Urdu</span> <span class="urdu-th">اردو</span></th>
-                            <th><span class="eng-text">Link</span> <span class="urdu-th">لنک</span></th>
-                            <th><span class="eng-text">Status</span> <span class="urdu-th">حالت</span></th>
-                        </tr>
-                    </thead>
-                    <tbody class="eng-text">
-                        <tr data-platform="whatsapp">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                        <tr data-platform="youtube">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                        <tr data-platform="facebook">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                        <tr data-platform="instagram">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                        <tr data-platform="telegram">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                        <tr data-platform="twitter">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="sm-toolbar" style="margin-top: 10px; justify-content: center; padding: 15px; border:none; background: transparent;">
-                <h2 class="urdu-text" style="color: var(--gold-primary); font-size: 32px; margin:0; font-weight: normal; text-shadow: 0 0 10px var(--gold-glow);">ماہانہ خلاصہ <span class="eng-text" style="font-size: 20px;">(Monthly Summary)</span></h2>
-            </div>
-            <div class="monthly-summary-line">
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);">
-                    <h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Total Shared</h3>
-                    <h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">کل شیئر</h2>
-                    <h1 class="text-success eng-text" style="font-size: 32px; margin-top: auto;">0</h1>
-                </div>
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);">
-                    <h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Hindi Posts</h3>
-                    <h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">ہندی</h2>
-                    <h1 class="eng-text" style="color: var(--gold-primary); font-size: 32px; margin-top: auto;">0</h1>
-                </div>
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);">
-                    <h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Roman Posts</h3>
-                    <h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">رومن</h2>
-                    <h1 class="eng-text" style="color: var(--gold-primary); font-size: 32px; margin-top: auto;">0</h1>
-                </div>
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);">
-                    <h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Urdu Posts</h3>
-                    <h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">اردو</h2>
-                    <h1 class="eng-text" style="color: var(--gold-primary); font-size: 32px; margin-top: auto;">0</h1>
-                </div>
-            </div>
-            
-            <div class="bottom-actions">
-                <button class="btn-bottom eng-text" onclick="window.print()">📄 PDF <span class="urdu-btn">(پی ڈی ایف)</span></button>
-                <button class="btn-bottom eng-text" onclick="exportToCSV('social-media-report.csv', 'social-media-table')">📊 Excel <span class="urdu-btn">(ایکسل)</span></button>
-                <button class="btn-bottom eng-text" onclick="window.print()">🖨 Print <span class="urdu-btn">(پرنٹ)</span></button>
             </div>
         </div>
     </div>
@@ -2731,7 +2832,7 @@
                 wsTime.value = hh+":"+m;
             }
             
-            // Sync WhatsApp summary on load
+            // Sync WhatsApp summary on load to show actual numbers instead of 0
             updateWhatsAppSummary();
             calcWhatsAppReport();
         };
@@ -2792,7 +2893,6 @@
             
             let total = 0, correct = 0, pending = 0, wrong = 0, edited = 0;
             
-            // Calculate pending dynamically per row
             let rows = tbody.querySelectorAll('tr');
             rows.forEach(row => {
                 let totInp = row.querySelector('.total-input');
@@ -2805,7 +2905,7 @@
                     let rTot = parseInt(totInp.value) || 0;
                     let rCorr = parseInt(corrInp.value) || 0;
                     let rPend = rTot - rCorr;
-                    pendInp.value = rPend < 0 ? 0 : rPend; // update row pending
+                    pendInp.value = rPend < 0 ? 0 : rPend; 
                     
                     total += rTot;
                     correct += rCorr;
@@ -2815,7 +2915,6 @@
                 }
             });
             
-            // Update Summary Cards
             document.getElementById('wr-total').innerText = total;
             document.getElementById('wr-correct').innerText = correct;
             document.getElementById('wr-pending').innerText = pending;
