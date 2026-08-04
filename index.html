@@ -345,7 +345,7 @@
         .header-right { right: 0; } 
         .header-left { left: 0; }
         
-        .theme-toggle-btn, .lang-select, .btn-back { 
+        .theme-toggle-btn, .lang-select, .btn-back, .btn-logout-top { 
             padding: 8px 15px; 
             border-radius: 8px; 
             background: rgba(0,0,0,0.3); 
@@ -365,6 +365,19 @@
             background: var(--gold-primary); 
             color: #000; 
             box-shadow: 0 0 15px var(--gold-glow); 
+        }
+
+        /* Top Logout Button Specific Styling */
+        .btn-logout-top {
+            border-color: #ff4d4d;
+            color: #fff;
+            background: rgba(231, 76, 60, 0.2);
+        }
+        .btn-logout-top:hover {
+            background: #e74c3c;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(231,76,60,0.5);
+            border-color: #e74c3c;
         }
         
         /* HEXAGONAL DASHBOARD MENU */
@@ -658,7 +671,7 @@
         .report-tab .tab-title-ur { font-size: 20px; font-family: 'Jameel Noori Nastaleeq'; margin-top: 4px; }
         .report-section { display: none; animation: fadeIn 0.5s ease; }
 
-        /* MUFTIYAN CARDS - Updated layout for full visibility */
+        /* MUFTIYAN CARDS - Compact Adjusted */
         .nm-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -675,8 +688,8 @@
             direction: rtl; 
             box-shadow: 0 8px 25px rgba(0,0,0,0.4); 
             transition: 0.3s ease; 
-            height: 100%; /* Automatically adjusts to content */
-            min-height: auto; 
+            min-height: 130px; /* Reduced Height */
+            align-items: stretch; /* Fits all at once */
             perspective: 1000px; 
         }
         .nm-card:hover { 
@@ -685,7 +698,7 @@
             border-color: var(--gold-primary); 
         }
         .nm-photo { 
-            width: 35%; 
+            width: 30%; /* Reduced width slightly */
             position: relative; 
             cursor: pointer; 
             display: flex; 
@@ -693,7 +706,7 @@
             align-items: center; 
             background: rgba(0,0,0,0.2); 
             border-left: 1px solid var(--border-color); 
-            padding: 10px; 
+            padding: 8px; 
         }
         .nm-photo img { 
             width: 100%; 
@@ -733,22 +746,23 @@
             transform: translateZ(40px) scale(1.05); 
         }
         .nm-details { 
-            width: 65%; 
+            width: 70%; 
             display: flex; 
             flex-direction: column; 
+            justify-content: center;
+            padding: 5px 0;
         }
         .nm-row { 
             flex: 1; 
             display: flex; 
             align-items: center; 
-            padding: 5px 15px; /* Adjusted padding */
-            border-bottom: 1px solid rgba(255,255,255,0.05); 
-            font-size: 18px; /* Adjusted font size */
+            padding: 2px 15px; 
+            border-bottom: 1px solid rgba(92, 225, 211, 0.1); 
+            font-size: 16px; /* Reduced Font Size */
             color: var(--text-white); 
-            white-space: normal; /* Fixed overflow issue */
-            overflow: visible; 
-            text-overflow: clip; 
-            line-height: 1.3;
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
         }
         .nm-row:last-child { 
             border-bottom: none; 
@@ -756,18 +770,18 @@
         .nm-name { 
             background: rgba(92, 225, 211, 0.2); 
             color: var(--gold-primary); 
-            font-size: 24px; 
+            font-size: 22px; /* Adjusted */
             font-weight: bold; 
             justify-content: center; 
             text-shadow: 0 2px 4px rgba(0,0,0,0.8); 
-            border-bottom: 1px solid var(--border-color); 
-            padding: 10px;
+            border-bottom: 2px solid var(--border-color); 
+            padding-bottom: 5px;
         }
         .nm-info { background: transparent; }
         .nm-label { 
-            font-size: 20px; 
+            font-size: 16px; /* Adjusted */
             font-weight: normal; 
-            margin-left: 8px; 
+            margin-left: 5px; 
             color: var(--text-muted); 
         }
 
@@ -878,7 +892,7 @@
             font-weight: bold;
         }
 
-        /* Social Media Platform Cards & Cinematic Colors */
+        /* Social Media Platform Cards - With Cinematic Color Hovers */
         .sm-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
@@ -889,12 +903,12 @@
             display: flex; 
             align-items: center; 
             gap: 18px; 
-            border-left: 4px solid var(--gold-primary); 
+            border-left: 5px solid var(--gold-primary); 
             background: var(--card-bg); 
             backdrop-filter: blur(10px); 
             padding: 15px; 
             border-radius: 12px; 
-            transition: 0.3s;
+            transition: 0.4s ease; /* Smooth transition for color changes */
         }
         .sm-icon-wrapper { 
             width: 60px; 
@@ -907,30 +921,29 @@
             align-items: center; 
             font-size: 32px; 
             box-shadow: inset 0 0 20px rgba(255,255,255,0.05); 
-            transition: 0.4s; 
+            transition: 0.4s ease; 
             color: var(--gold-primary); 
             text-shadow: 0 0 10px var(--gold-primary); 
         }
-        
-        /* CINEMATIC HOVER EFFECTS FOR SOCIAL MEDIA CARDS */
-        .sm-card.whatsapp:hover { border-color: #25D366; box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4); transform: scale(1.03); }
-        .sm-card.whatsapp:hover .sm-icon-wrapper { color: #25D366; text-shadow: 0 0 15px #25D366; box-shadow: inset 0 0 25px rgba(37, 211, 102, 0.3); transform: scale(1.1) rotate(10deg); }
 
-        .sm-card.youtube:hover { border-color: #FF0000; box-shadow: 0 12px 30px rgba(255, 0, 0, 0.4); transform: scale(1.03); }
-        .sm-card.youtube:hover .sm-icon-wrapper { color: #FF0000; text-shadow: 0 0 15px #FF0000; box-shadow: inset 0 0 25px rgba(255, 0, 0, 0.3); transform: scale(1.1) rotate(10deg); }
+        /* Social Media Cinematic Hover Colors */
+        .sm-card[data-brand="whatsapp"]:hover { border-color: #25D366; background: rgba(37, 211, 102, 0.15); box-shadow: 0 0 25px rgba(37, 211, 102, 0.3); transform: translateY(-5px); }
+        .sm-card[data-brand="whatsapp"]:hover .sm-icon-wrapper { color: #25D366; text-shadow: 0 0 15px #25D366; box-shadow: inset 0 0 20px rgba(37, 211, 102, 0.4); border-color: #25D366; transform: scale(1.15) rotate(10deg); }
 
-        .sm-card.facebook:hover { border-color: #1877F2; box-shadow: 0 12px 30px rgba(24, 119, 242, 0.4); transform: scale(1.03); }
-        .sm-card.facebook:hover .sm-icon-wrapper { color: #1877F2; text-shadow: 0 0 15px #1877F2; box-shadow: inset 0 0 25px rgba(24, 119, 242, 0.3); transform: scale(1.1) rotate(10deg); }
+        .sm-card[data-brand="youtube"]:hover { border-color: #FF0000; background: rgba(255, 0, 0, 0.15); box-shadow: 0 0 25px rgba(255, 0, 0, 0.3); transform: translateY(-5px); }
+        .sm-card[data-brand="youtube"]:hover .sm-icon-wrapper { color: #FF0000; text-shadow: 0 0 15px #FF0000; box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.4); border-color: #FF0000; transform: scale(1.15) rotate(10deg); }
 
-        .sm-card.instagram:hover { border-image: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) 1; box-shadow: 0 12px 30px rgba(225, 48, 108, 0.4); transform: scale(1.03); }
-        .sm-card.instagram:hover .sm-icon-wrapper { color: #E1306C; text-shadow: 0 0 15px #E1306C; box-shadow: inset 0 0 25px rgba(225, 48, 108, 0.3); transform: scale(1.1) rotate(10deg); }
+        .sm-card[data-brand="facebook"]:hover { border-color: #1877F2; background: rgba(24, 119, 242, 0.15); box-shadow: 0 0 25px rgba(24, 119, 242, 0.3); transform: translateY(-5px); }
+        .sm-card[data-brand="facebook"]:hover .sm-icon-wrapper { color: #1877F2; text-shadow: 0 0 15px #1877F2; box-shadow: inset 0 0 20px rgba(24, 119, 242, 0.4); border-color: #1877F2; transform: scale(1.15) rotate(10deg); }
 
-        .sm-card.telegram:hover { border-color: #0088cc; box-shadow: 0 12px 30px rgba(0, 136, 204, 0.4); transform: scale(1.03); }
-        .sm-card.telegram:hover .sm-icon-wrapper { color: #0088cc; text-shadow: 0 0 15px #0088cc; box-shadow: inset 0 0 25px rgba(0, 136, 204, 0.3); transform: scale(1.1) rotate(10deg); }
+        .sm-card[data-brand="instagram"]:hover { border-color: #E1306C; background: rgba(225, 48, 108, 0.15); box-shadow: 0 0 25px rgba(225, 48, 108, 0.3); transform: translateY(-5px); }
+        .sm-card[data-brand="instagram"]:hover .sm-icon-wrapper { color: #E1306C; text-shadow: 0 0 15px #E1306C; box-shadow: inset 0 0 20px rgba(225, 48, 108, 0.4); border-color: #E1306C; transform: scale(1.15) rotate(10deg); }
 
-        .sm-card.twitter:hover { border-color: #1DA1F2; box-shadow: 0 12px 30px rgba(29, 161, 242, 0.4); transform: scale(1.03); }
-        .sm-card.twitter:hover .sm-icon-wrapper { color: #1DA1F2; text-shadow: 0 0 15px #1DA1F2; box-shadow: inset 0 0 25px rgba(29, 161, 242, 0.3); transform: scale(1.1) rotate(10deg); }
+        .sm-card[data-brand="telegram"]:hover { border-color: #0088cc; background: rgba(0, 136, 204, 0.15); box-shadow: 0 0 25px rgba(0, 136, 204, 0.3); transform: translateY(-5px); }
+        .sm-card[data-brand="telegram"]:hover .sm-icon-wrapper { color: #0088cc; text-shadow: 0 0 15px #0088cc; box-shadow: inset 0 0 20px rgba(0, 136, 204, 0.4); border-color: #0088cc; transform: scale(1.15) rotate(10deg); }
 
+        .sm-card[data-brand="twitter"]:hover { border-color: #1DA1F2; background: rgba(29, 161, 242, 0.15); box-shadow: 0 0 25px rgba(29, 161, 242, 0.3); transform: translateY(-5px); }
+        .sm-card[data-brand="twitter"]:hover .sm-icon-wrapper { color: #1DA1F2; text-shadow: 0 0 15px #1DA1F2; box-shadow: inset 0 0 20px rgba(29, 161, 242, 0.4); border-color: #1DA1F2; transform: scale(1.15) rotate(10deg); }
 
         .sm-details h3 { 
             color: var(--text-muted); 
@@ -1164,8 +1177,10 @@
                         <option value="ur">Urdu (اردو)</option>
                         <option value="en">English</option>
                     </select>
-                    <!-- UPDATED LOGOUT BUTTON LOCATION (Only on Dashboard Home) -->
-                    <button class="btn-action eng-text" onclick="logout()" style="background: rgba(231, 76, 60, 0.1); border-color: #e74c3c; color: #e74c3c;">🚪 Logout</button>
+                    <!-- LOGOUT BUTTON (Only on Dashboard Top Corner) -->
+                    <button class="btn-back eng-text" onclick="logout()" style="background: rgba(231,76,60,0.2); border-color: #e74c3c; color: #fff; margin-left: 5px;">
+                        🚪 Logout <span class="urdu-text" style="font-size: 16px; margin-left: 4px;">(لاگ آؤٹ)</span>
+                    </button>
                 </div>
             </div>
 
@@ -2172,7 +2187,7 @@
                         <tr>
                             <th><span class="eng-text">Sr.</span><span class="urdu-th">نمبر</span></th>
                             <th><span class="eng-text">Branch</span> <span class="urdu-th">دارالافتاء</span></th>
-                            <th style="width: 150px;"><span class="eng-text">Mufti</span> <span class="urdu-th">مفتی</span></th>
+                            <th><span class="eng-text">Mufti Name</span> <span class="urdu-th">مفتی کا نام</span></th>
                             <th><span class="eng-text">Musaddiq</span> <span class="urdu-th">مُصَدِّق</span></th>
                             <th><span class="eng-text">Total Qs</span> <span class="urdu-th">کل بھیجے گئے</span></th>
                             <th><span class="eng-text">Today Qs</span> <span class="urdu-th">آج بھیجے گئے</span></th>
@@ -2192,10 +2207,10 @@
                     </thead>
                     <tbody id="wa-report-body" class="eng-text">
                         <tr>
-                            <td>1</td>
-                            <td>Hyderabad</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Zafar Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">1</td>
+                            <td contenteditable="true">Nagpur</td>
+                            <td class="urdu-text" style="font-size:16px;">ظفر مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2212,10 +2227,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>2</td>
-                            <td>Nagpur</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Ghulam Raza Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">2</td>
+                            <td contenteditable="true">Nagpur</td>
+                            <td class="urdu-text" style="font-size:16px;">غلام رضا مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2232,10 +2247,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>3</td>
-                            <td>Mumbai</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Dilkash Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">3</td>
+                            <td contenteditable="true">Nagpur</td>
+                            <td class="urdu-text" style="font-size:16px;">دل کش مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2252,10 +2267,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>4</td>
-                            <td>Modasa</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Kashif Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">4</td>
+                            <td contenteditable="true">Mumbai</td>
+                            <td class="urdu-text" style="font-size:16px;">کاشف مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2272,10 +2287,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>5</td>
-                            <td>Modasa</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Zulfiqar Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">5</td>
+                            <td contenteditable="true">Mumbai</td>
+                            <td class="urdu-text" style="font-size:16px;">ذوالفقار مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2292,10 +2307,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>6</td>
-                            <td>Hyderabad</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Abdul Wajid Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">6</td>
+                            <td contenteditable="true">Mumbai</td>
+                            <td class="urdu-text" style="font-size:16px;">عبدالواجد مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2312,10 +2327,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>7</td>
-                            <td>Ahmedabad</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Muhammad Nadir Raza" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">7</td>
+                            <td contenteditable="true">Mumbai</td>
+                            <td class="urdu-text" style="font-size:16px;">محمد نادر رضا</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2332,10 +2347,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>8</td>
-                            <td>Ahmedabad</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Sajjad Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">8</td>
+                            <td contenteditable="true">Ahmedabad</td>
+                            <td class="urdu-text" style="font-size:16px;">سجاد مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2352,10 +2367,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>9</td>
-                            <td>Modasa</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Aalam Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">9</td>
+                            <td contenteditable="true">Ahmedabad</td>
+                            <td class="urdu-text" style="font-size:16px;">عالم مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2372,10 +2387,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>10</td>
-                            <td>Nagpur</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Aabid Hussain" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">10</td>
+                            <td contenteditable="true">Ahmedabad</td>
+                            <td class="urdu-text" style="font-size:16px;">عابد حسین</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2392,10 +2407,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>11</td>
-                            <td>Nagpur</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Muhammad Faizan" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">11</td>
+                            <td contenteditable="true">Ahmedabad</td>
+                            <td class="urdu-text" style="font-size:16px;">محمد فیضان</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2412,10 +2427,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>12</td>
-                            <td>Mumbai</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Muhammad Saleem" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">12</td>
+                            <td contenteditable="true">Ahmedabad</td>
+                            <td class="urdu-text" style="font-size:16px;">محمد سلیم</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2432,10 +2447,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>13</td>
-                            <td>Mumbai</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Javed Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">13</td>
+                            <td contenteditable="true">Modasa</td>
+                            <td class="urdu-text" style="font-size:16px;">جاوید مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2452,10 +2467,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>14</td>
-                            <td>Ahmedabad</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Imran Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">14</td>
+                            <td contenteditable="true">Modasa</td>
+                            <td class="urdu-text" style="font-size:16px;">عمران مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2472,10 +2487,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>15</td>
-                            <td>Hyderabad</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Bilal Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">15</td>
+                            <td contenteditable="true">Modasa</td>
+                            <td class="urdu-text" style="font-size:16px;">بلال مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2492,10 +2507,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>16</td>
-                            <td>Ahmedabad</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Muhammad Irshad" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">16</td>
+                            <td contenteditable="true">Modasa</td>
+                            <td class="urdu-text" style="font-size:16px;">محمد ارشاد</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2512,10 +2527,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>17</td>
-                            <td>Mumbai</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Jaseem Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">17</td>
+                            <td contenteditable="true">Hyderabad</td>
+                            <td class="urdu-text" style="font-size:16px;">جسیم مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2532,10 +2547,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>18</td>
-                            <td>Ahmedabad</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Syed Bilal Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">18</td>
+                            <td contenteditable="true">Hyderabad</td>
+                            <td class="urdu-text" style="font-size:16px;">سید بلال مدنی</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2552,10 +2567,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>19</td>
-                            <td>Mumbai</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Misbah ur Rehman" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">19</td>
+                            <td contenteditable="true">Hyderabad</td>
+                            <td class="urdu-text" style="font-size:16px;">مصباح الرحمٰن</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2572,10 +2587,10 @@
                             <td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td>20</td>
-                            <td>Mumbai</td>
-                            <td><input type="text" class="table-input eng-text" value="Mufti Misbah ul Haq Qadri" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
-                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
+                            <td contenteditable="true">20</td>
+                            <td contenteditable="true">Hyderabad</td>
+                            <td class="urdu-text" style="font-size:16px;">مصباح الحق قادری</td>
+                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -2884,12 +2899,12 @@
             </div>
             
             <div class="sm-grid">
-                <div class="premium-box sm-card whatsapp"><div class="sm-icon-wrapper">💬</div><div class="sm-details"><h3 class="eng-text">WhatsApp</h3><h2 class="urdu-text">واٹس ایپ</h2><h1 class="eng-text">0 Fatwe</h1></div></div>
-                <div class="premium-box sm-card youtube"><div class="sm-icon-wrapper">▶</div><div class="sm-details"><h3 class="eng-text">YouTube</h3><h2 class="urdu-text">یوٹیوب</h2><h1 class="eng-text">0 Videos</h1></div></div>
-                <div class="premium-box sm-card facebook"><div class="sm-icon-wrapper">📘</div><div class="sm-details"><h3 class="eng-text">Facebook</h3><h2 class="urdu-text">فیس بک</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card instagram"><div class="sm-icon-wrapper">📸</div><div class="sm-details"><h3 class="eng-text">Instagram</h3><h2 class="urdu-text">انسٹاگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card telegram"><div class="sm-icon-wrapper">✈</div><div class="sm-details"><h3 class="eng-text">Telegram</h3><h2 class="urdu-text">ٹیلیگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card twitter"><div class="sm-icon-wrapper">✖</div><div class="sm-details"><h3 class="eng-text">X (Twitter)</h3><h2 class="urdu-text">ٹوئٹر</h2><h1 class="eng-text" style="color:var(--text-white);">0 Posts</h1></div></div>
+                <div class="premium-box sm-card" data-brand="whatsapp"><div class="sm-icon-wrapper">💬</div><div class="sm-details"><h3 class="eng-text">WhatsApp</h3><h2 class="urdu-text">واٹس ایپ</h2><h1 class="eng-text">0 Fatwe</h1></div></div>
+                <div class="premium-box sm-card" data-brand="youtube"><div class="sm-icon-wrapper">▶</div><div class="sm-details"><h3 class="eng-text">YouTube</h3><h2 class="urdu-text">یوٹیوب</h2><h1 class="eng-text">0 Videos</h1></div></div>
+                <div class="premium-box sm-card" data-brand="facebook"><div class="sm-icon-wrapper">📘</div><div class="sm-details"><h3 class="eng-text">Facebook</h3><h2 class="urdu-text">فیس بک</h2><h1 class="eng-text">0 Posts</h1></div></div>
+                <div class="premium-box sm-card" data-brand="instagram"><div class="sm-icon-wrapper">📸</div><div class="sm-details"><h3 class="eng-text">Instagram</h3><h2 class="urdu-text">انسٹاگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
+                <div class="premium-box sm-card" data-brand="telegram"><div class="sm-icon-wrapper">✈</div><div class="sm-details"><h3 class="eng-text">Telegram</h3><h2 class="urdu-text">ٹیلیگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
+                <div class="premium-box sm-card" data-brand="twitter"><div class="sm-icon-wrapper">✖</div><div class="sm-details"><h3 class="eng-text">X (Twitter)</h3><h2 class="urdu-text">ٹوئٹر</h2><h1 class="eng-text" style="color:var(--text-white);">0 Posts</h1></div></div>
             </div>
 
             <div class="sm-toolbar" style="margin-top: 20px;">
