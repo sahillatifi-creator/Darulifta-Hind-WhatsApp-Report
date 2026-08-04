@@ -20,21 +20,32 @@
         }
 
         /* ========================================================
-           FUTURISTIC TEAL/CYAN THEME
+           NEW FUTURISTIC TEAL/CYAN THEME
            ======================================================== */
         :root {
+            /* Deep Teal / Medical Tech Colors */
             --bg-main: #0b2e2a; 
             --bg-gradient: radial-gradient(circle at center, #1b5b54 0%, #061e1b 100%);
+            
+            /* Glassmorphism settings */
             --card-bg: rgba(255, 255, 255, 0.1);
             --card-hover: rgba(255, 255, 255, 0.2);
-            --gold-primary: #5ce1d3; 
+            
+            /* Glowing Accents */
+            --gold-primary: #5ce1d3; /* Vibrant Cyan */
             --gold-light: #ffffff;
             --gold-glow: rgba(92, 225, 211, 0.5);
+            
+            /* Text Colors */
             --text-white: #ffffff;
             --text-muted: #a6d8d2;
+            
+            /* Borders & Inputs */
             --border-color: rgba(92, 225, 211, 0.3);
             --input-bg: rgba(0, 0, 0, 0.3);
             --input-border: rgba(92, 225, 211, 0.4);
+            
+            /* Tables */
             --table-header-bg: linear-gradient(180deg, rgba(27, 91, 84, 0.9), rgba(11, 46, 42, 0.9));
             --table-border: rgba(92, 225, 211, 0.2);
             --photo-border: var(--gold-primary);
@@ -59,7 +70,13 @@
             --photo-border: #00796b;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        /* Global Resets */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Poppins', sans-serif; 
+        }
         
         body { 
             background: var(--bg-gradient); 
@@ -71,11 +88,19 @@
             position: relative;
         }
         
+        /* Enforcing Jameel Noori Nastaleeq for Specific Urdu Text globally */
         .urdu-text, .urdu-3d, .urdu-th, .urdu-setting, .urdu-btn, .nm-name, .nm-row, .nm-label, .header h1 {
             font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif !important;
         }
-        .eng-text { font-family: 'Poppins', sans-serif !important; }
+        
+        /* Explicit Poppins class for English Text */
+        .eng-text { 
+            font-family: 'Poppins', sans-serif !important; 
+        }
 
+        /* ========================================================
+           3D REALISTIC EMOJI CSS (For Images)
+           ======================================================== */
         .box-icon img { width: 55px; height: 55px; object-fit: contain; filter: drop-shadow(0 8px 10px rgba(0,0,0,0.6)); transition: 0.3s ease; }
         .menu-box:hover .box-icon img { transform: scale(1.15) translateY(-5px); }
         .social-summary-icon img { width: 45px; height: 45px; object-fit: contain; filter: drop-shadow(0 5px 8px rgba(0,0,0,0.5)); }
@@ -88,195 +113,975 @@
         .btn-action img, .btn-bottom img { width: 20px; height: 20px; object-fit: contain; vertical-align: middle; margin-right: 5px; }
         .ws-alert-icon img { width: 26px; height: 26px; object-fit: contain; }
 
-        [contenteditable="true"] { cursor: text; transition: all 0.3s ease; outline: none; border-bottom: 1px dashed transparent; }
-        [contenteditable="true"]:hover { border-bottom: 1px dashed var(--gold-primary); }
-        [contenteditable="true"]:focus { background: rgba(0, 0, 0, 0.4); border-radius: 4px; padding: 2px 6px; border-bottom: 1px solid var(--gold-primary); box-shadow: inset 0 0 10px var(--gold-glow); }
-        body.light-mode [contenteditable="true"]:focus { background: rgba(255, 255, 255, 0.8); }
+        /* ========================================================
+           EDITABLE CONTENT CSS
+           ======================================================== */
+        [contenteditable="true"] {
+            cursor: text; 
+            transition: all 0.3s ease; 
+            outline: none; 
+            border-bottom: 1px dashed transparent;
+        }
+        [contenteditable="true"]:hover { 
+            border-bottom: 1px dashed var(--gold-primary); 
+        }
+        [contenteditable="true"]:focus {
+            background: rgba(0, 0, 0, 0.4); 
+            border-radius: 4px; 
+            padding: 2px 6px;
+            border-bottom: 1px solid var(--gold-primary); 
+            box-shadow: inset 0 0 10px var(--gold-glow);
+        }
+        body.light-mode [contenteditable="true"]:focus { 
+            background: rgba(255, 255, 255, 0.8); 
+        }
 
-        /* TECH BACKGROUND RINGS */
-        .tech-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; overflow: hidden; display: flex; justify-content: center; align-items: center; }
-        .tech-bg::before { content: ""; position: absolute; width: 100%; height: 100%; background: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 40px 40px; }
-        .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(255,255,255,0.05); }
+        /* ========================================================
+           FUTURISTIC TECH BACKGROUND RINGS 
+           ======================================================== */
+        .tech-bg {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100vw; 
+            height: 100vh;
+            z-index: -1; 
+            pointer-events: none; 
+            overflow: hidden;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+        }
+        .tech-bg::before {
+            content: ""; 
+            position: absolute; 
+            width: 100%; 
+            height: 100%;
+            background: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .ring { 
+            position: absolute; 
+            border-radius: 50%; 
+            border: 1px solid rgba(255,255,255,0.05); 
+        }
         .r1 { width: 40vw; height: 40vw; border: 2px dashed rgba(92, 225, 211, 0.2); animation: spin 60s linear infinite; }
         .r2 { width: 60vw; height: 60vw; border: 1px solid rgba(92, 225, 211, 0.15); animation: spin-reverse 90s linear infinite; }
         .r3 { width: 80vw; height: 80vw; border: 3px dotted rgba(255,255,255,0.05); animation: spin 120s linear infinite; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
         @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
 
-        /* PREMIUM BOX */
-        .premium-box { background: var(--card-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 2px 10px rgba(255,255,255,0.05); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
-        body.light-mode .premium-box { box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); border-color: rgba(0,121,107,0.2); }
-        .premium-box::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent); transform: skewX(-25deg); transition: 0.6s; pointer-events: none; }
+        /* ========================================================
+           PREMIUM BOX (Glassmorphism styling)
+           ======================================================== */
+        .premium-box {
+            background: var(--card-bg); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color); 
+            border-radius: 16px; 
+            padding: 20px; 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 2px 10px rgba(255,255,255,0.05); 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            position: relative; 
+            overflow: hidden;
+        }
+        body.light-mode .premium-box { 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); 
+            border-color: rgba(0,121,107,0.2);
+        }
+        .premium-box::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: -100%; 
+            width: 50%; 
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: skewX(-25deg); 
+            transition: 0.6s; 
+            pointer-events: none;
+        }
         .premium-box:hover::before { left: 125%; }
-        .premium-box:hover { transform: translateY(-4px); box-shadow: 0 12px 35px var(--gold-glow); }
+        .premium-box:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 12px 35px var(--gold-glow); 
+        }
 
         /* LOGIN PAGE */
-        #login-page { display: flex; justify-content: center; align-items: center; height: 100vh; position: absolute; width: 100%; z-index: 1000; transition: opacity 0.5s ease; padding: 20px; }
-        .login-box { background: var(--card-bg); backdrop-filter: blur(20px); padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px var(--gold-glow); border: 1px solid var(--border-color); width: 100%; max-width: 400px; text-align: center; animation: slideUp 0.8s ease; }
-        .login-box img { max-width: 130px; margin-bottom: 20px; border-radius: 50%; box-shadow: 0 0 20px var(--gold-glow); border: 2px solid var(--gold-primary); }
-        .login-box h2 { color: var(--gold-light); margin-bottom: 25px; font-size: 24px; text-shadow: 0 0 10px var(--gold-glow); font-weight: 600; letter-spacing: 1px; }
-        .input-group { margin-bottom: 18px; text-align: left; }
-        .input-group label { display: block; color: var(--gold-primary); margin-bottom: 8px; font-weight: 500; font-size: 13px; }
-        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 12px 15px; background: var(--input-bg); border: 1px solid var(--input-border); color: var(--text-white); border-radius: 8px; outline: none; transition: 0.3s; font-size: 14px; backdrop-filter: blur(5px); }
-        .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: var(--gold-primary); box-shadow: 0 0 12px var(--gold-glow); background: rgba(0,0,0,0.6); }
-        .login-btn { width: 100%; padding: 12px; background: linear-gradient(135deg, var(--gold-primary), #2980b9); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 15px; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(92,225,211,0.3); }
+        #login-page { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            position: absolute; 
+            width: 100%; 
+            z-index: 1000; 
+            transition: opacity 0.5s ease; 
+            padding: 20px;
+        }
+        .login-box { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(20px); 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 40px var(--gold-glow); 
+            border: 1px solid var(--border-color); 
+            width: 100%; 
+            max-width: 400px; 
+            text-align: center; 
+            animation: slideUp 0.8s ease; 
+        }
+        .login-box img { 
+            max-width: 130px; 
+            margin-bottom: 20px; 
+            border-radius: 50%; 
+            box-shadow: 0 0 20px var(--gold-glow); 
+            border: 2px solid var(--gold-primary); 
+        }
+        .login-box h2 { 
+            color: var(--gold-light); 
+            margin-bottom: 25px; 
+            font-size: 24px; 
+            text-shadow: 0 0 10px var(--gold-glow); 
+            font-weight: 600; 
+            letter-spacing: 1px;
+        }
+        .input-group { 
+            margin-bottom: 18px; 
+            text-align: left; 
+        }
+        .input-group label { 
+            display: block; 
+            color: var(--gold-primary); 
+            margin-bottom: 8px; 
+            font-weight: 500; 
+            font-size: 13px;
+        }
+        .input-group input, .input-group select, .input-group textarea { 
+            width: 100%; 
+            padding: 12px 15px; 
+            background: var(--input-bg); 
+            border: 1px solid var(--input-border); 
+            color: var(--text-white); 
+            border-radius: 8px; 
+            outline: none; 
+            transition: 0.3s; 
+            font-size: 14px; 
+            backdrop-filter: blur(5px);
+        }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus { 
+            border-color: var(--gold-primary); 
+            box-shadow: 0 0 12px var(--gold-glow); 
+            background: rgba(0,0,0,0.6);
+        }
+        .login-btn { 
+            width: 100%; 
+            padding: 12px; 
+            background: linear-gradient(135deg, var(--gold-primary), #2980b9); 
+            color: #fff; 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 16px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            margin-top: 15px; 
+            letter-spacing: 1px; 
+            box-shadow: 0 4px 15px rgba(92,225,211,0.3);
+        }
         body:not(.light-mode) .login-btn { color: #fff; }
-        .login-btn:hover { box-shadow: 0 0 20px var(--gold-glow); filter: brightness(1.15); transform: translateY(-2px); }
+        .login-btn:hover { 
+            box-shadow: 0 0 20px var(--gold-glow); 
+            filter: brightness(1.15); 
+            transform: translateY(-2px);
+        }
 
         /* MAIN LAYOUT */
-        #dashboard-page, #whatsapp-report-page, #muftiyan-page, #branches-page, #settings-page, #social-media-page, #whatsapp-suwalat-page, #reports-page { display: none; height: 100vh; }
-        .main { width: 100%; padding: 20px 40px; height: 100vh; overflow-y: auto; animation: fadeIn 0.6s ease; position: relative; z-index: 1; }
-        .header { display: flex; justify-content: center; align-items: center; margin-bottom: 40px; position: relative; }
-        .header h1 { color: var(--gold-primary); font-size: 48px; font-weight: bold; text-shadow: 0px 2px 15px var(--gold-glow); margin: 0; text-align: center; }
-        .header-right, .header-left { position: absolute; display: flex; align-items: center; gap: 12px; }
-        .header-right { right: 0; } .header-left { left: 0; }
+        #dashboard-page, 
+        #whatsapp-report-page, 
+        #muftiyan-page, 
+        #branches-page, 
+        #settings-page, 
+        #social-media-page, 
+        #whatsapp-suwalat-page, 
+        #reports-page { 
+            display: none; 
+            height: 100vh; 
+        }
         
-        .theme-toggle-btn, .lang-select, .btn-back { padding: 8px 15px; border-radius: 8px; background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); border: 1px solid var(--gold-primary); color: var(--gold-primary); font-size: 13px; font-weight: 600; outline: none; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 5px; }
-        .theme-toggle-btn:hover, .btn-back:hover { background: var(--gold-primary); color: #000; box-shadow: 0 0 15px var(--gold-glow); }
+        .main { 
+            width: 100%; 
+            padding: 20px 40px; 
+            height: 100vh; 
+            overflow-y: auto; 
+            animation: fadeIn 0.6s ease; 
+            position: relative; 
+            z-index: 1;
+        }
+        .header { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            margin-bottom: 40px; 
+            position: relative; 
+        }
+        .header h1 { 
+            color: var(--gold-primary); 
+            font-size: 48px; 
+            font-weight: bold; 
+            text-shadow: 0px 2px 15px var(--gold-glow); 
+            margin: 0; 
+            text-align: center;
+        }
+        .header-right, .header-left { 
+            position: absolute; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+        .header-right { right: 0; } 
+        .header-left { left: 0; }
+        
+        .theme-toggle-btn, .lang-select, .btn-back { 
+            padding: 8px 15px; 
+            border-radius: 8px; 
+            background: rgba(0,0,0,0.3); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid var(--gold-primary); 
+            color: var(--gold-primary); 
+            font-size: 13px; 
+            font-weight: 600; 
+            outline: none; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            display: flex; 
+            align-items: center; 
+            gap: 5px; 
+        }
+        .theme-toggle-btn:hover, .btn-back:hover { 
+            background: var(--gold-primary); 
+            color: #000; 
+            box-shadow: 0 0 15px var(--gold-glow); 
+        }
         
         /* HEXAGONAL DASHBOARD MENU */
-        .menu-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 40px; max-width: 1000px; margin-left: auto; margin-right: auto; }
-        .menu-box { background: var(--card-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: none; text-align: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; position: relative; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); width: 190px; height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px 15px; }
-        .menu-box::before { content: ''; position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px; background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2)); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); z-index: -1; }
-        .menu-box:hover { transform: scale(1.08); background: rgba(92, 225, 211, 0.25); z-index: 10; }
+        .menu-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 20px; 
+            margin-bottom: 40px; 
+            max-width: 1000px; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+        .menu-box { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: none; 
+            text-align: center; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            cursor: pointer; 
+            position: relative; 
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            width: 190px; 
+            height: 220px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center; 
+            padding: 30px 15px;
+        }
+        .menu-box::before {
+            content: ''; 
+            position: absolute; 
+            top: 2px; 
+            left: 2px; 
+            right: 2px; 
+            bottom: 2px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); 
+            z-index: -1;
+        }
+        .menu-box:hover { 
+            transform: scale(1.08); 
+            background: rgba(92, 225, 211, 0.25); 
+            z-index: 10; 
+        }
         body.light-mode .menu-box { background: rgba(0, 121, 107, 0.15); }
         body.light-mode .menu-box:hover { background: rgba(0, 121, 107, 0.3); }
 
-        .text-3d { font-size: 11px; font-weight: 700; color: #ffffff; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
-        .urdu-3d { font-size: 22px; color: #ffffff; font-weight: bold; transition: 0.3s; text-shadow: 0 1px 4px rgba(0,0,0,0.6); }
-        .menu-box:hover .urdu-3d, .menu-box:hover .text-3d { text-shadow: 0 0 10px #fff; }
+        .text-3d { 
+            font-size: 11px; 
+            font-weight: 700; 
+            color: #ffffff; 
+            margin-bottom: 5px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            transition: 0.3s; 
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5); 
+        }
+        .urdu-3d { 
+            font-size: 22px; 
+            color: #ffffff; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            text-shadow: 0 1px 4px rgba(0,0,0,0.6); 
+        }
+        .menu-box:hover .urdu-3d, .menu-box:hover .text-3d { 
+            text-shadow: 0 0 10px #fff; 
+        }
         
-        .toolbar { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); backdrop-filter: blur(10px); padding: 12px 25px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 25px; flex-wrap: wrap; gap: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
-        .toolbar-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-        .input-control { padding: 10px 15px; border: 1px solid var(--input-border); border-radius: 8px; background: var(--input-bg); color: var(--text-white); font-size: 13px; outline: none; backdrop-filter: blur(5px); }
-        .input-control:focus { border-color: var(--gold-primary); box-shadow: 0 0 8px var(--gold-glow); background: rgba(0,0,0,0.6); }
-        select.input-control option, select.table-input option { background: #0b2e2a; color: #fff; }
-        body.light-mode select.input-control option, body.light-mode select.table-input option { background: #fff; color: #000; }
+        /* COMMON TOOLBAR & TABLE */
+        .toolbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px); 
+            padding: 12px 25px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-color); 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4); 
+        }
+        .toolbar-group { 
+            display: flex; 
+            gap: 12px; 
+            align-items: center; 
+            flex-wrap: wrap; 
+        }
         
-        .btn-action { padding: 10px 18px; border: 1px solid var(--gold-primary); border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; background: rgba(92, 225, 211, 0.1); color: var(--gold-primary); transition: 0.3s; backdrop-filter: blur(5px); }
-        .btn-action:hover { background: var(--gold-primary); color: #000; box-shadow: 0 0 15px var(--gold-glow); transform: translateY(-2px); }
+        .input-control { 
+            padding: 10px 15px; 
+            border: 1px solid var(--input-border); 
+            border-radius: 8px; 
+            background: var(--input-bg); 
+            color: var(--text-white); 
+            font-size: 13px; 
+            outline: none; 
+            backdrop-filter: blur(5px); 
+        }
+        .input-control:focus { 
+            border-color: var(--gold-primary); 
+            box-shadow: 0 0 8px var(--gold-glow); 
+            background: rgba(0,0,0,0.6);
+        }
+        select.input-control option, select.table-input option { 
+            background: #0b2e2a; 
+            color: #fff; 
+        }
+        body.light-mode select.input-control option, body.light-mode select.table-input option { 
+            background: #fff; 
+            color: #000; 
+        }
+        
+        .btn-action { 
+            padding: 10px 18px; 
+            border: 1px solid var(--gold-primary); 
+            border-radius: 8px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            background: rgba(92, 225, 211, 0.1); 
+            color: var(--gold-primary); 
+            transition: 0.3s; 
+            backdrop-filter: blur(5px);
+        }
+        .btn-action:hover { 
+            background: var(--gold-primary); 
+            color: #000; 
+            box-shadow: 0 0 15px var(--gold-glow); 
+            transform: translateY(-2px);
+        }
         body:not(.light-mode) .btn-action:hover { color: #000; }
-        .btn-reset { border-color: #ff4d4d; color: #ff4d4d; background: rgba(255, 77, 77, 0.1); margin-left: 10px; }
-        .btn-reset:hover { background: #ff4d4d; color: #fff; box-shadow: 0 0 15px rgba(255,77,77,0.5); }
 
-        .table-container, .sm-table-container { background: var(--card-bg); backdrop-filter: blur(12px); border-radius: 12px; padding: 10px; border: 1px solid var(--border-color); margin-bottom: 30px; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; transition: opacity 0.4s ease; box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
-        .table-container::-webkit-scrollbar, .sm-table-container::-webkit-scrollbar { height: 8px; }
-        .table-container::-webkit-scrollbar-track, .sm-table-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
-        .table-container::-webkit-scrollbar-thumb, .sm-table-container::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 4px; }
-        .table-container::-webkit-scrollbar-thumb:hover, .sm-table-container::-webkit-scrollbar-thumb:hover { background: #1abc9c; }
+        .btn-reset { 
+            border-color: #ff4d4d; 
+            color: #ff4d4d; 
+            background: rgba(255, 77, 77, 0.1); 
+            margin-left: 10px;
+        }
+        .btn-reset:hover { 
+            background: #ff4d4d; 
+            color: #fff; 
+            box-shadow: 0 0 15px rgba(255,77,77,0.5); 
+        }
 
-        table { width: 100%; border-collapse: collapse; min-width: 1050px; }
-        table th { background: var(--table-header-bg); color: #fff; padding: 8px 4px; text-align: center; font-size: 11px; border-bottom: 2px solid var(--gold-primary); border-right: 1px solid rgba(255,255,255,0.1); vertical-align: middle; white-space: nowrap; }
-        table th .urdu-th { font-size: 16px; display: block; margin-top: 2px; font-weight: normal; color: var(--gold-primary); line-height: 1.2; text-shadow: 0 1px 2px #000; }
-        body.light-mode table th .urdu-th { color: #d1e7dd; text-shadow: none; }
-        table td { padding: 4px; border-bottom: 1px solid var(--table-border); border-right: 1px solid var(--table-border); color: var(--text-white); font-size: 11px; font-weight: 500; text-align: center; vertical-align: middle; }
+        /* ========================================================
+           SCREEN ADJUSTMENT (COMPACT TABLE FOR BETTER VIEWING)
+           ======================================================== */
+        .table-container, .sm-table-container { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(12px); 
+            border-radius: 12px; 
+            padding: 10px; 
+            border: 1px solid var(--border-color); 
+            margin-bottom: 30px; 
+            width: 100%; 
+            overflow-x: auto; 
+            -webkit-overflow-scrolling: touch; 
+            transition: opacity 0.4s ease; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4); 
+        }
         
-        .table-input { width: 100%; min-width: 50px; background: rgba(0,0,0,0.3); border: 1px solid rgba(92,225,211,0.3); color: var(--text-white); text-align: center; font-size: 11px; font-weight: 600; border-radius: 4px; padding: 5px 4px; transition: 0.3s; pointer-events: auto; opacity: 1; }
-        .table-input:focus { border-color: var(--gold-primary); box-shadow: 0 0 8px var(--gold-glow); background: rgba(0,0,0,0.8); }
+        /* Custom Scrollbar for better look on Desktop */
+        .table-container::-webkit-scrollbar, .sm-table-container::-webkit-scrollbar { 
+            height: 8px; 
+        }
+        .table-container::-webkit-scrollbar-track, .sm-table-container::-webkit-scrollbar-track { 
+            background: rgba(255,255,255,0.05); 
+            border-radius: 4px; 
+        }
+        .table-container::-webkit-scrollbar-thumb, .sm-table-container::-webkit-scrollbar-thumb { 
+            background: var(--gold-primary); 
+            border-radius: 4px; 
+        }
+        .table-container::-webkit-scrollbar-thumb:hover, .sm-table-container::-webkit-scrollbar-thumb:hover { 
+            background: #1abc9c; 
+        }
 
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 1050px; 
+        }
+        table th { 
+            background: var(--table-header-bg); 
+            color: #fff; 
+            padding: 8px 4px; 
+            text-align: center; 
+            font-size: 11px; 
+            border-bottom: 2px solid var(--gold-primary); 
+            border-right: 1px solid rgba(255,255,255,0.1); 
+            vertical-align: middle; 
+            white-space: nowrap;
+        }
+        table th .urdu-th { 
+            font-size: 16px; 
+            display: block; 
+            margin-top: 2px; 
+            font-weight: normal; 
+            color: var(--gold-primary); 
+            line-height: 1.2; 
+            text-shadow: 0 1px 2px #000;
+        }
+        body.light-mode table th .urdu-th { 
+            color: #d1e7dd; 
+            text-shadow: none;
+        }
+        
+        table td { 
+            padding: 4px; 
+            border-bottom: 1px solid var(--table-border); 
+            border-right: 1px solid var(--table-border); 
+            color: var(--text-white); 
+            font-size: 11px; 
+            font-weight: 500; 
+            text-align: center; 
+            vertical-align: middle;
+        }
+        
+        /* TABLE INPUTS COMPACT & FULLY ACTIVE */
+        .table-input { 
+            width: 100%; 
+            min-width: 50px; 
+            background: rgba(0,0,0,0.3); 
+            border: 1px solid rgba(92,225,211,0.3); 
+            color: var(--text-white); 
+            text-align: center; 
+            font-size: 11px; 
+            font-weight: 600; 
+            border-radius: 4px; 
+            padding: 5px 4px; 
+            transition: 0.3s; 
+            pointer-events: auto; 
+            opacity: 1; 
+        }
+        .table-input:focus { 
+            border-color: var(--gold-primary); 
+            box-shadow: 0 0 8px var(--gold-glow); 
+            background: rgba(0,0,0,0.8); 
+        }
+
+        /* COLOURFUL TABLE COLUMNS */
         .col-pending { color: #ffc107 !important; background: rgba(255, 193, 7, 0.1) !important; border-color: rgba(255, 193, 7, 0.4) !important; }
         .col-correct { color: #2ecc71 !important; background: rgba(46, 204, 113, 0.1) !important; border-color: rgba(46, 204, 113, 0.4) !important; }
         .col-wrong { color: #e74c3c !important; background: rgba(231, 76, 60, 0.1) !important; border-color: rgba(231, 76, 60, 0.4) !important; }
         .col-edited { color: #9b59b6 !important; background: rgba(155, 89, 182, 0.1) !important; border-color: rgba(155, 89, 182, 0.4) !important; }
         
-        .report-tabs-wrapper { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
-        .report-tab { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: var(--text-white); padding: 15px 25px; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; text-align: center; min-width: 150px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .report-tab:hover { border-color: var(--gold-primary); transform: translateY(-3px); box-shadow: 0 8px 20px var(--gold-glow); }
-        .report-tab.active-tab { background: rgba(92, 225, 211, 0.2); border-color: var(--gold-primary); color: var(--gold-primary); box-shadow: 0 0 20px var(--gold-glow); }
+        /* ========================================================
+           REPORTS MODULE TABS
+           ======================================================== */
+        .report-tabs-wrapper { 
+            display: flex; 
+            gap: 15px; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-bottom: 30px; 
+        }
+        .report-tab {
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-white); 
+            padding: 15px 25px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            transition: all 0.3s ease;
+            text-align: center; 
+            min-width: 150px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .report-tab:hover { 
+            border-color: var(--gold-primary); 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px var(--gold-glow); 
+        }
+        .report-tab.active-tab { 
+            background: rgba(92, 225, 211, 0.2); 
+            border-color: var(--gold-primary); 
+            color: var(--gold-primary); 
+            box-shadow: 0 0 20px var(--gold-glow); 
+        }
         .report-tab .tab-icon { font-size: 28px; margin-bottom: 8px; display: block; }
         .report-tab .tab-title-en { font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
         .report-tab .tab-title-ur { font-size: 20px; font-family: 'Jameel Noori Nastaleeq'; margin-top: 4px; }
         .report-section { display: none; animation: fadeIn 0.5s ease; }
 
-        /* MUFTIYAN CARDS - UPDATED FOR COMPACT VIEW */
-        .nm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-bottom: 40px; }
-        .nm-card { display: flex; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; background: var(--card-bg); backdrop-filter: blur(10px); direction: rtl; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s ease; min-height: 120px; perspective: 1000px; }
-        .nm-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px var(--gold-glow); border-color: var(--gold-primary); }
-        .nm-photo { width: 30%; position: relative; cursor: pointer; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.2); border-left: 1px solid var(--border-color); padding: 8px; }
-        .nm-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; border: 2px solid var(--gold-primary); box-shadow: 0 5px 10px rgba(0,0,0,0.5), 0 0 10px var(--gold-glow); transform: translateZ(10px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: #fff; }
-        .nm-photo:hover img { transform: translateZ(20px) scale(1.05); box-shadow: 0 15px 20px rgba(0,0,0,0.8), 0 0 20px var(--gold-primary); filter: brightness(1.1); }
-        .nm-photo::after { content: '📷 اپلوڈ'; position: absolute; font-size: 14px; color: white; background: rgba(0,0,0,0.7); width: 90%; height: 90%; border-radius: 6px; display: flex; justify-content: center; align-items: center; opacity: 0; transition: 0.4s; text-shadow: 0 2px 4px #000; pointer-events: none; }
-        .nm-photo:hover::after { opacity: 1; transform: translateZ(20px) scale(1.05); }
-        .nm-details { width: 70%; display: flex; flex-direction: column; }
-        .nm-row { flex: 1; display: flex; align-items: center; padding: 0 10px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 16px; color: var(--text-white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .nm-row:last-child { border-bottom: none; }
-        .nm-name { background: rgba(92, 225, 211, 0.2); color: var(--gold-primary); font-size: 22px; font-weight: bold; justify-content: center; text-shadow: 0 2px 4px rgba(0,0,0,0.8); border-bottom: 1px solid var(--border-color); padding: 5px 10px; }
+        /* MUFTIYAN CARDS - Updated layout for full visibility */
+        .nm-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+            margin-bottom: 40px; 
+        }
+        .nm-card { 
+            display: flex; 
+            border: 1px solid var(--border-color); 
+            border-radius: 12px; 
+            overflow: hidden; 
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px); 
+            direction: rtl; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4); 
+            transition: 0.3s ease; 
+            height: 100%; /* Automatically adjusts to content */
+            min-height: auto; 
+            perspective: 1000px; 
+        }
+        .nm-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 30px var(--gold-glow); 
+            border-color: var(--gold-primary); 
+        }
+        .nm-photo { 
+            width: 35%; 
+            position: relative; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            background: rgba(0,0,0,0.2); 
+            border-left: 1px solid var(--border-color); 
+            padding: 10px; 
+        }
+        .nm-photo img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 10px; 
+            border: 2px solid var(--gold-primary); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5), 0 0 15px var(--gold-glow); 
+            transform: translateZ(20px); 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            background: #fff; 
+        }
+        .nm-photo:hover img { 
+            transform: translateZ(40px) scale(1.05); 
+            box-shadow: 0 20px 30px rgba(0,0,0,0.8), 0 0 25px var(--gold-primary); 
+            filter: brightness(1.1); 
+        }
+        .nm-photo::after { 
+            content: '📷 اپلوڈ'; 
+            position: absolute; 
+            font-size: 18px; 
+            color: white; 
+            background: rgba(0,0,0,0.7); 
+            width: 90%; 
+            height: 90%; 
+            border-radius: 10px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            opacity: 0; 
+            transition: 0.4s; 
+            text-shadow: 0 2px 4px #000; 
+            pointer-events: none; 
+        }
+        .nm-photo:hover::after { 
+            opacity: 1; 
+            transform: translateZ(40px) scale(1.05); 
+        }
+        .nm-details { 
+            width: 65%; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .nm-row { 
+            flex: 1; 
+            display: flex; 
+            align-items: center; 
+            padding: 5px 15px; /* Adjusted padding */
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            font-size: 18px; /* Adjusted font size */
+            color: var(--text-white); 
+            white-space: normal; /* Fixed overflow issue */
+            overflow: visible; 
+            text-overflow: clip; 
+            line-height: 1.3;
+        }
+        .nm-row:last-child { 
+            border-bottom: none; 
+        }
+        .nm-name { 
+            background: rgba(92, 225, 211, 0.2); 
+            color: var(--gold-primary); 
+            font-size: 24px; 
+            font-weight: bold; 
+            justify-content: center; 
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8); 
+            border-bottom: 1px solid var(--border-color); 
+            padding: 10px;
+        }
         .nm-info { background: transparent; }
-        .nm-label { font-size: 16px; font-weight: normal; margin-left: 5px; color: var(--text-muted); }
+        .nm-label { 
+            font-size: 20px; 
+            font-weight: normal; 
+            margin-left: 8px; 
+            color: var(--text-muted); 
+        }
 
-        .bottom-actions { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
-        .btn-bottom { background: var(--card-bg); backdrop-filter: blur(10px); color: var(--gold-light); border: 1px solid var(--gold-primary); padding: 12px 25px; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .btn-bottom:hover { background: var(--gold-primary); color: #000; transform: translateY(-3px); box-shadow: 0 0 20px var(--gold-glow); }
+        /* BOTTOM ACTIONS */
+        .bottom-actions { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            margin-bottom: 30px; 
+            flex-wrap: wrap; 
+        }
+        .btn-bottom { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px); 
+            color: var(--gold-light); 
+            border: 1px solid var(--gold-primary); 
+            padding: 12px 25px; 
+            border-radius: 10px; 
+            font-weight: 600; 
+            font-size: 14px; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+        }
+        .btn-bottom:hover { 
+            background: var(--gold-primary); 
+            color: #000; 
+            transform: translateY(-3px); 
+            box-shadow: 0 0 20px var(--gold-glow); 
+        }
         body:not(.light-mode) .btn-bottom:hover { color: #000; }
         .btn-bottom .urdu-btn { font-size: 22px; font-weight: normal; }
 
-        .ws-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 25px; margin-bottom: 30px; }
-        .ws-duplicate-warn { color: var(--gold-primary); font-size: 12px; margin-top: 5px; display: none; font-weight: bold; background: rgba(0,0,0,0.5); padding: 8px; border-radius: 6px; }
+        /* WHATSAPP SUWALAT & OTHER MODULES */
+        .ws-grid { 
+            display: grid; 
+            grid-template-columns: 1.5fr 1fr; 
+            gap: 25px; 
+            margin-bottom: 30px; 
+        }
+        .ws-duplicate-warn { 
+            color: var(--gold-primary); 
+            font-size: 12px; 
+            margin-top: 5px; 
+            display: none; 
+            font-weight: bold; 
+            background: rgba(0,0,0,0.5); 
+            padding: 8px; 
+            border-radius: 6px;
+        }
 
-        .social-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .social-summary-card { background: var(--card-bg); backdrop-filter: blur(10px); padding: 20px; border-radius: 12px; border-bottom: 4px solid var(--gold-primary); border-top: 1px solid var(--border-color); text-align: center; transition: 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; }
-        .social-summary-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px var(--gold-glow); background: rgba(255,255,255,0.15); }
-        .social-summary-icon { font-size: 38px; margin-bottom: 8px; color: var(--gold-primary); display: flex; align-items: center; justify-content: center; height: 50px; filter: drop-shadow(0 0 10px currentColor); }
-        .social-summary-card h3 { color: var(--text-muted); font-size: 11px; margin-bottom: 4px; text-transform: uppercase; font-family: 'Poppins', sans-serif; }
-        .social-summary-card h2 { font-size: 20px; margin-bottom: 4px; color: var(--text-white); }
-        .social-summary-card h1 { font-size: 24px; color: var(--gold-primary); text-shadow: 0 0 10px var(--gold-glow); font-family: 'Poppins', sans-serif; font-weight: bold; }
+        /* Social Summary Cards */
+        .social-summary-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+            gap: 20px; 
+            margin-bottom: 30px; 
+        }
+        .social-summary-card { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px); 
+            padding: 20px; 
+            border-radius: 12px; 
+            border-bottom: 4px solid var(--gold-primary); 
+            border-top: 1px solid var(--border-color); 
+            text-align: center; 
+            transition: 0.3s; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        .social-summary-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 25px var(--gold-glow); 
+            background: rgba(255,255,255,0.15); 
+        }
+        .social-summary-icon { 
+            font-size: 38px; 
+            margin-bottom: 8px; 
+            color: var(--gold-primary); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 50px; 
+            filter: drop-shadow(0 0 10px currentColor); 
+        }
+        .social-summary-card h3 { 
+            color: var(--text-muted); 
+            font-size: 11px; 
+            margin-bottom: 4px; 
+            text-transform: uppercase; 
+            font-family: 'Poppins', sans-serif;
+        }
+        .social-summary-card h2 { 
+            font-size: 20px; 
+            margin-bottom: 4px; 
+            color: var(--text-white);
+        }
+        .social-summary-card h1 { 
+            font-size: 24px; 
+            color: var(--gold-primary); 
+            text-shadow: 0 0 10px var(--gold-glow); 
+            font-family: 'Poppins', sans-serif; 
+            font-weight: bold;
+        }
 
-        .sm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-bottom: 35px; }
-        .sm-card { display: flex; align-items: center; gap: 18px; border-left: 4px solid var(--gold-primary); background: var(--card-bg); backdrop-filter: blur(10px); padding: 15px; border-radius: 12px; }
-        .sm-icon-wrapper { width: 60px; height: 60px; border-radius: 14px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: center; align-items: center; font-size: 32px; box-shadow: inset 0 0 20px rgba(255,255,255,0.05); transition: 0.3s; color: var(--gold-primary); text-shadow: 0 0 10px var(--gold-primary); }
-        .sm-details h3 { color: var(--text-muted); font-size: 13px; text-transform: uppercase; margin-bottom: 2px; }
-        .sm-details h2 { color: var(--text-white); font-size: 28px; margin: 0; line-height: 1.1; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
-        .sm-details h1 { font-size: 19px; color: var(--gold-primary); font-weight: bold; margin-top: 4px; }
-
-        /* ========================================================
-           CINEMATIC SOCIAL MEDIA HOVER EFFECTS
-           ======================================================== */
-        .whatsapp-card { transition: 0.4s ease; border-left: 4px solid var(--gold-primary); }
-        .whatsapp-card:hover { background: rgba(37, 211, 102, 0.15) !important; border-left-color: #25D366 !important; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4) !important; }
-        .whatsapp-card:hover .sm-icon-wrapper { color: #25D366; text-shadow: 0 0 15px #25D366; box-shadow: inset 0 0 20px rgba(37, 211, 102, 0.3); border-color: #25D366; }
-
-        .youtube-card { transition: 0.4s ease; border-left: 4px solid var(--gold-primary); }
-        .youtube-card:hover { background: rgba(255, 0, 0, 0.15) !important; border-left-color: #FF0000 !important; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4) !important; }
-        .youtube-card:hover .sm-icon-wrapper { color: #FF0000; text-shadow: 0 0 15px #FF0000; box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.3); border-color: #FF0000; }
-
-        .facebook-card { transition: 0.4s ease; border-left: 4px solid var(--gold-primary); }
-        .facebook-card:hover { background: rgba(24, 119, 242, 0.15) !important; border-left-color: #1877F2 !important; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(24, 119, 242, 0.4) !important; }
-        .facebook-card:hover .sm-icon-wrapper { color: #1877F2; text-shadow: 0 0 15px #1877F2; box-shadow: inset 0 0 20px rgba(24, 119, 242, 0.3); border-color: #1877F2; }
-
-        .instagram-card { transition: 0.4s ease; border-left: 4px solid var(--gold-primary); }
-        .instagram-card:hover { background: rgba(225, 48, 108, 0.15) !important; border-left-color: #E1306C !important; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(225, 48, 108, 0.4) !important; }
-        .instagram-card:hover .sm-icon-wrapper { color: #E1306C; text-shadow: 0 0 15px #E1306C; box-shadow: inset 0 0 20px rgba(225, 48, 108, 0.3); border-color: #E1306C; }
-
-        .telegram-card { transition: 0.4s ease; border-left: 4px solid var(--gold-primary); }
-        .telegram-card:hover { background: rgba(0, 136, 204, 0.15) !important; border-left-color: #0088cc !important; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 136, 204, 0.4) !important; }
-        .telegram-card:hover .sm-icon-wrapper { color: #0088cc; text-shadow: 0 0 15px #0088cc; box-shadow: inset 0 0 20px rgba(0, 136, 204, 0.3); border-color: #0088cc; }
-
-        .twitter-card { transition: 0.4s ease; border-left: 4px solid var(--gold-primary); }
-        .twitter-card:hover { background: rgba(255, 255, 255, 0.15) !important; border-left-color: #ffffff !important; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4) !important; }
-        .twitter-card:hover .sm-icon-wrapper { color: #ffffff; text-shadow: 0 0 15px #ffffff; box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3); border-color: #ffffff; }
-
-        .sm-toolbar { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 25px; margin-bottom: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
-        .monthly-summary-line { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 15px; margin-bottom: 35px; }
+        /* Social Media Platform Cards & Cinematic Colors */
+        .sm-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            gap: 25px; 
+            margin-bottom: 35px; 
+        }
+        .sm-card { 
+            display: flex; 
+            align-items: center; 
+            gap: 18px; 
+            border-left: 4px solid var(--gold-primary); 
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px); 
+            padding: 15px; 
+            border-radius: 12px; 
+            transition: 0.3s;
+        }
+        .sm-icon-wrapper { 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 14px; 
+            background: rgba(0,0,0,0.4); 
+            border: 1px solid rgba(255,255,255,0.15); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 32px; 
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.05); 
+            transition: 0.4s; 
+            color: var(--gold-primary); 
+            text-shadow: 0 0 10px var(--gold-primary); 
+        }
         
-        .settings-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .settings-header { display: flex; align-items: center; gap: 18px; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 18px; }
-        .settings-header .icon { font-size: 35px; color: var(--gold-primary); filter: drop-shadow(0 0 8px currentColor); }
-        .settings-header h2 { color: var(--text-white); font-size: 30px; margin: 0; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-        .setting-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(0,0,0,0.3); border-radius: 10px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; cursor: pointer; backdrop-filter: blur(5px); }
-        .setting-item:hover { background: rgba(92, 225, 211, 0.15); border-color: var(--gold-primary); transform: translateX(8px); box-shadow: 0 0 15px var(--gold-glow); }
-        .setting-item-text .urdu-setting { color: var(--text-white); font-size: 22px; }
-        .setting-item:hover .urdu-setting { color: var(--gold-primary); text-shadow: 0 0 8px rgba(0,0,0,0.5); }
+        /* CINEMATIC HOVER EFFECTS FOR SOCIAL MEDIA CARDS */
+        .sm-card.whatsapp:hover { border-color: #25D366; box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4); transform: scale(1.03); }
+        .sm-card.whatsapp:hover .sm-icon-wrapper { color: #25D366; text-shadow: 0 0 15px #25D366; box-shadow: inset 0 0 25px rgba(37, 211, 102, 0.3); transform: scale(1.1) rotate(10deg); }
 
-        .branch-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 18px; }
-        .branch-header h3 { font-size: 15px; text-transform: uppercase; color: var(--text-muted); font-weight: bold; letter-spacing: 1px; }
-        .branch-header h2 { font-size: 30px; color: var(--gold-primary); text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-        .branch-stats { display: flex; justify-content: space-between; text-align: center; background: rgba(0,0,0,0.4); border-radius: 10px; padding: 15px; border: 1px solid rgba(255,255,255,0.05); }
-        .b-stat span { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-        .b-stat .u-s { font-size: 20px; color: var(--text-white); }
-        .b-stat h4 { font-size: 20px; font-weight: bold; margin-top: 4px; color: var(--gold-primary); }
+        .sm-card.youtube:hover { border-color: #FF0000; box-shadow: 0 12px 30px rgba(255, 0, 0, 0.4); transform: scale(1.03); }
+        .sm-card.youtube:hover .sm-icon-wrapper { color: #FF0000; text-shadow: 0 0 15px #FF0000; box-shadow: inset 0 0 25px rgba(255, 0, 0, 0.3); transform: scale(1.1) rotate(10deg); }
 
-        .footer { margin-top: 30px; text-align: center; color: var(--text-muted); font-size: 13px; padding: 20px 0; border-top: 1px solid var(--border-color); letter-spacing: 1px; }
+        .sm-card.facebook:hover { border-color: #1877F2; box-shadow: 0 12px 30px rgba(24, 119, 242, 0.4); transform: scale(1.03); }
+        .sm-card.facebook:hover .sm-icon-wrapper { color: #1877F2; text-shadow: 0 0 15px #1877F2; box-shadow: inset 0 0 25px rgba(24, 119, 242, 0.3); transform: scale(1.1) rotate(10deg); }
+
+        .sm-card.instagram:hover { border-image: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) 1; box-shadow: 0 12px 30px rgba(225, 48, 108, 0.4); transform: scale(1.03); }
+        .sm-card.instagram:hover .sm-icon-wrapper { color: #E1306C; text-shadow: 0 0 15px #E1306C; box-shadow: inset 0 0 25px rgba(225, 48, 108, 0.3); transform: scale(1.1) rotate(10deg); }
+
+        .sm-card.telegram:hover { border-color: #0088cc; box-shadow: 0 12px 30px rgba(0, 136, 204, 0.4); transform: scale(1.03); }
+        .sm-card.telegram:hover .sm-icon-wrapper { color: #0088cc; text-shadow: 0 0 15px #0088cc; box-shadow: inset 0 0 25px rgba(0, 136, 204, 0.3); transform: scale(1.1) rotate(10deg); }
+
+        .sm-card.twitter:hover { border-color: #1DA1F2; box-shadow: 0 12px 30px rgba(29, 161, 242, 0.4); transform: scale(1.03); }
+        .sm-card.twitter:hover .sm-icon-wrapper { color: #1DA1F2; text-shadow: 0 0 15px #1DA1F2; box-shadow: inset 0 0 25px rgba(29, 161, 242, 0.3); transform: scale(1.1) rotate(10deg); }
+
+
+        .sm-details h3 { 
+            color: var(--text-muted); 
+            font-size: 13px; 
+            text-transform: uppercase; 
+            margin-bottom: 2px;
+        }
+        .sm-details h2 { 
+            color: var(--text-white); 
+            font-size: 28px; 
+            margin: 0; 
+            line-height: 1.1; 
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+        }
+        .sm-details h1 { 
+            font-size: 19px; 
+            color: var(--gold-primary); 
+            font-weight: bold; 
+            margin-top: 4px;
+        }
+
+        .sm-toolbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid var(--border-color); 
+            border-radius: 12px; 
+            padding: 18px 25px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
+        }
+        .monthly-summary-line { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+            margin-top: 15px; 
+            margin-bottom: 35px; 
+        }
         
+        .settings-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+        }
+        .settings-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 18px; 
+            margin-bottom: 25px; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            padding-bottom: 18px; 
+        }
+        .settings-header .icon { 
+            font-size: 35px; 
+            color: var(--gold-primary); 
+            filter: drop-shadow(0 0 8px currentColor); 
+        }
+        .settings-header h2 { 
+            color: var(--text-white); 
+            font-size: 30px; 
+            margin: 0; 
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        .setting-item { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 20px; 
+            background: rgba(0,0,0,0.3); 
+            border-radius: 10px; 
+            margin-bottom: 12px; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            transition: 0.3s; 
+            cursor: pointer; 
+            backdrop-filter: blur(5px);
+        }
+        .setting-item:hover { 
+            background: rgba(92, 225, 211, 0.15); 
+            border-color: var(--gold-primary); 
+            transform: translateX(8px); 
+            box-shadow: 0 0 15px var(--gold-glow); 
+        }
+        .setting-item-text .urdu-setting { 
+            color: var(--text-white); 
+            font-size: 22px; 
+        }
+        .setting-item:hover .urdu-setting { 
+            color: var(--gold-primary); 
+            text-shadow: 0 0 8px rgba(0,0,0,0.5);
+        }
+
+        .branch-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            padding-bottom: 12px; 
+            margin-bottom: 18px;
+        }
+        .branch-header h3 { 
+            font-size: 15px; 
+            text-transform: uppercase; 
+            color: var(--text-muted); 
+            font-weight: bold; 
+            letter-spacing: 1px;
+        }
+        .branch-header h2 { 
+            font-size: 30px; 
+            color: var(--gold-primary); 
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        .branch-stats { 
+            display: flex; 
+            justify-content: space-between; 
+            text-align: center; 
+            background: rgba(0,0,0,0.4); 
+            border-radius: 10px; 
+            padding: 15px; 
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .b-stat span { 
+            display: block; 
+            font-size: 11px; 
+            color: var(--text-muted); 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        .b-stat .u-s { 
+            font-size: 20px; 
+            color: var(--text-white); 
+        }
+        .b-stat h4 { 
+            font-size: 20px; 
+            font-weight: bold; 
+            margin-top: 4px; 
+            color: var(--gold-primary);
+        }
+
+        .footer { 
+            margin-top: 30px; 
+            text-align: center; 
+            color: var(--text-muted); 
+            font-size: 13px; 
+            padding: 20px 0; 
+            border-top: 1px solid var(--border-color); 
+            letter-spacing: 1px;
+        }
+        
+        /* MOBILE RESPONSIVENESS */
         @media (max-width: 768px) {
             .main { padding: 15px; }
             .header { flex-direction: column; gap: 20px; margin-bottom: 30px;}
@@ -284,6 +1089,7 @@
             .header h1 { font-size: 36px; text-align: center; line-height: 1.4; width: 100%;}
             .menu-box { width: 150px; height: 173px; padding: 20px 10px; }
             .urdu-3d { font-size: 18px; }
+            
             .ws-grid, .sm-grid, .settings-container, .monthly-summary-line, .nm-grid { grid-template-columns: 1fr !important; }
             .input-group, div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; grid-column: span 1 !important; }
             .sm-toolbar { flex-direction: column; align-items: stretch; gap: 15px;}
@@ -297,6 +1103,7 @@
             .table-input { padding: 4px; font-size: 10px; min-width: 40px; }
         }
 
+        /* PRINT STYLES */
         @media print {
             body { background: #fff !important; color: #000 !important; }
             .tech-bg { display: none !important; }
@@ -357,14 +1164,12 @@
                         <option value="ur">Urdu (اردو)</option>
                         <option value="en">English</option>
                     </select>
-                    <!-- UPDATED LOGOUT BUTTON (Only on Home Page) -->
-                    <button class="theme-toggle-btn eng-text" onclick="logout()" style="background: rgba(231,76,60,0.15); border-color: #e74c3c; color: #ff4d4d; font-weight: bold;">
-                        🚪 Logout
-                    </button>
+                    <!-- UPDATED LOGOUT BUTTON LOCATION (Only on Dashboard Home) -->
+                    <button class="btn-action eng-text" onclick="logout()" style="background: rgba(231, 76, 60, 0.1); border-color: #e74c3c; color: #e74c3c;">🚪 Logout</button>
                 </div>
             </div>
 
-            <!-- HEXAGONAL MENU GRID -->
+            <!-- HEXAGONAL MENU GRID WITH NORMAL EMOJIS -->
             <div class="menu-grid">
                 <div class="menu-box" onclick="openWhatsAppSuwalat()">
                     <div class="box-icon">💬</div>
@@ -407,7 +1212,9 @@
         </div>
     </div>
 
-    <!-- REPORTS MODULE (ALL-IN-ONE) -->
+    <!-- ==========================================
+         REPORTS MODULE (ALL-IN-ONE) 
+         ========================================== -->
     <div id="reports-page">
         <div class="main">
             <div class="header">
@@ -475,9 +1282,24 @@
                                 </tr>
                             </thead>
                             <tbody id="tbl-daily" class="eng-text">
-                                <tr><td>27-07-2026</td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>26-07-2026</td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>25-07-2026</td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
+                                <tr>
+                                    <td>27-07-2026</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
+                                <tr>
+                                    <td>26-07-2026</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
+                                <tr>
+                                    <td>25-07-2026</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -508,16 +1330,31 @@
                                 </tr>
                             </thead>
                             <tbody id="tbl-weekly" class="eng-text">
-                                <tr><td>Week 1 (July)</td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>Week 2 (July)</td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>Week 3 (July)</td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
+                                <tr>
+                                    <td>Week 1 (July)</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Week 2 (July)</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Week 3 (July)</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
 
-            <!-- 3. MONTHLY REPORT SECTION -->
+            <!-- 3. MONTHLY REPORT SECTION (WITH 20 MUFTIS) -->
             <div id="report-monthly" class="report-section">
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="sm-toolbar">
@@ -546,26 +1383,226 @@
                                 </tr>
                             </thead>
                             <tbody id="tbl-monthly" class="eng-text">
-                                <tr><td>Mufti Zafar Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Ghulam Raza Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--text-white); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Dilkash Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Kashif Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Zulfiqar Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Abdul Wajid Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--text-white); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Muhammad Nadir Raza</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Sajjad Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Aalam Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Aabid Hussain</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--text-white); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Muhammad Faizan</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Muhammad Saleem</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Javed Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Imran Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--text-white); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Bilal Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Muhammad Irshad</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Jaseem Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Syed Bilal Madani</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--text-white); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Misbah ur Rehman</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
-                                <tr><td>Mufti Misbah ul Haq Qadri</td><td>0</td><td class="text-success">0</td><td>0</td><td>0</td><td>0</td><td class="text-danger">0</td><td>0h 0m</td><td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td></tr>
+                                <tr>
+                                    <td>Mufti Zafar Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Ghulam Raza Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--text-white); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Dilkash Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Kashif Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Zulfiqar Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Abdul Wajid Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--text-white); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Muhammad Nadir Raza</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Sajjad Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Aalam Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Aabid Hussain</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--text-white); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Muhammad Faizan</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Muhammad Saleem</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Javed Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Imran Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--text-white); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Bilal Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Muhammad Irshad</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Jaseem Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Syed Bilal Madani</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--text-white); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Misbah ur Rehman</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Mufti Misbah ul Haq Qadri</td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td class="text-danger">0</td>
+                                    <td>0h 0m</td>
+                                    <td><span style="color:var(--gold-primary); font-weight:bold;">0%</span></td>
+                                </tr>
                             </tbody>
                             <tfoot id="monthly-sheet-foot">
                                 <tr style="background: rgba(92,225,211,0.15); font-weight: bold;">
@@ -585,7 +1622,7 @@
                 </div>
             </div>
 
-            <!-- 4. YEARLY REPORT SECTION -->
+            <!-- 4. YEARLY REPORT SECTION (ALL 12 MONTHS ADDED) -->
             <div id="report-yearly" class="report-section">
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="sm-toolbar">
@@ -607,18 +1644,66 @@
                                 </tr>
                             </thead>
                             <tbody id="tbl-yearly" class="eng-text">
-                                <tr><td>Jan <span class="urdu-text">(جنوری)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Feb <span class="urdu-text">(فروری)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Mar <span class="urdu-text">(مارچ)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Apr <span class="urdu-text">(اپریل)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>May <span class="urdu-text">(مئی)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Jun <span class="urdu-text">(جون)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Jul <span class="urdu-text">(جولائی)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Aug <span class="urdu-text">(اگست)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Sep <span class="urdu-text">(ستمبر)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Oct <span class="urdu-text">(اکتوبر)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Nov <span class="urdu-text">(نومبر)</span></td><td>0</td><td class="text-success">0</td></tr>
-                                <tr><td>Dec <span class="urdu-text">(دسمبر)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr>
+                                    <td>Jan <span class="urdu-text">(جنوری)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Feb <span class="urdu-text">(فروری)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Mar <span class="urdu-text">(مارچ)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Apr <span class="urdu-text">(اپریل)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>May <span class="urdu-text">(مئی)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Jun <span class="urdu-text">(جون)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Jul <span class="urdu-text">(جولائی)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Aug <span class="urdu-text">(اگست)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Sep <span class="urdu-text">(ستمبر)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Oct <span class="urdu-text">(اکتوبر)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Nov <span class="urdu-text">(نومبر)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Dec <span class="urdu-text">(دسمبر)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                </tr>
                                 <tr style="background: rgba(92,225,211,0.1);">
                                     <td style="color:var(--gold-primary); font-weight:bold;">YTD <span class="urdu-text">(مجموعہ)</span></td>
                                     <td id="yr-total" style="color:var(--gold-primary); font-weight:bold;">0</td>
@@ -630,7 +1715,7 @@
                 </div>
             </div>
 
-            <!-- 5. MUFTI-WISE REPORT SECTION -->
+            <!-- 5. MUFTI-WISE REPORT SECTION (20 MUFTIS) -->
             <div id="report-mufti" class="report-section">
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="sm-toolbar">
@@ -703,11 +1788,36 @@
                                 </tr>
                             </thead>
                             <tbody id="tbl-branch-wise" class="eng-text">
-                                <tr><td>Nagpur <span class="urdu-text">(ناگپور)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>Mumbai <span class="urdu-text">(ممبئی)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>Ahmedabad <span class="urdu-text">(احمدآباد)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>Hyderabad <span class="urdu-text">(حیدرآباد)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
-                                <tr><td>Modasa <span class="urdu-text">(موڈاسہ)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
+                                <tr>
+                                    <td>Nagpur <span class="urdu-text">(ناگپور)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Mumbai <span class="urdu-text">(ممبئی)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Ahmedabad <span class="urdu-text">(احمدآباد)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Hyderabad <span class="urdu-text">(حیدرآباد)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Modasa <span class="urdu-text">(موڈاسہ)</span></td>
+                                    <td>0</td>
+                                    <td class="text-success">0</td>
+                                    <td class="text-danger">0</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -717,6 +1827,8 @@
             <div class="footer eng-text">© 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind</div>
         </div>
     </div>
+    <!-- END REPORTS MODULE -->
+
 
     <!-- WHATSAPP SUWALAT MODULE -->
     <div id="whatsapp-suwalat-page">
@@ -729,6 +1841,7 @@
                 <div class="header-right"></div>
             </div>
 
+            <!-- TOP CARDS: AUTO SYNCED (ZERO DATA) -->
             <div class="social-summary-grid">
                 <div class="premium-box social-summary-card">
                     <div class="social-summary-icon">📩</div>
@@ -763,6 +1876,7 @@
             </div>
 
             <div class="ws-grid">
+                <!-- FORM TO ADD NEW QUESTION -->
                 <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
                     <div class="sm-toolbar" style="margin-bottom: 25px; box-shadow: none; border-color: var(--gold-primary); background: rgba(92,225,211,0.1);">
                         <h2 style="color: var(--gold-primary); font-size: 30px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">نیا سوال درج کریں</span> <span class="eng-text" style="font-size:20px;">(New Question)</span></h2>
@@ -847,6 +1961,7 @@
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- DAILY COUNT: AUTO SYNCED (ZERO DATA) -->
                     <div class="premium-box" style="flex-grow: 1; border-top: 2px solid var(--gold-primary);">
                         <div class="sm-toolbar" style="margin-bottom: 20px; box-shadow: none; border-color: var(--gold-primary); background: rgba(92,225,211,0.1); padding: 12px;">
                             <h2 style="color: var(--gold-primary); font-size: 26px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">آج کی گنتی</span> <span class="eng-text" style="font-size:16px;">(Daily Count)</span></h2>
@@ -875,7 +1990,7 @@
                 </div>
             </div>
 
-            <!-- QUESTION STATUS TABLE -->
+            <!-- QUESTION STATUS TABLE (EMPTY BY DEFAULT) -->
             <div class="premium-box" style="margin-bottom: 30px; border-top: 2px solid var(--gold-primary);">
                 <div class="sm-toolbar" style="margin-bottom: 20px;">
                     <h2 style="color: var(--gold-primary); font-size: 32px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">سوالات کی حالت</span> <span class="eng-text" style="font-size:20px;">(Question Status)</span></h2>
@@ -891,12 +2006,12 @@
                             </tr>
                         </thead>
                         <tbody id="ws-status-body">
+                            <!-- New questions will appear here when added from the form -->
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <!-- MONTHLY AUTO SHEET -->
             <div class="premium-box" style="margin-bottom: 30px; border-top: 2px solid var(--gold-primary);">
                 <div class="sm-toolbar" style="margin-bottom: 20px;">
                     <h2 style="color: var(--gold-primary); font-size: 32px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">ماہانہ رپورٹ اور مفتی کارکردگی</span> <span class="eng-text" style="font-size:20px;">(Monthly Auto Sheet)</span></h2>
@@ -956,9 +2071,73 @@
                 </div>
             </div>
 
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 40px;" class="settings-container">
+                <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
+                    <div class="sm-toolbar" style="margin-bottom: 20px; padding: 15px; background: transparent; border:none; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <h2 style="color: var(--gold-primary); font-size: 28px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">سالانہ رپورٹ</span> <span class="eng-text" style="font-size:18px;">(Yearly Report)</span></h2>
+                    </div>
+                    <div class="sm-table-container" style="box-shadow:none; border:none; margin-bottom:0; background:transparent;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><span class="eng-text">Month</span> <span class="urdu-th">مہینہ</span></th>
+                                    <th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th>
+                                    <th><span class="eng-text">Ans</span> <span class="urdu-th">جواب</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="eng-text">
+                                <tr><td>Jan <span class="urdu-text">(جنوری)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>Feb <span class="urdu-text">(فروری)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>Mar <span class="urdu-text">(مارچ)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>Apr <span class="urdu-text">(اپریل)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>May <span class="urdu-text">(مئی)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>Jun <span class="urdu-text">(جون)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>Jul <span class="urdu-text">(جولائی)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>Aug <span class="urdu-text">(اگست)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>Sep <span class="urdu-text">(ستمبر)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>Oct <span class="urdu-text">(اکتوبر)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>Nov <span class="urdu-text">(نومبر)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr><td>Dec <span class="urdu-text">(دسمبر)</span></td><td>0</td><td class="text-success">0</td></tr>
+                                <tr style="background: rgba(92,225,211,0.1);">
+                                    <td style="color:var(--gold-primary); font-weight:bold;">YTD <span class="urdu-text">(مجموعہ)</span></td>
+                                    <td style="color:var(--gold-primary); font-weight:bold;">0</td>
+                                    <td class="text-success" style="font-weight:bold;">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
+                    <div class="sm-toolbar" style="margin-bottom: 20px; padding: 15px; background: transparent; border:none; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <h2 style="color: var(--gold-primary); font-size: 28px; margin:0; text-shadow: 0 0 10px var(--gold-glow);"><span class="urdu-text">برانچ کارکردگی</span> <span class="eng-text" style="font-size:18px;">(Branch Performance)</span></h2>
+                    </div>
+                    <div class="sm-table-container" style="box-shadow:none; border:none; margin-bottom:0; background:transparent;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><span class="eng-text">Branch</span> <span class="urdu-th">برانچ</span></th>
+                                    <th><span class="eng-text">Total</span> <span class="urdu-th">کل</span></th>
+                                    <th><span class="eng-text">Ans</span> <span class="urdu-th">جواب</span></th>
+                                    <th><span class="eng-text">Pend</span> <span class="urdu-th">باقی</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="eng-text">
+                                <tr><td>Nagpur <span class="urdu-text">(ناگپور)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
+                                <tr><td>Mumbai <span class="urdu-text">(ممبئی)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
+                                <tr><td>Ahmedabad <span class="urdu-text">(احمدآباد)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
+                                <tr><td>Hyderabad <span class="urdu-text">(حیدرآباد)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
+                                <tr><td>Modasa <span class="urdu-text">(موڈاسہ)</span></td><td>0</td><td class="text-success">0</td><td class="text-danger">0</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <div class="footer eng-text">© 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind</div>
         </div>
     </div>
+    <!-- END WHATSAPP SUWALAT -->
 
     <!-- DAILY WHATSAPP REPORT PAGE (Main Daily Entry Form) -->
     <div id="whatsapp-report-page">
@@ -993,6 +2172,7 @@
                         <tr>
                             <th><span class="eng-text">Sr.</span><span class="urdu-th">نمبر</span></th>
                             <th><span class="eng-text">Branch</span> <span class="urdu-th">دارالافتاء</span></th>
+                            <th style="width: 150px;"><span class="eng-text">Mufti</span> <span class="urdu-th">مفتی</span></th>
                             <th><span class="eng-text">Musaddiq</span> <span class="urdu-th">مُصَدِّق</span></th>
                             <th><span class="eng-text">Total Qs</span> <span class="urdu-th">کل بھیجے گئے</span></th>
                             <th><span class="eng-text">Today Qs</span> <span class="urdu-th">آج بھیجے گئے</span></th>
@@ -1013,8 +2193,9 @@
                     <tbody id="wa-report-body" class="eng-text">
                         <tr>
                             <td>1</td>
-                            <td class="eng-text">Nagpur</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">ظفر مدنی</div></td>
+                            <td>Hyderabad</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Zafar Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1032,8 +2213,9 @@
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td class="eng-text">Nagpur</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">غلام رضا مدنی</div></td>
+                            <td>Nagpur</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Ghulam Raza Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1051,8 +2233,9 @@
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td class="eng-text">Nagpur</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">دل کش مدنی</div></td>
+                            <td>Mumbai</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Dilkash Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1070,8 +2253,9 @@
                         </tr>
                         <tr>
                             <td>4</td>
-                            <td class="eng-text">Mumbai</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">کاشف مدنی</div></td>
+                            <td>Modasa</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Kashif Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1089,8 +2273,9 @@
                         </tr>
                         <tr>
                             <td>5</td>
-                            <td class="eng-text">Mumbai</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">ذوالفقار مدنی</div></td>
+                            <td>Modasa</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Zulfiqar Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1108,8 +2293,9 @@
                         </tr>
                         <tr>
                             <td>6</td>
-                            <td class="eng-text">Mumbai</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">عبدالواجد مدنی</div></td>
+                            <td>Hyderabad</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Abdul Wajid Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1127,8 +2313,9 @@
                         </tr>
                         <tr>
                             <td>7</td>
-                            <td class="eng-text">Mumbai</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">محمد نادر رضا</div></td>
+                            <td>Ahmedabad</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Muhammad Nadir Raza" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1146,8 +2333,9 @@
                         </tr>
                         <tr>
                             <td>8</td>
-                            <td class="eng-text">Ahmedabad</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">سجاد مدنی</div></td>
+                            <td>Ahmedabad</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Sajjad Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1165,8 +2353,9 @@
                         </tr>
                         <tr>
                             <td>9</td>
-                            <td class="eng-text">Ahmedabad</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">عالم مدنی</div></td>
+                            <td>Modasa</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Aalam Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1184,8 +2373,9 @@
                         </tr>
                         <tr>
                             <td>10</td>
-                            <td class="eng-text">Ahmedabad</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">عابد حسین</div></td>
+                            <td>Nagpur</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Aabid Hussain" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1203,8 +2393,9 @@
                         </tr>
                         <tr>
                             <td>11</td>
-                            <td class="eng-text">Ahmedabad</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">محمد فیضان</div></td>
+                            <td>Nagpur</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Muhammad Faizan" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1222,8 +2413,9 @@
                         </tr>
                         <tr>
                             <td>12</td>
-                            <td class="eng-text">Ahmedabad</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">محمد سلیم</div></td>
+                            <td>Mumbai</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Muhammad Saleem" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1241,8 +2433,9 @@
                         </tr>
                         <tr>
                             <td>13</td>
-                            <td class="eng-text">Modasa</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">جاوید مدنی</div></td>
+                            <td>Mumbai</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Javed Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1260,8 +2453,9 @@
                         </tr>
                         <tr>
                             <td>14</td>
-                            <td class="eng-text">Modasa</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">عمران مدنی</div></td>
+                            <td>Ahmedabad</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Imran Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1279,8 +2473,9 @@
                         </tr>
                         <tr>
                             <td>15</td>
-                            <td class="eng-text">Modasa</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">بلال مدنی</div></td>
+                            <td>Hyderabad</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Bilal Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1298,8 +2493,9 @@
                         </tr>
                         <tr>
                             <td>16</td>
-                            <td class="eng-text">Modasa</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">محمد ارشاد</div></td>
+                            <td>Ahmedabad</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Muhammad Irshad" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1317,8 +2513,9 @@
                         </tr>
                         <tr>
                             <td>17</td>
-                            <td class="eng-text">Hyderabad</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">جسیم مدنی</div></td>
+                            <td>Mumbai</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Jaseem Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1336,8 +2533,9 @@
                         </tr>
                         <tr>
                             <td>18</td>
-                            <td class="eng-text">Hyderabad</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">سید بلال مدنی</div></td>
+                            <td>Ahmedabad</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Syed Bilal Madani" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1355,8 +2553,9 @@
                         </tr>
                         <tr>
                             <td>19</td>
-                            <td class="eng-text">Hyderabad</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">مصباح الرحمٰن</div></td>
+                            <td>Mumbai</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Misbah ur Rehman" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1374,8 +2573,9 @@
                         </tr>
                         <tr>
                             <td>20</td>
-                            <td class="eng-text">Hyderabad</td>
-                            <td><div style="background: rgba(0,0,0,0.4); border: 1px solid var(--gold-primary); padding: 4px 10px; border-radius: 6px; font-size: 16px; display: inline-block;" class="urdu-text">مصباح الحق قادری</div></td>
+                            <td>Mumbai</td>
+                            <td><input type="text" class="table-input eng-text" value="Mufti Misbah ul Haq Qadri" readonly style="cursor:not-allowed; background:rgba(0,0,0,0.5);"></td>
+                            <td class="urdu-text" style="font-size:16px;">مفتی انس</td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="number" class="table-input" value="0"></td>
                             <td><input type="time" class="table-input" value="10:00"></td>
@@ -1684,12 +2884,12 @@
             </div>
             
             <div class="sm-grid">
-                <div class="premium-box sm-card whatsapp-card"><div class="sm-icon-wrapper">💬</div><div class="sm-details"><h3 class="eng-text">WhatsApp</h3><h2 class="urdu-text">واٹس ایپ</h2><h1 class="eng-text">0 Fatwe</h1></div></div>
-                <div class="premium-box sm-card youtube-card"><div class="sm-icon-wrapper">▶</div><div class="sm-details"><h3 class="eng-text">YouTube</h3><h2 class="urdu-text">یوٹیوب</h2><h1 class="eng-text">0 Videos</h1></div></div>
-                <div class="premium-box sm-card facebook-card"><div class="sm-icon-wrapper">📘</div><div class="sm-details"><h3 class="eng-text">Facebook</h3><h2 class="urdu-text">فیس بک</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card instagram-card"><div class="sm-icon-wrapper">📸</div><div class="sm-details"><h3 class="eng-text">Instagram</h3><h2 class="urdu-text">انسٹاگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card telegram-card"><div class="sm-icon-wrapper">✈</div><div class="sm-details"><h3 class="eng-text">Telegram</h3><h2 class="urdu-text">ٹیلیگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card twitter-card"><div class="sm-icon-wrapper">✖</div><div class="sm-details"><h3 class="eng-text">X (Twitter)</h3><h2 class="urdu-text">ٹوئٹر</h2><h1 class="eng-text" style="color:var(--text-white);">0 Posts</h1></div></div>
+                <div class="premium-box sm-card whatsapp"><div class="sm-icon-wrapper">💬</div><div class="sm-details"><h3 class="eng-text">WhatsApp</h3><h2 class="urdu-text">واٹس ایپ</h2><h1 class="eng-text">0 Fatwe</h1></div></div>
+                <div class="premium-box sm-card youtube"><div class="sm-icon-wrapper">▶</div><div class="sm-details"><h3 class="eng-text">YouTube</h3><h2 class="urdu-text">یوٹیوب</h2><h1 class="eng-text">0 Videos</h1></div></div>
+                <div class="premium-box sm-card facebook"><div class="sm-icon-wrapper">📘</div><div class="sm-details"><h3 class="eng-text">Facebook</h3><h2 class="urdu-text">فیس بک</h2><h1 class="eng-text">0 Posts</h1></div></div>
+                <div class="premium-box sm-card instagram"><div class="sm-icon-wrapper">📸</div><div class="sm-details"><h3 class="eng-text">Instagram</h3><h2 class="urdu-text">انسٹاگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
+                <div class="premium-box sm-card telegram"><div class="sm-icon-wrapper">✈</div><div class="sm-details"><h3 class="eng-text">Telegram</h3><h2 class="urdu-text">ٹیلیگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
+                <div class="premium-box sm-card twitter"><div class="sm-icon-wrapper">✖</div><div class="sm-details"><h3 class="eng-text">X (Twitter)</h3><h2 class="urdu-text">ٹوئٹر</h2><h1 class="eng-text" style="color:var(--text-white);">0 Posts</h1></div></div>
             </div>
 
             <div class="sm-toolbar" style="margin-top: 20px;">
@@ -1794,8 +2994,10 @@
 
     <!-- JAVASCRIPT SYSTEM -->
     <script>
+        // Theme Toggle
         function toggleTheme() { document.body.classList.toggle('light-mode'); }
 
+        // Initial Setup
         window.onload = function() {
             const today = new Date();
             const dateInput = document.getElementById('report-date');
@@ -1822,6 +3024,7 @@
             }
         };
 
+        // Photo Upload Preview
         function previewImage(event, inputElement) {
             const file = event.target.files[0];
             if (file) {
@@ -1833,6 +3036,10 @@
                 reader.readAsDataURL(file);
             }
         }
+
+        /* ==========================================
+           AUTO CALCULATION LOGIC 
+           ========================================== */
 
         function updateWhatsAppSummary() {
             let table = document.getElementById('wa-status-table');
@@ -1956,6 +3163,7 @@
             let container = document.getElementById(tableBodyId);
             if(!container) return;
             
+            // Look for both contenteditable cells and input values
             let editableCells = container.querySelectorAll('[contenteditable="true"]');
             editableCells.forEach(cell => {
                 if(!isNaN(parseInt(cell.innerText)) || cell.innerText.includes('%')) { 
@@ -1975,6 +3183,7 @@
             if(tableBodyId === 'branch-perf-body') updateBranchPerf();
         }
 
+        /* ADD NEW QUESTION */
         function addNewQuestion() {
             let mobile = document.getElementById('ws-mobile').value;
             let qText = document.getElementById('ws-question').value;
@@ -1995,10 +3204,11 @@
                         </td>
                         <td><select class="table-input status-new eng-text" onchange="updateWhatsAppSummary()"><option selected>🟡 New Question</option><option>🔵 Under Research</option><option>🟣 Software Typing</option><option>🟢 Answer Ready</option><option>✅ Answer Sent</option></select></td>
                     `;
-                    tbody.prepend(newRow);
+                    tbody.prepend(newRow); // adds to the top
                     updateWhatsAppSummary();
                     alert('✅ سوال کامیابی کے ساتھ شامل ہو گیا ہے۔ (Question Added Successfully)');
                     
+                    // clear fields
                     document.getElementById('ws-mobile').value = '';
                     document.getElementById('ws-question').value = '';
                 }
@@ -2007,6 +3217,7 @@
             }
         }
 
+        /* MASTER SAVE BUTTON */
         function saveAllReports(btn) {
             let originalHTML = btn.innerHTML;
             btn.innerHTML = '✅ محفوظ ہو گیا (Saved Successfully)';
@@ -2112,6 +3323,7 @@
             }, 1000);
         }
 
+        /* LIVE SETTINGS TRIGGERS */
         function triggerSetting(action) {
             let result;
             switch(action) {
@@ -2142,6 +3354,9 @@
             }
         }
 
+        // ==========================================
+        // NAVIGATION
+        // ==========================================
         function processLogin() { document.getElementById('login-page').style.opacity = '0'; setTimeout(() => { document.getElementById('login-page').style.display = 'none'; document.getElementById('dashboard-page').style.display = 'block'; }, 500); }
         function logout() { document.querySelectorAll('.main').forEach(m => m.parentElement.style.display = 'none'); const loginPage = document.getElementById('login-page'); loginPage.style.display = 'flex'; setTimeout(() => { loginPage.style.opacity = '1'; }, 50); }
 
