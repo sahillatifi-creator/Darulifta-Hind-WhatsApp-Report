@@ -210,7 +210,7 @@
             box-shadow: 0 12px 35px var(--gold-glow); 
         }
 
-        /* LOGIN PAGE */
+        /* LOGIN & REGISTER PAGE */
         #login-page { 
             display: flex; 
             justify-content: center; 
@@ -260,7 +260,7 @@
             font-weight: 500; 
             font-size: 13px;
         }
-        .input-group input, .input-group select, .input-group textarea { 
+        .input-group input:not([type="checkbox"]), .input-group select, .input-group textarea { 
             width: 100%; 
             padding: 12px 15px; 
             background: var(--input-bg); 
@@ -272,11 +272,43 @@
             font-size: 14px; 
             backdrop-filter: blur(5px);
         }
-        .input-group input:focus, .input-group select:focus, .input-group textarea:focus { 
+        .input-group input:not([type="checkbox"]):focus, .input-group select:focus, .input-group textarea:focus { 
             border-color: var(--gold-primary); 
             box-shadow: 0 0 12px var(--gold-glow); 
             background: rgba(0,0,0,0.6);
         }
+        
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--text-white);
+        }
+        .login-options a {
+            color: var(--gold-primary);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .login-options a:hover {
+            text-shadow: 0 0 8px var(--gold-glow);
+        }
+        .toggle-link {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-white);
+        }
+        .toggle-link a {
+            color: var(--gold-primary);
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .toggle-link a:hover {
+            text-shadow: 0 0 8px var(--gold-glow);
+        }
+
         .login-btn { 
             width: 100%; 
             padding: 12px; 
@@ -288,7 +320,7 @@
             font-weight: 700; 
             cursor: pointer; 
             transition: 0.3s; 
-            margin-top: 15px; 
+            margin-top: 5px; 
             letter-spacing: 1px; 
             box-shadow: 0 4px 15px rgba(92,225,211,0.3);
         }
@@ -1146,20 +1178,65 @@
         <div class="ring r3"></div>
     </div>
 
-    <!-- LOGIN PAGE -->
+    <!-- LOGIN & REGISTER PAGE -->
     <div id="login-page">
-        <div class="login-box">
+        <!-- Login Container -->
+        <div class="login-box" id="login-container">
             <img src="WhatsApp Image 2024-09-05 at 3.43.00 PM.jpeg" alt="Darul Iftaa Logo">
             <h2>System Login</h2>
             <div class="input-group">
-                <label>Username / Email</label>
-                <input type="text" placeholder="Enter your username">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email">
             </div>
             <div class="input-group">
                 <label>Password</label>
                 <input type="password" placeholder="Enter your password">
             </div>
+            
+            <div class="login-options">
+                <label style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                    <input type="checkbox" style="width: auto; padding: 0; margin: 0;"> 
+                    Remember me
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+            
             <button class="login-btn eng-text" onclick="processLogin()">Log In</button>
+            
+            <div class="toggle-link">
+                Don't have an account? <a href="#" onclick="showRegister(event)">Register</a>
+            </div>
+        </div>
+
+        <!-- Register Container (Hidden by default) -->
+        <div class="login-box" id="register-container" style="display: none;">
+            <img src="WhatsApp Image 2024-09-05 at 3.43.00 PM.jpeg" alt="Darul Iftaa Logo">
+            <h2>Create Account</h2>
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="Create a password">
+            </div>
+            
+            <div class="login-options" style="justify-content: flex-start;">
+                <label style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                    <input type="checkbox" style="width: auto; padding: 0; margin: 0;"> 
+                    I agree to terms & conditions
+                </label>
+            </div>
+            
+            <button class="login-btn eng-text" onclick="showLogin(event)">Register</button>
+            
+            <div class="toggle-link">
+                Already have an account? <a href="#" onclick="showLogin(event)">Login</a>
+            </div>
         </div>
     </div>
 
@@ -1178,7 +1255,7 @@
                         <option value="en">English</option>
                     </select>
                     <!-- LOGOUT BUTTON (Only on Dashboard Top Corner) -->
-                    <button class="btn-back eng-text" onclick="logout()" style="background: rgba(231,76,60,0.2); border-color: #e74c3c; color: #fff; margin-left: 5px;">
+                    <button class="btn-logout-top eng-text" onclick="logout()" style="margin-left: 5px;">
                         🚪 Logout <span class="urdu-text" style="font-size: 16px; margin-left: 4px;">(لاگ آؤٹ)</span>
                     </button>
                 </div>
@@ -2152,863 +2229,21 @@
             <div class="footer eng-text">© 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind</div>
         </div>
     </div>
-    <!-- END WHATSAPP SUWALAT -->
-
-    <!-- DAILY WHATSAPP REPORT PAGE (Main Daily Entry Form) -->
-    <div id="whatsapp-report-page">
-        <div class="main">
-            <div class="header">
-                <div class="header-left"><button class="btn-back eng-text" onclick="closeWhatsAppReport()">⬅ Back</button></div>
-                <h1 class="urdu-text">واٹس ایپ کارکردگی فارم</h1>
-                <div class="header-right"></div>
-            </div>
-
-            <div class="toolbar premium-box" style="padding: 10px 20px; border-top: 2px solid var(--gold-primary);">
-                <div class="toolbar-group">
-                    <input type="date" class="input-control eng-text" id="report-date" onchange="createNewReportSheet()">
-                    <input type="text" class="input-control eng-text" placeholder="🔍 Search...">
-                    <button class="btn-action btn-reset eng-text" onclick="resetToZero('wa-report-body')" style="border-color: #ff4d4d; color: #ff4d4d; background: rgba(255, 77, 77, 0.1);">🔄 Zero Data <span class="urdu-btn" style="font-size: 14px;">(زیرو کریں)</span></button>
-                </div>
-                <div class="toolbar-group" style="margin-left: auto;">
-                    <button class="btn-action eng-text" onclick="exportToCSV('whatsapp-report.csv', 'report-table-id')">📥 Excel / CSV</button>
-                    <button class="btn-action eng-text" onclick="window.print()">🖨 Print / PDF</button>
-                    <button id="master-save-btn" class="btn-action urdu-text" style="padding: 8px 20px; font-size: 16px; background: linear-gradient(135deg, var(--gold-primary), #00796b); color:#000; border:none; box-shadow: 0 4px 15px var(--gold-glow); font-weight:bold;" onclick="saveAllReports(this)">
-                        💾 Save All Data <span class="eng-text" style="font-size:14px; margin-left:5px;">(سب محفوظ کریں)</span>
-                    </button>
-                </div>
-            </div>
-            
-            <h2 id="report-dynamic-title" class="urdu-text" style="color: var(--gold-primary); text-align: center; font-size: 32px; font-weight: normal; margin-bottom: 20px; display: none; text-shadow: 0 0 10px var(--gold-glow);">آج کی رپورٹ درج کریں</h2>
-
-            <!-- COMPACT TABLE CONTAINER -->
-            <div class="table-container premium-box" id="whatsapp-table-area" style="padding: 10px; border-top: 2px solid var(--gold-primary);">
-                <table id="report-table-id">
-                    <thead>
-                        <tr>
-                            <th><span class="eng-text">Sr.</span><span class="urdu-th">نمبر</span></th>
-                            <th><span class="eng-text">Branch</span> <span class="urdu-th">دارالافتاء</span></th>
-                            <th><span class="eng-text">Mufti Name</span> <span class="urdu-th">مفتی کا نام</span></th>
-                            <th><span class="eng-text">Musaddiq</span> <span class="urdu-th">مُصَدِّق</span></th>
-                            <th><span class="eng-text">Total Qs</span> <span class="urdu-th">کل بھیجے گئے</span></th>
-                            <th><span class="eng-text">Today Qs</span> <span class="urdu-th">آج بھیجے گئے</span></th>
-                            <th><span class="eng-text">Time</span> <span class="urdu-th">وقت</span></th>
-                            <th><span class="eng-text">On Time</span> <span class="urdu-th">ٹائم پر جواب</span></th>
-                            <th><span class="eng-text">Ans Date</span> <span class="urdu-th">جواب کی تاریخ</span></th>
-                            <th><span class="eng-text">Delay w/ Exc</span><span class="urdu-th">تاخیر بعذر</span></th>
-                            <th><span class="eng-text">Delay w/o Exc</span><span class="urdu-th">تاخیر بلا عذر</span></th>
-                            <th><span class="eng-text">Reason</span> <span class="urdu-th">تاخیر کی وجہ</span></th>
-                            <th><span class="eng-text">Delay Date</span> <span class="urdu-th">تاخیر تاریخ</span></th>
-                            <th><span class="eng-text">Non-Fiqhi</span> <span class="urdu-th">غیر فقہی</span></th>
-                            <th style="color:#ffc107;"><span class="eng-text">Pending</span> <span class="urdu-th" style="color:#ffc107;">باقی</span></th>
-                            <th style="color:#2ecc71;"><span class="eng-text">Correct</span> <span class="urdu-th" style="color:#2ecc71;">صحیح</span></th>
-                            <th style="color:#e74c3c;"><span class="eng-text">Wrong</span> <span class="urdu-th" style="color:#e74c3c;">غلط</span></th>
-                            <th style="color:#9b59b6;"><span class="eng-text">Edited</span> <span class="urdu-th" style="color:#9b59b6;">ترمیم شدہ</span></th>
-                        </tr>
-                    </thead>
-                    <tbody id="wa-report-body" class="eng-text">
-                        <tr>
-                            <td contenteditable="true">1</td>
-                            <td contenteditable="true">Nagpur</td>
-                            <td class="urdu-text" style="font-size:16px;">ظفر مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">2</td>
-                            <td contenteditable="true">Nagpur</td>
-                            <td class="urdu-text" style="font-size:16px;">غلام رضا مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">3</td>
-                            <td contenteditable="true">Nagpur</td>
-                            <td class="urdu-text" style="font-size:16px;">دل کش مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">4</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;">کاشف مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">5</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;">ذوالفقار مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">6</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;">عبدالواجد مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">7</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;">محمد نادر رضا</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">8</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;">سجاد مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">9</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;">عالم مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">10</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;">عابد حسین</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">11</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;">محمد فیضان</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">12</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;">محمد سلیم</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">13</td>
-                            <td contenteditable="true">Modasa</td>
-                            <td class="urdu-text" style="font-size:16px;">جاوید مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">14</td>
-                            <td contenteditable="true">Modasa</td>
-                            <td class="urdu-text" style="font-size:16px;">عمران مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">15</td>
-                            <td contenteditable="true">Modasa</td>
-                            <td class="urdu-text" style="font-size:16px;">بلال مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">16</td>
-                            <td contenteditable="true">Modasa</td>
-                            <td class="urdu-text" style="font-size:16px;">محمد ارشاد</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">17</td>
-                            <td contenteditable="true">Hyderabad</td>
-                            <td class="urdu-text" style="font-size:16px;">جسیم مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">18</td>
-                            <td contenteditable="true">Hyderabad</td>
-                            <td class="urdu-text" style="font-size:16px;">سید بلال مدنی</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">19</td>
-                            <td contenteditable="true">Hyderabad</td>
-                            <td class="urdu-text" style="font-size:16px;">مصباح الرحمٰن</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                        <tr>
-                            <td contenteditable="true">20</td>
-                            <td contenteditable="true">Hyderabad</td>
-                            <td class="urdu-text" style="font-size:16px;">مصباح الحق قادری</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- MUFTIYAN-E-KIRAM PAGE -->
-    <div id="muftiyan-page">
-        <div class="main">
-            <div class="header">
-                <div class="header-left"><button class="btn-back eng-text" onclick="closeMuftiyan()">⬅ Back</button></div>
-                <h1 class="urdu-text">مفتیانِ کرام</h1>
-                <div class="header-right"></div>
-            </div>
-
-            <div class="toolbar premium-box" style="padding: 15px 20px; border-top: 2px solid var(--gold-primary);">
-                <div class="toolbar-group">
-                    <input type="text" id="search-mufti" class="input-control urdu-text" placeholder="🔍 Search Mufti (مفتی تلاش کریں)..." onkeyup="filterMuftis()">
-                    <select id="branch-select" class="input-control urdu-text" title="Search by Branch (برانچ کے مطابق تلاش)" onchange="filterMuftis()">
-                        <option value="all">All Branches (تمام برانچز)</option>
-                        <option value="nagpur">Nagpur Branch (ناگپور)</option>
-                        <option value="mumbai">Mumbai Branch (ممبئی)</option>
-                        <option value="ahmedabad">Ahmedabad Branch (احمدآباد)</option>
-                        <option value="hyderabad">Hyderabad Branch (حیدر آباد)</option>
-                        <option value="modasa">Modasa Branch (موڈاسہ)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="summary-badge" style="background: transparent; border: none; box-shadow: none; text-align: center; margin-bottom: 25px;">
-                <h2 style="color: var(--gold-primary); text-shadow: 0 0 10px var(--gold-glow); font-size:32px;"><span class="urdu-text">کل مفتیان: </span><span style="color: #fff;" class="eng-text" contenteditable="true">20</span></h2>
-            </div>
-
-            <div class="nm-grid" id="mufti-list-container">
-                <div class="nm-card" data-branch="nagpur">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()">
-                        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo">
-                        <input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)">
-                    </div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">ظفر مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">رفیق خان</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">بالاگھاٹ، MP</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">ناگپور</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="nagpur">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">غلام رضا مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">نعیم الدین</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">ناگپور</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">ناگپور</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="nagpur">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">دل کش مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">سراج الدین انصاری</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">جھارکھنڈ</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">ناگپور</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="mumbai">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">کاشف مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">عبد الرؤف</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">مالیگاؤں، مہاراشٹر</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">ممبئی</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="mumbai">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">ذوالفقار مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">اکرام الحق</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">راجستھان</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">ممبئی</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="mumbai">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">عبدالواجد مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">عثمان علی</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">جھارکھنڈ</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">ممبئی</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="mumbai">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">محمد نادر رضا</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">محمد علی</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">امروہا، UP</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">ممبئی</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="ahmedabad">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">سجاد مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">کیف سرور</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">احمد آباد</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">احمد آباد</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="ahmedabad">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">عالم مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">بھورا علی</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">مرادآباد، UP</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">احمد آباد</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="ahmedabad">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">عابد حسین</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">محمد قاسم</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">راجستھان</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">احمد آباد</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="ahmedabad">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">محمد فیضان</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">محمد بھائی</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">گجرات</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">احمد آباد</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="ahmedabad">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">محمد سلیم</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">عزیز خان</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">راجستھان</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">احمد آباد</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="modasa">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">جاوید مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">انوار حسین</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">مرادآباد، UP</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">موڈاسا</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="modasa">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">عمران مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">محمد تسنیم شمسی</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">پیلی بھیت، UP</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">موڈاسا</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="modasa">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">بلال مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">شمس العارفین</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">کانپور</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">موڈاسا</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="modasa">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">محمد ارشاد</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">نور محمد</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">کانپور</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">موڈاسا</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="hyderabad">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">جسیم مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">محمد یاسین</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">رامپور، UP</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">حیدرآباد</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="hyderabad">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">سید بلال مدنی</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">سید صادق محی الدین</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">کرناٹک</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">حیدرآباد</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="hyderabad">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">مصباح الرحمٰن</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">فضل رحمان</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">بہار</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">حیدرآباد</span></div></div>
-                </div>
-                <div class="nm-card" data-branch="hyderabad">
-                    <div class="nm-photo" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Mufti Photo"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
-                    <div class="nm-details"><div class="nm-row nm-name urdu-text" contenteditable="true">مصباح الحق قادری</div><div class="nm-row nm-info"><span class="nm-label urdu-text">ولدیت:</span> <span class="urdu-text" contenteditable="true">قربان منصوری</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">پتا:</span> <span class="urdu-text" contenteditable="true">بہار</span></div><div class="nm-row nm-info"><span class="nm-label urdu-text">مقام تقرری:</span> <span class="urdu-text" contenteditable="true">حیدرآباد</span></div></div>
-                </div>
-            </div>
-            <div class="footer eng-text">© 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind</div>
-        </div>
-    </div>
-
-    <!-- BRANCHES PAGE -->
-    <div id="branches-page">
-        <div class="main">
-            <div class="header">
-                <div class="header-left"><button class="btn-back eng-text" onclick="closeBranches()">⬅ Back</button></div>
-                <h1 class="urdu-text">دارالافتاء کی برانچز</h1>
-                <div class="header-right"></div>
-            </div>
-            <div class="toolbar premium-box" style="padding: 15px 20px; border-top: 2px solid var(--gold-primary);">
-                <div class="toolbar-group"><input type="text" class="input-control urdu-text" placeholder="🔍 Search Branch (برانچ تلاش کریں)..."></div>
-            </div>
-            <div class="summary-badge" style="background: transparent; border: none; box-shadow: none; text-align: center; margin-bottom: 25px;">
-                <h2 style="color: var(--gold-primary); text-shadow: 0 0 10px var(--gold-glow); font-size:32px;"><span class="urdu-text">کل برانچز: </span><span style="color: #fff;" class="eng-text">5</span></h2>
-            </div>
-            <div class="settings-container" id="branches-container">
-                <div class="premium-box" style="border-top: 3px solid var(--gold-primary);">
-                    <div class="branch-header">
-                        <div class="mufti-info">
-                            <h3 class="eng-text" contenteditable="true">Nagpur Branch</h3>
-                            <h2 class="urdu-text" contenteditable="true">ناگپور برانچ</h2>
-                        </div>
-                        <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span contenteditable="true">Active</span>
-                        </div>
-                    </div>
-                    <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <h4 class="eng-text" style="color: var(--text-muted); font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">Full Address</h4>
-                        <p class="urdu-text" style="font-size: 18px; color: var(--text-white); line-height: 1.6;" contenteditable="true">دارالافتاء اہل سنت، جامع مسجد روڈ، ناگپور، مہاراشٹر، انڈیا۔</p>
-                    </div>
-                </div>
-                
-                <div class="premium-box" style="border-top: 3px solid var(--gold-primary);">
-                    <div class="branch-header">
-                        <div class="mufti-info">
-                            <h3 class="eng-text" contenteditable="true">Mumbai Branch</h3>
-                            <h2 class="urdu-text" contenteditable="true">ممبئی برانچ</h2>
-                        </div>
-                        <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span contenteditable="true">Active</span>
-                        </div>
-                    </div>
-                    <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <h4 class="eng-text" style="color: var(--text-muted); font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">Full Address</h4>
-                        <p class="urdu-text" style="font-size: 18px; color: var(--text-white); line-height: 1.6;" contenteditable="true">دارالافتاء اہل سنت، ممبئی، مہاراشٹر، انڈیا۔</p>
-                    </div>
-                </div>
-
-                <div class="premium-box" style="border-top: 3px solid var(--gold-primary);">
-                    <div class="branch-header">
-                        <div class="mufti-info">
-                            <h3 class="eng-text" contenteditable="true">Ahmedabad Branch</h3>
-                            <h2 class="urdu-text" contenteditable="true">احمدآباد برانچ</h2>
-                        </div>
-                        <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span contenteditable="true">Active</span>
-                        </div>
-                    </div>
-                    <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <h4 class="eng-text" style="color: var(--text-muted); font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">Full Address</h4>
-                        <p class="urdu-text" style="font-size: 18px; color: var(--text-white); line-height: 1.6;" contenteditable="true">دارالافتاء اہل سنت، احمدآباد، گجرات، انڈیا۔</p>
-                    </div>
-                </div>
-
-                <div class="premium-box" style="border-top: 3px solid var(--gold-primary);">
-                    <div class="branch-header">
-                        <div class="mufti-info">
-                            <h3 class="eng-text" contenteditable="true">Hyderabad Branch</h3>
-                            <h2 class="urdu-text" contenteditable="true">حیدر آباد برانچ</h2>
-                        </div>
-                        <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span contenteditable="true">Active</span>
-                        </div>
-                    </div>
-                    <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <h4 class="eng-text" style="color: var(--text-muted); font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">Full Address</h4>
-                        <p class="urdu-text" style="font-size: 18px; color: var(--text-white); line-height: 1.6;" contenteditable="true">دارالافتاء اہل سنت، حیدرآباد، تلنگانہ، انڈیا۔</p>
-                    </div>
-                </div>
-
-                <div class="premium-box" style="border-top: 3px solid var(--gold-primary);">
-                    <div class="branch-header">
-                        <div class="mufti-info">
-                            <h3 class="eng-text" contenteditable="true">Modasa Branch</h3>
-                            <h2 class="urdu-text" contenteditable="true">موڈاسہ برانچ</h2>
-                        </div>
-                        <div class="status-badge status-online" style="font-size:14px; padding:6px 12px; color:var(--gold-primary);">
-                            <i>🏢</i> <span contenteditable="true">Active</span>
-                        </div>
-                    </div>
-                    <div class="branch-address" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                        <h4 class="eng-text" style="color: var(--text-muted); font-size: 11px; text-transform: uppercase; margin-bottom: 5px;">Full Address</h4>
-                        <p class="urdu-text" style="font-size: 18px; color: var(--text-white); line-height: 1.6;" contenteditable="true">دارالافتاء اہل سنت، موڈاسہ، گجرات، انڈیا۔</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer eng-text">© 2026 Darul Ifta ERP | Developed for Darulifta Ahle Sunnat Hind</div>
-        </div>
-    </div>
-
-    <!-- SETTINGS PAGE -->
-    <div id="settings-page">
-        <div class="main">
-            <div class="header">
-                <div class="header-left"><button class="btn-back eng-text" onclick="closeSettings()">⬅ Back</button></div>
-                <h1 class="urdu-text">ترتیبات</h1>
-                <div class="header-right"></div>
-            </div>
-            <div class="settings-container">
-                <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
-                    <div class="settings-header">
-                        <div class="icon">👤</div>
-                        <div><h2 class="urdu-text">ایڈمن ترتیبات</h2></div>
-                    </div>
-                    <div class="setting-item" onclick="triggerSetting('admin')">
-                        <div class="setting-item-text"><div class="urdu-setting">ایڈمن پروفائل</div></div>
-                    </div>
-                    <div class="setting-item" onclick="triggerSetting('pass')">
-                        <div class="setting-item-text"><div class="urdu-setting">پاس ورڈ تبدیل کریں</div></div>
-                    </div>
-                </div>
-                
-                <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
-                    <div class="settings-header">
-                        <div class="icon">👳</div>
-                        <div><h2 class="urdu-text">مفتی ترتیبات</h2></div>
-                    </div>
-                    <div class="setting-item" onclick="triggerSetting('add_mufti')">
-                        <div class="setting-item-text"><div class="urdu-setting">مفتی شامل کریں</div></div>
-                    </div>
-                    <div class="setting-item" onclick="triggerSetting('edit_mufti')">
-                        <div class="setting-item-text"><div class="urdu-setting">مفتی میں ترمیم</div></div>
-                    </div>
-                </div>
-                
-                <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
-                    <div class="settings-header">
-                        <div class="icon">🏢</div>
-                        <div><h2 class="urdu-text">برانچ ترتیبات</h2></div>
-                    </div>
-                    <div class="setting-item" onclick="triggerSetting('add_branch')">
-                        <div class="setting-item-text"><div class="urdu-setting">برانچ شامل کریں</div></div>
-                    </div>
-                    <div class="setting-item" onclick="triggerSetting('edit_branch')">
-                        <div class="setting-item-text"><div class="urdu-setting">برانچ میں ترمیم</div></div>
-                    </div>
-                </div>
-                
-                <div class="premium-box" style="border-top: 2px solid var(--gold-primary);">
-                    <div class="settings-header">
-                        <div class="icon">⚙️</div>
-                        <div><h2 class="urdu-text">سسٹم ترتیبات</h2></div>
-                    </div>
-                    <div class="setting-item" onclick="toggleTheme()">
-                        <div class="setting-item-text"><div class="urdu-setting">ڈارک/لائٹ موڈ</div></div>
-                        <div class="setting-item-icon">🌓</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SOCIAL MEDIA PAGE -->
-    <div id="social-media-page">
-        <div class="main">
-            <div class="header">
-                <div class="header-left"><button class="btn-back eng-text" onclick="closeSocialMedia()">⬅ Back</button></div>
-                <h1 class="urdu-text">سوشل میڈیا ڈیش بورڈ</h1>
-                <div class="header-right"></div>
-            </div>
-            
-            <div class="sm-grid">
-                <div class="premium-box sm-card" data-brand="whatsapp"><div class="sm-icon-wrapper">💬</div><div class="sm-details"><h3 class="eng-text">WhatsApp</h3><h2 class="urdu-text">واٹس ایپ</h2><h1 class="eng-text">0 Fatwe</h1></div></div>
-                <div class="premium-box sm-card" data-brand="youtube"><div class="sm-icon-wrapper">▶</div><div class="sm-details"><h3 class="eng-text">YouTube</h3><h2 class="urdu-text">یوٹیوب</h2><h1 class="eng-text">0 Videos</h1></div></div>
-                <div class="premium-box sm-card" data-brand="facebook"><div class="sm-icon-wrapper">📘</div><div class="sm-details"><h3 class="eng-text">Facebook</h3><h2 class="urdu-text">فیس بک</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card" data-brand="instagram"><div class="sm-icon-wrapper">📸</div><div class="sm-details"><h3 class="eng-text">Instagram</h3><h2 class="urdu-text">انسٹاگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card" data-brand="telegram"><div class="sm-icon-wrapper">✈</div><div class="sm-details"><h3 class="eng-text">Telegram</h3><h2 class="urdu-text">ٹیلیگرام</h2><h1 class="eng-text">0 Posts</h1></div></div>
-                <div class="premium-box sm-card" data-brand="twitter"><div class="sm-icon-wrapper">✖</div><div class="sm-details"><h3 class="eng-text">X (Twitter)</h3><h2 class="urdu-text">ٹوئٹر</h2><h1 class="eng-text" style="color:var(--text-white);">0 Posts</h1></div></div>
-            </div>
-
-            <div class="sm-toolbar" style="margin-top: 20px;">
-                <div class="toolbar-group"><h3 class="urdu-text" style="color: var(--gold-primary); font-size: 26px; font-weight: normal; margin:0; text-shadow: 0 0 10px var(--gold-glow);">پلیٹ فارم منتخب کریں:</h3></div>
-                <div class="toolbar-group">
-                    <select class="input-control eng-text" id="social-platform-select" style="font-size: 14px; min-width: 250px;" onchange="filterSocialMedia()">
-                        <option value="all">🌐 All Platforms (تمام)</option><option value="whatsapp">💬 WhatsApp Channel</option><option value="youtube">▶ YouTube</option><option value="facebook">📘 Facebook</option><option value="instagram">📸 Instagram</option><option value="telegram">✈ Telegram</option><option value="twitter">✖ X (Twitter)</option>
-                    </select>
-                </div>
-                <div class="toolbar-group" style="margin-left: auto;"><input type="month" id="social-month-select" class="input-control eng-text"></div>
-            </div>
-
-            <div class="sm-table-container">
-                <table id="social-media-table">
-                    <thead>
-                        <tr>
-                            <th><span class="eng-text">Date</span> <span class="urdu-th">تاریخ</span></th>
-                            <th><span class="eng-text">Fatwa Title</span> <span class="urdu-th">عنوان</span></th>
-                            <th><span class="eng-text">Hindi</span> <span class="urdu-th">ہندی</span></th>
-                            <th><span class="eng-text">Roman</span> <span class="urdu-th">رومن</span></th>
-                            <th><span class="eng-text">Urdu</span> <span class="urdu-th">اردو</span></th>
-                            <th><span class="eng-text">Link</span> <span class="urdu-th">لنک</span></th>
-                            <th><span class="eng-text">Status</span> <span class="urdu-th">حالت</span></th>
-                        </tr>
-                    </thead>
-                    <tbody class="eng-text">
-                        <tr data-platform="whatsapp">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                        <tr data-platform="youtube">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                        <tr data-platform="facebook">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                        <tr data-platform="instagram">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                        <tr data-platform="telegram">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                        <tr data-platform="twitter">
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="text" class="table-input" style="font-size:12px;" placeholder="Title..."></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><select class="table-input" style="font-size:14px;"><option>✅ Yes</option><option>❌ No</option></select></td>
-                            <td><input type="url" class="table-input" placeholder="Paste Link"></td>
-                            <td><select class="table-input" style="font-size:12px; font-weight:bold; color:var(--gold-primary);"><option>Published</option><option>Pending</option></select></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="sm-toolbar" style="margin-top: 10px; justify-content: center; padding: 15px; border:none; background: transparent;">
-                <h2 class="urdu-text" style="color: var(--gold-primary); font-size: 32px; margin:0; font-weight: normal; text-shadow: 0 0 10px var(--gold-glow);">ماہانہ خلاصہ <span class="eng-text" style="font-size: 20px;">(Monthly Summary)</span></h2>
-            </div>
-            <div class="monthly-summary-line">
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);"><h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Total Shared</h3><h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">کل شیئر</h2><h1 class="text-success eng-text" style="font-size: 32px; margin-top: auto;">0</h1></div>
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);"><h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Hindi Posts</h3><h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">ہندی</h2><h1 class="eng-text" style="color: var(--gold-primary); font-size: 32px; margin-top: auto;">0</h1></div>
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);"><h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Roman Posts</h3><h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">رومن</h2><h1 class="eng-text" style="color: var(--gold-primary); font-size: 32px; margin-top: auto;">0</h1></div>
-                <div class="premium-box" style="padding: 20px; text-align: left; display: flex; flex-direction: column; border-top:3px solid var(--gold-primary);"><h3 class="eng-text" style="font-size: 13px; color: var(--text-white); font-weight: bold; margin-bottom: 2px;">Urdu Posts</h3><h2 class="urdu-text" style="font-size: 26px; color: var(--text-white); margin-bottom: 5px;">اردو</h2><h1 class="eng-text" style="color: var(--gold-primary); font-size: 32px; margin-top: auto;">0</h1></div>
-            </div>
-            
-            <div class="bottom-actions">
-                <button class="btn-bottom eng-text" onclick="window.print()">📄 PDF <span class="urdu-btn">(پی ڈی ایف)</span></button>
-                <button class="btn-bottom eng-text" onclick="exportToCSV('social-media-report.csv', 'social-media-table')">📊 Excel <span class="urdu-btn">(ایکسل)</span></button>
-                <button class="btn-bottom eng-text" onclick="window.print()">🖨 Print <span class="urdu-btn">(پرنٹ)</span></button>
-            </div>
-        </div>
-    </div>
 
     <!-- JAVASCRIPT SYSTEM -->
     <script>
+        // Toggle Login/Register forms
+        function showRegister(e) {
+            e.preventDefault();
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('register-container').style.display = 'block';
+        }
+        function showLogin(e) {
+            if(e) e.preventDefault();
+            document.getElementById('register-container').style.display = 'none';
+            document.getElementById('login-container').style.display = 'block';
+        }
+
         // Theme Toggle
         function toggleTheme() { document.body.classList.toggle('light-mode'); }
 
@@ -3373,7 +2608,7 @@
         // NAVIGATION
         // ==========================================
         function processLogin() { document.getElementById('login-page').style.opacity = '0'; setTimeout(() => { document.getElementById('login-page').style.display = 'none'; document.getElementById('dashboard-page').style.display = 'block'; }, 500); }
-        function logout() { document.querySelectorAll('.main').forEach(m => m.parentElement.style.display = 'none'); const loginPage = document.getElementById('login-page'); loginPage.style.display = 'flex'; setTimeout(() => { loginPage.style.opacity = '1'; }, 50); }
+        function logout() { document.querySelectorAll('.main').forEach(m => m.parentElement.style.display = 'none'); const loginPage = document.getElementById('login-page'); loginPage.style.display = 'flex'; showLogin(); setTimeout(() => { loginPage.style.opacity = '1'; }, 50); }
 
         function openWhatsAppReport() { document.getElementById('dashboard-page').style.display = 'none'; document.getElementById('whatsapp-report-page').style.display = 'block'; }
         function closeWhatsAppReport() { document.getElementById('whatsapp-report-page').style.display = 'none'; document.getElementById('dashboard-page').style.display = 'block'; }
