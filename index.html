@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Darul Ifta ERP Dashboard</title>
+    <title>Darul Ifta ERP Dashboard - Glass Mode</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -20,21 +20,248 @@
         }
 
         /* ========================================================
-           PREMIUM GLASSMORPHISM & LIBRARY THEME
+           PREMIUM GLASSMORPHISM THEME (Based on Screenshot)
            ======================================================== */
         :root {
             /* Glass Variables */
-            --glass-bg: rgba(15, 20, 25, 0.55); /* Dark tinted glass */
-            --glass-border: rgba(255, 255, 255, 0.15);
-            --glass-blur: blur(25px);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            --glass-bg: rgba(25, 40, 45, 0.45); /* Dark teal tint matching screenshot */
+            --glass-border-top: rgba(255, 255, 255, 0.4);
+            --glass-border-left: rgba(255, 255, 255, 0.2);
+            --glass-border-right: rgba(0, 0, 0, 0.3);
+            --glass-border-bottom: rgba(0, 0, 0, 0.5);
+            --glass-blur: blur(20px);
+            --glass-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             
-            /* Vibrant Neon Accents for Professional Look */
-            --neon-cyan: #00F0FF;
-            --neon-green: #00FF66;
-            --neon-orange: #FF9900;
-            --neon-pink: #FF007F;
+            /* Vibrant Accents from Screenshot */
+            --neon-cyan: #4EE1FF;
+            --neon-yellow: #FFD166;
+            --neon-orange: #FF9F1C;
+            --neon-pink: #EF476F;
+            --neon-green: #06D6A0;
             --neon-purple: #B026FF;
+            
+            /* Text Colors */
+            --text-main: #FFFFFF;
+            --text-muted: rgba(255, 255, 255, 0.6);
+            
+            /* Elements */
+            --input-bg: rgba(0, 0, 0, 0.3);
+            --border-radius: 24px;
+        }
+
+        /* Global Resets */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { 
+            /* Dark Aesthetic Library Background */
+            background: linear-gradient(rgba(10, 25, 30, 0.75), rgba(10, 25, 30, 0.85)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-main); 
+            overflow-x: hidden; 
+            min-height: 100vh; 
+        }
+        
+        .urdu-text, .urdu-3d, .urdu-th, .urdu-setting, .urdu-btn, .nm-name, .nm-row, .nm-label, .header h1 {
+            font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif !important;
+        }
+        .eng-text { font-family: 'Poppins', sans-serif !important; }
+
+        /* ========================================================
+           PURE GLASSMORPHISM CLASSES
+           ======================================================== */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-top: 1px solid var(--glass-border-top);
+            border-left: 1px solid var(--glass-border-left);
+            border-right: 1px solid var(--glass-border-right);
+            border-bottom: 1px solid var(--glass-border-bottom);
+            box-shadow: var(--glass-shadow);
+            border-radius: var(--border-radius);
+            color: var(--text-main);
+        }
+
+        /* ========================================================
+           FLOATING NAVIGATIONS (Side & Top)
+           ======================================================== */
+        
+        /* Side Nav (Vertical Pill) */
+        .side-pill-nav {
+            position: fixed; left: 20px; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 15px; padding: 25px 15px;
+            border-radius: 50px; z-index: 100;
+        }
+        .side-icon {
+            width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 20px; color: var(--text-muted); cursor: pointer; transition: 0.3s;
+        }
+        .side-icon:hover { color: var(--text-main); background: rgba(255,255,255,0.1); }
+        .side-icon.active { background: rgba(255,255,255,0.25); color: var(--neon-cyan); box-shadow: inset 0 0 10px rgba(255,255,255,0.2), 0 0 15px rgba(78, 225, 255, 0.4); border: 1px solid rgba(255,255,255,0.4);}
+        .side-icon.active .icon { text-shadow: 0 0 10px var(--neon-cyan); }
+
+        /* Top Nav (Horizontal Pill) */
+        .top-pill-nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 10px; padding: 10px 15px; border-radius: 50px; z-index: 100;
+        }
+        .top-menu-item {
+            padding: 8px 20px; border-radius: 30px; font-size: 13px; font-weight: 500;
+            color: var(--text-muted); cursor: pointer; transition: 0.3s;
+        }
+        .top-menu-item:hover { color: var(--text-main); }
+        .top-menu-item.active { background: rgba(255,255,255,0.25); color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); font-weight: 600;}
+
+        /* ========================================================
+           DASHBOARD MASONRY GRID (Matching the Screenshot Exactly)
+           ======================================================== */
+        .main-container { margin-left: 100px; padding: 90px 20px 20px 0; height: 100vh; overflow-y: auto; }
+        .main-container::-webkit-scrollbar { width: 0; } /* Hide scrollbar for cleaner look */
+        
+        /* Sub pages wrapper */
+        .page-content { display: none; animation: fadeIn 0.6s ease; }
+        .page-content.active { display: block; }
+
+        .dashboard-grid {
+            display: grid; grid-template-columns: 320px 1fr 1fr; grid-template-rows: auto auto auto; gap: 20px; max-width: 1300px; margin: 0 auto;
+        }
+
+        /* GRID CARDS Styling */
+        .dash-card { padding: 20px; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: 0.4s;}
+        .dash-card:hover { border-top-color: rgba(255,255,255,0.8); box-shadow: 0 20px 40px rgba(0,0,0,0.6); transform: translateY(-5px);}
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; z-index: 2;}
+        .card-title { font-size: 14px; font-weight: 500; color: var(--text-main); text-shadow: 0 2px 4px rgba(0,0,0,0.8);}
+        .card-subtitle { font-size: 11px; color: var(--text-muted); }
+        .card-badge { padding: 4px 10px; border-radius: 12px; background: rgba(255,255,255,0.1); font-size: 10px; color: var(--text-main); border: 1px solid rgba(255,255,255,0.2);}
+
+        /* 1. Big Left Card (Thermostat / Today's Overview) */
+        .card-weather { grid-row: span 3; }
+        .weather-info { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; z-index: 2;}
+        .weather-icon { font-size: 40px; filter: drop-shadow(0 0 10px var(--neon-orange)); }
+        .weather-temp h1 { font-size: 38px; font-weight: 700; line-height: 1; }
+        
+        .thermostat-dial {
+            width: 200px; height: 200px; border-radius: 50%; margin: 20px auto; position: relative;
+            background: conic-gradient(from 220deg, var(--neon-cyan), var(--neon-green) 50%, rgba(255,255,255,0.05) 50%);
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.5), 0 10px 30px rgba(0,240,255,0.2); z-index: 2;
+        }
+        .thermostat-inner {
+            width: 160px; height: 160px; border-radius: 50%; background: var(--glass-bg); backdrop-filter: blur(10px);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-top: 1px solid rgba(255,255,255,0.3); border-bottom: 1px solid rgba(0,0,0,0.8);
+        }
+        .thermostat-inner h2 { font-size: 38px; color: var(--neon-yellow); text-shadow: 0 0 15px rgba(255,209,102,0.6); }
+        .thermostat-inner p { font-size: 11px; color: var(--text-muted); }
+        
+        .action-icons { display: flex; justify-content: space-between; margin-top: 30px; padding: 0 10px; z-index: 2;}
+        .action-btn { text-align: center; cursor:pointer; transition:0.3s;}
+        .action-btn:hover { transform: scale(1.1);}
+        .act-icon { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 5px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); box-shadow: inset 0 2px 5px rgba(255,255,255,0.2);}
+        .action-btn p { font-size: 10px; color: var(--text-muted); }
+        
+        .members-area { margin-top: 30px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 20px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.05); z-index: 2;}
+        .members-faces { display: flex; align-items: center;}
+        .members-faces img { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--glass-bg); margin-left: -10px; object-fit: cover;}
+        .members-faces img:first-child { margin-left: 0; }
+        .add-btn { width: 25px; height: 25px; border-radius: 50%; background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); display: flex; justify-content: center; align-items: center; font-size: 16px; cursor: pointer;}
+
+        /* 2. Top Center (Energy / Chart) */
+        .card-chart { grid-column: span 1; position: relative; }
+        .chart-svg { width: 100%; height: 100px; margin-top: 15px; }
+        .chart-path { fill: none; stroke: var(--neon-cyan); stroke-width: 3; filter: drop-shadow(0 5px 5px rgba(78,225,255,0.4));}
+        .chart-fill { fill: url(#grad1); opacity: 0.3; }
+        .chart-popup { position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.9); color: #000; padding: 5px 10px; border-radius: 10px; font-size: 11px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.5);}
+
+        /* 3. Top Right (Live Camera / Branches) */
+        .card-camera { grid-column: span 1; position: relative; padding: 0 !important; overflow: hidden; }
+        .camera-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+        .camera-overlay { position: absolute; inset: 0; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+        .cam-status { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; text-shadow: 0 2px 4px #000;}
+        .cam-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--neon-green); box-shadow: 0 0 10px var(--neon-green);}
+        .cam-controls { display: flex; justify-content: center; gap: 15px; margin-bottom: 10px;}
+        .cam-btn { width: 35px; height: 35px; border-radius: 50%; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 14px; backdrop-filter: blur(5px); cursor:pointer;}
+
+        /* 4. Mid Center (TV / Social Media) */
+        .card-tv { grid-column: span 1; padding: 15px !important; display: flex; flex-direction: column; justify-content: space-between;}
+        .tv-apps { display: flex; gap: 10px; margin-top: auto;}
+        .tv-app { width: 45px; height: 35px; border-radius: 10px; background: rgba(255,255,255,0.1); display: flex; justify-content: center; align-items: center; font-size: 18px; border: 1px solid rgba(255,255,255,0.1); cursor:pointer;}
+        .tv-app:hover { background: rgba(255,255,255,0.2); transform: scale(1.05);}
+        .tv-poster { width: 100%; height: 90px; background: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=500&auto=format&fit=crop') center/cover; border-radius: 15px; margin-top: 15px; border: 1px solid rgba(255,255,255,0.2);}
+
+        /* 5. Mid Right (Lighting / Quick Actions) */
+        .card-lighting { grid-column: span 1; display: flex; flex-direction: column; justify-content: space-between;}
+        .toggle-switch { width: 50px; height: 26px; border-radius: 20px; background: var(--neon-yellow); position: relative; box-shadow: inset 0 2px 5px rgba(0,0,0,0.3), 0 0 15px rgba(255,209,102,0.4); cursor:pointer;}
+        .toggle-knob { width: 22px; height: 22px; border-radius: 50%; background: #fff; position: absolute; right: 2px; top: 2px; box-shadow: -2px 0 5px rgba(0,0,0,0.2); }
+        .lighting-bulb { font-size: 50px; color: var(--neon-yellow); text-shadow: 0 0 25px var(--neon-yellow); text-align: center; margin: 10px 0;}
+        .slider-container { display: flex; align-items: center; gap: 10px;}
+        .glass-slider { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 5px; background: rgba(0,0,0,0.4); outline: none; border: 1px solid rgba(255,255,255,0.1);}
+        .glass-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--neon-yellow); cursor: pointer; box-shadow: 0 0 10px var(--neon-yellow), inset 0 2px 5px rgba(255,255,255,0.8); }
+
+        /* Bottom Row Cards */
+        .card-homepad { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative;}
+        .homepad-orb { width: 80px; height: 80px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #fff, #ddd, #999); box-shadow: 0 20px 30px rgba(0,0,0,0.5), inset -10px -10px 20px rgba(0,0,0,0.3); position: relative; margin-top: 20px;}
+        .homepad-base { width: 100px; height: 15px; border-radius: 50%; background: rgba(255,255,255,0.2); margin-top: 10px; border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 0 20px var(--neon-cyan);}
+        
+        .card-door { display: flex; flex-direction: column; justify-content: center; gap: 10px;}
+        .door-lock { display: flex; background: rgba(0,0,0,0.3); border-radius: 12px; padding: 5px; border: 1px solid rgba(255,255,255,0.1);}
+        .door-btn { flex: 1; text-align: center; padding: 8px; border-radius: 8px; font-size: 14px; cursor:pointer;}
+        .door-btn.active { background: var(--neon-yellow); color: #000; box-shadow: 0 0 10px var(--neon-yellow);}
+        
+        .card-music { display: flex; align-items: center; gap: 15px; padding: 15px !important;}
+        .album-art { width: 60px; height: 60px; border-radius: 12px; background: url('https://cdn-icons-png.flaticon.com/512/3135/3135715.png') center/cover; border: 1px solid rgba(255,255,255,0.2);}
+        .music-controls { display: flex; gap: 10px; font-size: 14px; color: var(--text-main); margin-top: 5px;}
+        
+        .card-ambient { grid-column: span 2; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 15px !important;}
+        .color-track { width: 100%; height: 10px; border-radius: 5px; background: linear-gradient(90deg, #FF0000, #FF9900, #33CC33, #3399FF, #B026FF, #FF007F); margin: 15px 0;}
+
+        /* ========================================================
+           SUB-PAGES STYLING (FORMS, TABLES, MUFTIS)
+           ======================================================== */
+        .sub-page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;}
+        .sub-page-header h1 { color: #fff; font-size: 32px; font-weight: bold; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        
+        .btn-action { padding: 10px 20px; border: 1px solid var(--glass-border-top); border-radius: 30px; font-size: 12px; font-weight: 600; cursor: pointer; background: rgba(255,255,255,0.1); color: #fff; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .btn-action:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.5); background: rgba(255,255,255,0.25); border-color: #fff;}
+        
+        .input-group label { color: var(--text-muted); font-size: 12px; font-weight: 600; margin-bottom: 5px; display: block; letter-spacing: 1px; text-transform: uppercase;}
+        .input-control { padding: 12px 15px; border: 1px solid var(--glass-border-top); border-radius: 15px; background: var(--input-bg); color: #fff; font-size: 14px; outline: none; transition: 0.3s; width: 100%; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);}
+        .input-control:focus { border-color: var(--neon-cyan); background: rgba(0,0,0,0.6); box-shadow: 0 0 15px rgba(78, 225, 255, 0.3), inset 0 2px 5px rgba(0,0,0,0.5); }
+        select.input-control option, select.table-input option { background: #1a2529; color: #fff; }
+
+        /* Tables in Glass Mode */
+        .table-container { border-radius: 20px; padding: 15px; overflow-x: auto; margin-bottom: 20px; transition: 0.4s ease;}
+        .table-container::-webkit-scrollbar { height: 6px; width: 6px;}
+        .table-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 4px; }
+        
+        table { width: 100%; border-collapse: collapse; min-width: 1000px; font-size: 11px;}
+        table th { background: rgba(0,0,0,0.4); color: var(--text-muted); padding: 10px 4px; text-align: center; border-bottom: 1px solid var(--glass-border-top); white-space: nowrap; font-weight: 500;}
+        table th .urdu-th { font-size: 16px; display: block; font-weight: normal; color: #fff; margin-top: 2px;}
+        table td { padding: 6px 2px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #fff; text-align: center; vertical-align: middle; border-right: 1px solid rgba(255,255,255,0.02);}
+        
+        /* Table Inputs */
+        .table-input { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid transparent; color: #fff; text-align: center; font-size: 12px; border-radius: 8px; padding: 5px; outline: none; transition: 0.3s; height: 28px; min-width: 40px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);}
+        .table-input:focus { border-color: var(--neon-cyan); background: rgba(0,0,0,0.7); box-shadow: 0 0 8px rgba(78,225,255,0.4);}
+        input[type="date"].table-input, input[type="time"].table-input { padding: 0; min-width: 80px; font-size: 10px;}
+
+        /* Neon Table Columns */
+        .text-success { color: var(--neon-green) !important; font-weight: bold; text-shadow: 0 0 5px rgba(0,255,102,0.4);} 
+        .col-pending { color: var(--neon-orange) !important; font-weight:bold; background: rgba(255,159,28,0.15); }
+        .col-correct { color: var(--neon-green) !important; font-weight:bold; background: rgba(6,214,160,0.15); }
+        .col-wrong { color: var(--neon-pink) !important; font-weight:bold; background: rgba(239,71,111,0.15); }
+        .col-edited { color: var(--neon-purple) !important; font-weight:bold; background: rgba(176,38,255,0.15); }
+
+        /* Report Tabs */
+        .report-tabs-wrapper { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px; }
+        .report-tab { border-radius: 20px !important; padding: 15px 30px; cursor: pointer; transition: 0.3s; text-align: center; min-width: 160px; border: 1px solid var(--glass-border-top);}
+        .report-tab:hover { background: rgba(255,255,255,0.15) !important; transform: translateY(-3px); }
+        .report-tab.active-tab { background: rgba(255,255,255,0.25) !important; border-color: #fff !important; box-shadow: 0 0 20px rgba(255,255,255,0.2) !important; }
+        .report-tab .tab-icon { font-size: 26px; margin-bottom: 5px; display: block; }
+        .report-section { display: none; animation: fadeIn 0.5s ease; }
+
+        /* Compact Suwalat Summary */
+        .ws-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-bottom: 20px;}
+        .ws-summary-boxes { display: grid; gri            --neon-purple: #B026FF;
             --accent-gold: #D6A341;
             
             /* Text Colors */
