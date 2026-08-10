@@ -1154,6 +1154,13 @@
             .report-section { display: block !important; margin-bottom: 30px; }
             #master-save-btn { display: none !important; }
         }
+
+        /* COMPACT TABLE CSS FOR WHATSAPP REPORT (Scrolling Hatane Ke Liye) */
+        #whatsapp-table-area table { min-width: 100%; font-size: 10px; }
+        #whatsapp-table-area table th, #whatsapp-table-area table td { padding: 2px; }
+        #whatsapp-table-area table th .urdu-th { font-size: 14px; margin-top: 0; line-height: 1; }
+        #whatsapp-table-area .table-input { padding: 2px; font-size: 10px; height: 22px; min-width: 35px; }
+        #whatsapp-table-area input[type="date"], #whatsapp-table-area input[type="time"] { padding: 0; min-width: 70px; font-size: 9px;}
         
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
@@ -1166,14 +1173,6 @@
         <div class="ring r1"></div>
         <div class="ring r2"></div>
         <div class="ring r3"></div>
-    </div>
-
-    <!-- FLOATING LOGOUT CORNER BUTTON (Always visible) -->
-    <div class="logout-corner-btn" onclick="logout()" style="position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; padding: 12px 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(231,76,60,0.4); cursor: pointer; z-index: 9999; display: flex; align-items: center; gap: 10px; font-weight: bold; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.2);">
-        <div class="box-icon" style="margin-bottom:0; font-size: 20px;">
-            🚪
-        </div>
-        <span class="eng-text">Logout</span> | <span class="urdu-text" style="font-size: 20px; margin-top: 4px;">لاگ آؤٹ</span>
     </div>
 
     <!-- LOGIN & REGISTER PAGE -->
@@ -1252,9 +1251,11 @@
                         <option value="ur">Urdu (اردو)</option>
                         <option value="en">English</option>
                     </select>
-                    <!-- NAYA LOGOUT BUTTON YAHAN ADD KIYA GAYA HAI -->
+                    <!-- LOGOUT BUTTON (Only on Home Page Header) -->
                     <button class="theme-toggle-btn eng-text" style="color: #ff4d4d; border-color: #ff4d4d; margin-left: 5px;" onclick="logout()">🚪 Logout</button>
                 </div>
+            </div>
+
             <!-- HEXAGONAL MENU GRID WITH NORMAL EMOJIS -->
             <div class="menu-grid">
                 <div class="menu-box" onclick="openWhatsAppSuwalat()">
@@ -2258,403 +2259,104 @@
                         <tr>
                             <th><span class="eng-text">Sr.</span><span class="urdu-th">نمبر</span></th>
                             <th><span class="eng-text">Branch</span> <span class="urdu-th">دارالافتاء</span></th>
+                            <th><span class="eng-text">Mufti Name</span> <span class="urdu-th">مفتی کا نام</span></th>
                             <th><span class="eng-text">Musaddiq</span> <span class="urdu-th">مُصَدِّق</span></th>
-                            <th><span class="eng-text">Total Qs</span> <span class="urdu-th">کل بھیجے گئے</span></th>
-                            <th><span class="eng-text">Today Qs</span> <span class="urdu-th">آج بھیجے گئے</span></th>
+                            <th><span class="eng-text">Total Qs</span> <span class="urdu-th">کل بھیجے</span></th>
+                            <th><span class="eng-text">Today Qs</span> <span class="urdu-th">آج بھیجے</span></th>
                             <th><span class="eng-text">Time</span> <span class="urdu-th">وقت</span></th>
-                            <th><span class="eng-text">On Time</span> <span class="urdu-th">ٹائم پر جواب</span></th>
-                            <th><span class="eng-text">Ans Date</span> <span class="urdu-th">جواب کی تاریخ</span></th>
-                            <th><span class="eng-text">Delay w/ Exc</span><span class="urdu-th">تاخیر بعذر</span></th>
-                            <th><span class="eng-text">Delay w/o Exc</span><span class="urdu-th">تاخیر بلا عذر</span></th>
-                            <th><span class="eng-text">Reason</span> <span class="urdu-th">تاخیر کی وجہ</span></th>
+                            <th><span class="eng-text">On Time</span> <span class="urdu-th">ٹائم جواب</span></th>
+                            <th><span class="eng-text">Ans Date</span> <span class="urdu-th">جواب تاریخ</span></th>
+                            <th><span class="eng-text">Delay Exc</span><span class="urdu-th">تاخیر بعذر</span></th>
+                            <th><span class="eng-text">Delay w/o</span><span class="urdu-th">تاخیر بلاعذر</span></th>
+                            <th><span class="eng-text">Reason</span> <span class="urdu-th">تاخیر وجہ</span></th>
                             <th><span class="eng-text">Delay Date</span> <span class="urdu-th">تاخیر تاریخ</span></th>
                             <th><span class="eng-text">Non-Fiqhi</span> <span class="urdu-th">غیر فقہی</span></th>
                             <th style="color:#ffc107;"><span class="eng-text">Pending</span> <span class="urdu-th" style="color:#ffc107;">باقی</span></th>
                             <th style="color:#2ecc71;"><span class="eng-text">Correct</span> <span class="urdu-th" style="color:#2ecc71;">صحیح</span></th>
                             <th style="color:#e74c3c;"><span class="eng-text">Wrong</span> <span class="urdu-th" style="color:#e74c3c;">غلط</span></th>
-                            <th style="color:#9b59b6;"><span class="eng-text">Edited</span> <span class="urdu-th" style="color:#9b59b6;">ترمیم شدہ</span></th>
+                            <th style="color:#9b59b6;"><span class="eng-text">Edited</span> <span class="urdu-th" style="color:#9b59b6;">ترمیم</span></th>
                         </tr>
                     </thead>
                     <tbody id="wa-report-body" class="eng-text">
                         <tr>
-                            <td contenteditable="true">1</td>
-                            <td contenteditable="true">Hyderabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>1</td><td>Nagpur</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">ظفر مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">2</td>
-                            <td contenteditable="true">Nagpur</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>2</td><td>Nagpur</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">غلام رضا مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">3</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>3</td><td>Nagpur</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">دل کش مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">4</td>
-                            <td contenteditable="true">Modasa</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>4</td><td>Mumbai</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">کاشف مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">5</td>
-                            <td contenteditable="true">Modasa</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>5</td><td>Mumbai</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">ذوالفقار مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">6</td>
-                            <td contenteditable="true">Hyderabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>6</td><td>Mumbai</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">عبدالواجد مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">7</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>7</td><td>Mumbai</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">محمد نادر رضا</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">8</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>8</td><td>Ahmedabad</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">سجاد مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">9</td>
-                            <td contenteditable="true">Modasa</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>9</td><td>Ahmedabad</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">عالم مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">10</td>
-                            <td contenteditable="true">Nagpur</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>10</td><td>Ahmedabad</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">عابد حسین</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">11</td>
-                            <td contenteditable="true">Nagpur</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>11</td><td>Ahmedabad</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">محمد فیضان</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">12</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>12</td><td>Ahmedabad</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">محمد سلیم</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">13</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>13</td><td>Modasa</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">جاوید مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">14</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>14</td><td>Modasa</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">عمران مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">15</td>
-                            <td contenteditable="true">Hyderabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>15</td><td>Modasa</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">بلال مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">16</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>16</td><td>Modasa</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">محمد ارشاد</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">17</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>17</td><td>Hyderabad</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">جسیم مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">18</td>
-                            <td contenteditable="true">Ahmedabad</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>18</td><td>Hyderabad</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">سید بلال مدنی</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">19</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>19</td><td>Hyderabad</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">مصباح الرحمٰن</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                         <tr>
-                            <td contenteditable="true">20</td>
-                            <td contenteditable="true">Mumbai</td>
-                            <td class="urdu-text" style="font-size:16px;" contenteditable="true">مفتی انس</td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="time" class="table-input" value="10:00"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:100px;"></td>
-                            <td><input type="date" class="table-input"></td>
-                            <td><input type="number" class="table-input" value="0"></td>
-                            <td><input type="number" class="table-input col-pending" value="0"></td>
-                            <td><input type="number" class="table-input col-correct" value="0"></td>
-                            <td><input type="number" class="table-input col-wrong" value="0"></td>
-                            <td><input type="number" class="table-input col-edited" value="0"></td>
+                            <td>20</td><td>Hyderabad</td><td class="urdu-text" style="color:var(--gold-primary); font-size:14px;">مصباح الحق قادری</td><td class="urdu-text" style="font-size:14px;">مفتی انس</td>
+                            <td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ لکھیں" style="min-width:60px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td>
                         </tr>
                     </tbody>
                 </table>
