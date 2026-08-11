@@ -261,312 +261,35 @@
 
         /* Compact Suwalat Summary */
         .ws-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-bottom: 20px;}
-        .ws-summary-boxes { display: grid; gri            --neon-purple: #B026FF;
-            --accent-gold: #D6A341;
-            
-            /* Text Colors */
-            --text-main: #FFFFFF;
-            --text-muted: rgba(255, 255, 255, 0.6);
-            --text-dark: #FFFFFF; /* Kept white for glass */
-            
-            /* Inputs */
-            --input-bg: rgba(0, 0, 0, 0.4);
-            --border-radius: 24px;
-        }
-
-        /* Dark Mode Toggle (Deepens the glass) */
-        body.dark-mode {
-            --glass-bg: rgba(5, 8, 12, 0.75);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.8);
-        }
-
-        /* Global Resets & Background */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        
-        body { 
-            /* Stunning Dark Library Books Background */
-            background: linear-gradient(rgba(5, 10, 15, 0.6), rgba(5, 10, 15, 0.8)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop') no-repeat center center fixed;
-            background-size: cover;
-            color: var(--text-main); 
-            overflow-x: hidden; 
-            min-height: 100vh; 
-            transition: all 0.4s ease;
-        }
-        
-        .urdu-text, .urdu-3d, .urdu-th, .urdu-setting, .urdu-btn, .nm-name, .nm-row, .nm-label, .header h1 {
-            font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif !important;
-        }
-        .eng-text { font-family: 'Poppins', sans-serif !important; }
-
-        /* ========================================================
-           PURE GLASSMORPHISM CLASSES
-           ======================================================== */
-        .premium-box, .top-card, .table-container, .ws-stat-box, .report-tab, .hex-login-wrapper, .dash-header, .dash-sidebar {
-            background: var(--glass-bg) !important;
-            backdrop-filter: var(--glass-blur) !important;
-            -webkit-backdrop-filter: var(--glass-blur) !important;
-            border: 1px solid var(--glass-border) !important;
-            box-shadow: var(--glass-shadow) !important;
-            color: var(--text-main) !important;
-        }
-
-        /* ========================================================
-           DASHBOARD LAYOUT
-           ======================================================== */
-        .dashboard-wrapper {
-            display: flex; height: 100vh; padding: 15px; gap: 20px; max-width: 1600px; margin: 0 auto;
-        }
-
-        /* 1. SIDEBAR (Floating Glass) */
-        .dash-sidebar {
-            border-radius: 30px !important; width: 250px; display: flex; flex-direction: column; padding: 20px 0; flex-shrink: 0; z-index: 10; position: relative;
-            margin: 10px 0 10px 10px; /* Floating effect */
-        }
-        
-        /* ANIMATED ADMIN WIDGET */
-        .sidebar-profile-wrapper {
-            margin: 0 15px 30px 15px; border-radius: 20px; position: relative; overflow: hidden;
-            background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); cursor: pointer;
-            transition: 0.3s;
-        }
-        .sidebar-profile-wrapper::before {
-            content: ''; position: absolute; top: var(--mouse-y, 50%); left: var(--mouse-x, 50%);
-            width: 120px; height: 120px; background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 60%);
-            transform: translate(-50%, -50%); pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
-        }
-        .sidebar-profile-wrapper:hover::before { opacity: 1; }
-        .sidebar-profile-wrapper:hover { background: rgba(255,255,255,0.1); }
-        
-        .sidebar-profile { text-align: center; padding: 20px 10px 15px 10px; position: relative; z-index: 2; pointer-events: none;}
-        .sidebar-profile img { width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--neon-cyan); margin-bottom: 10px; object-fit: cover; box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);}
-        .sidebar-profile h3 { color: var(--text-main); font-size: 14px; letter-spacing: 1px; font-weight: 600; text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.8);}
-        .sidebar-profile p { color: var(--text-muted); font-size: 10px; }
-
-        /* Dropdown content */
-        .admin-menu-content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease; }
-        .admin-menu-content.open { grid-template-rows: 1fr; }
-        .admin-menu-inner { overflow: hidden; }
-        .admin-menu-list { list-style: none; padding: 10px; margin: 0; border-top: 1px solid var(--glass-border); }
-        .admin-menu-list li { padding: 8px 10px; color: var(--text-main); font-size: 11px; text-align: center; border-radius: 8px; transition: 0.3s; margin-bottom: 5px; font-weight: 600;}
-        .admin-menu-list li:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 10px var(--neon-cyan);}
-        .admin-menu-list li.logout-opt { background: rgba(231,76,60,0.2); color:#ff4d4d; }
-        .admin-menu-list li.logout-opt:hover { background: #ff4d4d; color:#fff; box-shadow: 0 0 10px #ff4d4d;}
-
-        .nav-items { display: flex; flex-direction: column; gap: 5px; width: 100%; overflow-y: auto; padding: 0 15px;}
-        .nav-item {
-            position: relative; padding: 12px 20px; color: var(--text-muted); font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 15px; transition: 0.3s; border-radius: 15px; margin-bottom: 5px; border: 1px solid transparent;
-        }
-        .nav-item .icon { font-size: 18px; color: var(--text-muted); transition: 0.3s;}
-        .nav-item:hover { color: #fff; background: rgba(255,255,255,0.1); border-color: var(--glass-border);}
-        .nav-item:hover .icon { transform: scale(1.2); color: var(--neon-cyan);}
-        
-        .nav-item.active { background: rgba(255,255,255,0.15); color: #fff; border-color: var(--glass-border); box-shadow: inset 0 0 10px rgba(255,255,255,0.1);}
-        .nav-item.active .icon { color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan);}
-
-        .active-users-widget { margin-top: auto; padding: 20px; text-align: left; z-index: 2;}
-        .active-users-widget h4 { color: var(--neon-cyan); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; margin-left: 20px;}
-        .user-avatars { display: flex; align-items: center; margin-left: 20px;}
-        .user-avatars img { width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); margin-left: -10px; background:#fff; object-fit: cover;}
-        .user-avatars img:first-child { margin-left: 0; }
-        .more-users { width: 30px; height: 30px; border-radius: 50%; background: var(--neon-cyan); color: #000; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; margin-left: -10px; border: 2px solid rgba(255,255,255,0.2); z-index: 5;}
-
-        /* 2. CENTER CONTENT */
-        .dash-center { flex-grow: 1; display: flex; flex-direction: column; overflow-y: auto; padding: 10px 10px 20px 0; }
-        .dash-center::-webkit-scrollbar { width: 6px; }
-        .dash-center::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 6px; }
-
-        /* Floating Header Area */
-        .dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-radius: 30px !important; padding: 15px 30px !important;}
-        .dash-header-title h1 { font-size: 24px; color: var(--text-main); font-weight: 700; margin-bottom: -5px;}
-        .dash-header-title .urdu-text { font-size: 22px; color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0,240,255,0.5);}
-        
-        .header-tools { display: flex; align-items: center; gap: 15px; }
-        .lang-select, .theme-toggle-btn { padding: 8px 15px; border-radius: 20px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.1); color: #fff; font-size: 12px; font-weight: 600; cursor: pointer; outline: none; transition: 0.3s; backdrop-filter: blur(10px);}
-        .lang-select option { background: #1a1a1a; color: #fff; }
-        .theme-toggle-btn:hover, .lang-select:hover { background: rgba(255,255,255,0.2); box-shadow: 0 0 15px rgba(255,255,255,0.2);}
-        .logout-btn-head { background: rgba(231,76,60,0.8); color: #fff; border:1px solid rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: 0.3s; backdrop-filter: blur(10px);}
-        .logout-btn-head:hover { background: #e74c3c; box-shadow: 0 0 15px rgba(231,76,60,0.6);}
-
-        /* Top Grid Cards (Colorful Glass) */
-        .dash-top-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 25px; }
-        .top-card {
-            border-radius: 24px !important; padding: 25px; position: relative; overflow: hidden;
-            display: flex; flex-direction: column; justify-content: space-between;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer;
-        }
-        .top-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.6) !important; border-color: rgba(255,255,255,0.4) !important;}
-        
-        .top-card h3 { font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 5px; }
-        .top-card h1 { font-size: 36px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; text-shadow: 0 2px 10px rgba(0,0,0,0.5);}
-        .top-card .card-icon { font-size: 40px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)); transition: 0.4s;}
-        .top-card:hover .card-icon { transform: scale(1.1) rotate(5deg); }
-        
-        /* Coloring the 3 main cards with neon glows */
-        .top-card:nth-child(1) h1 { color: var(--neon-cyan); text-shadow: 0 0 15px rgba(0,240,255,0.5);}
-        .top-card:nth-child(2) h1 { color: var(--neon-green); text-shadow: 0 0 15px rgba(0,255,102,0.5);}
-        .top-card:nth-child(3) h1 { color: var(--neon-orange); text-shadow: 0 0 15px rgba(255,153,0,0.5);}
-
-        /* Main Content Grid */
-        .dash-main-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
-        
-        .premium-box { border-radius: 24px !important; padding: 25px; animation: fadeIn 0.6s ease; transition:0.4s ease; }
-        .premium-box:hover { border-color: rgba(255,255,255,0.3) !important; box-shadow: 0 15px 40px rgba(0,0,0,0.6) !important;}
-        .box-title { color: var(--text-main); font-size: 18px; font-weight: 600; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; text-shadow: 0 2px 5px rgba(0,0,0,0.8);}
-        
-        .list-header { display: grid; grid-template-columns: 2fr 1fr 1fr; font-size: 11px; color: var(--text-muted); padding-bottom: 10px; border-bottom: 1px dashed rgba(255,255,255,0.1); margin-bottom: 15px;}
-        .list-item { display: grid; grid-template-columns: 2fr 1fr 1fr; align-items: center; padding: 12px 0; border-bottom: 1px dashed rgba(255,255,255,0.1); transition: 0.3s; cursor:pointer;}
-        .list-item:hover { transform: scale(1.02); border-radius: 12px; padding: 12px 10px; margin: 0 -10px; background: rgba(255,255,255,0.05);}
-        .list-item:last-child { border-bottom: none; }
-        
-        .list-user { display: flex; align-items: center; gap: 12px; }
-        .list-user img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.2);}
-        .list-user h4 { font-size: 13px; color: var(--text-main); font-weight: 600; }
-        .list-user p { font-size: 11px; color: var(--text-muted); }
-        
-        .status-badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 5px 12px; border-radius: 12px; font-size: 11px; font-weight: bold; text-align: center; width: max-content; box-shadow: 0 4px 10px rgba(0,0,0,0.3);}
-        .price-text { font-weight: 600; color: var(--text-main); font-size: 13px;}
-
-        /* ========================================================
-           SUB-PAGES STYLING (GLASS MODE)
-           ======================================================== */
-        .sub-page-main { width: 100%; padding: 10px 0px 20px 10px; height: 100vh; overflow-y: auto; animation: fadeIn 0.6s ease; }
-        .sub-page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 15px 30px !important; border-radius: 30px !important;}
-        .sub-page-header h1 { color: var(--neon-cyan); font-size: 32px; font-weight: bold; margin: 0; text-shadow: 0 0 15px rgba(0,240,255,0.4); }
-        
-        .btn-action { padding: 10px 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 30px; font-size: 12px; font-weight: 600; cursor: pointer; background: rgba(255,255,255,0.1); color: #fff; transition: 0.3s; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .btn-action:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.5); background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.4);}
-        
-        .input-group label { color: var(--text-muted); font-size: 12px; font-weight: 600; margin-bottom: 5px; display: block; letter-spacing: 1px;}
-        .input-control { padding: 12px 15px; border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; background: rgba(0,0,0,0.4); color: #fff; font-size: 13px; outline: none; transition: 0.3s; width: 100%; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);}
-        .input-control:focus { border-color: var(--neon-cyan); background: rgba(0,0,0,0.6); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 2px 5px rgba(0,0,0,0.5); }
-        
-        /* Compact Tables */
-        .table-container { border-radius: 20px !important; padding: 15px !important; overflow-x: auto; margin-bottom: 20px; transition: 0.4s ease;}
-        .table-container::-webkit-scrollbar { height: 6px; width: 6px;}
-        .table-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
-        
-        table { width: 100%; border-collapse: collapse; min-width: 1000px; font-size: 11px;}
-        table th { background: rgba(0,0,0,0.3); color: var(--neon-cyan); padding: 8px 2px; text-align: center; border-bottom: 2px solid var(--neon-cyan); white-space: nowrap;}
-        table th .urdu-th { font-size: 15px; display: block; font-weight: normal; color: #fff; margin-top: 2px;}
-        table td { padding: 4px 2px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #fff; text-align: center; vertical-align: middle; border-right: 1px solid rgba(255,255,255,0.02);}
-        
-        .table-input { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); color: #fff; text-align: center; font-size: 11px; border-radius: 6px; padding: 4px; outline: none; transition: 0.3s; height: 26px; min-width: 40px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);}
-        .table-input:focus { border-color: var(--neon-cyan); background: rgba(0,0,0,0.7); box-shadow: 0 0 8px rgba(0,240,255,0.4);}
-        input[type="date"].table-input, input[type="time"].table-input { padding: 0; min-width: 75px; font-size: 10px;}
-
-        .text-success { color: var(--neon-green) !important; font-weight: bold; text-shadow: 0 0 5px rgba(0,255,102,0.3);} 
-        .text-danger { color: var(--neon-pink) !important; font-weight: bold; text-shadow: 0 0 5px rgba(255,0,127,0.3);}
-        .col-pending { color: var(--neon-orange) !important; font-weight:bold; background: rgba(255,153,0,0.1); }
-        .col-correct { color: var(--neon-green) !important; font-weight:bold; background: rgba(0,255,102,0.1); }
-        .col-wrong { color: var(--neon-pink) !important; font-weight:bold; background: rgba(255,0,127,0.1); }
-        .col-edited { color: var(--neon-purple) !important; font-weight:bold; background: rgba(176,38,255,0.1); }
-
-        /* ========================================================
-           HEXAGONAL LOGIN PAGE (Glass)
-           ======================================================== */
-        #login-page { display: flex; justify-content: center; align-items: center; height: 100vh; position: absolute; width: 100%; z-index: 1000; padding: 20px;}
-        
-        .hex-login-wrapper {
-            position: relative; width: 380px; padding: 60px 30px 40px;
-            display: flex; flex-direction: column; align-items: center; z-index: 1; border-radius: 0 !important;
-            background: transparent !important; border: none !important; box-shadow: none !important; backdrop-filter: none !important;
-        }
-        .hex-bg {
-            position: absolute; top: 40px; left: 0; right: 0; bottom: 0;
-            background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-            clip-path: polygon(50% 0%, 100% 15%, 100% 85%, 50% 100%, 0% 85%, 0% 15%);
-            z-index: -1; border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-        }
-
-        .hex-profile-icon {
-            width: 80px; height: 80px; background: rgba(255,255,255,0.1); color: #fff; font-size: 35px;
-            display: flex; align-items: center; justify-content: center; border: 1px solid var(--glass-border);
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            margin-top: -80px; margin-bottom: 20px; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            backdrop-filter: blur(10px);
-        }
-        
-        .hex-login-wrapper h2 { color: #fff; margin-bottom: 25px; font-weight: 400; font-size: 26px; text-shadow: 0 2px 5px rgba(0,0,0,0.8);}
-        
-        .hex-input-group {
-            display: flex; align-items: center; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
-            clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0 50%);
-            width: 100%; height: 45px; margin-bottom: 15px; padding: 0 25px; transition: 0.3s; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
-        }
-        .hex-input-group:focus-within { transform: scale(1.02); border-color: var(--neon-cyan); background: rgba(0,0,0,0.6);}
-        
-        .hex-input-group input { border: none; outline: none; background: transparent; flex-grow: 1; padding: 0 10px; color: #fff; font-size:13px;}
-        .hex-input-group .icon { color: rgba(255,255,255,0.6); font-size: 16px; width:20px; text-align:center;}
-        .hex-input-group:focus-within .icon { color: var(--neon-cyan); }
-        
-        .hex-btn {
-            background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2);
-            clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%);
-            width: 80%; height: 45px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.3s;
-            margin-top: 10px; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); backdrop-filter: blur(5px);
-        }
-        .hex-btn:hover { background: rgba(255,255,255,0.25); transform: scale(1.05); border-color: var(--neon-cyan); color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan);}
-        
-        .hex-footer { display: flex; justify-content: space-between; width: 100%; margin-top: 25px; font-size: 11px; color: rgba(255,255,255,0.7); }
-        .hex-footer a { color: #fff; text-decoration: none; font-weight:600;}
-        .hex-footer a:hover { color: var(--neon-cyan); text-shadow: 0 0 5px var(--neon-cyan);}
-        .hex-footer label { display:flex; align-items:center; gap:5px; cursor:pointer;}
-
-        /* Tabs & Display */
-        #dashboard-page { display: block; }
-        #whatsapp-report-page, #muftiyan-page, #branches-page, #settings-page, #social-media-page, #whatsapp-suwalat-page, #reports-page { display: none; }
-
-        .report-tabs-wrapper { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px; }
-        .report-tab { border-radius: 16px !important; padding: 15px 25px; cursor: pointer; transition: 0.3s; text-align: center; min-width: 150px; }
-        .report-tab:hover { border-color: rgba(255,255,255,0.4) !important; transform: translateY(-3px); }
-        .report-tab.active-tab { background: rgba(255,255,255,0.15) !important; color: var(--neon-cyan) !important; border-color: var(--neon-cyan) !important; box-shadow: 0 0 20px rgba(0,240,255,0.3) !important; }
-        .report-tab .tab-icon { font-size: 24px; margin-bottom: 5px; display: block; }
-        .report-section { display: none; animation: fadeIn 0.5s ease; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Compact rules for Suwalat Page */
-        .ws-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-bottom: 20px; padding-right:10px;}
-        .ws-summary-boxes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 20px; padding-right:10px;}
-        .ws-stat-box { border-radius: 16px !important; padding: 15px !important; text-align: center; transition:0.3s;}
-        .ws-stat-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.6) !important;}
-        .ws-stat-box h3 { font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 1px;}
-        .ws-stat-box h1 { font-size: 24px; font-weight: bold; margin-top: 5px; text-shadow: 0 2px 5px rgba(0,0,0,0.5);}
-        
-        /* Colorful borders for summary boxes */
-        .ws-stat-box:nth-child(1) { border-bottom: 3px solid var(--neon-orange) !important; }
-        .ws-stat-box:nth-child(1) h1 { color: var(--neon-orange); }
+        .ws-summary-boxes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 20px;}
+        .ws-stat-box { border-radius: 20px !important; padding: 15px !important; text-align: center; transition:0.3s;}
+        .ws-stat-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.5) !important;}
+        .ws-stat-box h3 { font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 600;}
+        .ws-stat-box h1 { font-size: 26px; font-weight: bold; margin-top: 5px; color: #fff;}
+        .ws-stat-box:nth-child(1) { border-bottom: 3px solid var(--neon-cyan) !important; }
         .ws-stat-box:nth-child(2) { border-bottom: 3px solid var(--neon-green) !important; }
-        .ws-stat-box:nth-child(2) h1 { color: var(--neon-green); }
-        .ws-stat-box:nth-child(3) { border-bottom: 3px solid var(--neon-pink) !important; }
-        .ws-stat-box:nth-child(3) h1 { color: var(--neon-pink); }
-        .ws-stat-box:nth-child(4) { border-bottom: 3px solid var(--neon-cyan) !important; }
-        .ws-stat-box:nth-child(4) h1 { color: var(--neon-cyan); }
-        .ws-stat-box:nth-child(5) { border-bottom: 3px solid var(--neon-purple) !important; }
-        .ws-stat-box:nth-child(5) h1 { color: var(--neon-purple); }
+        .ws-stat-box:nth-child(3) { border-bottom: 3px solid var(--neon-orange) !important; }
+        .ws-stat-box:nth-child(4) { border-bottom: 3px solid var(--neon-purple) !important; }
+        .ws-stat-box:nth-child(5) { border-bottom: 3px solid var(--neon-pink) !important; }
 
         /* ========================================================
-           GLOWING GLASS CARDS FOR MUFTIYAN (Strict Jameel Noori)
+           GLOWING GLASS CARDS FOR MUFTIYAN (Jameel Noori Font)
            ======================================================== */
         .mufti-cards-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; padding-right: 10px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;
         }
         .mufti-glass-card {
-            background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; position: relative; overflow: hidden; display: flex; align-items: center; gap: 15px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: var(--glass-shadow);
+            border-radius: 24px !important; padding: 25px !important; display: flex; align-items: center; gap: 20px; transition: all 0.4s ease; overflow: hidden; position: relative;
         }
-
         .mufti-glass-card::before {
             content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%;
-            background: var(--card-color, #00F0FF); box-shadow: 0 0 15px var(--card-color, #00F0FF);
+            background: var(--card-color, #00F0FF); box-shadow: 0 0 20px var(--card-color, #00F0FF);
         }
-        .mufti-glass-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 20px var(--card-color, #00F0FF); border-color: rgba(255,255,255,0.3); }
+        .mufti-glass-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.1) !important; border-color: rgba(255,255,255,0.4) !important; }
 
         .mufti-photo-box {
-            position: relative; width: 80px; height: 80px; flex-shrink: 0; cursor: pointer; border-radius: 50%;
-            border: 2px solid var(--card-color, #00F0FF); box-shadow: 0 0 15px var(--card-color, #00F0FF); overflow: hidden;
+            position: relative; width: 85px; height: 85px; flex-shrink: 0; cursor: pointer; border-radius: 50%;
+            border: 3px solid var(--card-color, #00F0FF); box-shadow: 0 0 15px var(--card-color, #00F0FF), inset 0 0 10px rgba(0,0,0,0.5); overflow: hidden;
         }
         .mufti-photo-box img { width: 100%; height: 100%; object-fit: cover; }
         .mufti-photo-box::after {
@@ -574,24 +297,72 @@
         }
         .mufti-photo-box:hover::after { opacity: 1; }
 
-        .mufti-info-box { flex-grow: 1; display: flex; flex-direction: column; gap: 4px; text-align: right; }
+        .mufti-info-box { flex-grow: 1; display: flex; flex-direction: column; gap: 5px; text-align: right; }
         
-        /* Strict Jameel Noori Nastaleeq for Mufti Cards */
-        .mufti-info-name, .mufti-info-label, .mufti-info-item span {
-            font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif !important;
-        }
-        .mufti-info-name { font-size: 28px; font-weight: normal; color: #ffffff; margin-bottom: 2px; text-shadow: 0 2px 5px rgba(0,0,0,0.8);}
-        .mufti-info-item { display: flex; justify-content: space-between; direction: rtl; align-items: baseline; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 2px;}
+        .mufti-info-name, .mufti-info-label, .mufti-info-item span { font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif !important; }
+        .mufti-info-name { font-size: 28px; font-weight: normal; color: #ffffff; margin-bottom: 5px; text-shadow: 0 2px 5px rgba(0,0,0,0.8);}
+        .mufti-info-item { display: flex; justify-content: space-between; direction: rtl; align-items: baseline; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 2px;}
         .mufti-info-item:last-child { border-bottom: none;}
-        .mufti-info-item span { font-size: 22px; color: #E8F0ED; }
-        .mufti-info-label { color: rgba(255, 255, 255, 0.5) !important; font-size: 18px !important; margin-left: 8px;}
+        .mufti-info-item span { font-size: 22px; color: #fff; }
+        .mufti-info-label { color: var(--text-muted) !important; font-size: 18px !important; margin-left: 8px;}
+
+        /* ========================================================
+           HEXAGONAL GLASS LOGIN PAGE
+           ======================================================== */
+        #login-page { display: flex; justify-content: center; align-items: center; height: 100vh; position: absolute; width: 100%; z-index: 1000; padding: 20px; background: inherit;}
+        
+        .hex-login-wrapper {
+            position: relative; width: 380px; padding: 70px 30px 40px; display: flex; flex-direction: column; align-items: center; z-index: 1; border-radius: 0 !important;
+            background: transparent !important; border: none !important; box-shadow: none !important; backdrop-filter: none !important;
+        }
+        .hex-bg {
+            position: absolute; top: 40px; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            clip-path: polygon(50% 0%, 100% 15%, 100% 85%, 50% 100%, 0% 85%, 0% 15%);
+            z-index: -1; border: 1px solid rgba(255,255,255,0.3); border-top: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .hex-profile-icon {
+            width: 90px; height: 90px; background: rgba(255,255,255,0.15); color: #fff; font-size: 40px;
+            display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.4);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            margin-top: -85px; margin-bottom: 25px; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
+        }
+        
+        .hex-login-wrapper h2 { color: #fff; margin-bottom: 30px; font-weight: 500; font-size: 26px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); letter-spacing: 1px;}
+        
+        .hex-input-group {
+            display: flex; align-items: center; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);
+            clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0 50%);
+            width: 100%; height: 50px; margin-bottom: 15px; padding: 0 25px; transition: 0.3s; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+        }
+        .hex-input-group:focus-within { transform: scale(1.02); border-color: var(--neon-cyan); background: rgba(0,0,0,0.6);}
+        .hex-input-group input { border: none; outline: none; background: transparent; flex-grow: 1; padding: 0 15px; color: #fff; font-size:14px;}
+        .hex-input-group .icon { color: rgba(255,255,255,0.6); font-size: 18px; width:25px; text-align:center; transition:0.3s;}
+        .hex-input-group:focus-within .icon { color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); }
+        
+        .hex-btn {
+            background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3);
+            clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%);
+            width: 80%; height: 50px; font-size: 15px; font-weight: 600; cursor: pointer; transition: 0.3s;
+            margin-top: 15px; letter-spacing: 2px; box-shadow: 0 8px 20px rgba(0,0,0,0.4); backdrop-filter: blur(5px);
+        }
+        .hex-btn:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); border-color: var(--neon-cyan); color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan);}
+        
+        .hex-footer { display: flex; justify-content: space-between; width: 100%; margin-top: 30px; font-size: 12px; color: rgba(255,255,255,0.7); }
+        .hex-footer a { color: #fff; text-decoration: none; font-weight:600; transition:0.3s;}
+        .hex-footer a:hover { color: var(--neon-cyan); text-shadow: 0 0 5px var(--neon-cyan);}
+        .hex-footer label { display:flex; align-items:center; gap:5px; cursor:pointer;}
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
     </style>
 </head>
-<body class="dark-mode"> <!-- Added dark-mode class by default for the cinematic look -->
+<body>
 
     <!-- ========================================================
-         LOGIN PAGE (HEXAGON GLASS STYLE)
+         LOGIN PAGE (FROSTED HEXAGON)
          ======================================================== -->
     <div id="login-page">
         <div class="hex-login-wrapper" id="login-form-box">
@@ -606,7 +377,7 @@
             <div class="hex-input-group eng-text">
                 <span class="icon">🔒</span>
                 <input type="password" placeholder="Password">
-                <span class="icon" style="font-size:12px; cursor:pointer;">👁️</span>
+                <span class="icon" style="font-size:14px; cursor:pointer;">👁️</span>
             </div>
             
             <button class="hex-btn eng-text" onclick="processLogin()">LOGIN</button>
@@ -619,250 +390,286 @@
     </div>
 
     <!-- ========================================================
-         MAIN DASHBOARD (GLASS LIBRARY THEME)
+         FLOATING TOP NAV (Like Screenshot)
          ======================================================== -->
-    <div id="dashboard-page">
-        <div class="dashboard-wrapper">
-            
-            <!-- 1. GLASS SIDEBAR -->
-            <aside class="dash-sidebar premium-box">
-                
-                <!-- Animated Admin Widget -->
-                <div class="sidebar-profile-wrapper" id="admin-widget" onclick="toggleAdminMenu()">
-                    <div class="sidebar-profile">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Admin">
-                        <h3 class="eng-text">SYSTEM ADMIN</h3>
-                        <p class="eng-text">admin@darulifta.com</p>
-                    </div>
-                    <!-- Dropdown Section -->
-                    <div class="admin-menu-content" id="admin-menu-content">
-                        <div class="admin-menu-inner">
-                            <ul class="admin-menu-list eng-text">
-                                <li onclick="event.stopPropagation(); openSettings()">⚙️ Settings & Profile</li>
-                                <li class="logout-opt" onclick="event.stopPropagation(); logout()">🚪 Logout Account</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="nav-items eng-text">
-                    <div class="nav-item active" onclick="location.reload()">
-                        <span class="icon">🏠</span> DASHBOARD
-                    </div>
-                    <div class="nav-item" onclick="openWhatsAppSuwalat()">
-                        <span class="icon">💬</span> W.A SUWALAT
-                    </div>
-                    <div class="nav-item" onclick="openWhatsAppReport()">
-                        <span class="icon">📝</span> W.A REPORT
-                    </div>
-                    <div class="nav-item" onclick="openMuftiyan()">
-                        <span class="icon">👳</span> MUFTIYAN
-                    </div>
-                    <div class="nav-item" onclick="openReports()">
-                        <span class="icon">📊</span> REPORTS
-                    </div>
-                    <div class="nav-item" onclick="openSocialMedia()">
-                        <span class="icon">🌐</span> SOCIAL MEDIA
-                    </div>
-                    <div class="nav-item" onclick="openSettings()">
-                        <span class="icon">⚙️</span> SETTINGS
-                    </div>
-                </div>
-
-                <div class="active-users-widget eng-text">
-                    <h4>Active Branches</h4>
-                    <div class="user-avatars">
-                        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
-                        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
-                        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
-                        <div class="more-users">+2</div>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- 2. CENTER CONTENT -->
-            <main class="dash-center">
-                <!-- Floating Glass Header -->
-                <header class="dash-header premium-box">
-                    <div class="dash-header-title">
-                        <h1 class="eng-text">Overview</h1>
-                        <h3 class="urdu-text">مرکزی ڈیش بورڈ</h3>
-                    </div>
-                    <div class="header-tools">
-                        <button class="theme-toggle-btn eng-text" onclick="toggleTheme()">🌓 Dark Mode</button>
-                        <select class="lang-select eng-text">
-                            <option value="ur">Urdu (اردو)</option>
-                            <option value="en">English</option>
-                        </select>
-                    </div>
-                </header>
-
-                <!-- Top Grid Cards (Glass Neon) -->
-                <div class="dash-top-grid">
-                    <div class="top-card" onclick="openWhatsAppSuwalat()">
-                        <div>
-                            <h3 class="eng-text">Today's Suwalat</h3>
-                            <h1 class="eng-text">145 <span class="card-icon">📩</span></h1>
-                        </div>
-                        <p class="urdu-text" style="font-size: 20px; margin-top: 10px;">آج موصول ہوئے</p>
-                    </div>
-                    
-                    <div class="top-card" onclick="openReports()">
-                        <div>
-                            <h3 class="eng-text">Total Answered</h3>
-                            <h1 class="eng-text">9,178 <span class="card-icon">✅</span></h1>
-                        </div>
-                        <p class="urdu-text" style="font-size: 20px; margin-top: 10px; color: rgba(255,255,255,0.7);">جواب دیئے گئے</p>
-                    </div>
-                    
-                    <div class="top-card" onclick="openReports()">
-                        <div>
-                            <h3 class="eng-text">Total Pending</h3>
-                            <h1 class="eng-text">850 <span class="card-icon">⏳</span></h1>
-                        </div>
-                        <p class="urdu-text" style="font-size: 20px; margin-top: 10px; color: rgba(255,255,255,0.7);">باقی سوالات</p>
-                    </div>
-                </div>
-
-                <!-- Main Grid (Lists & Charts) -->
-                <div class="dash-main-grid">
-                    <!-- Left Big Box -->
-                    <div class="premium-box">
-                        <div class="box-title eng-text">
-                            Darulifta Status
-                            <span style="font-size:12px; color:var(--text-muted); font-weight:normal;">Overview of latest month</span>
-                        </div>
-                        
-                        <div class="list-header eng-text">
-                            <div>BRANCH</div>
-                            <div style="text-align:center;">STATUS</div>
-                            <div style="text-align:right;">PENDING</div>
-                        </div>
-                        
-                        <div class="list-item" onclick="openWhatsAppReport()">
-                            <div class="list-user">
-                                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
-                                <div><h4 class="eng-text">Nagpur Branch</h4><p class="urdu-text" style="font-size:16px;">ناگپور دارالافتاء</p></div>
-                            </div>
-                            <div style="text-align:center;"><span class="status-badge eng-text" style="color:var(--neon-green); border-color:var(--neon-green);">Active</span></div>
-                            <div style="text-align:right;" class="price-text eng-text">120 Qs</div>
-                        </div>
-                        
-                        <div class="list-item" onclick="openWhatsAppReport()">
-                            <div class="list-user">
-                                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
-                                <div><h4 class="eng-text">Mumbai Branch</h4><p class="urdu-text" style="font-size:16px;">ممبئی دارالافتاء</p></div>
-                            </div>
-                            <div style="text-align:center;"><span class="status-badge eng-text" style="color:var(--neon-green); border-color:var(--neon-green);">Active</span></div>
-                            <div style="text-align:right;" class="price-text eng-text">85 Qs</div>
-                        </div>
-                        
-                        <div class="list-item" onclick="openWhatsAppReport()">
-                            <div class="list-user">
-                                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
-                                <div><h4 class="eng-text">Ahmedabad Branch</h4><p class="urdu-text" style="font-size:16px;">احمدآباد دارالافتاء</p></div>
-                            </div>
-                            <div style="text-align:center;"><span class="status-badge eng-text" style="color:var(--neon-green); border-color:var(--neon-green);">Active</span></div>
-                            <div style="text-align:right;" class="price-text eng-text">45 Qs</div>
-                        </div>
-                    </div>
-
-                    <!-- Right Side Boxes -->
-                    <div style="display:flex; flex-direction:column; gap:20px;">
-                        <div class="premium-box" style="flex-grow:1;">
-                            <div class="box-title eng-text">Social Media <span style="font-size:12px; cursor:pointer; color:var(--neon-cyan);" onclick="openSocialMedia()">View All</span></div>
-                            <div style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
-                                <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span class="eng-text" style="font-size:14px; font-weight:600;"><span style="color:var(--neon-green); font-size:18px;">💬</span> WhatsApp</span>
-                                    <span class="status-badge eng-text" style="color:var(--neon-green); border-color:var(--neon-green);">Active</span>
-                                </div>
-                                <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span class="eng-text" style="font-size:14px; font-weight:600;"><span style="color:var(--neon-pink); font-size:18px;">▶</span> YouTube</span>
-                                    <span class="status-badge eng-text" style="color:var(--neon-pink); border-color:var(--neon-pink);">Pending</span>
-                                </div>
-                                <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span class="eng-text" style="font-size:14px; font-weight:600;"><span style="color:var(--neon-cyan); font-size:18px;">📘</span> Facebook</span>
-                                    <span class="status-badge eng-text" style="color:var(--neon-green); border-color:var(--neon-green);">Active</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="premium-box" style="padding:15px; text-align:center; cursor:pointer; border: 1px solid rgba(255,255,255,0.3) !important;" onclick="openMuftiyan()">
-                            <h3 class="eng-text" style="margin-bottom:5px; color:#fff;">Muftiyan Directory</h3>
-                            <p class="urdu-text" style="color:var(--neon-cyan); font-size:18px; text-shadow:0 0 5px rgba(0,240,255,0.4);">مفتیان کرام کی فہرست دیکھیں</p>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </div>
-
+    <nav class="top-pill-nav glass-panel eng-text" id="main-top-nav" style="display:none;">
+        <div class="top-menu-item active" onclick="openReports()">W.A Reports</div>
+        <div class="top-menu-item" onclick="openMuftiyan()">Muftiyan</div>
+        <div class="top-menu-item" onclick="openBranches()">Branches</div>
+        <div class="top-menu-item" onclick="openSocialMedia()">Social Media</div>
+        <div class="top-menu-item" onclick="openSettings()">Settings</div>
+    </nav>
 
     <!-- ========================================================
-         ALL OTHER SUB-PAGES
+         FLOATING SIDE NAV (Like Screenshot)
          ======================================================== -->
-         
-    <!-- 1. WHATSAPP SUWALAT PAGE -->
-    <div id="whatsapp-suwalat-page">
-        <div class="sub-page-main">
-            <div class="sub-page-header premium-box">
-                <button class="btn-action eng-text" onclick="closeSubPage('whatsapp-suwalat-page')">⬅ Back</button>
+    <nav class="side-pill-nav glass-panel eng-text" id="main-side-nav" style="display:none;">
+        <div class="side-icon active" title="Dashboard" onclick="location.reload()">
+            <span class="icon">🏠</span>
+        </div>
+        <div class="side-icon" title="W.A Suwalat" onclick="openWhatsAppSuwalat()">
+            <span class="icon">💬</span>
+        </div>
+        <div class="side-icon" title="Overall Reports" onclick="openReports()">
+            <span class="icon">📊</span>
+        </div>
+        <div class="side-icon" style="margin-top: 30px; color:#ff4d4d;" title="Logout" onclick="logout()">
+            <span class="icon">🚪</span>
+        </div>
+    </nav>
+
+    <!-- ========================================================
+         MAIN CONTENT AREA
+         ======================================================== -->
+    <div class="main-container" id="main-content-area" style="display:none;">
+        
+        <!-- DASHBOARD GRID (Exact Match to Screenshot Layout) -->
+        <div id="dashboard-page" class="page-content active dashboard-grid">
+            
+            <!-- Card 1: Thermostat Style (Today's Suwalat) -->
+            <div class="dash-card glass-panel card-weather">
+                <div class="weather-info">
+                    <div class="weather-icon">☁️</div>
+                    <div class="weather-temp eng-text">
+                        <h1>26°C</h1>
+                        <p style="font-size:12px; color:var(--text-muted);">Darul Ifta, Nagpur</p>
+                    </div>
+                </div>
+                
+                <div class="card-header eng-text" style="justify-content:center; margin-top:10px;">
+                    <span class="card-title">Daily Fatwa Progress</span>
+                </div>
+                
+                <div class="thermostat-dial">
+                    <div class="thermostat-inner eng-text">
+                        <h2>85%</h2>
+                        <p>Answered Today</p>
+                    </div>
+                </div>
+                
+                <div class="action-icons eng-text">
+                    <div class="action-btn" onclick="openWhatsAppSuwalat()">
+                        <div class="act-icon" style="color:var(--neon-orange);">🔥</div>
+                        <p>New Qs</p>
+                    </div>
+                    <div class="action-btn" onclick="openReports()">
+                        <div class="act-icon" style="color:var(--neon-cyan);">❄️</div>
+                        <p>Pending</p>
+                    </div>
+                    <div class="action-btn">
+                        <div class="act-icon" style="color:var(--neon-purple);">💨</div>
+                        <p>Typing</p>
+                    </div>
+                    <div class="action-btn">
+                        <div class="act-icon" style="color:var(--neon-green);">⏱️</div>
+                        <p>Research</p>
+                    </div>
+                </div>
+                
+                <div class="members-area eng-text">
+                    <div>
+                        <div style="font-size:12px; font-weight:600; margin-bottom:5px;">Active Muftiyan</div>
+                        <div class="members-faces">
+                            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+                            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+                            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+                            <span style="font-size:10px; margin-left:5px; color:var(--text-muted);">+17</span>
+                        </div>
+                    </div>
+                    <button class="add-btn" onclick="openMuftiyan()">+</button>
+                </div>
+            </div>
+
+            <!-- Card 2: Energy Chart Style (Weekly Reports) -->
+            <div class="dash-card glass-panel card-chart" onclick="openReports()">
+                <div class="card-header eng-text">
+                    <span class="card-title">Fatwa Trend (Weekly)</span>
+                    <span class="card-badge">This Month</span>
+                </div>
+                <!-- SVG Chart Mockup -->
+                <svg class="chart-svg" viewBox="0 0 500 100" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--neon-cyan);stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:var(--neon-cyan);stop-opacity:0" />
+                        </linearGradient>
+                    </defs>
+                    <path class="chart-fill" d="M0,80 L50,60 L150,90 L250,30 L350,70 L450,20 L500,40 L500,100 L0,100 Z"></path>
+                    <path class="chart-path" d="M0,80 L50,60 L150,90 L250,30 L350,70 L450,20 L500,40"></path>
+                    <circle cx="250" cy="30" r="6" fill="#fff" stroke="var(--neon-cyan)" stroke-width="3"></circle>
+                </svg>
+                <div class="chart-popup">1,250 Qs</div>
+                <div style="display:flex; justify-content:space-between; font-size:9px; color:var(--text-muted); margin-top:5px;" class="eng-text">
+                    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Live Camera Style (Live Branches) -->
+            <div class="dash-card glass-panel card-camera" onclick="openBranches()">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop" class="camera-img">
+                <div class="camera-overlay eng-text">
+                    <div style="display:flex; justify-content:space-between;">
+                        <div class="cam-status"><div class="cam-dot"></div> Online</div>
+                        <div class="card-badge" style="background:rgba(0,0,0,0.5);">Nagpur</div>
+                    </div>
+                    <div>
+                        <div class="cam-controls">
+                            <div class="cam-btn">🏢</div>
+                            <div class="cam-btn" style="color:var(--neon-pink);">🔴</div>
+                            <div class="cam-btn">⚙️</div>
+                        </div>
+                        <div style="font-size:11px; text-align:center; text-shadow:0 1px 2px #000;">Branch Activity Stream</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: TV Style (Social Media) -->
+            <div class="dash-card glass-panel card-tv" onclick="openSocialMedia()">
+                <div class="card-header eng-text" style="margin-bottom:0;">
+                    <span class="card-title">Social Platforms</span>
+                    <span class="card-subtitle">Active</span>
+                </div>
+                <div class="tv-poster"></div>
+                <div class="tv-apps eng-text">
+                    <div class="tv-app" style="color:#25D366;">💬</div>
+                    <div class="tv-app" style="color:#FF0000;">▶</div>
+                    <div class="tv-app" style="color:#1877F2;">📘</div>
+                    <div class="tv-app" style="color:#E1306C;">📸</div>
+                </div>
+            </div>
+
+            <!-- Card 5: Lighting Style (Quick Settings) -->
+            <div class="dash-card glass-panel card-lighting">
+                <div class="card-header eng-text" style="margin-bottom:0;">
+                    <div>
+                        <div class="card-title">System Theme</div>
+                        <div class="card-subtitle">Dark Glass</div>
+                    </div>
+                    <div class="toggle-switch" onclick="alert('Theme is locked to Premium Glass Mode.')"><div class="toggle-knob"></div></div>
+                </div>
+                <div class="lighting-bulb">💡</div>
+                <div class="slider-container eng-text">
+                    <span style="font-size:10px;">Brightness</span>
+                    <input type="range" min="1" max="100" value="75" class="glass-slider">
+                    <span style="font-size:10px;">75%</span>
+                </div>
+            </div>
+
+            <!-- Card 6: Homepad Style (Admin Profile) -->
+            <div class="dash-card glass-panel card-homepad" onclick="openSettings()">
+                <div class="card-header eng-text" style="width:100%;">
+                    <div>
+                        <div class="card-title">Admin Hub</div>
+                        <div class="card-subtitle">System Online</div>
+                    </div>
+                    <div class="toggle-switch" style="width:35px; height:18px; background:var(--neon-cyan);"><div class="toggle-knob" style="width:14px; height:14px;"></div></div>
+                </div>
+                <div class="homepad-orb">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" style="width:100%; height:100%; border-radius:50%; object-fit:cover; opacity:0.8; mix-blend-mode: multiply;">
+                </div>
+                <div class="homepad-base"></div>
+                <div style="display:flex; gap:15px; font-size:18px; color:var(--text-muted); margin-top:15px;">
+                    <span>🎵</span><span>🔊</span>
+                </div>
+            </div>
+
+            <!-- Card 7: Front Door Style (Security / Logout) -->
+            <div class="dash-card glass-panel card-door">
+                <div class="card-header eng-text" style="margin-bottom:0;">
+                    <div>
+                        <div class="card-title">Access Control</div>
+                        <div class="card-subtitle">System Secure</div>
+                    </div>
+                    <div style="font-size:24px;">🚪</div>
+                </div>
+                <div class="door-lock eng-text">
+                    <div class="door-btn active">🔒 Lock</div>
+                    <div class="door-btn" onclick="logout()">🔓 Logout</div>
+                </div>
+            </div>
+
+            <!-- Card 8: Music Style (Latest Notification) -->
+            <div class="dash-card glass-panel card-music" onclick="openWhatsAppSuwalat()">
+                <div class="album-art"></div>
+                <div style="flex-grow:1;" class="eng-text">
+                    <div class="card-title" style="margin-bottom:2px;">New Fatwa Request</div>
+                    <div class="card-subtitle">From: 03001234567</div>
+                    <div class="music-controls">
+                        <span>⏮</span><span>▶️</span><span>⏭</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9: Ambient LED Style (Performance Sliders) -->
+            <div class="dash-card glass-panel card-ambient">
+                <div class="card-header eng-text" style="margin-bottom:0;">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span style="color:var(--neon-yellow); font-size:18px; text-shadow:0 0 10px var(--neon-yellow);">💡</span>
+                        <div>
+                            <div class="card-title">Monthly Target</div>
+                            <div class="card-subtitle">Fatwa Completion</div>
+                        </div>
+                    </div>
+                    <div class="cam-dot" style="background:var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink);"></div>
+                </div>
+                
+                <div class="eng-text" style="font-size:11px; margin-top:10px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Target 1</span></div>
+                    <div class="color-track"></div>
+                    
+                    <div style="display:flex; justify-content:space-between; margin-top:10px; margin-bottom:5px;"><span>Completion</span> <span>76%</span></div>
+                    <input type="range" min="1" max="100" value="76" class="glass-slider" style="background:rgba(255,255,255,0.1);">
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================
+             SUB-PAGES (Using Premium Glass Style)
+             ======================================================== -->
+             
+        <!-- 1. WHATSAPP SUWALAT PAGE -->
+        <div id="wa-suwalat-page" class="page-content">
+            <div class="sub-page-header glass-panel">
+                <button class="btn-action eng-text" onclick="showDashboard()">⬅ Back</button>
                 <h1 class="urdu-text">واٹس ایپ سوالات</h1>
             </div>
 
             <div class="ws-summary-boxes">
-                <div class="ws-stat-box premium-box"><h3 class="eng-text">Total Questions</h3><h1 class="eng-text" id="sum-total">0</h1></div>
-                <div class="ws-stat-box premium-box"><h3 class="eng-text">Answered</h3><h1 class="eng-text" id="sum-answered">0</h1></div>
-                <div class="ws-stat-box premium-box"><h3 class="eng-text">Pending</h3><h1 class="eng-text" id="sum-pending">0</h1></div>
-                <div class="ws-stat-box premium-box"><h3 class="eng-text">Research</h3><h1 class="eng-text" id="sum-research">0</h1></div>
-                <div class="ws-stat-box premium-box"><h3 class="eng-text">Typing</h3><h1 class="eng-text" id="sum-typing">0</h1></div>
+                <div class="ws-stat-box glass-panel"><h3 class="eng-text">Total Questions</h3><h1 class="eng-text" id="sum-total">0</h1></div>
+                <div class="ws-stat-box glass-panel"><h3 class="eng-text">Answered</h3><h1 class="eng-text" id="sum-answered">0</h1></div>
+                <div class="ws-stat-box glass-panel"><h3 class="eng-text">Pending</h3><h1 class="eng-text" id="sum-pending">0</h1></div>
+                <div class="ws-stat-box glass-panel"><h3 class="eng-text">Research</h3><h1 class="eng-text" id="sum-research">0</h1></div>
+                <div class="ws-stat-box glass-panel"><h3 class="eng-text">Typing</h3><h1 class="eng-text" id="sum-typing">0</h1></div>
             </div>
 
             <div class="ws-grid">
-                <!-- Form -->
-                <div class="premium-box" style="margin-bottom:0;">
-                    <h2 class="urdu-text" style="color: #fff; margin-bottom: 15px; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom:5px;">نیا سوال درج کریں</h2>
+                <div class="glass-panel" style="padding:25px;">
+                    <h2 class="urdu-text" style="color: var(--text-main); margin-bottom: 20px; border-bottom: 1px solid var(--glass-border-top); padding-bottom:10px;">نیا سوال درج کریں</h2>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div class="input-group">
-                            <label class="eng-text">Date</label>
-                            <input type="date" class="input-control" id="ws-date">
-                        </div>
-                        <div class="input-group">
-                            <label class="eng-text">Mobile</label>
-                            <input type="text" class="input-control" id="ws-mobile" placeholder="0300...">
-                        </div>
+                        <div class="input-group"><label class="eng-text">Date</label><input type="date" class="input-control" id="ws-date"></div>
+                        <div class="input-group"><label class="eng-text">Mobile</label><input type="text" class="input-control" id="ws-mobile" placeholder="0300..."></div>
                         <div class="input-group" style="grid-column: span 2;">
                             <label class="eng-text">Mufti Assign</label>
-                            <select class="input-control" id="ws-mufti">
-                                <option>Mufti Zafar Madani</option><option>Mufti Kashif Madani</option><option>Mufti Sajjad Madani</option>
-                            </select>
+                            <select class="input-control eng-text" id="ws-mufti"><option>Mufti Zafar Madani</option><option>Mufti Kashif Madani</option><option>Mufti Sajjad Madani</option></select>
                         </div>
                         <div class="input-group" style="grid-column: span 2;">
                             <label class="eng-text">Question (Urdu)</label>
                             <textarea class="input-control urdu-text" id="ws-question" rows="3" placeholder="سوال لکھیں..." style="font-size:18px;"></textarea>
                         </div>
                     </div>
-                    <button class="btn-action urdu-text" style="width: 100%; margin-top: 15px; font-size: 24px;" onclick="addNewQuestion()">محفوظ کریں</button>
+                    <button class="btn-action urdu-text" style="width: 100%; margin-top: 20px; font-size: 24px; padding:15px; border-radius:15px;" onclick="addNewQuestion()">محفوظ کریں</button>
                 </div>
 
-                <!-- Table -->
-                <div class="table-container premium-box" style="margin-bottom:0; padding:0 !important; overflow:hidden;">
+                <div class="table-container glass-panel" style="padding:0 !important; overflow:hidden;">
                     <div style="padding:15px; overflow-x: auto; height:100%;">
                         <table id="wa-status-table">
-                            <thead>
-                                <tr>
-                                    <th><span class="eng-text">Mobile</span></th>
-                                    <th><span class="eng-text">Question</span></th>
-                                    <th><span class="eng-text">Mufti</span></th>
-                                    <th><span class="eng-text">Status</span></th>
-                                </tr>
-                            </thead>
+                            <thead><tr><th><span class="eng-text">Mobile</span></th><th><span class="eng-text">Question</span></th><th><span class="eng-text">Mufti</span></th><th><span class="eng-text">Status</span></th></tr></thead>
                             <tbody id="ws-status-body">
                                 <tr>
                                     <td class="eng-text">03001234567</td>
                                     <td class="urdu-text" style="font-size:18px;">کیا سفر میں نماز قصر کرنا ضروری ہے؟</td>
                                     <td class="urdu-text" style="font-size:18px;">مفتی ظفر مدنی</td>
-                                    <td><select class="table-input eng-text"><option selected>🟡 New Question</option><option>✅ Answer Sent</option></select></td>
+                                    <td><select class="table-input eng-text"><option selected>🟡 New</option><option>✅ Sent</option></select></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -870,78 +677,59 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- 2. WHATSAPP REPORT PAGE (20 Rows, Compact Glass Table) -->
-    <div id="whatsapp-report-page">
-        <div class="sub-page-main">
-            <div class="sub-page-header premium-box">
-                <button class="btn-action eng-text" onclick="closeSubPage('whatsapp-report-page')">⬅ Back</button>
+        <!-- 2. WHATSAPP REPORT PAGE (Compact Glass Table) -->
+        <div id="wa-report-page" class="page-content">
+            <div class="sub-page-header glass-panel">
+                <button class="btn-action eng-text" onclick="showDashboard()">⬅ Back</button>
                 <h1 class="urdu-text">واٹس ایپ کارکردگی فارم</h1>
                 <div style="display:flex; gap:10px;">
                     <input type="date" class="input-control eng-text" style="width:auto; padding:8px;" id="report-date">
-                    <button class="btn-action eng-text" style="background: rgba(46,204,113,0.3); border-color:#2ecc71; color:#fff;" onclick="alert('Saved!')">💾 Save Data</button>
+                    <button class="btn-action eng-text" style="background: rgba(6,214,160,0.3); border-color:var(--neon-green); color:#fff; text-shadow:0 0 5px #000;" onclick="alert('Saved!')">💾 Save Data</button>
                 </div>
             </div>
 
-            <div class="table-container premium-box" id="whatsapp-table-area">
+            <div class="table-container glass-panel" id="whatsapp-table-area">
                 <table id="report-table-id">
                     <thead>
                         <tr>
-                            <th><span class="urdu-th">نمبر</span></th>
-                            <th><span class="urdu-th">دارالافتاء</span></th>
-                            <th><span class="urdu-th">مفتی کا نام</span></th>
-                            <th><span class="urdu-th">مُصَدِّق</span></th>
-                            <th><span class="urdu-th">کل بھیجے</span></th>
-                            <th><span class="urdu-th">آج بھیجے</span></th>
-                            <th><span class="urdu-th">وقت</span></th>
-                            <th><span class="urdu-th">ٹائم جواب</span></th>
-                            <th><span class="urdu-th">جواب تاریخ</span></th>
-                            <th><span class="urdu-th">تاخیر بعذر</span></th>
-                            <th><span class="urdu-th">تاخیر بلاعذر</span></th>
-                            <th><span class="urdu-th">تاخیر وجہ</span></th>
-                            <th><span class="urdu-th">تاخیر تاریخ</span></th>
-                            <th><span class="urdu-th">غیر فقہی</span></th>
-                            <th><span class="urdu-th" style="color:var(--neon-orange);">باقی</span></th>
-                            <th><span class="urdu-th" style="color:var(--neon-green);">صحیح</span></th>
-                            <th><span class="urdu-th" style="color:var(--neon-pink);">غلط</span></th>
-                            <th><span class="urdu-th" style="color:var(--neon-purple);">ترمیم</span></th>
+                            <th><span class="urdu-th">نمبر</span></th><th><span class="urdu-th">دارالافتاء</span></th><th><span class="urdu-th">مفتی کا نام</span></th><th><span class="urdu-th">مُصَدِّق</span></th>
+                            <th><span class="urdu-th">کل</span></th><th><span class="urdu-th">آج</span></th><th><span class="urdu-th">وقت</span></th><th><span class="urdu-th">ٹائم جواب</span></th>
+                            <th><span class="urdu-th">جواب تاریخ</span></th><th><span class="urdu-th">تاخیر بعذر</span></th><th><span class="urdu-th">تاخیر بلاعذر</span></th><th><span class="urdu-th">تاخیر وجہ</span></th>
+                            <th><span class="urdu-th">تاخیر تاریخ</span></th><th><span class="urdu-th">غیر فقہی</span></th>
+                            <th><span class="urdu-th" style="color:var(--neon-orange);">باقی</span></th><th><span class="urdu-th" style="color:var(--neon-green);">صحیح</span></th><th><span class="urdu-th" style="color:var(--neon-pink);">غلط</span></th><th><span class="urdu-th" style="color:var(--neon-purple);">ترمیم</span></th>
                         </tr>
                     </thead>
                     <tbody id="wa-report-body" class="eng-text">
-                        <tr><td>1</td><td>Nagpur</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">ظفر مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>2</td><td>Nagpur</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">غلام رضا مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>3</td><td>Nagpur</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">دل کش مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>4</td><td>Mumbai</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">کاشف مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>5</td><td>Mumbai</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">ذوالفقار مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>6</td><td>Mumbai</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">عبدالواجد مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>7</td><td>Mumbai</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">محمد نادر رضا</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>8</td><td>Ahmedabad</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">سجاد مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>9</td><td>Ahmedabad</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">عالم مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>10</td><td>Ahmedabad</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">عابد حسین</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>11</td><td>Ahmedabad</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">محمد فیضان</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>12</td><td>Ahmedabad</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">محمد سلیم</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>13</td><td>Modasa</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">جاوید مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>14</td><td>Modasa</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">عمران مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>15</td><td>Modasa</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">بلال مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>16</td><td>Modasa</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">محمد ارشاد</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>17</td><td>Hyderabad</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">جسیم مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>18</td><td>Hyderabad</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">سید بلال مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>19</td><td>Hyderabad</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">مصباح الرحمٰن</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
-                        <tr><td>20</td><td>Hyderabad</td><td class="urdu-text" style="font-weight:bold; font-size:18px;">مصباح الحق قادری</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:50px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>1</td><td>Nagpur</td><td class="urdu-text" style="font-size:18px;">ظفر مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>2</td><td>Nagpur</td><td class="urdu-text" style="font-size:18px;">غلام رضا</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>3</td><td>Nagpur</td><td class="urdu-text" style="font-size:18px;">دل کش مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>4</td><td>Mumbai</td><td class="urdu-text" style="font-size:18px;">کاشف مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>5</td><td>Mumbai</td><td class="urdu-text" style="font-size:18px;">ذوالفقار مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>6</td><td>Mumbai</td><td class="urdu-text" style="font-size:18px;">عبدالواجد</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>7</td><td>Mumbai</td><td class="urdu-text" style="font-size:18px;">نادر رضا</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>8</td><td>Ahmedbd</td><td class="urdu-text" style="font-size:18px;">سجاد مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>9</td><td>Ahmedbd</td><td class="urdu-text" style="font-size:18px;">عالم مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>10</td><td>Ahmedbd</td><td class="urdu-text" style="font-size:18px;">عابد حسین</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>11</td><td>Ahmedbd</td><td class="urdu-text" style="font-size:18px;">محمد فیضان</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>12</td><td>Ahmedbd</td><td class="urdu-text" style="font-size:18px;">محمد سلیم</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>13</td><td>Modasa</td><td class="urdu-text" style="font-size:18px;">جاوید مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>14</td><td>Modasa</td><td class="urdu-text" style="font-size:18px;">عمران مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>15</td><td>Modasa</td><td class="urdu-text" style="font-size:18px;">بلال مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>16</td><td>Modasa</td><td class="urdu-text" style="font-size:18px;">محمد ارشاد</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>17</td><td>Hyd</td><td class="urdu-text" style="font-size:18px;">جسیم مدنی</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>18</td><td>Hyd</td><td class="urdu-text" style="font-size:18px;">سید بلال</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>19</td><td>Hyd</td><td class="urdu-text" style="font-size:18px;">مصباح الرحمٰن</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
+                        <tr><td>20</td><td>Hyd</td><td class="urdu-text" style="font-size:18px;">مصباح الحق</td><td class="urdu-text" style="font-size:16px;">مفتی انس</td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="time" class="table-input" value="10:00"></td><td><input type="number" class="table-input" value="0"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input" value="0"></td><td><input type="text" class="table-input urdu-text" placeholder="وجہ" style="min-width:40px;"></td><td><input type="date" class="table-input"></td><td><input type="number" class="table-input" value="0"></td><td><input type="number" class="table-input col-pending" value="0"></td><td><input type="number" class="table-input col-correct" value="0"></td><td><input type="number" class="table-input col-wrong" value="0"></td><td><input type="number" class="table-input col-edited" value="0"></td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
 
-    <!-- ========================================================
-         3. MUFTIYAN PAGE (GLOWING CARDS + JAMEEL NOORI)
-         ======================================================== -->
-    <div id="muftiyan-page">
-        <div class="sub-page-main">
-            <div class="sub-page-header premium-box">
-                <button class="btn-action eng-text" onclick="closeSubPage('muftiyan-page')">⬅ Back</button>
+        <!-- 3. MUFTIYAN PAGE (Glowing Cards + Jameel Noori) -->
+        <div id="muftiyan-page" class="page-content">
+            <div class="sub-page-header glass-panel">
+                <button class="btn-action eng-text" onclick="showDashboard()">⬅ Back</button>
                 <h1 class="urdu-text">مفتیانِ کرام</h1>
                 <div style="display:flex; gap:10px;">
                     <input type="text" id="search-mufti" class="input-control urdu-text" style="width:200px; font-size:18px;" placeholder="مفتی تلاش کریں..." onkeyup="filterMuftis()">
@@ -952,7 +740,6 @@
             </div>
 
             <div class="mufti-cards-grid" id="mufti-list-container">
-                <!-- ALL 20 MUFTI CARDS -->
                 <div class="mufti-glass-card" style="--card-color: #00F0FF;" data-branch="nagpur">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -962,7 +749,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">ناگپور</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #00FF66;" data-branch="nagpur">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -972,7 +758,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">ناگپور</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #FF9900;" data-branch="nagpur">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -982,7 +767,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">ناگپور</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #FF007F;" data-branch="mumbai">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -992,7 +776,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">ممبئی</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #B026FF;" data-branch="mumbai">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1002,7 +785,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">ممبئی</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #00F0FF;" data-branch="mumbai">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1012,7 +794,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">ممبئی</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #00FF66;" data-branch="mumbai">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1022,7 +803,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">ممبئی</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #FF9900;" data-branch="ahmedabad">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1032,7 +812,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">احمد آباد</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #FF007F;" data-branch="ahmedabad">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1042,7 +821,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">احمد آباد</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #B026FF;" data-branch="ahmedabad">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1052,7 +830,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">احمد آباد</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #00F0FF;" data-branch="ahmedabad">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1062,7 +839,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">احمد آباد</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #00FF66;" data-branch="ahmedabad">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1072,7 +848,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">احمد آباد</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #FF9900;" data-branch="modasa">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1082,7 +857,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">موڈاسہ</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #FF007F;" data-branch="modasa">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1092,7 +866,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">موڈاسہ</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #B026FF;" data-branch="modasa">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1102,7 +875,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">موڈاسہ</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #00F0FF;" data-branch="modasa">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1112,7 +884,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">موڈاسہ</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #00FF66;" data-branch="hyderabad">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1122,7 +893,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">حیدرآباد</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #FF9900;" data-branch="hyderabad">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1132,7 +902,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">حیدرآباد</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #FF007F;" data-branch="hyderabad">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1142,7 +911,6 @@
                         <div class="mufti-info-item urdu-text"><span class="mufti-info-label urdu-text">برانچ:</span> <span class="urdu-text">حیدرآباد</span></div>
                     </div>
                 </div>
-
                 <div class="mufti-glass-card" style="--card-color: #B026FF;" data-branch="hyderabad">
                     <div class="mufti-photo-box" onclick="this.querySelector('input').click()"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"><input type="file" accept="image/*" style="display: none;" onchange="previewImage(event, this)"></div>
                     <div class="mufti-info-box">
@@ -1154,41 +922,37 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- 4. BRANCHES PAGE -->
-    <div id="branches-page">
-        <div class="sub-page-main">
-            <div class="sub-page-header premium-box">
-                <button class="btn-action eng-text" onclick="closeSubPage('branches-page')">⬅ Back</button>
+        <!-- 4. BRANCHES PAGE -->
+        <div id="branches-page" class="page-content">
+            <div class="sub-page-header glass-panel">
+                <button class="btn-action eng-text" onclick="showDashboard()">⬅ Back</button>
                 <h1 class="urdu-text">دارالافتاء کی برانچز</h1>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div class="premium-box"><h2 class="urdu-text" style="color:var(--neon-cyan);">ناگپور برانچ</h2><p class="eng-text" style="color:var(--text-muted);">Nagpur, Maharashtra</p></div>
-                <div class="premium-box"><h2 class="urdu-text" style="color:var(--neon-green);">ممبئی برانچ</h2><p class="eng-text" style="color:var(--text-muted);">Mumbai, Maharashtra</p></div>
-                <div class="premium-box"><h2 class="urdu-text" style="color:var(--neon-orange);">احمدآباد برانچ</h2><p class="eng-text" style="color:var(--text-muted);">Ahmedabad, Gujarat</p></div>
-                <div class="premium-box"><h2 class="urdu-text" style="color:var(--neon-pink);">حیدر آباد برانچ</h2><p class="eng-text" style="color:var(--text-muted);">Hyderabad, Telangana</p></div>
-                <div class="premium-box"><h2 class="urdu-text" style="color:var(--neon-purple);">موڈاسہ برانچ</h2><p class="eng-text" style="color:var(--text-muted);">Modasa, Gujarat</p></div>
+                <div class="glass-panel" style="padding:25px; border-radius:24px;"><h2 class="urdu-text" style="color:var(--neon-cyan);">ناگپور برانچ</h2><p class="eng-text" style="color:var(--text-muted);">Nagpur, Maharashtra</p></div>
+                <div class="glass-panel" style="padding:25px; border-radius:24px;"><h2 class="urdu-text" style="color:var(--neon-green);">ممبئی برانچ</h2><p class="eng-text" style="color:var(--text-muted);">Mumbai, Maharashtra</p></div>
+                <div class="glass-panel" style="padding:25px; border-radius:24px;"><h2 class="urdu-text" style="color:var(--neon-orange);">احمدآباد برانچ</h2><p class="eng-text" style="color:var(--text-muted);">Ahmedabad, Gujarat</p></div>
+                <div class="glass-panel" style="padding:25px; border-radius:24px;"><h2 class="urdu-text" style="color:var(--neon-pink);">حیدر آباد برانچ</h2><p class="eng-text" style="color:var(--text-muted);">Hyderabad, Telangana</p></div>
+                <div class="glass-panel" style="padding:25px; border-radius:24px;"><h2 class="urdu-text" style="color:var(--neon-purple);">موڈاسہ برانچ</h2><p class="eng-text" style="color:var(--text-muted);">Modasa, Gujarat</p></div>
             </div>
         </div>
-    </div>
 
-    <!-- 5. REPORTS PAGE -->
-    <div id="reports-page">
-        <div class="sub-page-main">
-            <div class="sub-page-header premium-box">
-                <button class="btn-action eng-text" onclick="closeSubPage('reports-page')">⬅ Back</button>
+        <!-- 5. REPORTS PAGE -->
+        <div id="reports-page" class="page-content">
+            <div class="sub-page-header glass-panel">
+                <button class="btn-action eng-text" onclick="showDashboard()">⬅ Back</button>
                 <h1 class="urdu-text">جامع رپورٹس</h1>
             </div>
             
             <div class="report-tabs-wrapper">
-                <div class="report-tab active-tab premium-box" id="tab-daily" onclick="showReport('daily')"><span class="tab-icon">📅</span><div class="tab-title-ur urdu-text">روزانہ کی رپورٹ</div></div>
-                <div class="report-tab premium-box" id="tab-weekly" onclick="showReport('weekly')"><span class="tab-icon">📆</span><div class="tab-title-ur urdu-text">ہفتہ وار رپورٹ</div></div>
-                <div class="report-tab premium-box" id="tab-monthly" onclick="showReport('monthly')"><span class="tab-icon">🗓️</span><div class="tab-title-ur urdu-text">ماہانہ رپورٹ</div></div>
+                <div class="report-tab active-tab glass-panel" id="tab-daily" onclick="showReport('daily')"><span class="tab-icon">📅</span><div class="tab-title-ur urdu-text">روزانہ کی رپورٹ</div></div>
+                <div class="report-tab glass-panel" id="tab-weekly" onclick="showReport('weekly')"><span class="tab-icon">📆</span><div class="tab-title-ur urdu-text">ہفتہ وار رپورٹ</div></div>
+                <div class="report-tab glass-panel" id="tab-monthly" onclick="showReport('monthly')"><span class="tab-icon">🗓️</span><div class="tab-title-ur urdu-text">ماہانہ رپورٹ</div></div>
             </div>
 
             <div id="report-daily" class="report-section" style="display: block;">
-                <div class="table-container premium-box">
+                <div class="table-container glass-panel">
                     <table id="table-daily">
                         <thead><tr><th><span class="eng-text">Date</span></th><th><span class="eng-text">Total</span></th><th><span class="eng-text">Answered</span></th></tr></thead>
                         <tbody id="tbl-daily" class="eng-text">
@@ -1198,39 +962,36 @@
                     </table>
                 </div>
             </div>
-            <div id="report-weekly" class="report-section"><div class="premium-box"><h2 class="eng-text" style="text-align:center;">Weekly Data</h2></div></div>
-            <div id="report-monthly" class="report-section"><div class="premium-box"><h2 class="eng-text" style="text-align:center;">Monthly Data</h2></div></div>
+            <div id="report-weekly" class="report-section"><div class="glass-panel" style="padding:40px;"><h2 class="eng-text" style="text-align:center;">Weekly Data</h2></div></div>
+            <div id="report-monthly" class="report-section"><div class="glass-panel" style="padding:40px;"><h2 class="eng-text" style="text-align:center;">Monthly Data</h2></div></div>
         </div>
-    </div>
 
-    <!-- 6. SOCIAL MEDIA PAGE -->
-    <div id="social-media-page">
-        <div class="sub-page-main">
-            <div class="sub-page-header premium-box">
-                <button class="btn-action eng-text" onclick="closeSubPage('social-media-page')">⬅ Back</button>
+        <!-- 6. SOCIAL MEDIA PAGE -->
+        <div id="social-media-page" class="page-content">
+            <div class="sub-page-header glass-panel">
+                <button class="btn-action eng-text" onclick="showDashboard()">⬅ Back</button>
                 <h1 class="urdu-text">سوشل میڈیا ڈیش بورڈ</h1>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                <div class="premium-box" style="text-align:center;"><h1 style="font-size:40px; color:var(--neon-green); text-shadow:0 0 10px rgba(0,255,102,0.5);">💬</h1><h2 class="eng-text">WhatsApp</h2></div>
-                <div class="premium-box" style="text-align:center;"><h1 style="font-size:40px; color:var(--neon-pink); text-shadow:0 0 10px rgba(255,0,127,0.5);">▶</h1><h2 class="eng-text">YouTube</h2></div>
-                <div class="premium-box" style="text-align:center;"><h1 style="font-size:40px; color:var(--neon-cyan); text-shadow:0 0 10px rgba(0,240,255,0.5);">📘</h1><h2 class="eng-text">Facebook</h2></div>
+                <div class="glass-panel" style="padding:30px; text-align:center; border-radius:24px;"><h1 style="font-size:50px; color:var(--neon-green); text-shadow:0 0 15px rgba(0,255,102,0.6);">💬</h1><h2 class="eng-text">WhatsApp</h2></div>
+                <div class="glass-panel" style="padding:30px; text-align:center; border-radius:24px;"><h1 style="font-size:50px; color:var(--neon-pink); text-shadow:0 0 15px rgba(255,0,127,0.6);">▶</h1><h2 class="eng-text">YouTube</h2></div>
+                <div class="glass-panel" style="padding:30px; text-align:center; border-radius:24px;"><h1 style="font-size:50px; color:var(--neon-cyan); text-shadow:0 0 15px rgba(0,240,255,0.6);">📘</h1><h2 class="eng-text">Facebook</h2></div>
             </div>
         </div>
-    </div>
 
-    <!-- 7. SETTINGS PAGE -->
-    <div id="settings-page">
-        <div class="sub-page-main">
-            <div class="sub-page-header premium-box">
-                <button class="btn-action eng-text" onclick="closeSubPage('settings-page')">⬅ Back</button>
+        <!-- 7. SETTINGS PAGE -->
+        <div id="settings-page" class="page-content">
+            <div class="sub-page-header glass-panel">
+                <button class="btn-action eng-text" onclick="showDashboard()">⬅ Back</button>
                 <h1 class="urdu-text">ترتیبات</h1>
             </div>
-            <div class="premium-box">
-                <div style="padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);"><h2 class="urdu-text" style="color:var(--neon-cyan);">ایڈمن پروفائل</h2></div>
-                <div style="padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);"><h2 class="urdu-text" style="color:var(--neon-green);">پاس ورڈ تبدیل کریں</h2></div>
-                <div style="padding: 15px;"><h2 class="urdu-text" style="color:var(--neon-orange);">مفتی شامل کریں</h2></div>
+            <div class="glass-panel" style="padding:20px; border-radius:24px;">
+                <div style="padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); cursor:pointer;"><h2 class="urdu-text" style="color:var(--neon-cyan);">ایڈمن پروفائل</h2></div>
+                <div style="padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); cursor:pointer;"><h2 class="urdu-text" style="color:var(--neon-green);">پاس ورڈ تبدیل کریں</h2></div>
+                <div style="padding: 20px; cursor:pointer;"><h2 class="urdu-text" style="color:var(--neon-orange);">مفتی شامل کریں</h2></div>
             </div>
         </div>
+
     </div>
 
     <!-- JAVASCRIPT -->
@@ -1250,17 +1011,19 @@
             document.getElementById('login-page').style.opacity = '0'; 
             setTimeout(() => { 
                 document.getElementById('login-page').style.display = 'none'; 
-                document.getElementById('dashboard-page').style.display = 'block'; 
+                document.getElementById('main-content-area').style.display = 'block'; 
+                document.getElementById('main-side-nav').style.display = 'flex'; 
+                document.getElementById('main-top-nav').style.display = 'flex'; 
             }, 500); 
         }
 
         function processRegister() { processLogin(); }
 
         function logout() { 
-            document.querySelectorAll('#dashboard-page, .sub-page-main').forEach(el => {
-                if(el.parentElement) el.parentElement.style.display = 'none';
-                if(el.id === 'dashboard-page') el.style.display = 'none';
-            });
+            document.getElementById('main-content-area').style.display = 'none'; 
+            document.getElementById('main-side-nav').style.display = 'none'; 
+            document.getElementById('main-top-nav').style.display = 'none'; 
+            
             const loginPage = document.getElementById('login-page'); 
             loginPage.style.display = 'flex'; 
             setTimeout(() => { loginPage.style.opacity = '1'; }, 50); 
@@ -1289,27 +1052,34 @@
             content.classList.toggle('open');
         }
 
-        // Navigation Functions with Active Sidebar state
-        function setActiveNav(index) {
-            let items = document.querySelectorAll('.dash-sidebar .nav-item');
-            items.forEach(item => item.classList.remove('active'));
-            items[index].classList.add('active');
+        // Navigation Functions with Floating Navbars
+        function setActiveNavs(pageId) {
+            // Unset all
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.side-icon, .top-menu-item').forEach(i => i.classList.remove('active'));
+            
+            // Set Page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Highlight specific icons based on page
+            if(pageId === 'dashboard-page') document.querySelectorAll('.side-icon')[0].classList.add('active');
+            if(pageId === 'wa-suwalat-page') document.querySelectorAll('.side-icon')[1].classList.add('active');
+            if(pageId === 'wa-report-page') document.querySelectorAll('.top-menu-item')[0].classList.add('active');
+            if(pageId === 'muftiyan-page') document.querySelectorAll('.top-menu-item')[1].classList.add('active');
+            if(pageId === 'branches-page') document.querySelectorAll('.top-menu-item')[2].classList.add('active');
+            if(pageId === 'social-media-page') document.querySelectorAll('.top-menu-item')[3].classList.add('active');
+            if(pageId === 'reports-page') document.querySelectorAll('.side-icon')[2].classList.add('active');
+            if(pageId === 'settings-page') document.querySelectorAll('.top-menu-item')[4].classList.add('active');
         }
 
-        function hideDashboard() { document.getElementById('dashboard-page').style.display = 'none'; }
-        function closeSubPage(pageId) { 
-            document.getElementById(pageId).style.display = 'none'; 
-            document.getElementById('dashboard-page').style.display = 'block'; 
-            setActiveNav(0);
-        }
-
-        function openWhatsAppSuwalat() { hideDashboard(); document.getElementById('whatsapp-suwalat-page').style.display = 'block'; setActiveNav(1); }
-        function openWhatsAppReport() { hideDashboard(); document.getElementById('whatsapp-report-page').style.display = 'block'; setActiveNav(2); }
-        function openMuftiyan() { hideDashboard(); document.getElementById('muftiyan-page').style.display = 'block'; setActiveNav(3); }
-        function openReports() { hideDashboard(); document.getElementById('reports-page').style.display = 'block'; setActiveNav(4); }
-        function openSocialMedia() { hideDashboard(); document.getElementById('social-media-page').style.display = 'block'; setActiveNav(5); }
-        function openSettings() { hideDashboard(); document.getElementById('settings-page').style.display = 'block'; setActiveNav(6); }
-        function openBranches() { openReports(); } 
+        function showDashboard() { setActiveNavs('dashboard-page'); }
+        function openWhatsAppSuwalat() { setActiveNavs('wa-suwalat-page'); }
+        function openWhatsAppReport() { setActiveNavs('wa-report-page'); }
+        function openMuftiyan() { setActiveNavs('muftiyan-page'); }
+        function openBranches() { setActiveNavs('branches-page'); }
+        function openReports() { setActiveNavs('reports-page'); }
+        function openSocialMedia() { setActiveNavs('social-media-page'); }
+        function openSettings() { setActiveNavs('settings-page'); }
 
         // Form Logic
         function addNewQuestion() {
@@ -1324,7 +1094,7 @@
                     <td class="eng-text">${mobile}</td>
                     <td class="urdu-text" style="font-size:18px;">${qText}</td>
                     <td class="urdu-text" style="font-size:18px;">${mufti}</td>
-                    <td><select class="table-input eng-text"><option selected>🟡 New Question</option><option>✅ Answer Sent</option></select></td>
+                    <td><select class="table-input eng-text"><option selected>🟡 New</option><option>✅ Sent</option></select></td>
                 `;
                 tbody.prepend(newRow);
                 alert('✅ سوال شامل ہو گیا ہے۔ (Question Added)');
